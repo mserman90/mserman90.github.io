@@ -1020,11 +1020,23 @@
     }
 
     /* =========================================================================
-       PWA SERVİS ÇALIŞANI (OFFLINE DESTEK)
+       PWA SERVİS ÇALIŞANI (OFFLINE DESTEK & OTOMATİK GÜNCELLEME)
        ========================================================================= */
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js").catch(() => {});
+        navigator.serviceWorker.register("./sw.js?v=2").then((reg) => {
+          reg.update();
+          reg.onupdatefound = () => {
+            const installing = reg.installing;
+            if (installing) {
+              installing.onstatechange = () => {
+                if (installing.state === "installed" && navigator.serviceWorker.controller) {
+                  window.location.reload();
+                }
+              };
+            }
+          };
+        }).catch(() => {});
       });
     }
   </script>
