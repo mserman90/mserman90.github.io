@@ -1,6 +1,6 @@
-# Çiftlik Sağlık & Üretim Rehberleri Portalı
+# Tosun Paşa Çiftliği
 
-Besi sığırı, süt sığırı ve koyun yetiştiriciliği işletmeleri için geliştirilmiş 3 bağımsız, açık kaynaklı, ücretsiz ve %100 çevrimdışı saha rehberine tek noktadan erişim sağlayan minimalist portal ekranı.
+Besi sığırı, süt sığırı ve koyun işletmeleri için geliştirilmiş 3 bağımsız, açık kaynaklı, ücretsiz ve %100 çevrimdışı saha rehberine tek noktadan erişim sağlayan minimalist portal ekranı.
 
 Portal Adresi: [https://mserman90.github.io/](https://mserman90.github.io/)
 
@@ -8,7 +8,7 @@ Portal Adresi: [https://mserman90.github.io/](https://mserman90.github.io/)
 
 ## Minimalist Hero Ekranı
 
-Hero ekranı yalnızca 3 hayvan simgesi ve doğrudan başlatma kartlarından oluşur:
+Hero ekranı ücretsiz açık kaynaklı kütüphanelerden (Google Noto Icons) çekilen kaliteli renkli simgeler ve doğrudan başlatma kartlarından oluşur:
 1. **Besi Sığırı** (Besi Çiftliği Rehberi)
 2. **Süt Sığırı** (Süt Çiftliği Rehberi)
 3. **Koyun** (Koyun Çiftliği Rehberi)
@@ -46,7 +46,7 @@ Bu portaldaki 3 uygulama birbirinden tamamen bağımsız olarak çalışır, kod
 
 ## Tasarım & Kullanıcı Deneyimi Standartları
 
-- **Mutlak Kontrast & Monokrom Tasarım:** Tamamen siyah-beyaz (#000000 ve #ffffff) zemin/yazı kontrastı ile gün ışığı altında ve gece ahırda maksimum okunabilirlik.
-- **Yalın Arayüz & Vektör Simgeler:** Sade, yüksek kontrastlı hayvan simgeleri.
+- **Mutlak Kontrast & Monokrom Arayüz:** Siyah-beyaz zemin/yazı kontrastı ile gün ışığı altında ve gece ahırda maksimum okunabilirlik.
+- **Evrensel Renkli Kütüphane Simgeleri:** Google Noto açık kaynak simge kütüphanesinden çekilen yüksek kaliteli hayvan simgeleri.
 - **Yetiştirici Dili:** Tüm bilimsel ve klinik ifadeler sahadaki çiftçinin ve çobanın anlayacağı yalın Türkçe ile hazırlanmıştır.
 - **%100 Çevrimdışı Çalışma (PWA):** Şebekenin çekmediği kırsalda ve ahırda internetsiz tam fonksiyon çalışır.

@@ -1,11 +1,11 @@
 {
-  "name": "Çiftlik Sağlık & Üretim Rehberleri",
-  "short_name": "Çiftlik Portalı",
+  "name": "Tosun Paşa Çiftliği",
+  "short_name": "Tosun Paşa",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
-  "description": "Süt inekçiliği, besi danacılığı ve küçükbaş koyunculuk için %100 çevrimdışı bağımsız saha rehberleri portalı.",
+  "description": "Tosun Paşa Çiftliği - Besi sığırı, süt sığırı ve koyun sürüleri için %100 çevrimdışı bağımsız rehberler portalı.",
   "icons": [
     {
       "src": "./sut-saglik-rehberi/icon-192.png",
