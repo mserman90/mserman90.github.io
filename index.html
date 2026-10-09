@@ -197,35 +197,66 @@
     }
 
     .animal-symbol-box {
-      width: 140px;
-      height: 110px;
+      width: 170px;
+      height: 150px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 20px;
-      color: var(--text);
+      margin-bottom: 16px;
+      transition: transform 0.2s ease;
+    }
+    .animal-card:hover .animal-symbol-box {
+      transform: scale(1.05);
     }
     .animal-symbol {
       width: 100%;
       height: 100%;
-      max-height: 105px;
-      fill: currentColor;
+      max-height: 145px;
     }
 
     .animal-badge {
       display: inline-block;
-      background-color: var(--border);
-      color: var(--bg);
-      font-size: 0.68rem;
+      font-size: 0.72rem;
       font-weight: 900;
-      padding: 3px 8px;
-      border-radius: 4px;
+      padding: 4px 10px;
+      border-radius: 999px;
       margin-bottom: 10px;
       letter-spacing: 0.05em;
     }
+    .badge-besi {
+      background-color: #fff7ed;
+      color: #c2410c;
+      border: 1.5px solid #c2410c;
+    }
+    .badge-sut {
+      background-color: #f0fdf4;
+      color: #15803d;
+      border: 1.5px solid #15803d;
+    }
+    .badge-koyun {
+      background-color: #eff6ff;
+      color: #1d4ed8;
+      border: 1.5px solid #1d4ed8;
+    }
+
+    body.dark-mode .badge-besi {
+      background-color: #431407;
+      color: #fed7aa;
+      border-color: #ea580c;
+    }
+    body.dark-mode .badge-sut {
+      background-color: #052e16;
+      color: #bbf7d0;
+      border-color: #22c55e;
+    }
+    body.dark-mode .badge-koyun {
+      background-color: #172554;
+      color: #bfdbfe;
+      border-color: #3b82f6;
+    }
 
     .animal-name {
-      font-size: 1.45rem;
+      font-size: 1.5rem;
       font-weight: 900;
       color: var(--text);
       line-height: 1.2;
@@ -234,20 +265,10 @@
     }
 
     .animal-app-title {
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       font-weight: 800;
       color: var(--text);
-      margin-bottom: 12px;
-    }
-
-    .animal-summary-line {
-      font-size: 0.78rem;
-      color: var(--text);
-      font-weight: 700;
-      line-height: 1.4;
-      margin-bottom: 20px;
-      flex-grow: 1;
-      padding: 0 4px;
+      margin-bottom: 22px;
     }
 
     .animal-launch-btn {
@@ -662,48 +683,161 @@
       <!-- 1. BESİ SIĞIRI -->
       <a href="./besi-saglik-rehberi/" class="animal-card" id="choice-besi" title="Besi Sığırı - Besi Çiftliği Rehberini Başlat">
         <div class="animal-symbol-box" aria-hidden="true">
-          <!-- Besi Sığırı Simgesi: Güçlü boyun, kaslı hörgüç, et ırkı gövdesi ve boynuzlar -->
-          <svg class="animal-symbol" viewBox="0 0 100 80" aria-label="Besi Sığırı Simgesi">
-            <path d="M95 24c-2-3-6-4-9-3-1-3-4-5-8-5-1.5 0-3 .4-4.2 1C70 14 62 12 53 13c-7 1-14 3-21 7-5 3-9 7.5-11 13-1.5 4-1.8 8.5-1 13l.8 22c.1 2 1.5 3.5 3.5 3.5h3c2 0 3.5-1.5 3.5-3.5l.6-16.5c4 .3 8 .2 12 0l.6 16.5c.1 2 1.5 3.5 3.5 3.5h3c2 0 3.5-1.5 3.5-3.5l.6-16c5-.8 10-1.8 15-3.2l.6 19.2c.1 2 1.5 3.5 3.5 3.5h3c2 0 3.5-1.5 3.5-3.5l.6-18c4-1.8 8-4 12-6.8l.6 18.8c.1 2 1.5 3.5 3.5 3.5h3.2c2 0 3.5-1.5 3.5-3.5l.8-21.5c2.2-2.5 4.2-5.5 5.2-9 1.2-3.8 1.2-8-.2-11.8-.8-.6-1.8-1.2-2.8-1.6zM88 28.5c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5 1.5.7 1.5 1.5-.7 1.5-1.5 1.5z"/>
-            <path d="M84 14c2-4 6-7 11-7 1 0 1.5.8 1 1.6-3 4-4 8-4.5 12.5C88.5 20 86 17 84 14z"/>
+          <svg class="animal-symbol" viewBox="0 0 160 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Besi Sığırı Simgesi">
+            <defs>
+              <radialGradient id="beefBg" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#ffedd5"/>
+                <stop offset="100%" stop-color="#fed7aa"/>
+              </radialGradient>
+              <linearGradient id="beefBody" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#c2410c"/>
+                <stop offset="50%" stop-color="#9a3412"/>
+                <stop offset="100%" stop-color="#7c2d12"/>
+              </linearGradient>
+              <linearGradient id="hornGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#fef08a"/>
+                <stop offset="100%" stop-color="#d97706"/>
+              </linearGradient>
+            </defs>
+            <circle cx="80" cy="70" r="62" fill="url(#beefBg)" stroke="#c2410c" stroke-width="3"/>
+            <path d="M38 72 C32 80 28 92 31 100" stroke="#7c2d12" stroke-width="3" stroke-linecap="round"/>
+            <path d="M31 98 C30 104 33 107 35 106 C36 102 33 97 31 98 Z" fill="#431407"/>
+            <path d="M44 80 L42 108 L48 108 L52 86 Z" fill="#7c2d12"/>
+            <rect x="42" y="106" width="6" height="4" rx="1" fill="#292524"/>
+            <path d="M54 82 L53 108 L59 108 L62 84 Z" fill="#9a3412"/>
+            <rect x="53" y="106" width="6" height="4" rx="1" fill="#292524"/>
+            <path d="M96 82 L95 108 L101 108 L103 80 Z" fill="#7c2d12"/>
+            <rect x="95" y="106" width="6" height="4" rx="1" fill="#292524"/>
+            <path d="M106 80 L107 108 L113 108 L114 78 Z" fill="#9a3412"/>
+            <rect x="107" y="106" width="6" height="4" rx="1" fill="#292524"/>
+            <path d="M40 68 C38 52 50 48 68 47 C80 43 96 38 108 46 C116 52 118 64 116 78 C114 84 104 85 96 83 C86 84 66 86 52 84 C44 82 40 76 40 68 Z" fill="url(#beefBody)"/>
+            <path d="M92 45 C98 42 104 43 108 46 C105 56 98 62 90 60 Z" fill="#ea580c" opacity="0.4"/>
+            <path d="M104 54 C104 44 114 38 124 40 C130 42 134 48 133 58 C132 68 125 74 116 74 C108 74 104 64 104 54 Z" fill="url(#beefBody)"/>
+            <path d="M116 41 C114 32 118 24 125 22 C125 27 122 34 119 40 Z" fill="url(#hornGrad)" stroke="#b45309" stroke-width="1"/>
+            <path d="M124 42 C126 34 133 28 139 28 C137 34 132 40 127 43 Z" fill="url(#hornGrad)" stroke="#b45309" stroke-width="1"/>
+            <path d="M106 46 C100 44 98 48 102 52 Z" fill="#9a3412"/>
+            <path d="M130 50 C136 49 138 54 134 57 Z" fill="#9a3412"/>
+            <path d="M122 58 C124 57 131 58 132 64 C133 68 128 72 122 71 C118 70 119 62 122 58 Z" fill="#431407"/>
+            <circle cx="124" cy="65" r="1.5" fill="#1c1917"/>
+            <circle cx="129" cy="66" r="1.5" fill="#1c1917"/>
+            <circle cx="118" cy="48" r="2.5" fill="#1c1917"/>
+            <circle cx="117.5" cy="47.5" r="0.8" fill="#ffffff"/>
           </svg>
         </div>
-        <span class="animal-badge">BESİ DANACILIĞI & ET</span>
+        <span class="animal-badge badge-besi">BESİ DANACILIĞI</span>
         <h3 class="animal-name">Besi Sığırı</h3>
         <p class="animal-app-title">Besi Çiftliği Rehberi</p>
-        <p class="animal-summary-line">21 Günlük Karşılama • Mezbaha Kesim Kilidi • Canlı Kilo & Karkas Hesabı</p>
         <span class="animal-launch-btn">Rehberi Başlat</span>
       </a>
 
       <!-- 2. SÜT SIĞIRI -->
       <a href="./sut-saglik-rehberi/" class="animal-card" id="choice-sut" title="Süt Sığırı - Süt Çiftliği Rehberini Başlat">
         <div class="animal-symbol-box" aria-hidden="true">
-          <!-- Süt Sığırı Simgesi: Süt ineği formu, belirgin meme (udder) ve meme uçları, sütçü kama yapısı -->
-          <svg class="animal-symbol" viewBox="0 0 100 80" aria-label="Süt Sığırı Simgesi">
-            <path d="M94 28c-1.5-2.5-4.5-4-7.5-3.5-1.5-2.5-4-4.5-7.5-4.5-1.5 0-2.8.4-4 .9-3.5-2.5-8-4-13-4-5.5 0-11 1.4-16 3-7.5 2-15 3.2-22.5 3.2-4.2 0-8.5 1.4-11.5 4.2-3.2 3-5 7-5.2 11.5l.5 15.5c.1 2 1.5 3.5 3.5 3.5h2.5c2 0 3.5-1.5 3.5-3.5l.5-12.5c3.8.2 7.5.2 11.2 0l.5 12.5c.1 2 1.5 3.5 3.5 3.5h2.5c2 0 3.5-1.5 3.5-3.5l.5-12c4 1 8 1.2 12 1-.3 2.8 0 5.5 1.2 8 1 2.2 2.8 3.8 5.2 4.4l.5 2.8c.2 1 1 1.6 2 1.6s1.8-.6 2-1.6l.4-2.8c1.4-.2 2.6-.6 3.6-1.4l.5 2.6c.2 1 1 1.6 2 1.6s1.8-.6 2-1.6l.4-3c1.2-1.2 2-2.8 2.2-4.6 2.8-1.5 5.5-3.2 7.8-5.5l.4 11.5c.1 2 1.5 3.5 3.5 3.5h2.5c2 0 3.5-1.5 3.5-3.5l.5-14.8c2.2-2 4-4.6 5-7.6 1.2-3.2 1.2-6.8.2-10-1-.6-2.2-1.2-3.3-1.6zM87.5 32c-1 0-1.8-.8-1.8-1.8s.8-1.8 1.8-1.8 1.8.8 1.8 1.8-.8 1.8-1.8 1.8z"/>
-            <path d="M82 17c1.5-3 4-5 7-5.5.8 0 1.2.6.8 1.2-1.8 2.5-2.5 5-2.8 8-2-1.5-3.5-2.5-5-3.7z"/>
+          <svg class="animal-symbol" viewBox="0 0 160 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Süt Sığırı Simgesi">
+            <defs>
+              <radialGradient id="dairyBg" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#f0fdf4"/>
+                <stop offset="100%" stop-color="#bbf7d0"/>
+              </radialGradient>
+              <linearGradient id="cowHorn" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#fef08a"/>
+                <stop offset="100%" stop-color="#eab308"/>
+              </linearGradient>
+            </defs>
+            <circle cx="80" cy="70" r="62" fill="url(#dairyBg)" stroke="#16a34a" stroke-width="3"/>
+            <path d="M37 68 C32 78 29 90 32 100" stroke="#18181b" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M32 98 C31 103 34 107 36 106 C37 102 34 98 32 98 Z" fill="#18181b"/>
+            <path d="M56 76 C55 86 67 88 72 80 C74 76 68 74 56 76 Z" fill="#fbcfe8" stroke="#f472b6" stroke-width="1.5"/>
+            <rect x="58" y="84" width="2" height="4" rx="1" fill="#f472b6"/>
+            <rect x="63" y="85" width="2" height="4" rx="1" fill="#f472b6"/>
+            <rect x="68" y="83" width="2" height="4" rx="1" fill="#f472b6"/>
+            <path d="M43 76 L42 108 L47 108 L50 80 Z" fill="#ffffff" stroke="#18181b" stroke-width="1.5"/>
+            <rect x="42" y="105" width="5" height="4" rx="1" fill="#18181b"/>
+            <path d="M50 78 L51 108 L56 108 L58 80 Z" fill="#ffffff" stroke="#18181b" stroke-width="1.5"/>
+            <rect x="51" y="105" width="5" height="4" rx="1" fill="#18181b"/>
+            <path d="M96 76 L95 108 L100 108 L102 76 Z" fill="#ffffff" stroke="#18181b" stroke-width="1.5"/>
+            <rect x="95" y="105" width="5" height="4" rx="1" fill="#18181b"/>
+            <path d="M104 76 L105 108 L110 108 L111 74 Z" fill="#ffffff" stroke="#18181b" stroke-width="1.5"/>
+            <rect x="105" y="105" width="5" height="4" rx="1" fill="#18181b"/>
+            <path d="M38 64 C38 52 48 46 66 46 C80 46 96 42 106 48 C114 54 116 66 112 76 C108 81 98 80 90 78 C80 80 66 82 52 80 C44 79 38 73 38 64 Z" fill="#ffffff" stroke="#18181b" stroke-width="2"/>
+            <path d="M44 54 C48 48 56 47 60 52 C63 56 58 64 54 68 C48 72 42 66 44 54 Z" fill="#18181b"/>
+            <path d="M72 47 C78 46 84 50 86 56 C88 62 82 66 78 68 C74 65 72 58 72 47 Z" fill="#18181b"/>
+            <path d="M96 46 C102 44 108 48 108 55 C108 62 102 68 98 70 C96 66 94 56 96 46 Z" fill="#18181b"/>
+            <path d="M104 54 C104 44 112 38 122 40 C128 42 132 48 131 58 C130 68 123 74 114 74 C107 74 104 64 104 54 Z" fill="#ffffff" stroke="#18181b" stroke-width="2"/>
+            <path d="M106 44 C112 40 118 42 120 48 C118 54 110 54 106 44 Z" fill="#18181b"/>
+            <path d="M115 41 C113 34 117 28 122 26 C122 31 120 36 117 40 Z" fill="url(#cowHorn)"/>
+            <path d="M123 42 C125 35 130 30 135 30 C133 35 129 40 125 43 Z" fill="url(#cowHorn)"/>
+            <path d="M105 47 C100 45 98 50 102 53 Z" fill="#ffffff" stroke="#18181b" stroke-width="1.5"/>
+            <path d="M104 48 C101 47 100 50 102 52 Z" fill="#fbcfe8"/>
+            <path d="M128 50 C134 49 136 54 132 57 Z" fill="#ffffff" stroke="#18181b" stroke-width="1.5"/>
+            <path d="M129 51 C133 50 134 54 131 56 Z" fill="#fbcfe8"/>
+            <path d="M120 58 C122 56 129 56 131 62 C132 67 127 71 120 70 C116 69 117 62 120 58 Z" fill="#fbcfe8" stroke="#f472b6" stroke-width="1"/>
+            <circle cx="122" cy="64" r="1.5" fill="#db2777"/>
+            <circle cx="127" cy="65" r="1.5" fill="#db2777"/>
+            <circle cx="116" cy="48" r="2.5" fill="#18181b"/>
+            <circle cx="115.5" cy="47.5" r="0.8" fill="#ffffff"/>
           </svg>
         </div>
-        <span class="animal-badge">SÜT İNEKÇİLİĞİ & SAĞIM</span>
+        <span class="animal-badge badge-sut">SÜT İNEKÇİLİĞİ</span>
         <h3 class="animal-name">Süt Sığırı</h3>
         <p class="animal-app-title">Süt Çiftliği Rehberi</p>
-        <p class="animal-summary-line">Hasta Muayenesi • İlaçlı Süt Kilidi • Doğum, Tohumlama & Buzağı Sıvısı</p>
         <span class="animal-launch-btn">Rehberi Başlat</span>
       </a>
 
       <!-- 3. KOYUN -->
       <a href="./koyun-saglik-rehberi/" class="animal-card" id="choice-koyun" title="Koyun - Koyun Çiftliği Rehberini Başlat">
         <div class="animal-symbol-box" aria-hidden="true">
-          <!-- Koyun Simgesi: Yapağılı/yünlü dalgalı gövde formu, kıvrık boynuz ve sevimli küçükbaş silueti -->
-          <svg class="animal-symbol" viewBox="0 0 100 80" aria-label="Koyun Simgesi">
-            <path d="M89 33c-.8-2.5-2.5-4.5-5-5.5-1.2-2.8-4-4.8-7-5.2-2.2-.4-4.5.2-6.2 1.4-2.8-2-6-3-9.5-3-3 0-6.2.8-9 2.5-2.8-1.8-6.2-2.6-9.5-2.5-3.5.2-7 1.6-9.5 4-3-1.4-6.8-1.6-10-.7-4.5 1.2-8 4.2-10 8.5-2.8 1.6-4.8 4.2-5.5 7.2-.8 3.8-.2 7.8 2 11-1 3.5-.5 7 1.2 10 2.2 3.8 6 6.2 10.5 7l.5 11.5c.1 2 1.5 3.5 3.5 3.5h2.8c2 0 3.5-1.5 3.5-3.5l.5-11c3.8.6 7.5.6 11.2 0l.5 11c.1 2 1.5 3.5 3.5 3.5h2.8c2 0 3.5-1.5 3.5-3.5l.5-11.5c3.8-.6 7.2-2 10.5-3.8l.5 11.8c.1 2 1.5 3.5 3.5 3.5h2.8c2 0 3.5-1.5 3.5-3.5l.5-12.5c2.8-2 5.2-4.5 7-7.2 2.5-3.8 3.5-8.5 2.5-13 2.8-2.5 4.2-6 4.2-9.8 0-1.6-.4-3.2-.8-4.6zM81 35c-1 0-1.8-.8-1.8-1.8s.8-1.8 1.8-1.8 1.8.8 1.8 1.8-.8 1.8-1.8 1.8z"/>
-            <path d="M78 19c3-3 7-4 10-2.5 1.5.8 2.2 2.5 1.8 4.2-.6 2.5-2.8 4.2-5.5 4.2-3 0-5.2-2.2-6.3-5.9z"/>
+          <svg class="animal-symbol" viewBox="0 0 160 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Koyun Simgesi">
+            <defs>
+              <radialGradient id="sheepBg" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#eff6ff"/>
+                <stop offset="100%" stop-color="#bfdbfe"/>
+              </radialGradient>
+              <linearGradient id="sheepHorn" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#fbbf24"/>
+                <stop offset="100%" stop-color="#b45309"/>
+              </linearGradient>
+            </defs>
+            <circle cx="80" cy="70" r="62" fill="url(#sheepBg)" stroke="#2563eb" stroke-width="3"/>
+            <path d="M48 76 L47 108 L52 108 L54 80 Z" fill="#fed7aa"/>
+            <rect x="47" y="105" width="5" height="4" rx="1" fill="#451a03"/>
+            <path d="M58 78 L59 108 L64 108 L65 82 Z" fill="#fcd34d"/>
+            <rect x="59" y="105" width="5" height="4" rx="1" fill="#451a03"/>
+            <path d="M96 76 L95 108 L100 108 L101 78 Z" fill="#fed7aa"/>
+            <rect x="95" y="105" width="5" height="4" rx="1" fill="#451a03"/>
+            <path d="M104 78 L105 108 L110 108 L111 80 Z" fill="#fcd34d"/>
+            <rect x="105" y="105" width="5" height="4" rx="1" fill="#451a03"/>
+            <circle cx="34" cy="65" r="7" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+            <g stroke="#cbd5e1" stroke-width="1.5" fill="#ffffff">
+              <circle cx="44" cy="60" r="12"/>
+              <circle cx="56" cy="50" r="13"/>
+              <circle cx="70" cy="46" r="14"/>
+              <circle cx="86" cy="46" r="14"/>
+              <circle cx="100" cy="52" r="13"/>
+              <circle cx="108" cy="64" r="12"/>
+              <circle cx="102" cy="74" r="12"/>
+              <circle cx="88" cy="78" r="13"/>
+              <circle cx="72" cy="80" r="13"/>
+              <circle cx="58" cy="78" r="13"/>
+              <circle cx="46" cy="72" r="12"/>
+              <ellipse cx="76" cy="64" rx="28" ry="18" fill="#ffffff" stroke="none"/>
+            </g>
+            <path d="M112 45 C116 35 128 34 130 42 C132 50 124 54 118 52 C114 50 116 44 120 44 C123 44 125 47 124 50" fill="none" stroke="url(#sheepHorn)" stroke-width="4" stroke-linecap="round"/>
+            <ellipse cx="118" cy="58" rx="12" ry="14" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+            <circle cx="114" cy="46" r="5" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+            <circle cx="120" cy="45" r="5" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+            <circle cx="124" cy="47" r="4.5" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+            <path d="M108 52 C103 52 101 56 104 60 C107 60 109 56 108 52 Z" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+            <path d="M106 54 C104 54 103 56 105 58 Z" fill="#fbcfe8"/>
+            <circle cx="117" cy="54" r="2.2" fill="#1e293b"/>
+            <circle cx="116.3" cy="53.3" r="0.7" fill="#ffffff"/>
+            <path d="M125 61 C126 62 127 63 125 64" stroke="#f472b6" stroke-width="2" stroke-linecap="round"/>
+            <path d="M123 66 C124 67.5 126 67.5 127 66" stroke="#b45309" stroke-width="1.2" stroke-linecap="round"/>
           </svg>
         </div>
-        <span class="animal-badge">KÜÇÜKBAŞ & AĞIL</span>
+        <span class="animal-badge badge-koyun">KÜÇÜKBAŞ & AĞIL</span>
         <h3 class="animal-name">Koyun</h3>
         <p class="animal-app-title">Koyun Çiftliği Rehberi</p>
-        <p class="animal-summary-line">Ağıl & Mera Acil İlk Yardım • Küçükbaş İKAS Kataloğu • Koç Katımı & Kuzu</p>
         <span class="animal-launch-btn">Rehberi Başlat</span>
       </a>
 
@@ -1024,7 +1158,7 @@
        ========================================================================= */
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=2").then((reg) => {
+        navigator.serviceWorker.register("./sw.js?v=3").then((reg) => {
           reg.update();
           reg.onupdatefound = () => {
             const installing = reg.installing;
