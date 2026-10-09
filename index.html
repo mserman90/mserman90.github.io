@@ -530,7 +530,7 @@
     }
     @media (min-width: 768px) {
       .install-steps-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
       }
     }
     .install-step-box {
@@ -855,7 +855,7 @@
 
         <!-- 5. Kurulum & Çevrimdışı Kullanım Kılavuzu -->
         <section class="modal-section" aria-label="Telefona Kurulum Rehberi">
-          <h3 class="modal-section-title">Telefonda İnternetsiz Nasıl Kullanılır? (3 Kolay Adım)</h3>
+          <h3 class="modal-section-title">Telefonda Nasıl Kullanılır? (2 Kolay Adım)</h3>
           <div class="install-steps-grid">
             <div class="install-step-box">
               <strong>1. Uygulamayı Açın</strong>
@@ -864,10 +864,6 @@
             <div class="install-step-box">
               <strong>2. Ana Ekrana Ekleyin</strong>
               <p>Tarayıcının menüsünden (üç nokta veya paylaş butonu) <strong>"Ana Ekrana Ekle"</strong> veya <strong>"Uygulamayı Yükle"</strong> seçeneğine dokunun.</p>
-            </div>
-            <div class="install-step-box">
-              <strong>3. Dağda ve Ahırda İnternetsiz Kullanın</strong>
-              <p>Artık telefonunuzun ana ekranından tek dokunuşla internetsiz, şebekenin hiç çekmediği bodrum ahırda bile tam hızda çalışır.</p>
             </div>
           </div>
         </section>
@@ -988,7 +984,7 @@
        ========================================================================= */
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=5").then((reg) => {
+        navigator.serviceWorker.register("./sw.js?v=6").then((reg) => {
           reg.update();
           reg.onupdatefound = () => {
             const installing = reg.installing;
