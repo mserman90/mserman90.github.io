@@ -635,8 +635,7 @@
   <main class="hero-container">
 
     <div class="hero-heading-area">
-      <span class="hero-tag">TOSUN PAŞA ÇİFTLİĞİ</span>
-      <h2 class="hero-main-title">Tosun Paşa Çiftliği</h2>
+      <h2 class="hero-main-title">Çiftlik Türünüzü Seçin</h2>
       <p class="hero-sub-text">%100 Çevrimdışı • Tamamen Bağımsız • Açık Kaynak</p>
     </div>
 
@@ -989,7 +988,7 @@
        ========================================================================= */
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=4").then((reg) => {
+        navigator.serviceWorker.register("./sw.js?v=5").then((reg) => {
           reg.update();
           reg.onupdatefound = () => {
             const installing = reg.installing;
