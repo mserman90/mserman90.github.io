@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <meta name="color-scheme" content="light dark">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Çiftlik Rehberleri">
+  <title>Çiftlik Sağlık & Üretim Rehberleri - Süt, Besi ve Koyun Çiftliği Portalı</title>
+  <meta name="description" content="Süt inekçiliği, besi danacılığı ve küçükbaş koyunculuk için %100 çevrimdışı, bağımsız, ücretsiz ve açık kaynak saha sağlık ve yönetim rehberleri.">
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Çiftlik Sağlık & Üretim Rehberleri Portalı">
+  <meta property="og:description" content="Süt inekçiliği, besi danacılığı ve koyun sürüsü için %100 çevrimdışı bağımsız rehberler.">
+  <meta property="og:type" content="website">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Çiftlik Sağlık & Üretim Rehberleri",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "TRY"
+    },
+    "description": "Süt inekçiliği, besi danacılığı ve küçükbaş sürüler için %100 çevrimdışı bağımsız çiftlik rehberleri."
+  }
+  </script>
+
+  <style>
+    /* =========================================================================
+       MUTLAK KONTRAST VE SİYAH-BEYAZ MONOKROM TASARIM SİSTEMİ
+       ========================================================================= */
+    :root {
+      --bg: #ffffff;
+      --card-bg: #ffffff;
+      --text: #000000;
+      --text-muted: #262626;
+      --border: #000000;
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 60px;
+    }
+
+    /* Üst Başlık (Header) */
+    header {
+      background-color: #000000;
+      color: #ffffff;
+      padding: 14px 18px;
+      border-bottom: 3px solid #000000;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .header-brand h1 {
+      font-size: 1.15rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+    }
+    .header-brand p {
+      font-size: 0.76rem;
+      color: #cccccc;
+      font-weight: 600;
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .theme-btn {
+      background: #000000;
+      color: #ffffff;
+      border: 1.5px solid #ffffff;
+      padding: 7px 14px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      cursor: pointer;
+      min-height: 38px;
+      touch-action: manipulation;
+    }
+    .theme-btn:hover {
+      background: #ffffff;
+      color: #000000;
+    }
+
+    /* Ana Taşıyıcı */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 16px;
+    }
+
+    /* Hero Alanı */
+    .hero-banner {
+      background-color: #ffffff;
+      border: 3px solid #000000;
+      border-left: 10px solid #000000;
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      margin-bottom: 24px;
+    }
+    .hero-tag {
+      display: inline-block;
+      background-color: #000000;
+      color: #ffffff;
+      font-size: 0.74rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      letter-spacing: 0.05em;
+    }
+    .hero-title {
+      font-size: 1.65rem;
+      font-weight: 900;
+      color: #000000;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+    .hero-desc {
+      font-size: 0.95rem;
+      color: #000000;
+      font-weight: 600;
+      line-height: 1.55;
+      margin-bottom: 16px;
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .hero-badge-pill {
+      background-color: #f5f5f5;
+      border: 1.5px solid #000000;
+      color: #000000;
+      font-size: 0.76rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    /* Hızlı Arama & Filtreleme */
+    .filter-section {
+      background-color: #f5f5f5;
+      border: 2px solid #000000;
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      margin-bottom: 24px;
+    }
+    .filter-label {
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: #000000;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .filter-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .filter-chip {
+      background-color: #ffffff;
+      color: #000000;
+      border: 1.5px solid #000000;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+    .filter-chip.active,
+    .filter-chip:hover {
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    /* 3 Bağımsız Uygulama Kartı Izgarası (Grid) */
+    .apps-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    @media (min-width: 860px) {
+      .apps-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .app-card {
+      background-color: #ffffff;
+      border: 2.5px solid #000000;
+      border-radius: var(--radius);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .app-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 0 #000000;
+    }
+    .app-card-header {
+      background-color: #f5f5f5;
+      padding: 16px 18px;
+      border-bottom: 2px solid #000000;
+    }
+    .app-badge {
+      display: inline-block;
+      background-color: #000000;
+      color: #ffffff;
+      font-size: 0.68rem;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      letter-spacing: 0.05em;
+    }
+    .app-title {
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: #000000;
+      line-height: 1.25;
+      margin-bottom: 4px;
+    }
+    .app-slogan {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #262626;
+      line-height: 1.35;
+    }
+
+    .app-card-body {
+      padding: 18px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background-color: #ffffff;
+    }
+    .app-desc {
+      font-size: 0.85rem;
+      color: #000000;
+      line-height: 1.5;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+    .app-feature-list {
+      list-style: none;
+      margin-bottom: 18px;
+    }
+    .app-feature-item {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #000000;
+      padding: 5px 0;
+      border-bottom: 1px dashed #cccccc;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
+    .app-feature-item:last-child {
+      border-bottom: none;
+    }
+    .feature-bullet {
+      font-weight: 900;
+      color: #000000;
+      user-select: none;
+    }
+
+    .app-card-footer {
+      padding: 14px 18px;
+      background-color: #f5f5f5;
+      border-top: 2px solid #000000;
+    }
+    .app-launch-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background-color: #000000;
+      color: #ffffff;
+      border: 2px solid #000000;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 0.92rem;
+      font-weight: 900;
+      text-decoration: none;
+      cursor: pointer;
+      min-height: 46px;
+      touch-action: manipulation;
+    }
+    .app-launch-btn:hover {
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    /* Bilgi & Kılavuz Panelleri */
+    .info-panel {
+      background-color: #ffffff;
+      border: 2px solid #000000;
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+    .info-panel-title {
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: #000000;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #000000;
+      padding-bottom: 6px;
+    }
+    .info-steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    @media (min-width: 768px) {
+      .info-steps {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .info-step-card {
+      background-color: #f5f5f5;
+      border: 1.5px solid #000000;
+      border-left: 5px solid #000000;
+      padding: 12px 14px;
+      border-radius: 6px;
+    }
+    .info-step-card strong {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: #000000;
+      margin-bottom: 4px;
+    }
+    .info-step-card p {
+      font-size: 0.8rem;
+      color: #000000;
+      line-height: 1.45;
+      font-weight: 600;
+    }
+
+    /* Karşılaştırma Tablosu */
+    .table-wrapper {
+      overflow-x: auto;
+      border: 2px solid #000000;
+      border-radius: var(--radius);
+      margin-top: 12px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      min-width: 600px;
+    }
+    th, td {
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1.5px solid #000000;
+    }
+    th {
+      background-color: #000000;
+      color: #ffffff;
+      font-weight: 900;
+    }
+    td {
+      background-color: #ffffff;
+      color: #000000;
+      font-weight: 600;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    .check-yes {
+      font-weight: 900;
+      color: #000000;
+    }
+    .check-no {
+      color: #737373;
+      font-weight: 700;
+    }
+
+    /* Altbilgi (Footer) */
+    footer {
+      background-color: #000000;
+      color: #ffffff;
+      padding: 20px 16px;
+      text-align: center;
+      margin-top: 40px;
+      border-top: 3px solid #000000;
+    }
+    footer p {
+      font-size: 0.82rem;
+      color: #cccccc;
+      line-height: 1.6;
+    }
+    footer strong {
+      color: #ffffff;
+    }
+
+    /* =========================================================================
+       KOYU MOD (DARK MODE) MAKSİMUM KONTRAST
+       ========================================================================= */
+    body.dark-mode {
+      --bg: #000000;
+      --card-bg: #141414;
+      --text: #ffffff;
+      --text-muted: #e5e7eb;
+      --border: #ffffff;
+    }
+    body.dark-mode header {
+      background-color: #141414;
+      border-bottom: 3px solid #ffffff;
+    }
+    body.dark-mode .theme-btn {
+      background-color: #ffffff;
+      color: #000000;
+      border: 1.5px solid #ffffff;
+    }
+    body.dark-mode .theme-btn:hover {
+      background-color: #000000;
+      color: #ffffff;
+    }
+    body.dark-mode .hero-banner {
+      background-color: #141414;
+      border: 3px solid #ffffff;
+      border-left: 10px solid #ffffff;
+    }
+    body.dark-mode .hero-tag {
+      background-color: #ffffff;
+      color: #000000;
+    }
+    body.dark-mode .hero-title,
+    body.dark-mode .hero-desc {
+      color: #ffffff;
+    }
+    body.dark-mode .hero-badge-pill {
+      background-color: #242424;
+      border: 1.5px solid #ffffff;
+      color: #ffffff;
+    }
+    body.dark-mode .filter-section {
+      background-color: #141414;
+      border: 2px solid #ffffff;
+    }
+    body.dark-mode .filter-label {
+      color: #ffffff;
+    }
+    body.dark-mode .filter-chip {
+      background-color: #1a1a1a;
+      color: #ffffff;
+      border: 1.5px solid #ffffff;
+    }
+    body.dark-mode .filter-chip.active,
+    body.dark-mode .filter-chip:hover {
+      background-color: #ffffff;
+      color: #000000;
+    }
+    body.dark-mode .app-card {
+      background-color: #141414;
+      border: 2.5px solid #ffffff;
+    }
+    body.dark-mode .app-card:hover {
+      box-shadow: 0 8px 0 #ffffff;
+    }
+    body.dark-mode .app-card-header {
+      background-color: #1e1e1e;
+      border-bottom: 2px solid #ffffff;
+    }
+    body.dark-mode .app-badge {
+      background-color: #ffffff;
+      color: #000000;
+    }
+    body.dark-mode .app-title,
+    body.dark-mode .app-slogan {
+      color: #ffffff;
+    }
+    body.dark-mode .app-card-body {
+      background-color: #141414;
+    }
+    body.dark-mode .app-desc,
+    body.dark-mode .app-feature-item {
+      color: #ffffff;
+      border-bottom-color: #333333;
+    }
+    body.dark-mode .feature-bullet {
+      color: #ffffff;
+    }
+    body.dark-mode .app-card-footer {
+      background-color: #1e1e1e;
+      border-top: 2px solid #ffffff;
+    }
+    body.dark-mode .app-launch-btn {
+      background-color: #ffffff;
+      color: #000000;
+      border: 2px solid #ffffff;
+    }
+    body.dark-mode .app-launch-btn:hover {
+      background-color: #000000;
+      color: #ffffff;
+    }
+    body.dark-mode .info-panel {
+      background-color: #141414;
+      border: 2px solid #ffffff;
+    }
+    body.dark-mode .info-panel-title {
+      color: #ffffff;
+      border-bottom: 2px solid #ffffff;
+    }
+    body.dark-mode .info-step-card {
+      background-color: #1e1e1e;
+      border: 1.5px solid #ffffff;
+      border-left: 5px solid #ffffff;
+    }
+    body.dark-mode .info-step-card strong,
+    body.dark-mode .info-step-card p {
+      color: #ffffff;
+    }
+    body.dark-mode .table-wrapper {
+      border: 2px solid #ffffff;
+    }
+    body.dark-mode th {
+      background-color: #ffffff;
+      color: #000000;
+      border-bottom: 2px solid #ffffff;
+    }
+    body.dark-mode td {
+      background-color: #141414;
+      color: #ffffff;
+      border-bottom: 1.5px solid #ffffff;
+    }
+    body.dark-mode .check-yes {
+      color: #ffffff;
+    }
+    body.dark-mode .check-no {
+      color: #737373;
+    }
+    body.dark-mode footer {
+      background-color: #141414;
+      border-top: 3px solid #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Üst Başlık (Header) -->
+  <header>
+    <div class="header-inner">
+      <div class="header-brand">
+        <h1>Çiftlik Sağlık & Üretim Rehberleri</h1>
+        <p>Süt, Besi ve Koyun Çiftliği Bağımsız Saha Portalı</p>
+      </div>
+      <div class="header-actions">
+        <button id="themeToggleBtn" class="theme-btn" onclick="toggleTheme()" title="Koyu / Açık Mod Değiştir">Gece Modu</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Hero Giriş Bölümü -->
+    <section class="hero-banner" aria-label="Portal Tanıtımı">
+      <span class="hero-tag">AÇIK KAYNAK & ÜCRETSİZ SAHA YÖNETİMİ</span>
+      <h2 class="hero-title">Çiftliğiniz İçin Bağımsız Sağlık & Üretim Rehberleri</h2>
+      <p class="hero-desc">
+        Süt inekçiliği, besi danacılığı ve küçükbaş koyunculuk alanlarında hayvan sağlığı, ilaç arınma süresi (İKAS), aşılama takvimi ve acil müdahaleleri yönetmeniz için geliştirilmiş 3 ayrı uzman uygulama. Tüm sistemler internet bağlantısı olmadan, %100 çevrimdışı ve bağımsız çalışır.
+      </p>
+      <div class="hero-badges">
+        <span class="hero-badge-pill">%100 Çevrimdışı (İnternetsiz)</span>
+        <span class="hero-badge-pill">Sıfır Sunucu & Tam Gizlilik</span>
+        <span class="hero-badge-pill">Sesli Küpe & Sağımcı Uyarısı</span>
+        <span class="hero-badge-pill">Yetiştirici & Çiftçi Dili</span>
+        <span class="hero-badge-pill">Tarayıcıda Çalışır (Kurulumsuz)</span>
+      </div>
+    </section>
+
+    <!-- Hızlı İhtiyaç / Konu Filtresi -->
+    <section class="filter-section" aria-label="Hızlı Konu Filtresi">
+      <label class="filter-label">Yapmak İstediğiniz İşleme Göre Uygun Rehberi Bulun:</label>
+      <div class="filter-chips">
+        <button class="filter-chip active" onclick="filterApps('all')">Tüm Rehberleri Göster</button>
+        <button class="filter-chip" onclick="filterApps('ikas')">İlaç Arınma & Süt/Et Kilidi (İKAS)</button>
+        <button class="filter-chip" onclick="filterApps('triage')">Hasta Muayenesi & Ateş Tespiti</button>
+        <button class="filter-chip" onclick="filterApps('repro')">Tohumlama, Doğum & Koç Katımı</button>
+        <button class="filter-chip" onclick="filterApps('weight')">Kilo Tartımı, CAAG & Karkas Geliri</button>
+        <button class="filter-chip" onclick="filterApps('emergency')">Acil Durum & İlk Yardım</button>
+      </div>
+    </section>
+
+    <!-- 3 Bağımsız Uygulama Kartları -->
+    <section class="apps-grid" aria-label="Uygulama Seçimi">
+
+      <!-- 1. SÜT ÇİFTLİĞİ REHBERİ -->
+      <article class="app-card" data-tags="all ikas triage repro emergency" id="card-sut">
+        <div class="app-card-header">
+          <span class="app-badge">SÜT İNEKÇİLİĞİ & SAĞIM</span>
+          <h3 class="app-title">Süt Çiftliği Rehberi</h3>
+          <p class="app-slogan">Hasta Muayenesi, İlaçlı Süt Kilidi ve Doğum-Buzağı Takibi</p>
+        </div>
+        <div class="app-card-body">
+          <p class="app-desc">
+            Süt inekçiliği yapan işletmelerde tanka ilaçlı süt dökülmesini önleme, durgun inek muayenesi, suni tohumlama zamanı ve buzağı hayatta tutma rehberi.
+          </p>
+          <ul class="app-feature-list">
+            <li class="app-feature-item">
+              <span class="feature-bullet">•</span>
+              <span><strong>İlaç & İKAS Kilidi:</strong> Yasal süt arınma süresi canlı sayaçla kilitlenir; dökülen süt litresi ve zarar hesaplanır.</span>
+            </li>
+            <li class="app-feature-item">
+              <span class="feature-bullet">•</span>
+              <span><strong>Sesli Sağımcı Uyarısı:</strong> Küpe okunduğunda sağımcıya "SAĞMA" veya "UYGUN" sesli uyarısı verir.</span>
+            </li>
+            <li class="app-feature-item">
+              <span class="feature-bullet">•</span>
+              <span><strong>Tohumlama & Doğum:</strong> 21 günlük kızgınlık dönüşü, kuruya alma ve doğum takvimi otomatik işler.</span>
+            </li>
+            <li class="app-feature-item">
+              <span class="feature-bullet">•</span>
+              <span><strong>Buzağı Sıvı Tedavisi:</strong> İshalli buzağılarda kaybolan 24 saatlik serum/su ihtiyacı hesaplanır.</span>
+            </li>
+            <li class="app-feature-item">
+              <span class="feature-bullet">•</span>
+              <span><strong>Geviş & Asidoz Sayacı:</strong> Yemlikten 2 saat sonra geviş getirme oranı ve tampon karbonat dozu belirlenir.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="app-card-footer">
+          <a href="./sut-saglik-rehberi/" class="app-launch-btn" title="Süt Çiftliği Rehberi Uygulamasını Başlat">
+            Süt Çiftliği Rehberi'ni Başlat
+          </a>
+        </div>
+      </article>
+
+      <!-- 2. BESİ ÇİFTLİĞİ REHBERİ -->
+      <article class="app-card" data-tags="all ikas triage weight emergency" id="card-besi">
+        <div class="app-card-header">
+          <span class="app-badge">BESİ DANACILIĞI & ET</span>
+          <h3 class="app-title">Besi Çiftliği Rehberi</h3>
+          <p class="app-slogan">21 Günlük Alıştırma, Mezbaha Kesim Kilidi ve Karkas Hesabı</p>
+        </div>
+        <div class="app-card-body">
+          <p class="app-desc">
+            Besi danacılığı işletmelerinde kamyondan indirme alıştırması, mezbahada antibiyotik kalıntı cezasını önleme ve karkas et gelirini artırma rehberi.
+          </p>
+          <ul class="app-feature-list">
+            <li class="app-feature-item">
+              <span class="feature-bullet">•</span>
+              <span><strong>21 Günlük Karşılama:</strong> Kamyondan inen danalarda nakliye humması, ılık can suyu ve yem geçiş protokolü.</span>
+            </li>
+            <li class="app-feature-item">
+              <span class="feature-bullet">•</span>
+              <span><strong>Mezbaha Et İKAS Kilidi:</strong> İğne vurulmuş danaların yasal arınma süresi sayaçla kilitlenir, ceza önlenir.</span>
+            </li>
+            <li class="app-feature-item">
+              <span class="feature-bullet">•</span>
+              <span><strong>Kilo (CAAG) & Karkas Geliri:</strong> Kantar veya şerit metreyle canlı kilo artışı ve %58 karkas randımanı hesabı.</span>
+            </li>
+            <li class="app-feature-item">
+              <span class="feature-bullet">•</span>
+              <span><strong>Besi Acil Durumları:</strong> CCN beyin dönmesi, sidik zoru/idrar taşı ve arpa vurması ilk yardım adımları.</span>
+            </li>
+            <li class="app-feature-item">
+              <span class="feature-bullet">•</span>
+              <span><strong>Dışkı Skoru & Yem Kaçışı:</strong> Tezek kıvamı, bütün arpa kaçışı denetimi ve besi masraf/fire defteri.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="app-card-footer">
+          <a href="./besi-saglik-rehberi/" class="app-launch-btn" title="Besi Çiftliği Rehberi Uygulamasını Başlat">
+            Besi Çiftliği Rehberi'ni Başlat
+          </a>
+        </div>
+      </article>
+
+      <!-- 3. KOYUN ÇİFTLİĞİ REHBERİ -->
+      <article class="app-card" data-tags="all ikas triage repro weight emergency" id="card-koyun">
+        <div class="app-card-header">
+          <span class="app-badge">KÜÇÜKBAŞ & AĞIL</span>
+          <h3 class="app-title">Koyun Çiftliği Rehberi</h3>
+          <p class="app-slogan">Ağıl Rutini, Koç Katımı ve Küçükbaş Sağlık Takibi</p>
+        </div>
+        <div class="app-card-body">
+          <p class="app-desc">
+            Koyunculuk işletmeleri ve çobanlar için mera-ağıl acil durumları, küçükbaşa özel güvenli ilaç kataloğu, koç katımı ve kuzu yaşatma rehberi.
+          </p>
+          <ul class="app-feature-list">
+            <li class="app-feature-item">
+              <span class="feature-bullet">•</span>
+              <span><strong>Ağıl & Mera Acil İlk Yardım:</strong> Çelerme (yem çarpması), gebelik zehirlenmesi, kuzu donması ve aşı şoku.</span>
+            </li>
+            <li class="app-feature-item">
+              <span class="feature-bullet">•</span>
+              <span><strong>Küçükbaş İKAS Kataloğu:</strong> Koyunda güvenli ilaç süreleri (Tilmikosin damar yasağı, Albendazol erken gebelik yasağı).</span>
+            </li>
+            <li class="app-feature-item">
+              <span class="feature-bullet">•</span>
+              <span><strong>Koç Katımı & Kuzulama Çarkı:</strong> 17 günlük koç dönüşü, 120. gün aşı uyarısı ve 150. gün doğum tahmini.</span>
+            </li>
+            <li class="app-feature-item">
+              <span class="feature-bullet">•</span>
+              <span><strong>Kuzu Yaşatma & İlk Ağız Sütü:</strong> İlk 2 saatte en az 300-400 mL koyu ağız sütü içirme ve can suyu hesabı.</span>
+            </li>
+            <li class="app-feature-item">
+              <span class="feature-bullet">•</span>
+              <span><strong>Şerit Metreyle Canlı Kilo:</strong> Kantar yokken mezura ile küçükbaş canlı ağırlığı ve ilaç dozu belirleme.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="app-card-footer">
+          <a href="./koyun-saglik-rehberi/" class="app-launch-btn" title="Koyun Çiftliği Rehberi Uygulamasını Başlat">
+            Koyun Çiftliği Rehberi'ni Başlat
+          </a>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- Uygulama Karşılaştırma & Özellik Dağılımı -->
+    <section class="info-panel" aria-label="Uygulama Karşılaştırması">
+      <h3 class="info-panel-title">Uygulamaların Karşılaştırmalı Özellik Tablosu</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Özellik / Modül</th>
+              <th>Süt Çiftliği Rehberi</th>
+              <th>Besi Çiftliği Rehberi</th>
+              <th>Koyun Çiftliği Rehberi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>İlaç Arınma Süresi (İKAS)</strong></td>
+              <td class="check-yes">Var (Süt & Et Kilidi)</td>
+              <td class="check-yes">Var (Mezbaha Kesim Kilidi)</td>
+              <td class="check-yes">Var (Küçükbaş Güvenli Süre)</td>
+            </tr>
+            <tr>
+              <td><strong>Sesli Küpe Sorgulama & Uyarı</strong></td>
+              <td class="check-yes">Var (Sağımcı Sesli Uyarı)</td>
+              <td class="check-yes">Var (Mezbaha Sesli Uyarı)</td>
+              <td class="check-yes">Var (Sağımcı Sesli Uyarı)</td>
+            </tr>
+            <tr>
+              <td><strong>Kamera ile Kulak Küpesi Okuma</strong></td>
+              <td class="check-yes">Var (Barkod & QR)</td>
+              <td class="check-yes">Var (Barkod & QR)</td>
+              <td class="check-yes">Var (Barkod & QR)</td>
+            </tr>
+            <tr>
+              <td><strong>Hasta Muayenesi & Ateş Kontrolü</strong></td>
+              <td class="check-yes">Var (Sığır Derece & DART)</td>
+              <td class="check-yes">Var (Dana BRD Zatürre)</td>
+              <td class="check-yes">Var (Küçükbaş Ateş & Durum)</td>
+            </tr>
+            <tr>
+              <td><strong>Üreme, Tohumlama & Doğum Çarkı</strong></td>
+              <td class="check-yes">Var (21 Günlük Döngü)</td>
+              <td class="check-no">Yok (Besi Odaklı)</td>
+              <td class="check-yes">Var (17 Günlük Koç Katımı)</td>
+            </tr>
+            <tr>
+              <td><strong>Kilo Artışı & Karkas Gelir Hesabı</strong></td>
+              <td class="check-no">Yok</td>
+              <td class="check-yes">Var (CAAG & Randıman)</td>
+              <td class="check-yes">Var (Şerit Metre Formülü)</td>
+            </tr>
+            <tr>
+              <td><strong>Yemlik, Geviş & Dışkı Skoru</strong></td>
+              <td class="check-yes">Var (Tampon Karbonat)</td>
+              <td class="check-yes">Var (Tahıl Kaçışı Denetimi)</td>
+              <td class="check-yes">Var (Koyun Fındığı Puanı)</td>
+            </tr>
+            <tr>
+              <td><strong>%100 Çevrimdışı Çalışma (Offline)</strong></td>
+              <td class="check-yes">Evet (%100 İnternetsiz)</td>
+              <td class="check-yes">Evet (%100 İnternetsiz)</td>
+              <td class="check-yes">Evet (%100 İnternetsiz)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Kurulum & Çevrimdışı Kullanım Kılavuzu -->
+    <section class="info-panel" aria-label="Telefona Kurulum Rehberi">
+      <h3 class="info-panel-title">Telefonda İnternetsiz Nasıl Kullanılır? (3 Kolay Adım)</h3>
+      <div class="info-steps">
+        <div class="info-step-card">
+          <strong>1. Uygulamayı Açın</strong>
+          <p>Yukarıdaki butonlardan işletmenize uygun olan rehberi telefonunuzun tarayıcısında (Chrome / Safari) açın.</p>
+        </div>
+        <div class="info-step-card">
+          <strong>2. Ana Ekrana Ekleyin</strong>
+          <p>Tarayıcının menüsünden (üç nokta veya paylaş butonu) <strong>"Ana Ekrana Ekle"</strong> veya <strong>"Uygulamayı Yükle"</strong> seçeneğine dokunun.</p>
+        </div>
+        <div class="info-step-card">
+          <strong>3. Dağda ve Ahırda İnternetsiz Kullanın</strong>
+          <p>Artık telefonunuzun ana ekranından tek dokunuşla internetsiz, şebekenin hiç çekmediği bodrum ahırda bile tam hızda çalışır.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Altbilgi (Footer) -->
+  <footer>
+    <div class="container" style="padding-top:0; padding-bottom:0;">
+      <p>
+        <strong>Çiftlik Sağlık & Üretim Rehberleri Portalı</strong><br>
+        Tüm sistemler bağımsız çalışır; uygulama verileri yalnızca kullanıcının kendi cihazında güvenle saklanır.<br>
+        Açık kaynak, reklamsız ve ücretsiz yetiştirici hizmetidir.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    /* =========================================================================
+       TEMA YÖNETİMİ (AÇIK / KOYU MOD - MAKSİMUM KONTRAST)
+       ========================================================================= */
+    function applyTheme(isDark) {
+      const btn = document.getElementById("themeToggleBtn");
+      if (isDark) {
+        document.body.classList.add("dark-mode");
+        if (btn) btn.textContent = "Gündüz Modu";
+      } else {
+        document.body.classList.remove("dark-mode");
+        if (btn) btn.textContent = "Gece Modu";
+      }
+      localStorage.setItem("ciftlik_portal_theme", isDark ? "dark" : "light");
+    }
+
+    function toggleTheme() {
+      const isCurrentlyDark = document.body.classList.contains("dark-mode");
+      applyTheme(!isCurrentlyDark);
+    }
+
+    // Başlangıç temasını belirle
+    (function initTheme() {
+      const savedTheme = localStorage.getItem("ciftlik_portal_theme");
+      if (savedTheme) {
+        applyTheme(savedTheme === "dark");
+      } else {
+        const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        applyTheme(prefersDark);
+      }
+    })();
+
+    /* =========================================================================
+       HIZLI KONU VE İHTİYAÇ FİLTRESİ
+       ========================================================================= */
+    function filterApps(tag) {
+      // Çipleri güncelle
+      const chips = document.querySelectorAll(".filter-chip");
+      chips.forEach(chip => {
+        chip.classList.remove("active");
+        if (chip.getAttribute("onclick") && chip.getAttribute("onclick").includes(`'${tag}'`)) {
+          chip.classList.add("active");
+        }
+      });
+
+      // Kartları filtrele
+      const cards = document.querySelectorAll(".app-card");
+      cards.forEach(card => {
+        const tags = (card.getAttribute("data-tags") || "").split(" ");
+        if (tag === "all" || tags.includes(tag)) {
+          card.style.display = "flex";
+          if (tag !== "all") {
+            card.style.borderColor = document.body.classList.contains("dark-mode") ? "#ffffff" : "#000000";
+            card.style.transform = "scale(1.01)";
+          } else {
+            card.style.transform = "none";
+          }
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    /* =========================================================================
+       PWA SERVİS ÇALIŞANI (OFFLINE DESTEK)
+       ========================================================================= */
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./sw.js").catch(() => {});
+      });
+    }
+  </script>
+</body>
+</html>

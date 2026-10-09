@@ -1,0 +1,21 @@
+{
+  "name": "Çiftlik Sağlık & Üretim Rehberleri",
+  "short_name": "Çiftlik Portalı",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "description": "Süt inekçiliği, besi danacılığı ve küçükbaş koyunculuk için %100 çevrimdışı bağımsız saha rehberleri portalı.",
+  "icons": [
+    {
+      "src": "./sut-saglik-rehberi/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./sut-saglik-rehberi/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
