@@ -1,21 +1,84 @@
 {
-  "name": "Tosun Paşa Çiftliği",
+  "name": "Tosun Paşa Çiftliği - Süt, Besi ve Koyun Portalı",
   "short_name": "Tosun Paşa",
   "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
-  "background_color": "#000000",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
   "theme_color": "#000000",
   "description": "Tosun Paşa Çiftliği - Besi sığırı, süt sığırı ve koyun sürüleri için %100 çevrimdışı bağımsız rehberler portalı.",
+  "categories": [
+    "medical",
+    "business",
+    "utilities",
+    "productivity"
+  ],
   "icons": [
     {
-      "src": "./sut-saglik-rehberi/icon-192.png",
-      "sizes": "192x192",
+      "src": "./favicon-16x16.png",
+      "sizes": "16x16",
       "type": "image/png"
     },
     {
-      "src": "./sut-saglik-rehberi/icon-512.png",
-      "sizes": "512x512",
+      "src": "./favicon-32x32.png",
+      "sizes": "32x32",
       "type": "image/png"
+    },
+    {
+      "src": "./apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Besi Çiftliği Rehberi",
+      "short_name": "Besi Rehberi",
+      "description": "Besi danacılığı, 21 gün alıştırma, günlük kilo alımı ve kesim kilidi",
+      "url": "./besi-saglik-rehberi/",
+      "icons": [
+        {
+          "src": "./icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Süt Çiftliği Rehberi",
+      "short_name": "Süt Rehberi",
+      "description": "Süt inekçiliği, sağımcı ekranı, ilaçlı süt yasağı ve doğum takvimi",
+      "url": "./sut-saglik-rehberi/",
+      "icons": [
+        {
+          "src": "./icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Koyun Çiftliği Rehberi",
+      "short_name": "Koyun Rehberi",
+      "description": "Koyun ve kuzu bakımı, koç katımı çarkı ve ağıl ilk yardım",
+      "url": "./koyun-saglik-rehberi/",
+      "icons": [
+        {
+          "src": "./icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
     }
   ]
 }

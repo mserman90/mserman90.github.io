@@ -6,10 +6,16 @@
   <meta name="theme-color" content="#000000">
   <meta name="color-scheme" content="light dark">
   <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Tosun Paşa">
+  <meta name="application-name" content="Tosun Paşa Çiftliği">
   <title>Tosun Paşa Çiftliği - Süt, Besi ve Koyun Çiftliği Portalı</title>
   <meta name="description" content="Tosun Paşa Çiftliği: Besi sığırı, süt sığırı ve koyun işletmeleri için %100 çevrimdışı, bağımsız, ücretsiz ve açık kaynak saha sağlık ve üretim portalı.">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="manifest" href="manifest.json">
 
   <!-- Open Graph -->
@@ -51,6 +57,7 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      -webkit-tap-highlight-color: transparent;
     }
 
     body {
@@ -60,15 +67,19 @@
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
       flex-direction: column;
+      padding-left: env(safe-area-inset-left, 0px);
+      padding-right: env(safe-area-inset-right, 0px);
+      overflow-x: hidden;
     }
 
     /* Üst Başlık (Header) */
     header {
       background-color: #000000;
       color: #ffffff;
-      padding: 14px 18px;
+      padding: calc(12px + env(safe-area-inset-top, 0px)) 16px 12px 16px;
       border-bottom: 3px solid #000000;
       position: sticky;
       top: 0;
@@ -80,7 +91,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 12px;
+      flex-wrap: wrap;
+      gap: 10px;
     }
     .header-brand h1 {
       font-size: 1.15rem;
@@ -96,20 +108,25 @@
     .header-actions {
       display: flex;
       align-items: center;
-      gap: 8px;
+      flex-wrap: wrap;
+      gap: 6px;
     }
     .header-btn {
       background: #000000;
       color: #ffffff;
       border: 1.5px solid #ffffff;
-      padding: 7px 14px;
+      padding: 8px 12px;
       border-radius: 6px;
       font-size: 0.82rem;
       font-weight: 800;
       cursor: pointer;
-      min-height: 38px;
+      min-height: 42px;
       touch-action: manipulation;
       transition: background 0.15s ease, color 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
     }
     .header-btn:hover {
       background: #ffffff;
@@ -122,7 +139,7 @@
       max-width: 1100px;
       width: 100%;
       margin: 0 auto;
-      padding: 40px 16px 30px;
+      padding: 28px 16px 24px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -611,6 +628,71 @@
     body.dark-mode .check-no {
       color: #a3a3a3;
     }
+
+    /* =========================================================================
+       MOBİL CİHAZ VE EKRAN BOYUTU OPTİMİZASYONU
+       ========================================================================= */
+    @media (max-width: 600px) {
+      .header-brand h1 {
+        font-size: 1.02rem;
+      }
+      .header-brand p {
+        font-size: 0.7rem;
+      }
+      .header-btn {
+        padding: 6px 10px;
+        font-size: 0.76rem;
+        min-height: 38px;
+      }
+      main.hero-container {
+        padding: 18px 12px 20px;
+      }
+      .hero-heading-area {
+        margin-bottom: 18px;
+      }
+      .hero-main-title {
+        font-size: 1.3rem;
+      }
+      .hero-sub-text {
+        font-size: 0.8rem;
+      }
+      .animals-grid {
+        gap: 14px;
+      }
+      .animal-card {
+        padding: 18px 16px 16px;
+      }
+      .animal-symbol-box {
+        width: 110px;
+        height: 96px;
+        margin-bottom: 10px;
+      }
+      .animal-symbol-img {
+        width: 92px;
+        height: 92px;
+      }
+      .animal-name {
+        font-size: 1.35rem;
+        margin-bottom: 4px;
+      }
+      .animal-app-title {
+        font-size: 0.85rem;
+        margin-bottom: 14px;
+      }
+      .info-modal-overlay {
+        padding: 8px;
+      }
+      .info-modal-container {
+        max-height: 94dvh;
+      }
+      .info-modal-body {
+        padding: 12px;
+        gap: 14px;
+      }
+      .modal-section {
+        padding: 12px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -623,6 +705,7 @@
         <p>Süt, Besi ve Koyun Çiftliği Bağımsız Portalı</p>
       </div>
       <div class="header-actions">
+        <button id="pwaInstallBtn" class="header-btn" onclick="triggerPwaInstall()" style="display:none;" title="Uygulamayı Telefona / Ana Ekrana Yükle">Uygulamayı Yükle</button>
         <button id="infoMenuBtn" class="header-btn" onclick="openInfoModal()" title="Kapsam, Özellikler ve Kurulum Bilgisi">Bilgi</button>
         <button id="themeToggleBtn" class="header-btn" onclick="toggleTheme()" title="Koyu / Açık Mod Değiştir">Gece Modu</button>
       </div>
@@ -980,11 +1063,57 @@
     }
 
     /* =========================================================================
+       PWA KURULUM YÖNETİCİSİ (ANDROID / CHROME / iOS ANA EKRANA EKLEME)
+       ========================================================================= */
+    let deferredPwaPrompt = null;
+    const pwaInstallBtn = document.getElementById("pwaInstallBtn");
+
+    function isStandaloneApp() {
+      return window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
+    }
+
+    function isIosDevice() {
+      return /iphone|ipad|ipod/i.test(window.navigator.userAgent);
+    }
+
+    window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault();
+      deferredPwaPrompt = e;
+      if (pwaInstallBtn && !isStandaloneApp()) {
+        pwaInstallBtn.style.display = "inline-flex";
+      }
+    });
+
+    window.addEventListener("appinstalled", () => {
+      deferredPwaPrompt = null;
+      if (pwaInstallBtn) pwaInstallBtn.style.display = "none";
+    });
+
+    if (isIosDevice() && !isStandaloneApp() && pwaInstallBtn) {
+      pwaInstallBtn.style.display = "inline-flex";
+    }
+
+    async function triggerPwaInstall() {
+      if (deferredPwaPrompt) {
+        deferredPwaPrompt.prompt();
+        const { outcome } = await deferredPwaPrompt.userChoice;
+        if (outcome === "accepted" && pwaInstallBtn) {
+          pwaInstallBtn.style.display = "none";
+        }
+        deferredPwaPrompt = null;
+      } else if (isIosDevice()) {
+        alert("iPhone / iPad'de Ana Ekrana Eklemek İçin:\n\n1. Safari alt menüsündeki 'Paylaş' (yukarı ok) simgesine dokunun.\n2. Listeden 'Ana Ekrana Ekle' seçeneğine dokunun.");
+      } else {
+        openInfoModal();
+      }
+    }
+
+    /* =========================================================================
        PWA SERVİS ÇALIŞANI (OFFLINE DESTEK & OTOMATİK GÜNCELLEME)
        ========================================================================= */
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=6").then((reg) => {
+        navigator.serviceWorker.register("./sw.js?v=7").then((reg) => {
           reg.update();
           reg.onupdatefound = () => {
             const installing = reg.installing;
