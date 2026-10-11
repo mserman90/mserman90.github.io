@@ -633,9 +633,6 @@
     body.dark-mode .check-no {
       color: #a3a3a3;
     }
-    body.dark-mode #choice-rasyon .animal-symbol-img {
-      filter: invert(1) drop-shadow(0 6px 12px rgba(255, 255, 255, 0.12));
-    }
 
     /* =========================================================================
        MOBİL CİHAZ VE EKRAN BOYUTU OPTİMİZASYONU
@@ -1150,7 +1147,7 @@
        ========================================================================= */
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=8").then((reg) => {
+        navigator.serviceWorker.register("./sw.js?v=9").then((reg) => {
           reg.update();
           reg.onupdatefound = () => {
             const installing = reg.installing;
