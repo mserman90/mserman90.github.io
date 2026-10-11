@@ -79,6 +79,18 @@
           "sizes": "192x192"
         }
       ]
+    },
+    {
+      "name": "Yem & Rasyon Hazırlama Rehberi",
+      "short_name": "Rasyon Rehberi",
+      "description": "Süt sığırı, besi sığırı ve koyun için uluslararası rasyon ve TMR hazırlama",
+      "url": "./rasyon-rehberi/",
+      "icons": [
+        {
+          "src": "./icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
     }
   ]
 }
