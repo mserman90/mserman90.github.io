@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <!-- Dış Zemin Çemberi (Zümrüt Yeşili & Altın Sarısı Döl Verimi / Doğum Teması) -->
+  <circle cx="64" cy="64" r="58" fill="#047857"/>
+  <circle cx="64" cy="64" r="50" fill="#065f46"/>
+
+  <!-- Takvim / Çark Çerçevesi (Beyaz Kontur) -->
+  <rect x="30" y="32" width="68" height="64" rx="12" fill="#ffffff" stroke="#047857" stroke-width="2"/>
+  <path d="M30 48 h68" stroke="#047857" stroke-width="4" stroke-linecap="round"/>
+  <rect x="42" y="24" width="8" height="14" rx="3" fill="#fbbf24"/>
+  <rect x="78" y="24" width="8" height="14" rx="3" fill="#fbbf24"/>
+
+  <!-- Merkez Kalp & Yaşam Döngüsü (Doğum & Yavru / Döl Verimi) -->
+  <path d="M64 82 C64 82 46 70 46 58 C46 51 52 46 58 48 C61 49 63 52 64 54 C65 52 67 49 70 48 C76 46 82 51 82 58 C82 70 64 82 64 82 Z" fill="#059669"/>
+  <circle cx="64" cy="60" r="4" fill="#fbbf24"/>
+
+  <!-- 283 / 150 Gün Döngü Oku (Dairesel Çark Simgesi) -->
+  <path d="M96 52 A36 36 0 0 1 84 94" fill="none" stroke="#fbbf24" stroke-width="4.5" stroke-linecap="round"/>
+  <polygon points="84,87 87,97 76,96" fill="#fbbf24"/>
+  <path d="M32 76 A36 36 0 0 1 44 34" fill="none" stroke="#fbbf24" stroke-width="4.5" stroke-linecap="round"/>
+  <polygon points="44,41 41,31 52,32" fill="#fbbf24"/>
+</svg>

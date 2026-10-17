@@ -48,7 +48,7 @@
   }
   </script>
 
-  <title>Koyun Rehberi | Koç Katımı, Kuzu Bakımı & İKAS Takibi</title>
+  <title>Koyun Rehberi | Kuzu Bakımı, İshal Sıvı Desteği & İKAS Takibi</title>
 
   <style>
     /* =========================================================================
@@ -802,59 +802,8 @@
   </div>
 
   <!-- 1. KOÇ KATIMI & 150 GÜNLÜK GEBELİK TAKVİMİ MODAL -->
-  <div class="generic-modal-overlay" id="koc-modal" onclick="closeGenericModalOnBackdrop(event, 'koc-modal')">
-    <div class="generic-modal-box">
-      <div class="generic-modal-hdr" style="background:#14532d;">
-        <div class="generic-modal-title">
-          <svg class="lucide-icon" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-          <span>Koç Katımı & Gebelik Takvimi (150 Gün)</span>
-        </div>
-        <button class="generic-modal-close" onclick="closeKocKatimiModal()">&times;</button>
-      </div>
-      <div class="generic-modal-body">
-        <p style="font-size:0.85rem; color:#475569; margin-bottom:12px;">
-          Koç katımı veya tohumlama tarihini seçin; <strong>ultrason kontrolünü</strong>, <strong>doğuma 6 hafta kala ikiz beslemesini (flaşlama)</strong>, <strong>çelerme aşı rapelini</strong> ve <strong>tahmini doğum gününü</strong> anında hesaplayıp kaydedin:
-        </p>
-
-        <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:8px; padding:12px; margin-bottom:12px;">
-          <div class="form-group">
-            <label class="form-label" for="kocTagInput">🏷️ Koyun Küpe Numarası (Opsiyonel):</label>
-            <input type="text" id="kocTagInput" class="form-input" placeholder="Örn: TR16 8820" style="text-transform:uppercase;">
-          </div>
-          <div class="form-group" style="margin-bottom:0;">
-            <label class="form-label" for="kocDateInput">📅 Koç Katımı / Tohumlama Tarihi (*):</label>
-            <input type="date" id="kocDateInput" class="form-input" onchange="calcKocTimeline()">
-          </div>
-        </div>
-
-        <div id="koc-timeline-card" style="display:none; background:#ffffff; border:1.5px solid #22c55e; border-radius:10px; padding:12px; margin-bottom:12px;">
-          <!-- Dinamik Çizelge -->
-        </div>
-
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
-          <button onclick="saveKocRecord()" class="btn-diag-act" style="background:#16a34a; color:#fff;">
-            💾 Takvime Kaydet
-          </button>
-          <button onclick="shareKocReport()" class="btn-diag-act" style="background:#0284c7; color:#fff;">
-            📤 Raporu İlet
-          </button>
-        </div>
-
-        <div style="margin-top:16px;">
-          <strong style="font-size:0.86rem; color:#0f172a; display:block; margin-bottom:8px;">📋 Kayıtlı Koyun Doğum Takibi:</strong>
-          <div id="koc-saved-list" style="display:flex; flex-direction:column; gap:8px; max-height:180px; overflow-y:auto;">
-            <!-- Kayıtlı hayvanlar -->
-          </div>
-        </div>
-      </div>
-      <div class="generic-modal-ftr">
-        <button onclick="closeKocKatimiModal()" class="btn-diag-act" style="background:#64748b; color:#fff; width:100%;">Kapat</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- 2. KUZU BAKIMI, HİPOTERMİ & SIVI HESABI MODAL -->
-  <div class="generic-modal-overlay" id="kuzu-modal" onclick="closeGenericModalOnBackdrop(event, 'kuzu-modal')">
+  <!-- Üreme ve Doğum Çarkı Üretim Rehberi modülüne taşındı -->
+<div class="generic-modal-overlay" id="kuzu-modal" onclick="closeGenericModalOnBackdrop(event, 'kuzu-modal')">
     <div class="generic-modal-box">
       <div class="generic-modal-hdr" style="background:#ea580c;">
         <div class="generic-modal-title">
@@ -1369,6 +1318,9 @@
 
     // 1. KOÇ KATIMI
     function openKocKatimiModal() {
+      window.location.href = "https://mserman90.github.io/uretim-rehberi/";
+    }
+    function _disabled_old_openKocKatimiModal() {
       const m = document.getElementById("koc-modal");
       if (m) {
         m.classList.add("active");

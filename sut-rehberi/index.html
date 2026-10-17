@@ -728,8 +728,7 @@
         <div style="display:flex; gap:8px; margin-bottom:12px;">
           <button class="wa-choice-btn primary" id="tabbtn-list" onclick="switchKupeTab('list')" style="flex:1; justify-content:center; min-height:40px; padding:6px;">Aktif Kilitler</button>
           <button class="wa-choice-btn" id="tabbtn-new" onclick="switchKupeTab('new')" style="flex:1; justify-content:center; min-height:40px; padding:6px;">+ Yeni İlaç Kaydet</button>
-          <button class="wa-choice-btn" id="tabbtn-repro" onclick="switchKupeTab('repro')" style="flex:1; justify-content:center; min-height:40px; padding:6px;">Tohumlama</button>
-        </div>
+          </div>
 
         <!-- LİSTE SEKMESİ -->
         <div id="kupetab-list">
@@ -775,17 +774,7 @@
         </div>
 
         <!-- TOHUMLAMA & GEBELİK SEKMESİ -->
-        <div id="kupetab-repro" style="display:none;">
-          <div style="background:#f8fafc; border:1px solid #cbd5e1; border-radius:8px; padding:10px; margin-bottom:10px;">
-            <label style="font-size:0.8rem; font-weight:800; display:block; margin-bottom:4px;">Suni Tohumlama Tarihi:</label>
-            <input type="date" id="reproDateInput" style="width:100%; padding:8px 10px; border:1px solid #cbd5e1; border-radius:6px; font-size:1rem;" onchange="calcReproTimeline()">
-          </div>
-          <div id="repro-timeline-box" style="font-size:0.82rem; line-height:1.5;">
-            <!-- Tarihler JS ile hesaplanır -->
-          </div>
-        </div>
-      </div>
-      <div class="modal-ftr">
+        <div class="modal-ftr">
         <button class="btn-add-defter" onclick="closeKupeModal()">Kapat</button>
       </div>
     </div>
@@ -1218,7 +1207,7 @@
     }
 
     function switchKupeTab(tab) {
-      ['list', 'new', 'repro'].forEach(t => {
+      ['list', 'new'].forEach(t => {
         document.getElementById(`kupetab-${t}`).style.display = t === tab ? 'block' : 'none';
         const btn = document.getElementById(`tabbtn-${t}`);
         if (btn) {

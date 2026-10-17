@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Üretim Rehberi | Büyükbaş & Küçükbaş Döl Verimi, Tohumlama & Doğum Çarkı</title>
+  
+  <meta name="description" content="Üretim Rehberi: Büyükbaş suni tohumlama, 283 günlük buzağılama çarkı, koyunlarda 150 günlük koç katımı, kuruya çıkarma ve aşı takvimini internetsiz hesaplayın.">
+  <meta name="keywords" content="üretim rehberi, suni tohumlama takvimi, koç katımı çarkı, inek gebelik süresi, koyun kuzulama tarihi, kuruya çıkarma takvimi, düve ilk tohumlama, döl verimi">
+  <meta name="author" content="Dr. M. Serman & Hayvancılık Portalı">
+  <meta name="theme-color" content="#008069">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Üretim Rehberi | Büyükbaş & Küçükbaş Döl Verimi ve Doğum Takvimi">
+  <meta property="og:description" content="Tohumlama ve koç katımı tarihlerini kaydedin; kuruya çıkarma, gebelik muayenesi ve beklenen doğum gününü internetsiz hesaplayın.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mserman90.github.io/uretim-rehberi/">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Üretim Rehberi",
+    "url": "https://mserman90.github.io/uretim-rehberi/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "description": "Büyükbaş suni tohumlama ve küçükbaş koç katımı gebelik takvimlerini, kuruya çıkarma sürelerini ve doğuma hazırlık tarihlerini hesaplayan çevrimdışı saha aracı.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "TRY"
+    }
+  }
+  </script>
+
+  <style>
+
+    /* =========================================================================
+       ULUSLARARASI TİPOGRAFİ, TEMA VE DEĞİŞKENLER (KÜÇÜKBAŞ MERA / ORMAN YEŞİLİ)
+       ========================================================================= */
+    :root {
+      --wa-header-bg: #14532d;
+      --wa-header-text: #ffffff;
+      --wa-chat-bg: #efeae2;
+      --wa-bubble-in: #ffffff;
+      --wa-bubble-out: #dcfce7;
+      --wa-text: #111b21;
+      --wa-text-muted: #667781;
+      --wa-btn-bg: #ffffff;
+      --wa-btn-border: #d1d7db;
+      --wa-btn-hover: #f0fdf4;
+      --wa-btn-active: #dcfce7;
+      --primary: #15803d;
+      --primary-dark: #14532d;
+      --primary-light: #22c55e;
+      --accent-blue: #0284c7;
+      --accent-orange: #ea580c;
+      --danger: #dc2626;
+      --warning: #d97706;
+      --safe: #16a34a;
+      --font-stack: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.08);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.15);
+    }
+
+    body.high-contrast {
+      --wa-header-bg: #000000;
+      --wa-header-text: #ffff00;
+      --wa-chat-bg: #121212;
+      --wa-bubble-in: #222222;
+      --wa-bubble-out: #1c3820;
+      --wa-text: #ffff00;
+      --wa-text-muted: #ffffff;
+      --wa-btn-bg: #2d2d2d;
+      --wa-btn-border: #ffff00;
+      --wa-btn-hover: #3d3d3d;
+      --wa-btn-active: #4d4d4d;
+      --primary: #ffff00;
+    }
+
+    body.large-text {
+      font-size: 18px !important;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      background-color: var(--wa-chat-bg);
+      font-family: var(--font-stack);
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--wa-text);
+      overflow: hidden;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Vektörel İkon Standardı (2px stroke Lucide/ISO 7000) */
+    .lucide-icon {
+      width: 20px;
+      height: 20px;
+      stroke-width: 2px;
+      stroke: currentColor;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      display: inline-block;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+    .lucide-icon.icon-sm { width: 16px; height: 16px; }
+    .lucide-icon.icon-lg { width: 24px; height: 24px; }
+    .lucide-icon.icon-xl { width: 32px; height: 32px; }
+
+    /* Dokunma Hedefi Ergonomisi (WCAG 2.5.5 - Min 48x48 px) */
+    button, a, input, select, textarea {
+      font-family: inherit;
+    }
+    button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible {
+      outline: 3px solid var(--primary);
+      outline-offset: 2px;
+    }
+
+    /* ANA DÜZEN (APP WRAPPER) */
+    .app-wrapper {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      max-width: 850px;
+      margin: 0 auto;
+      background: var(--wa-chat-bg);
+      position: relative;
+      box-shadow: 0 0 24px rgba(0,0,0,0.12);
+    }
+
+    /* ÜST BAŞLIK BARI */
+    .wa-header {
+      background-color: var(--wa-header-bg);
+      color: var(--wa-header-text);
+      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      z-index: 100;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+      flex-shrink: 0;
+    }
+
+    .wa-profile {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      min-width: 0;
+    }
+
+    .wa-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-dark);
+      border: 2px solid rgba(255,255,255,0.85);
+      flex-shrink: 0;
+    }
+
+    .wa-info {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .wa-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .wa-status {
+      font-size: 0.76rem;
+      opacity: 0.9;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* YATAY KAYDIRILABİLİR BUTON BARI */
+    .wa-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
+      padding: 2px 0;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255,255,255,0.3) transparent;
+      max-width: 58%;
+    }
+    .wa-actions::-webkit-scrollbar {
+      height: 4px;
+    }
+    .wa-actions::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.3);
+      border-radius: 4px;
+    }
+
+    .wa-hdr-btn {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      border-radius: var(--radius-sm);
+      padding: 0 10px;
+      height: 38px;
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .wa-hdr-btn:hover { background: rgba(255, 255, 255, 0.25); }
+    .wa-hdr-btn:active { background: rgba(255, 255, 255, 0.35); }
+
+    .defter-badge {
+      background: #dc2626;
+      color: #ffffff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 1px 6px;
+      border-radius: 10px;
+    }
+    .defter-badge.zero {
+      background: rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+    }
+
+    /* SOHBET AKIŞ ALANI */
+    .chat-stream {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px 14px 24px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background-image: radial-gradient(rgba(20, 83, 45, 0.04) 1px, transparent 1px);
+      background-size: 16px 16px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .chat-date-pill {
+      align-self: center;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(4px);
+      color: var(--wa-text-muted);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 8px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* BALONCUKLAR */
+    .msg-row {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+    .msg-row.incoming { align-items: flex-start; }
+    .msg-row.outgoing { align-items: flex-end; }
+
+    .msg-bubble {
+      max-width: 85%;
+      padding: 10px 14px 8px 14px;
+      border-radius: var(--radius-md);
+      position: relative;
+      font-size: 0.95rem;
+      line-height: 1.45;
+      box-shadow: var(--shadow-sm);
+      word-break: break-word;
+    }
+
+    .msg-row.incoming .msg-bubble {
+      background: var(--wa-bubble-in);
+      color: var(--wa-text);
+      border-top-left-radius: 2px;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .msg-row.outgoing .msg-bubble {
+      background: var(--wa-bubble-out);
+      color: var(--wa-text);
+      border-top-right-radius: 2px;
+      border: 1px solid rgba(22, 101, 52, 0.15);
+    }
+
+    .msg-time {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 3px;
+      font-size: 0.68rem;
+      color: var(--wa-text-muted);
+      margin-top: 4px;
+      float: right;
+      margin-left: 10px;
+    }
+    .msg-time .check {
+      color: #53bdeb;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    /* SEÇENEK BUTONLARI (KULLANICI SEÇİMLERİ) */
+    .btn-options-container {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+      max-width: 85%;
+      margin-top: 8px;
+    }
+
+    .wa-choice-btn {
+      background: var(--wa-btn-bg);
+      border: 1.5px solid var(--wa-btn-border);
+      color: var(--primary-dark);
+      padding: 10px 14px;
+      border-radius: var(--radius-md);
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.12s ease-in-out;
+      min-height: 48px;
+    }
+    .wa-choice-btn:hover {
+      background: var(--wa-btn-hover);
+      border-color: var(--primary);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+    .wa-choice-btn:active {
+      background: var(--wa-btn-active);
+      transform: translateY(0);
+    }
+    .wa-choice-btn.primary {
+      background: var(--primary-dark);
+      color: #ffffff;
+      border-color: var(--primary-dark);
+    }
+    .wa-choice-btn.primary:hover {
+      background: #0f3d20;
+    }
+    .wa-choice-btn.danger {
+      background: #fef2f2;
+      color: var(--danger);
+      border-color: #fca5a5;
+    }
+    .wa-choice-btn.warning {
+      background: #fffbeb;
+      color: #92400e;
+      border-color: #fde68a;
+    }
+
+    /* YAZIYOR GÖSTERGESİ */
+    .typing-indicator {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 10px 14px;
+      background: var(--wa-bubble-in);
+      border-radius: var(--radius-md);
+      border-top-left-radius: 2px;
+      box-shadow: var(--shadow-sm);
+      width: fit-content;
+      margin-top: 4px;
+    }
+    .typing-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--wa-text-muted);
+      border-radius: 50%;
+      animation: typingBounce 1.3s infinite ease-in-out;
+    }
+    .typing-dot:nth-child(1) { animation-delay: 0s; }
+    .typing-dot:nth-child(2) { animation-delay: 0.18s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.36s; }
+    @keyframes typingBounce {
+      0%, 60%, 100% { transform: translateY(0); }
+      30% { transform: translateY(-5px); }
+    }
+
+    /* TEŞHİS & SONUÇ KARTI */
+    .diag-result-card {
+      background: #ffffff;
+      border: 2px solid var(--primary);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      box-shadow: var(--shadow-md);
+      margin-top: 8px;
+      width: 100%;
+    }
+    .diag-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    .diag-badge.red { background: #fee2e2; color: #dc2626; border: 1px solid #fca5a5; }
+    .diag-badge.yellow { background: #fef3c7; color: #d97706; border: 1px solid #fde68a; }
+    .diag-badge.green { background: #dcfce7; color: #16a34a; border: 1px solid #86efac; }
+
+    .diag-title {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: #0f172a;
+      margin-bottom: 6px;
+    }
+    .diag-desc {
+      font-size: 0.88rem;
+      color: #334155;
+      line-height: 1.45;
+      margin-bottom: 12px;
+    }
+
+    .diag-box {
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      margin-bottom: 10px;
+      font-size: 0.84rem;
+      line-height: 1.45;
+    }
+    .diag-box.do {
+      background: #f0fdf4;
+      border-left: 4px solid #16a34a;
+      color: #14532d;
+    }
+    .diag-box.dont {
+      background: #fef2f2;
+      border-left: 4px solid #dc2626;
+      color: #7f1d1d;
+    }
+    .diag-box.med {
+      background: #eff6ff;
+      border-left: 4px solid #0284c7;
+      color: #1e3a8a;
+    }
+    .diag-box.ikas {
+      background: #fffbeb;
+      border-left: 4px solid #d97706;
+      color: #78350f;
+    }
+
+    .diag-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .btn-diag-act {
+      min-height: 44px;
+      border-radius: var(--radius-sm);
+      border: none;
+      font-weight: 800;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 12px;
+      transition: opacity 0.15s ease;
+    }
+    .btn-diag-act:hover { opacity: 0.9; }
+    .btn-diag-share { background: #15803d; color: #ffffff; }
+    .btn-diag-record { background: #0284c7; color: #ffffff; }
+
+    /* GENEL MODAL KATMANI */
+    .generic-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(3px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      z-index: 1000;
+    }
+    .generic-modal-overlay.active { display: flex; }
+
+    .generic-modal-box {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 580px;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+      animation: modalSlideUp 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes modalSlideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .generic-modal-hdr {
+      background: var(--wa-header-bg);
+      color: #ffffff;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+    .generic-modal-title {
+      font-size: 1.02rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .generic-modal-close {
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      font-size: 1.6rem;
+      cursor: pointer;
+      line-height: 1;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+    .generic-modal-close:hover { background: rgba(255, 255, 255, 0.2); }
+
+    .generic-modal-body {
+      padding: 14px 16px;
+      overflow-y: auto;
+      flex: 1;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .generic-modal-ftr {
+      padding: 10px 16px;
+      background: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    /* KÜPE FORMU & LİSTELERİ */
+    .form-group {
+      margin-bottom: 12px;
+    }
+    .form-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #334155;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      min-height: 44px;
+      border: 1.5px solid #cbd5e1;
+      border-radius: var(--radius-sm);
+      padding: 8px 12px;
+      font-size: 0.95rem;
+      background: #ffffff;
+      color: #0f172a;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--primary);
+      outline: none;
+    }
+
+    .kupe-card {
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: var(--radius-md);
+      padding: 12px;
+      margin-bottom: 10px;
+      box-shadow: var(--shadow-sm);
+    }
+    .kupe-card.locked-milk { border-left: 5px solid #dc2626; }
+    .kupe-card.locked-meat { border-left: 5px solid #991b1b; }
+    .kupe-card.clean { border-left: 5px solid #16a34a; }
+
+    /* TAB BUTONLARI */
+    .tab-bar {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 12px;
+      border-bottom: 1.5px solid #e2e8f0;
+      padding-bottom: 6px;
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 8px 10px;
+      border: none;
+      background: #f1f5f9;
+      color: #475569;
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      min-height: 40px;
+    }
+    .tab-btn.active {
+      background: var(--primary-dark);
+      color: #ffffff;
+    }
+
+    /* PWA BANNER */
+    .pwa-banner {
+      background: #14532d;
+      color: #ffffff;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 0.82rem;
+      flex-shrink: 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .pwa-btn {
+      background: #ffffff;
+      color: #14532d;
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 6px 12px;
+      font-weight: 800;
+      font-size: 0.78rem;
+      cursor: pointer;
+      white-space: nowrap;
+      min-height: 36px;
+    }
+
+    @media (max-width: 600px) {
+      .wa-actions { max-width: 52%; }
+      .msg-bubble { max-width: 90%; }
+      .btn-options-container { max-width: 90%; }
+      .diag-actions { grid-template-columns: 1fr; }
+    }
+  
+
+    /* ÜRETİM VE DOĞUM ÇİZELGESİ ÖZEL STİLLERİ */
+    .repro-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 12px;
+    }
+    .repro-badge.birth { background: #fee2e2; color: #dc2626; border: 1px solid #fca5a5; }
+    .repro-badge.dry { background: #fef3c7; color: #b45309; border: 1px solid #fde68a; }
+    .repro-badge.vaccine { background: #dbeafe; color: #1d4ed8; border: 1px solid #bfdbfe; }
+    .repro-badge.check { background: #dcfce7; color: #15803d; border: 1px solid #86efac; }
+
+    .timeline-track {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 12px;
+      position: relative;
+    }
+    .timeline-step {
+      display: flex;
+      gap: 12px;
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 12px;
+      transition: all 0.2s ease;
+    }
+    .timeline-step:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .timeline-step.current {
+      border-color: #008069;
+      background: #f0fdf4;
+    }
+    .timeline-icon-box {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .timeline-content {
+      flex: 1;
+    }
+    .timeline-date-txt {
+      font-size: 1rem;
+      font-weight: 900;
+      color: #0f172a;
+      margin-bottom: 2px;
+    }
+    .timeline-title-txt {
+      font-size: 0.86rem;
+      font-weight: 800;
+      color: #334155;
+      margin-bottom: 4px;
+    }
+    .timeline-desc-txt {
+      font-size: 0.78rem;
+      color: #64748b;
+      line-height: 1.45;
+    }
+
+    .species-pill-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .species-pill-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 8px;
+      background: #f8fafc;
+      border: 2px solid #cbd5e1;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 800;
+      font-size: 0.88rem;
+      color: #334155;
+      transition: all 0.2s ease;
+    }
+    .species-pill-btn.active {
+      border-color: #008069;
+      background: #ecfdf5;
+      color: #065f46;
+    }
+    .species-pill-btn span.sub {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #64748b;
+      margin-top: 2px;
+    }
+
+    .estrus-rule-card {
+      background: #fff;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 10px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="wa-app-shell">
+    <!-- ÜST BAŞLIK & ARAÇ ÇUBUĞU -->
+    <header class="wa-chat-header">
+      <div class="wa-chat-header-avatar" style="background:#008069;">
+        <svg class="lucide-icon" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      </div>
+      <div class="wa-chat-header-info">
+        <h1 class="wa-chat-header-title">Üretim Rehberi</h1>
+        <div class="wa-chat-header-status">
+          <span class="status-dot"></span>
+          <span id="wa-online-status">çevrimiçi • Döl Verimi & Doğum</span>
+        </div>
+      </div>
+
+      <div class="wa-chat-header-actions">
+        <!-- ANA PORTAL LINK BUTONU -->
+        <a href="https://mserman90.github.io/" class="wa-hdr-btn" title="Ana Sayfa (Çiftlik Portalı)" style="background:#0f172a !important; border-color:#334155 !important; text-decoration:none !important; color:#fff !important;">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span>Ana Sayfa</span>
+        </a>
+
+        <!-- ÇOBAN DOKTOR KÖPRÜSÜ -->
+        <a href="https://mserman90.github.io/coban-doktor/" class="wa-hdr-btn" title="Çoban Doktor - Sağlık & Teşhis" style="background:#075e54 !important; border-color:#25d366 !important; text-decoration:none !important; color:#fff !important;">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg>
+          <span>Çoban Doktor</span>
+        </a>
+
+        <!-- SIĞIR 283 GÜN TOHUMLAMA ÇARKI -->
+        <button class="wa-hdr-btn" onclick="openBovineModal()" title="İnek & Düve 283 Günlük Tohumlama Çarkı" style="background:#0284c7 !important; border-color:#38bdf8 !important;">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M19 5c-1.5 0-3 1-4 2.5C13.5 6 12 5.5 10 5.5S6.5 6 5 7.5C4 6 2.5 5 1 5c0 3 2 5.5 3.5 6.5C4.5 13 5 15 6 17c1.5 3 4 4 6 4s4.5-1 6-4c1-2 1.5-4 1.5-5.5C21 10.5 23 8 23 5c-1.5 0-3 1-4 2.5z"/></svg>
+          <span>Sığır (283G)</span>
+        </button>
+
+        <!-- KOYUN 150 GÜN KOÇ KATIMI ÇARKI -->
+        <button class="wa-hdr-btn" onclick="openOvineModal()" title="Koyun & Keçi 150 Günlük Koç Katımı Çarkı" style="background:#d97706 !important; border-color:#fde68a !important;">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M9 12c-1.5-1-3-1-4.5 0s-1.5 3.5 0 5 4 1 5.5 0"/><path d="M15 12c1.5-1 3-1 4.5 0s1.5 3.5 0 5-4 1-5.5 0"/><path d="M8 8a4 4 0 0 1 8 0v7a4 4 0 0 1-8 0z"/></svg>
+          <span>Koyun (150G)</span>
+        </button>
+
+        <!-- KIZGINLIK & TOHUMLAMA ZAMANLAYICI -->
+        <button class="wa-hdr-btn" onclick="openEstrusModal()" title="Kızgınlık (Östrus) & Tohumlama Zamanı">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Kızgınlık</span>
+        </button>
+
+        <!-- DAMIZLIK OLGUNLUK (KİLO & YAŞ) -->
+        <button class="wa-hdr-btn" onclick="openMaturityModal()" title="Düve ve Toklu Damızlık Eşiği">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
+          <span>Damızlık</span>
+        </button>
+
+        <!-- ÜRETİM & DOĞUM DEFTERİ -->
+        <button class="wa-hdr-btn" onclick="openReproDefteriModal()" title="Sürü Gebelik & Doğum Defteri">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4M12 16h4M8 11h.01M8 16h.01"/></svg>
+          <span>Defter</span>
+          <span class="defter-badge zero" id="defter-count-badge">0</span>
+        </button>
+
+        <!-- KILAVUZ -->
+        <button class="wa-hdr-btn" onclick="openGuideModal()" title="Kılavuz & Bilgiler">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          <span>Kılavuz</span>
+        </button>
+
+        <!-- ERİŞİLEBİLİRLİK VE SIFIRLAMA -->
+        <button class="wa-hdr-btn" onclick="toggleLargeText()" title="Yazıyı Büyüt">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" x2="15" y1="20" y2="20"/><line x1="12" x2="12" y1="4" y2="20"/></svg>
+          <span>A+</span>
+        </button>
+        <button class="wa-hdr-btn" onclick="toggleContrast()" title="Güneş Işığı Modu">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <span>Mod</span>
+        </button>
+        <button class="wa-hdr-btn" onclick="restartChat()" title="Sohbeti Sıfırla">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+          <span>Sıfırla</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- MERA ŞERİDİ -->
+    <div class="offline-badge-bar">
+      <svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><path d="m2 2 20 20"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M2 8.82a15 15 0 0 1 4.17-2.65"/><path d="M10.66 5c4.01-.36 8.14.9 11.34 3.76"/><path d="M16.85 11.25a10 10 0 0 1 2.22 1.68"/><path d="M5 13a10 10 0 0 1 5.24-2.76"/><line x1="12" x2="12.01" y1="20" y2="20"/></svg>
+      <span>%100 Çevrimdışı (İnternetsiz) • Büyükbaş & Küçükbaş Döl Verimi, Suni Tohumlama ve Koç Katımı Takvimi</span>
+    </div>
+
+    <!-- SOHBET AKIŞ ALANI -->
+    <main class="chat-container" id="chat-stream" role="log" aria-live="polite">
+      <!-- Dinamik mesajlar JS ile doldurulur -->
+    </main>
+  </div>
+
+  <!-- ======================================================================= -->
+  <!-- MODALLAR                                                                -->
+  <!-- ======================================================================= -->
+
+  <!-- 1. SIĞIR (İNEK / DÜVE) 283 GÜN TOHUMLAMA ÇARKI MODAL -->
+  <div class="generic-modal-overlay" id="bovine-modal" onclick="closeGenericModalOnBackdrop(event, 'bovine-modal')">
+    <div class="generic-modal-box">
+      <div class="generic-modal-hdr" style="background:#0284c7;">
+        <div class="generic-modal-title">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M19 5c-1.5 0-3 1-4 2.5C13.5 6 12 5.5 10 5.5S6.5 6 5 7.5C4 6 2.5 5 1 5c0 3 2 5.5 3.5 6.5C4.5 13 5 15 6 17c1.5 3 4 4 6 4s4.5-1 6-4c1-2 1.5-4 1.5-5.5C21 10.5 23 8 23 5c-1.5 0-3 1-4 2.5z"/></svg>
+          <span>Sığır 283 Günlük Tohumlama & Doğum Çarkı</span>
+        </div>
+        <button class="generic-modal-close" onclick="closeBovineModal()">&times;</button>
+      </div>
+      <div class="generic-modal-body">
+        <p style="font-size:0.84rem; color:#475569; margin-bottom:12px;">
+          Tohumlama tarihini girin; sistem <strong>dönüş kontrolünü (21. gün)</strong>, <strong>gebelik muayenesini (45-60. gün)</strong>, <strong>kuruya çıkarma zamanını (doğuma 60 gün)</strong>, <strong>aşı takvimini</strong> ve <strong>tahmini buzağılama gününü</strong> tam olarak hesaplasın:
+        </p>
+
+        <div style="background:#f0f9ff; border:1.5px solid #bae6fd; border-radius:10px; padding:12px; margin-bottom:12px;">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:10px;">
+            <div class="form-group" style="margin-bottom:0;">
+              <label class="form-label" for="bovineTagInput">🏷️ Küpe No (Opsiyonel):</label>
+              <input type="text" id="bovineTagInput" class="form-input" placeholder="Örn: TR 42 12345" style="text-transform:uppercase;">
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+              <label class="form-label" for="bovineTypeSelect">🐄 Hayvan Grubu:</label>
+              <select id="bovineTypeSelect" class="form-select">
+                <option value="Sağmal İnek">Sağmal İnek</option>
+                <option value="İlkine Düve">İlkine Düve</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom:8px;">
+            <label class="form-label" for="bovineDateInput" style="color:#0369a1; font-weight:800;">📅 Suni Tohumlama / Boğa Aşım Tarihi (*):</label>
+            <input type="date" id="bovineDateInput" class="form-input" onchange="calculateBovineTimeline()" style="font-weight:800; font-size:1.05rem;">
+          </div>
+        </div>
+
+        <div id="bovine-timeline-container" style="display:none;">
+          <!-- Otomatik zaman çizelgesi buraya basılır -->
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:12px;">
+          <button type="button" onclick="saveBovineRecord()" class="btn-diag-act" style="background:#16a34a; color:#fff;">
+            💾 Deftere Kaydet
+          </button>
+          <button type="button" onclick="shareBovineReport()" class="btn-diag-act" style="background:#0284c7; color:#fff;">
+            📤 Takvimi Paylaş
+          </button>
+        </div>
+      </div>
+      <div class="generic-modal-ftr">
+        <button onclick="closeBovineModal()" class="btn-diag-act" style="background:#64748b; color:#fff; width:100%;">Kapat</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. KOYUN & KEÇİ 150 GÜN KOÇ KATIMI ÇARKI MODAL -->
+  <div class="generic-modal-overlay" id="ovine-modal" onclick="closeGenericModalOnBackdrop(event, 'ovine-modal')">
+    <div class="generic-modal-box">
+      <div class="generic-modal-hdr" style="background:#d97706;">
+        <div class="generic-modal-title">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M9 12c-1.5-1-3-1-4.5 0s-1.5 3.5 0 5 4 1 5.5 0"/><path d="M15 12c1.5-1 3-1 4.5 0s1.5 3.5 0 5-4 1-5.5 0"/><path d="M8 8a4 4 0 0 1 8 0v7a4 4 0 0 1-8 0z"/></svg>
+          <span>Koyun & Keçi 150 Günlük Koç Katımı Takvimi</span>
+        </div>
+        <button class="generic-modal-close" onclick="closeOvineModal()">&times;</button>
+      </div>
+      <div class="generic-modal-body">
+        <p style="font-size:0.84rem; color:#475569; margin-bottom:12px;">
+          Koç veya teke katım tarihini girin; <strong>flushing beslemesini</strong>, <strong>sağımı kesme (kurutma) tarihini</strong>, <strong>doğuma 1 ay kala çelerme aşısını</strong> ve <strong>kuzulama gününü</strong> anında görün:
+        </p>
+
+        <div style="background:#fffbeb; border:1.5px solid #fde68a; border-radius:10px; padding:12px; margin-bottom:12px;">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:10px;">
+            <div class="form-group" style="margin-bottom:0;">
+              <label class="form-label" for="ovineTagInput">🏷️ Sürü / Küpe (Opsiyonel):</label>
+              <input type="text" id="ovineTagInput" class="form-input" placeholder="Örn: 1. Grup veya TR16..." style="text-transform:uppercase;">
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+              <label class="form-label" for="ovineTypeSelect">🐑 Hayvan Türü:</label>
+              <select id="ovineTypeSelect" class="form-select">
+                <option value="Koyun">Koyun (150 Gün)</option>
+                <option value="Keçi">Keçi (150 Gün)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom:8px;">
+            <label class="form-label" for="ovineDateInput" style="color:#b45309; font-weight:800;">📅 Koç / Teke Katımı Tarihi (*):</label>
+            <input type="date" id="ovineDateInput" class="form-input" onchange="calculateOvineTimeline()" style="font-weight:800; font-size:1.05rem;">
+          </div>
+        </div>
+
+        <div id="ovine-timeline-container" style="display:none;">
+          <!-- Otomatik zaman çizelgesi basılır -->
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:12px;">
+          <button type="button" onclick="saveOvineRecord()" class="btn-diag-act" style="background:#16a34a; color:#fff;">
+            💾 Deftere Kaydet
+          </button>
+          <button type="button" onclick="shareOvineReport()" class="btn-diag-act" style="background:#d97706; color:#fff;">
+            📤 Takvimi Paylaş
+          </button>
+        </div>
+      </div>
+      <div class="generic-modal-ftr">
+        <button onclick="closeOvineModal()" class="btn-diag-act" style="background:#64748b; color:#fff; width:100%;">Kapat</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. KIZGINLIK (ÖSTRUS) & TOHUMLAMA ZAMANLAYICI MODAL -->
+  <div class="generic-modal-overlay" id="estrus-modal" onclick="closeGenericModalOnBackdrop(event, 'estrus-modal')">
+    <div class="generic-modal-box">
+      <div class="generic-modal-hdr" style="background:#7c3aed;">
+        <div class="generic-modal-title">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Kızgınlık (Östrus) & Doğru Tohumlama Zamanı</span>
+        </div>
+        <button class="generic-modal-close" onclick="closeEstrusModal()">&times;</button>
+      </div>
+      <div class="generic-modal-body">
+        <div style="background:#f5f3ff; border:1.5px solid #ddd6fe; border-radius:10px; padding:12px; margin-bottom:12px;">
+          <strong style="color:#5b21b6; font-size:0.95rem; display:block; margin-bottom:6px;">⏱️ Altın Kural: Sabah - Akşam Kuralı</strong>
+          <p style="font-size:0.82rem; color:#475569; margin:0; line-height:1.45;">
+            Yumurtlama kızgınlığın bittiği andan 10-12 saat sonra gerçekleşir. Spermanın dölleme kabiliyetini koruduğu en yüksek başarı penceresi:
+          </p>
+        </div>
+
+        <div class="estrus-rule-card" style="border-left:4px solid #0284c7;">
+          <div style="font-weight:800; color:#0369a1; font-size:0.88rem; margin-bottom:4px;">
+            🌅 SABAH Kızgınlık Gösteren (Atlayan / Durulan) Hayvan:
+          </div>
+          <div style="font-size:0.82rem; color:#334155; line-height:1.45;">
+            👉 <strong>AYNI GÜN AKŞAMÜSTÜ (Saat 16:00 - 19:00 arası)</strong> tohumlatılmalıdır.
+          </div>
+        </div>
+
+        <div class="estrus-rule-card" style="border-left:4px solid #ea580c;">
+          <div style="font-weight:800; color:#c2410c; font-size:0.88rem; margin-bottom:4px;">
+            🌇 AKŞAM / GECE Kızgınlık Gösteren Hayvan:
+          </div>
+          <div style="font-size:0.82rem; color:#334155; line-height:1.45;">
+            👉 <strong>ERTESİ GÜN SABAH (Saat 07:00 - 10:00 arası)</strong> tohumlatılmalıdır.
+          </div>
+        </div>
+
+        <div style="background:#f8fafc; border:1px solid #cbd5e1; border-radius:8px; padding:10px; font-size:0.8rem; line-height:1.45;">
+          <strong>🎯 Gerçek Kızgınlık Nasıl Anlaşılır?</strong><br>
+          • <strong>Ayakta Durma Refleksi (En kesin belirti):</strong> Başka inek üzerine atladığında kaçmayıp put gibi durması.<br>
+          • <strong>Çara Akıntısı:</strong> Vajinadan kuyruğa doğru uzanan yumurta akı gibi şeffaf, temiz ve uzayan sümüksü akıntı.<br>
+          • <strong>Böğürme & Sütte Düşüş:</strong> Huzursuzluk, yem yememe ve süt veriminde geçici azalma.
+        </div>
+      </div>
+      <div class="generic-modal-ftr">
+        <button onclick="closeEstrusModal()" class="btn-diag-act" style="background:#7c3aed; color:#fff; width:100%;">Tamam, Anladım</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. DAMIZLIK OLGUNLUK HESAPLAYICI MODAL -->
+  <div class="generic-modal-overlay" id="maturity-modal" onclick="closeGenericModalOnBackdrop(event, 'maturity-modal')">
+    <div class="generic-modal-box">
+      <div class="generic-modal-hdr" style="background:#059669;">
+        <div class="generic-modal-title">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
+          <span>Düve & Toklu Damızlık Eşiği Denetimi</span>
+        </div>
+        <button class="generic-modal-close" onclick="closeMaturityModal()">&times;</button>
+      </div>
+      <div class="generic-modal-body">
+        <p style="font-size:0.84rem; color:#475569; margin-bottom:12px;">
+          Genç dişileri erken tohumlamak çatının dar kalmasına ve güç doğuma yol açar; geç tohumlamak ise yağlanma ve kısırlık yapar. Canlı ağırlık ve yaş kriterlerini denetleyin:
+        </p>
+
+        <div class="species-pill-grid">
+          <button type="button" class="species-pill-btn active" id="btnMatDuve" onclick="selectMatSpecies('duve')">
+            <span>🐄 Siyah-Alaca / Simental Düve</span>
+            <span class="sub">Hedef: 360 - 390 kg</span>
+          </button>
+          <button type="button" class="species-pill-btn" id="btnMatToklu" onclick="selectMatSpecies('toklu')">
+            <span>🐑 Damızlık Toklu (Koyun)</span>
+            <span class="sub">Hedef: 42 - 46 kg</span>
+          </button>
+        </div>
+
+        <div style="background:#f0fdf4; border:1.5px solid #a7f3d0; border-radius:10px; padding:12px; margin-bottom:12px;">
+          <div class="form-group">
+            <label class="form-label" for="matAgeInput" id="lblMatAge">📅 Hayvan Yaşı (Ay):</label>
+            <input type="number" id="matAgeInput" class="form-input" min="6" max="36" value="14" oninput="evalMaturityLive()">
+          </div>
+
+          <div class="form-group" style="margin-bottom:0;">
+            <label class="form-label" for="matWeightInput" id="lblMatWeight">⚖️ Canlı Ağırlık (kg):</label>
+            <input type="number" id="matWeightInput" class="form-input" min="20" max="600" value="380" oninput="evalMaturityLive()">
+          </div>
+        </div>
+
+        <div id="mat-eval-result" style="padding:12px; border-radius:10px; margin-bottom:10px;">
+          <!-- Canlı değerlendirme sonucu basılır -->
+        </div>
+      </div>
+      <div class="generic-modal-ftr">
+        <button onclick="closeMaturityModal()" class="btn-diag-act" style="background:#059669; color:#fff; width:100%;">Kapat</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. ÜRETİM & DOĞUM DEFTERİ MODAL -->
+  <div class="generic-modal-overlay" id="repro-defter-modal" onclick="closeGenericModalOnBackdrop(event, 'repro-defter-modal')">
+    <div class="generic-modal-box">
+      <div class="generic-modal-hdr" style="background:#0f172a;">
+        <div class="generic-modal-title">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4M12 16h4M8 11h.01M8 16h.01"/></svg>
+          <span>Sürü Üreme, Gebelik & Doğum Defteri</span>
+        </div>
+        <button class="generic-modal-close" onclick="closeReproDefteriModal()">&times;</button>
+      </div>
+      <div class="generic-modal-body">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+          <input type="text" id="defterSearchInput" placeholder="Küpe no veya grup ara..." oninput="renderDefterRecords()" style="flex:1; padding:8px 12px; border:1.5px solid #cbd5e1; border-radius:8px; font-weight:700;">
+        </div>
+
+        <div style="display:flex; gap:6px; margin-bottom:12px; flex-wrap:wrap;">
+          <button class="filter-pill active" id="f-all" onclick="setDefterFilter('all')">Tümü</button>
+          <button class="filter-pill" id="f-cow" onclick="setDefterFilter('cow')">🐄 İnek/Düve</button>
+          <button class="filter-pill" id="f-sheep" onclick="setDefterFilter('sheep')">🐑 Koyun/Keçi</button>
+          <button class="filter-pill" id="f-close" onclick="setDefterFilter('close')">🚨 Doğumu Yaklaşanlar</button>
+        </div>
+
+        <div id="defter-records-container" style="display:flex; flex-direction:column; gap:8px; max-height:340px; overflow-y:auto;">
+          <!-- Kayıtlar dinamik basılır -->
+        </div>
+      </div>
+      <div class="generic-modal-ftr">
+        <button onclick="closeReproDefteriModal()" class="btn-diag-act" style="background:#64748b; color:#fff; width:100%;">Kapat</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. KILAVUZ MODAL -->
+  <div class="generic-modal-overlay" id="guide-modal" onclick="closeGenericModalOnBackdrop(event, 'guide-modal')">
+    <div class="generic-modal-box">
+      <div class="generic-modal-hdr" style="background:#008069;">
+        <div class="generic-modal-title">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          <span>Üretim Rehberi Kullanım Kılavuzu</span>
+        </div>
+        <button class="generic-modal-close" onclick="closeGuideModal()">&times;</button>
+      </div>
+      <div class="generic-modal-body">
+        <h4 style="color:#008069; margin-bottom:6px;">🐄 Büyükbaş Üreme Dönemleri (283 Gün)</h4>
+        <ul style="padding-left:18px; font-size:0.82rem; color:#334155; line-height:1.5; margin-bottom:12px;">
+          <li><strong>21. Gün:</strong> İnek tekrar kızgınlık gösterebilir; dönüş takibi yapılmalıdır.</li>
+          <li><strong>45-60. Gün:</strong> Rektal veya ultrasonik gebelik kontrolü yapılmalıdır.</li>
+          <li><strong>223. Gün (Doğuma 60 Gün):</strong> Sağım kesinlikle kesilmeli, kuru dönem meme tüpü sıkılmalıdır.</li>
+          <li><strong>253. Gün (Doğuma 30 Gün):</strong> Buzağı ishalini önleyen karma aşı ve E-Vit/Selenyum vurulmalıdır.</li>
+          <li><strong>283. Gün:</strong> Beklenen buzağılama zamanıdır.</li>
+        </ul>
+
+        <h4 style="color:#d97706; margin-bottom:6px;">🐑 Küçükbaş Koç Katımı (150 Gün)</h4>
+        <ul style="padding-left:18px; font-size:0.82rem; color:#334155; line-height:1.5; margin-bottom:12px;">
+          <li><strong>Flushing:</strong> Koç katımından 2-3 hafta önce arpa/enerji artırılarak ikizlik tetiklenir.</li>
+          <li><strong>90. Gün (Doğuma 60 Gün):</strong> Sağılan koyunların sütü kesilir, kaba ota geçilir.</li>
+          <li><strong>120. Gün (Doğuma 30 Gün):</strong> Çelerme (enterotoksemi) karma aşısı ve selenyum uygulanır (kolostruma antikor geçer).</li>
+          <li><strong>150. Gün:</strong> Beklenen kuzulama zamanıdır.</li>
+        </ul>
+      </div>
+      <div class="generic-modal-ftr">
+        <button onclick="closeGuideModal()" class="btn-diag-act" style="background:#008069; color:#fff; width:100%;">Anladım, Kapat</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT MOTORU -->
+  <script>
+    // Dahili Vektörel İkonlar
+    const SVG_ICONS = {
+      calendar: `<svg class="lucide-icon" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>`,
+      clipboard: `<svg class="lucide-icon" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4M12 16h4M8 11h.01M8 16h.01"/></svg>`,
+      bovine: `<svg class="lucide-icon" viewBox="0 0 24 24"><path d="M19 5c-1.5 0-3 1-4 2.5C13.5 6 12 5.5 10 5.5S6.5 6 5 7.5C4 6 2.5 5 1 5c0 3 2 5.5 3.5 6.5C4.5 13 5 15 6 17c1.5 3 4 4 6 4s4.5-1 6-4c1-2 1.5-4 1.5-5.5C21 10.5 23 8 23 5c-1.5 0-3 1-4 2.5z"/></svg>`,
+      ovine: `<svg class="lucide-icon" viewBox="0 0 24 24"><path d="M9 12c-1.5-1-3-1-4.5 0s-1.5 3.5 0 5 4 1 5.5 0"/><path d="M15 12c1.5-1 3-1 4.5 0s1.5 3.5 0 5-4 1-5.5 0"/><path d="M8 8a4 4 0 0 1 8 0v7a4 4 0 0 1-8 0z"/></svg>`,
+      clock: `<svg class="lucide-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
+      activity: `<svg class="lucide-icon" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`,
+      trash: `<svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>`,
+      share: `<svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>`
+    };
+
+    const STORAGE_KEY = 'uretim_rehberi_records_v1';
+
+    function getReproRecords() {
+      try {
+        const d = localStorage.getItem(STORAGE_KEY);
+        return d ? JSON.parse(d) : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveReproRecords(list) {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+      } catch (e) {}
+      updateDefterBadge();
+    }
+
+    function updateDefterBadge() {
+      const list = getReproRecords();
+      const badge = document.getElementById("defter-count-badge");
+      if (badge) {
+        badge.textContent = list.length;
+        if (list.length > 0) badge.classList.remove("zero");
+        else badge.classList.add("zero");
+      }
+    }
+
+    function formatTrDate(dateObj) {
+      return dateObj.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' });
+    }
+
+    function addDays(baseDate, days) {
+      return new Date(baseDate.getTime() + days * 86400000);
+    }
+
+    // Modal yardımcıları
+    function openModal(id) {
+      const el = document.getElementById(id);
+      if (el) el.classList.add('active');
+    }
+    function closeModal(id) {
+      const el = document.getElementById(id);
+      if (el) el.classList.remove('active');
+    }
+    function closeGenericModalOnBackdrop(e, id) {
+      if (e.target && e.target.id === id) closeModal(id);
+    }
+
+    function openBovineModal() { openModal('bovine-modal'); }
+    function closeBovineModal() { closeModal('bovine-modal'); }
+    function openOvineModal() { openModal('ovine-modal'); }
+    function closeOvineModal() { closeModal('ovine-modal'); }
+    function openEstrusModal() { openModal('estrus-modal'); }
+    function closeEstrusModal() { closeModal('estrus-modal'); }
+    function openMaturityModal() { openModal('maturity-modal'); evalMaturityLive(); }
+    function closeMaturityModal() { closeModal('maturity-modal'); }
+    function openReproDefteriModal() { openModal('repro-defter-modal'); renderDefterRecords(); }
+    function closeReproDefteriModal() { closeModal('repro-defter-modal'); }
+    function openGuideModal() { openModal('guide-modal'); }
+    function closeGuideModal() { closeModal('guide-modal'); }
+
+    function toggleContrast() { document.body.classList.toggle('high-contrast'); }
+    function toggleLargeText() { document.body.classList.toggle('large-text'); }
+
+    // =========================================================================
+    // 1. SIĞIR 283 GÜN TOHUMLAMA HESAPLAMA MOTORU
+    // =========================================================================
+    let currentBovineCalc = null;
+
+    function calculateBovineTimeline() {
+      const val = document.getElementById("bovineDateInput") ? document.getElementById("bovineDateInput").value : "";
+      const box = document.getElementById("bovine-timeline-container");
+      if (!val || !box) return;
+
+      const startDate = new Date(val + "T00:00:00");
+      if (isNaN(startDate.getTime())) return;
+
+      const now = new Date();
+      now.setHours(0,0,0,0);
+
+      const dReturn = addDays(startDate, 21);
+      const dCheck = addDays(startDate, 50);
+      const dDry = addDays(startDate, 223); // Doğuma 60 gün
+      const dVac = addDays(startDate, 253); // Doğuma 30 gün
+      const dBirth = addDays(startDate, 283); // Doğum
+
+      const daysLeft = Math.round((dBirth.getTime() - now.getTime()) / 86400000);
+
+      const tagVal = (document.getElementById("bovineTagInput") ? document.getElementById("bovineTagInput").value : "").trim().toUpperCase() || "BÜYÜKBAŞ";
+      const typeVal = (document.getElementById("bovineTypeSelect") ? document.getElementById("bovineTypeSelect").value : "Sağmal İnek");
+
+      currentBovineCalc = {
+        species: 'sigir',
+        tag: tagVal,
+        type: typeVal,
+        startDateStr: val,
+        birthDateMs: dBirth.getTime(),
+        dryDateMs: dDry.getTime(),
+        vacDateMs: dVac.getTime(),
+        daysLeft: daysLeft
+      };
+
+      let badgeHtml = "";
+      if (daysLeft > 0) {
+        badgeHtml = '<span class="repro-badge birth">⏳ Doğuma ' + daysLeft + ' Gün Kaldı</span>';
+      } else if (daysLeft === 0) {
+        badgeHtml = '<span class="repro-badge birth">🚨 BUGÜN BEKLENEN DOĞUM GÜNÜ!</span>';
+      } else {
+        badgeHtml = '<span class="repro-badge" style="background:#f1f5f9; color:#475569;">Günü ' + Math.abs(daysLeft) + ' Gün Geçti</span>';
+      }
+
+      box.style.display = "block";
+      box.innerHTML = 
+        '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">' +
+          '<strong style="color:#0f172a; font-size:0.9rem;">📋 283 Günlük Buzağılama Çizelgesi:</strong>' +
+          badgeHtml +
+        '</div>' +
+        '<div class="timeline-track">' +
+          '<div class="timeline-step">' +
+            '<div class="timeline-icon-box" style="background:#fef3c7; color:#b45309;">🔄</div>' +
+            '<div class="timeline-content">' +
+              '<div class="timeline-date-txt">' + formatTrDate(dReturn) + '</div>' +
+              '<div class="timeline-title-txt">21. Gün: Tekrar Kızgınlık Arama (Dönüş Kontrolü)</div>' +
+              '<div class="timeline-desc-txt">Tohumlama tutmadıysa inek bu günlerde tekrar atlar. Sabah-akşam çara ve atlama kontrolü yapın.</div>' +
+            '</div>' +
+          '</div>' +
+          '<div class="timeline-step">' +
+            '<div class="timeline-icon-box" style="background:#dcfce7; color:#15803d;">🩺</div>' +
+            '<div class="timeline-content">' +
+              '<div class="timeline-date-txt">' + formatTrDate(dCheck) + '</div>' +
+              '<div class="timeline-title-txt">45 - 60. Gün: Ultrason / Rektal Gebelik Muayenesi</div>' +
+              '<div class="timeline-desc-txt">Veteriner hekim çağırarak gebeliği kesinleştirin. Boş çıkan ineklerin tohumlama protokolü yenilenir.</div>' +
+            '</div>' +
+          '</div>' +
+          '<div class="timeline-step">' +
+            '<div class="timeline-icon-box" style="background:#fef3c7; color:#b45309;">🥛</div>' +
+            '<div class="timeline-content">' +
+              '<div class="timeline-date-txt" style="color:#b45309;">' + formatTrDate(dDry) + '</div>' +
+              '<div class="timeline-title-txt">223. Gün: Kuruya Çıkarma Zamanı (Doğuma 60 Gün Kala)</div>' +
+              '<div class="timeline-desc-txt">Sağımı kesin! Meme içine kuru dönem tüpü uygulayın. Meme dokusu ve işkembe dinlenmeye alınmalıdır.</div>' +
+            '</div>' +
+          '</div>' +
+          '<div class="timeline-step">' +
+            '<div class="timeline-icon-box" style="background:#dbeafe; color:#1d4ed8;">💉</div>' +
+            '<div class="timeline-content">' +
+              '<div class="timeline-date-txt" style="color:#1d4ed8;">' + formatTrDate(dVac) + '</div>' +
+              '<div class="timeline-title-txt">253. Gün: Doğuma 1 Ay Kala Hazırlık (Aşı & Selenyum)</div>' +
+              '<div class="timeline-desc-txt">Kombine buzağı ishal aşısı (Rota/Corona/E. coli) ve E-Vitamini + Selenyum iğnesi yapın. Antikorlar ağız sütüne geçer.</div>' +
+            '</div>' +
+          '</div>' +
+          '<div class="timeline-step current">' +
+            '<div class="timeline-icon-box" style="background:#fee2e2; color:#dc2626;">🎉</div>' +
+            '<div class="timeline-content">' +
+              '<div class="timeline-date-txt" style="color:#dc2626; font-size:1.1rem;">' + formatTrDate(dBirth) + '</div>' +
+              '<div class="timeline-title-txt" style="color:#991b1b;">283. Gün: Beklenen Buzağılama Günü (+/- 5 Gün)</div>' +
+              '<div class="timeline-desc-txt">Doğum locasını bol kuru sapla kaplayın. Doğum anında anneye müdahale için acil doğum setini hazır tutun.</div>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
+    }
+
+    function saveBovineRecord() {
+      if (!currentBovineCalc) {
+        alert("Lütfen önce tohumlama tarihini seçiniz.");
+        return;
+      }
+      const list = getReproRecords();
+      list.unshift({
+        id: 'rec_' + Date.now(),
+        species: currentBovineCalc.species,
+        tag: currentBovineCalc.tag,
+        type: currentBovineCalc.type,
+        startDateStr: currentBovineCalc.startDateStr,
+        birthDateMs: currentBovineCalc.birthDateMs,
+        dryDateMs: currentBovineCalc.dryDateMs,
+        vacDateMs: currentBovineCalc.vacDateMs,
+        daysLeft: currentBovineCalc.daysLeft,
+        createdAt: Date.now()
+      });
+      saveReproRecords(list);
+      alert("✅ Tohumlama takvimi başarıyla deftere kaydedildi!");
+    }
+
+    function shareBovineReport() {
+      if (!currentBovineCalc) {
+        alert("Lütfen önce tohumlama tarihini seçiniz.");
+        return;
+      }
+      const c = currentBovineCalc;
+      const sDate = new Date(c.startDateStr + "T00:00:00");
+      const bDate = new Date(c.birthDateMs);
+      const dDate = new Date(c.dryDateMs);
+      const vDate = new Date(c.vacDateMs);
+
+      const msg = '*ÜRETİM REHBERİ - SIĞIR TOHUMLAMA VE DOĞUM RAPORU*\n' +
+        '🐄 *Hayvan:* ' + c.tag + ' (' + c.type + ')\n' +
+        '📅 *Tohumlama Tarihi:* ' + formatTrDate(sDate) + '\n\n' +
+        '🎯 *Tahmini Doğum Tarihi:* ' + formatTrDate(bDate) + ' (' + (c.daysLeft > 0 ? c.daysLeft + ' gün kaldı' : 'Vadesi doldu') + ')\n' +
+        '🥛 *Kuruya Çıkarma (Doğuma 60 Gün):* ' + formatTrDate(dDate) + '\n' +
+        '💉 *Aşı & Selenyum (Doğuma 30 Gün):* ' + formatTrDate(vDate) + '\n\n' +
+        'Üretim Rehberi tarafından hesaplanmıştır.';
+
+      window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank');
+    }
+
+    // =========================================================================
+    // 2. KOYUN & KEÇİ 150 GÜN KOÇ KATIMI HESAPLAMA MOTORU
+    // =========================================================================
+    let currentOvineCalc = null;
+
+    function calculateOvineTimeline() {
+      const val = document.getElementById("ovineDateInput") ? document.getElementById("ovineDateInput").value : "";
+      const box = document.getElementById("ovine-timeline-container");
+      if (!val || !box) return;
+
+      const startDate = new Date(val + "T00:00:00");
+      if (isNaN(startDate.getTime())) return;
+
+      const now = new Date();
+      now.setHours(0,0,0,0);
+
+      const dCheck = addDays(startDate, 50);
+      const dDry = addDays(startDate, 90); // Doğuma 60 gün
+      const dVac = addDays(startDate, 120); // Doğuma 30 gün
+      const dBirth = addDays(startDate, 150); // Doğum
+
+      const daysLeft = Math.round((dBirth.getTime() - now.getTime()) / 86400000);
+
+      const tagVal = (document.getElementById("ovineTagInput") ? document.getElementById("ovineTagInput").value : "").trim().toUpperCase() || "KÜÇÜKBAŞ";
+      const typeVal = (document.getElementById("ovineTypeSelect") ? document.getElementById("ovineTypeSelect").value : "Koyun");
+
+      currentOvineCalc = {
+        species: 'koyun',
+        tag: tagVal,
+        type: typeVal,
+        startDateStr: val,
+        birthDateMs: dBirth.getTime(),
+        dryDateMs: dDry.getTime(),
+        vacDateMs: dVac.getTime(),
+        daysLeft: daysLeft
+      };
+
+      let badgeHtml = "";
+      if (daysLeft > 0) {
+        badgeHtml = '<span class="repro-badge birth">⏳ Doğuma ' + daysLeft + ' Gün Kaldı</span>';
+      } else if (daysLeft === 0) {
+        badgeHtml = '<span class="repro-badge birth">🚨 BUGÜN BEKLENEN KUZULAMA GÜNÜ!</span>';
+      } else {
+        badgeHtml = '<span class="repro-badge" style="background:#f1f5f9; color:#475569;">Günü ' + Math.abs(daysLeft) + ' Gün Geçti</span>';
+      }
+
+      box.style.display = "block";
+      box.innerHTML = 
+        '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">' +
+          '<strong style="color:#0f172a; font-size:0.9rem;">📋 150 Günlük Kuzulama Çizelgesi:</strong>' +
+          badgeHtml +
+        '</div>' +
+        '<div class="timeline-track">' +
+          '<div class="timeline-step">' +
+            '<div class="timeline-icon-box" style="background:#fef3c7; color:#b45309;">🌾</div>' +
+            '<div class="timeline-content">' +
+              '<div class="timeline-date-txt">' + formatTrDate(startDate) + '</div>' +
+              '<div class="timeline-title-txt">0. Gün: Koç Katımı & Flushing Beslemesi</div>' +
+              '<div class="timeline-desc-txt">Koç katımından 2 hafta önce başlayıp 2 hafta sonrasına kadar koyunlara kaliteli arpa ve ezme vererek ikizlik oranını artırın.</div>' +
+            '</div>' +
+          '</div>' +
+          '<div class="timeline-step">' +
+            '<div class="timeline-icon-box" style="background:#dcfce7; color:#15803d;">🩺</div>' +
+            '<div class="timeline-content">' +
+              '<div class="timeline-date-txt">' + formatTrDate(dCheck) + '</div>' +
+              '<div class="timeline-title-txt">45 - 60. Gün: Ultrasonla Gebelik & İkizlik Tespiti</div>' +
+              '<div class="timeline-desc-txt">Taşınabilir ultrasonla döl tutmayanları ve ikiz gebeleri ayırın. İkiz analara son ay ekstra rasyon verilecektir.</div>' +
+            '</div>' +
+          '</div>' +
+          '<div class="timeline-step">' +
+            '<div class="timeline-icon-box" style="background:#fef3c7; color:#b45309;">🥛</div>' +
+            '<div class="timeline-content">' +
+              '<div class="timeline-date-txt" style="color:#b45309;">' + formatTrDate(dDry) + '</div>' +
+              '<div class="timeline-title-txt">90. Gün: Sağımı Kesme / Kurutma (Doğuma 60 Gün Kala)</div>' +
+              '<div class="timeline-desc-txt">Koyun sağılıyorsa sağımı kesin. Anne karnındaki kuzu son 2 ayda ağırlığının %70\'ini alır.</div>' +
+            '</div>' +
+          '</div>' +
+          '<div class="timeline-step">' +
+            '<div class="timeline-icon-box" style="background:#dbeafe; color:#1d4ed8;">💉</div>' +
+            '<div class="timeline-content">' +
+              '<div class="timeline-date-txt" style="color:#1d4ed8;">' + formatTrDate(dVac) + '</div>' +
+              '<div class="timeline-title-txt">120. Gün: Doğuma 1 Ay Kala (Çelerme Aşısı & Selenyum)</div>' +
+              '<div class="timeline-desc-txt">Çelerme (Enterotoksemi) karma aşısı ve E-Selenyum vurun. Antikorlar kolostruma geçerek kuzuyu yem çarpmasından ve beyaz kas hastalığından korur.</div>' +
+            '</div>' +
+          '</div>' +
+          '<div class="timeline-step current">' +
+            '<div class="timeline-icon-box" style="background:#fee2e2; color:#dc2626;">🐑</div>' +
+            '<div class="timeline-content">' +
+              '<div class="timeline-date-txt" style="color:#dc2626; font-size:1.1rem;">' + formatTrDate(dBirth) + '</div>' +
+              '<div class="timeline-title-txt" style="color:#991b1b;">150. Gün: Beklenen Kuzulama Günü (+/- 3 Gün)</div>' +
+              '<div class="timeline-desc-txt">Ağılda doğum localarını bol kuru samanla hazırlayın. Doğar doğmaz ilk 2 saatte ağız sütünü (kolostrum) içirin.</div>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
+    }
+
+    function saveOvineRecord() {
+      if (!currentOvineCalc) {
+        alert("Lütfen önce koç katımı tarihini seçiniz.");
+        return;
+      }
+      const list = getReproRecords();
+      list.unshift({
+        id: 'rec_' + Date.now(),
+        species: currentOvineCalc.species,
+        tag: currentOvineCalc.tag,
+        type: currentOvineCalc.type,
+        startDateStr: currentOvineCalc.startDateStr,
+        birthDateMs: currentOvineCalc.birthDateMs,
+        dryDateMs: currentOvineCalc.dryDateMs,
+        vacDateMs: currentOvineCalc.vacDateMs,
+        daysLeft: currentOvineCalc.daysLeft,
+        createdAt: Date.now()
+      });
+      saveReproRecords(list);
+      alert("✅ Koç katımı takvimi başarıyla deftere kaydedildi!");
+    }
+
+    function shareOvineReport() {
+      if (!currentOvineCalc) {
+        alert("Lütfen önce koç katımı tarihini seçiniz.");
+        return;
+      }
+      const c = currentOvineCalc;
+      const sDate = new Date(c.startDateStr + "T00:00:00");
+      const bDate = new Date(c.birthDateMs);
+      const dDate = new Date(c.dryDateMs);
+      const vDate = new Date(c.vacDateMs);
+
+      const msg = '*ÜRETİM REHBERİ - KOYUN KOÇ KATIMI VE KUZULAMA RAPORU*\n' +
+        '🐑 *Grup/Küpe:* ' + c.tag + ' (' + c.type + ')\n' +
+        '📅 *Koç Katımı Tarihi:* ' + formatTrDate(sDate) + '\n\n' +
+        '🎯 *Tahmini Kuzulama Tarihi:* ' + formatTrDate(bDate) + ' (' + (c.daysLeft > 0 ? c.daysLeft + ' gün kaldı' : 'Vadesi doldu') + ')\n' +
+        '🥛 *Kurutma (Doğuma 60 Gün):* ' + formatTrDate(dDate) + '\n' +
+        '💉 *Çelerme Aşısı & Selenyum (Doğuma 30 Gün):* ' + formatTrDate(vDate) + '\n\n' +
+        'Üretim Rehberi tarafından hesaplanmıştır.';
+
+      window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank');
+    }
+
+    // =========================================================================
+    // 3. DAMIZLIK OLGUNLUK DEĞERLENDİRME MOTORU
+    // =========================================================================
+    let currentMatSpecies = 'duve';
+
+    function selectMatSpecies(sp) {
+      currentMatSpecies = sp;
+      const b1 = document.getElementById("btnMatDuve");
+      const b2 = document.getElementById("btnMatToklu");
+      const lAge = document.getElementById("lblMatAge");
+      const lW = document.getElementById("lblMatWeight");
+      const inAge = document.getElementById("matAgeInput");
+      const inW = document.getElementById("matWeightInput");
+
+      if (sp === 'duve') {
+        if (b1) b1.classList.add("active");
+        if (b2) b2.classList.remove("active");
+        if (lAge) lAge.textContent = "📅 Düve Yaşı (Ay):";
+        if (lW) lW.textContent = "⚖️ Canlı Ağırlık (kg):";
+        if (inAge) inAge.value = 14;
+        if (inW) inW.value = 380;
+      } else {
+        if (b1) b1.classList.remove("active");
+        if (b2) b2.classList.add("active");
+        if (lAge) lAge.textContent = "📅 Toklu Yaşı (Ay):";
+        if (lW) lW.textContent = "⚖️ Canlı Ağırlık (kg):";
+        if (inAge) inAge.value = 9;
+        if (inW) inW.value = 44;
+      }
+      evalMaturityLive();
+    }
+
+    function evalMaturityLive() {
+      const inAge = document.getElementById("matAgeInput");
+      const inW = document.getElementById("matWeightInput");
+      const age = parseFloat(inAge ? inAge.value : 0) || 0;
+      const w = parseFloat(inW ? inW.value : 0) || 0;
+      const res = document.getElementById("mat-eval-result");
+      if (!res) return;
+
+      if (currentMatSpecies === 'duve') {
+        if (age < 12 || w < 340) {
+          res.className = "estrus-rule-card";
+          res.style.borderLeft = "4px solid #dc2626";
+          res.style.background = "#fef2f2";
+          res.innerHTML = 
+            '<strong style="color:#991b1b; font-size:0.9rem;">🔴 HENÜZ ERKEN (Gelişme Yetersiz)!</strong>' +
+            '<p style="font-size:0.8rem; color:#475569; margin:4px 0 0 0;">' +
+              'Düve henüz ergin ağırlığının %60\'ına ulaşmamıştır (' + w + ' kg / ' + age + ' aylık). Şimdi tohumlanırsa çatısı dar kalır, güç doğum yapar ve büyümesi durur. Kilo 370 kg\'a gelene kadar tohumlamayı erteleyin.' +
+            '</p>';
+        } else if (age > 18 && w > 480) {
+          res.className = "estrus-rule-card";
+          res.style.borderLeft = "4px solid #d97706";
+          res.style.background = "#fffbeb";
+          res.innerHTML = 
+            '<strong style="color:#b45309; font-size:0.9rem;">🟡 GEÇ KALINMIŞ / YAĞLANMA RİSKİ!</strong>' +
+            '<p style="font-size:0.8rem; color:#475569; margin:4px 0 0 0;">' +
+              'Düve ' + age + ' aylık ve ' + w + ' kg olmuş. Aşırı yağlanma rahim ve yumurtalıklarda döl tutmayı zorlaştırır. Kesif yemi kısıp kaba ota geçin ve ilk kızgınlıkta vakit kaybetmeden tohumlatın.' +
+            '</p>';
+        } else {
+          res.className = "estrus-rule-card";
+          res.style.borderLeft = "4px solid #16a34a";
+          res.style.background = "#f0fdf4";
+          res.innerHTML = 
+            '<strong style="color:#166534; font-size:0.9rem;">🟢 İDEAL DAMIZLIK OLGUNLUĞU!</strong>' +
+            '<p style="font-size:0.8rem; color:#475569; margin:4px 0 0 0;">' +
+              'Düvenin yaşı (' + age + ' ay) ve canlı ağırlığı (' + w + ' kg) ilk suni tohumlama için mükemmeldir. İlk görülecek kuvvetli kızgınlıkta sabah-akşam kuralına uyarak tohumlatabilirsiniz.' +
+            '</p>';
+        }
+      } else {
+        if (age < 7 || w < 38) {
+          res.className = "estrus-rule-card";
+          res.style.borderLeft = "4px solid #dc2626";
+          res.style.background = "#fef2f2";
+          res.innerHTML = 
+            '<strong style="color:#991b1b; font-size:0.9rem;">🔴 HENÜZ ERKEN (Kuzu Büyümesi Sürüyor)!</strong>' +
+            '<p style="font-size:0.8rem; color:#475569; margin:4px 0 0 0;">' +
+              'Toklu ' + w + ' kg ve ' + age + ' aylıktır. Koça verilirse vücut gelişimi yarım kalır ve kuzusunu besleyemez. Ağırlığı en az 42 kg olana kadar koçtan ayrı tutun.' +
+            '</p>';
+        } else {
+          res.className = "estrus-rule-card";
+          res.style.borderLeft = "4px solid #16a34a";
+          res.style.background = "#f0fdf4";
+          res.innerHTML = 
+            '<strong style="color:#166534; font-size:0.9rem;">🟢 KOÇ KATIMINA UYGUN!</strong>' +
+            '<p style="font-size:0.8rem; color:#475569; margin:4px 0 0 0;">' +
+              'Damızlık toklu ergin ağırlığının %65\'ine (' + w + ' kg / ' + age + ' ay) ulaşmıştır. Koç katımı sürüsüne dahil edebilirsiniz.' +
+            '</p>';
+        }
+      }
+    }
+
+    // =========================================================================
+    // 4. DEFTER VE KAYIT YÖNETİMİ
+    // =========================================================================
+    let defterFilter = 'all';
+
+    function setDefterFilter(f) {
+      defterFilter = f;
+      ['all', 'cow', 'sheep', 'close'].forEach(k => {
+        const btn = document.getElementById('f-' + k);
+        if (btn) btn.classList.toggle('active', k === f);
+      });
+      renderDefterRecords();
+    }
+
+    function renderDefterRecords() {
+      const container = document.getElementById("defter-records-container");
+      const searchInp = document.getElementById("defterSearchInput");
+      const search = (searchInp ? searchInp.value : "").trim().toUpperCase();
+      if (!container) return;
+
+      let list = getReproRecords();
+      const now = new Date();
+      now.setHours(0,0,0,0);
+
+      if (search) {
+        list = list.filter(r => (r.tag && r.tag.includes(search)) || (r.type && r.type.toUpperCase().includes(search)));
+      }
+
+      if (defterFilter === 'cow') {
+        list = list.filter(r => r.species === 'sigir');
+      } else if (defterFilter === 'sheep') {
+        list = list.filter(r => r.species === 'koyun');
+      } else if (defterFilter === 'close') {
+        list = list.filter(r => {
+          const diff = Math.round((r.birthDateMs - now.getTime()) / 86400000);
+          return diff >= 0 && diff <= 30;
+        });
+      }
+
+      if (list.length === 0) {
+        container.innerHTML = 
+          '<div style="text-align:center; padding:24px; color:#64748b; font-size:0.85rem;">' +
+            'Kayıt bulunamadı. Tohumlama veya koç katımı hesaplayarak deftere ekleyebilirsiniz.' +
+          '</div>';
+        return;
+      }
+
+      container.innerHTML = list.map(r => {
+        const bDate = new Date(r.birthDateMs);
+        const sDate = new Date(r.startDateStr + "T00:00:00");
+        const diff = Math.round((r.birthDateMs - now.getTime()) / 86400000);
+
+        let statusBadge = "";
+        if (diff > 0) {
+          statusBadge = '<span class="repro-badge birth">Doğuma ' + diff + ' Gün</span>';
+        } else if (diff === 0) {
+          statusBadge = '<span class="repro-badge birth">BUGÜN DOĞUM!</span>';
+        } else {
+          statusBadge = '<span class="repro-badge" style="background:#f1f5f9; color:#475569;">Günü Geçti (' + Math.abs(diff) + 'g)</span>';
+        }
+
+        const isCow = r.species === 'sigir';
+
+        return '<div style="background:#fff; border:1.5px solid #e2e8f0; border-radius:10px; padding:10px;">' +
+          '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">' +
+            '<strong style="color:#0f172a; font-size:0.95rem;">' + (isCow ? '🐄 ' : '🐑 ') + r.tag + ' (' + r.type + ')</strong>' +
+            statusBadge +
+          '</div>' +
+          '<div style="font-size:0.8rem; color:#475569; margin-bottom:6px;">' +
+            (isCow ? 'Tohumlama' : 'Koç Katımı') + ': <strong>' + formatTrDate(sDate) + '</strong> • Beklenen Doğum: <strong style="color:#b91c1c;">' + formatTrDate(bDate) + '</strong>' +
+          '</div>' +
+          '<div style="display:flex; justify-content:flex-end; gap:6px;">' +
+            '<button onclick="shareSingleRecord(\'' + r.id + '\')" class="btn-diag-act" style="padding:4px 8px; font-size:0.75rem; background:#0284c7; color:#fff;">' + SVG_ICONS.share + ' Paylaş</button>' +
+            '<button onclick="deleteSingleRecord(\'' + r.id + '\')" class="btn-diag-act" style="padding:4px 8px; font-size:0.75rem; background:#fee2e2; color:#dc2626;">' + SVG_ICONS.trash + ' Sil</button>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+    }
+
+    function deleteSingleRecord(id) {
+      if (!confirm("Bu üreme/doğum takvim kaydını silmek istediğinize emin misiniz?")) return;
+      let list = getReproRecords();
+      list = list.filter(r => r.id !== id);
+      saveReproRecords(list);
+      renderDefterRecords();
+    }
+
+    function shareSingleRecord(id) {
+      const list = getReproRecords();
+      const r = list.find(x => x.id === id);
+      if (!r) return;
+
+      const isCow = r.species === 'sigir';
+      const bDate = new Date(r.birthDateMs);
+      const sDate = new Date(r.startDateStr + "T00:00:00");
+      const dDate = new Date(r.dryDateMs);
+      const vDate = new Date(r.vacDateMs);
+
+      const msg = '*ÜRETİM REHBERİ - GEBELİK TAKİP BİLGİSİ*\n' +
+        '🐾 *Hayvan:* ' + r.tag + ' (' + r.type + ')\n' +
+        '📅 *' + (isCow ? 'Tohumlama' : 'Koç Katımı') + ':* ' + formatTrDate(sDate) + '\n' +
+        '🎯 *Beklenen Doğum:* ' + formatTrDate(bDate) + '\n' +
+        '🥛 *Kuruya Çıkarma:* ' + formatTrDate(dDate) + '\n' +
+        '💉 *Aşı & Selenyum:* ' + formatTrDate(vDate) + '\n\n' +
+        'Üretim Rehberi tarafından hesaplanmıştır.';
+
+      window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank');
+    }
+
+    // =========================================================================
+    // 5. ETKİLEŞİMLİ SOHBET MOTORU (CHAT ASSISTANT)
+    // =========================================================================
+    const chatStream = document.getElementById("chat-stream");
+
+    function scrollChat() {
+      setTimeout(() => {
+        if (chatStream) chatStream.scrollTop = chatStream.scrollHeight;
+      }, 50);
+    }
+
+    function getTimeString() {
+      const d = new Date();
+      return String(d.getHours()).padStart(2, '0') + ":" + String(d.getMinutes()).padStart(2, '0');
+    }
+
+    function addIncomingMessage(htmlContent, options) {
+      const row = document.createElement("div");
+      row.className = "msg-row incoming";
+
+      let optsHtml = "";
+      if (options && options.length > 0) {
+        optsHtml = '<div class="btn-options-container">' +
+          options.map(opt => 
+            '<button class="wa-choice-btn ' + (opt.class || '') + '" onclick="' + opt.action + '">' +
+              (opt.icon ? '<span>' + opt.icon + '</span>' : '') +
+              '<span>' + opt.text + '</span>' +
+            '</button>'
+          ).join("") +
+          '</div>';
+      }
+
+      row.innerHTML = 
+        '<div class="msg-bubble">' +
+          htmlContent +
+          '<span class="msg-time">' + getTimeString() + '</span>' +
+        '</div>' +
+        optsHtml;
+
+      chatStream.appendChild(row);
+      scrollChat();
+    }
+
+    function addOutgoingMessage(text) {
+      const row = document.createElement("div");
+      row.className = "msg-row outgoing";
+      row.innerHTML = 
+        '<div class="msg-bubble">' +
+          text +
+          '<span class="msg-time">' + getTimeString() + ' <span class="check">✓✓</span></span>' +
+        '</div>';
+      chatStream.appendChild(row);
+      scrollChat();
+    }
+
+    function showTyping(callback, delay) {
+      const d = delay || 350;
+      const typingEl = document.createElement("div");
+      typingEl.className = "msg-row incoming";
+      typingEl.id = "typingIndicator";
+      typingEl.innerHTML = 
+        '<div class="typing-indicator">' +
+          '<span class="typing-dot"></span>' +
+          '<span class="typing-dot"></span>' +
+          '<span class="typing-dot"></span>' +
+        '</div>';
+      chatStream.appendChild(typingEl);
+      scrollChat();
+
+      const st = document.getElementById("wa-online-status");
+      if (st) st.textContent = "yazıyor...";
+
+      setTimeout(() => {
+        const el = document.getElementById("typingIndicator");
+        if (el) el.remove();
+        if (st) st.textContent = "çevrimiçi • Döl Verimi & Doğum";
+        callback();
+      }, d);
+    }
+
+    function startConversation() {
+      chatStream.innerHTML = '<div class="chat-date-pill">BUGÜN</div>';
+
+      showTyping(() => {
+        addIncomingMessage(
+          'Merhaba! Ben <strong>Üretim Rehberi</strong>.<br><br>' +
+          'Çiftliğinizdeki inek, düve, koyun ve keçiler için <strong>tohumlama, koç katımı, kuruya çıkarma ve doğum zamanını</strong> bilimsel takvimle takip edelim.<br><br>' +
+          'Bugün hangi üreme konusunu incelemek istiyorsun?',
+          [
+            { icon: SVG_ICONS.bovine, text: "🐄 İnek / Düve Tohumladım (283 Gün Çarkı)", action: "openBovineModal()", class: "primary" },
+            { icon: SVG_ICONS.ovine, text: "🐑 Koç / Teke Kattım (150 Gün Çarkı)", action: "openOvineModal()", class: "warning" },
+            { icon: SVG_ICONS.clock, text: "⏳ Kızgınlık Gördüm, Ne Zaman Tohumlatmalıyım?", action: "openEstrusModal()" },
+            { icon: SVG_ICONS.activity, text: "⚖️ Düvem / Toklum Damızlığa Uygun mu? (Kilo/Yaş)", action: "openMaturityModal()" },
+            { icon: SVG_ICONS.clipboard, text: "📋 Kayıtlı Gebelik & Doğum Defteri", action: "openReproDefteriModal()" }
+          ]
+        );
+      }, 300);
+    }
+
+    function restartChat() {
+      startConversation();
+    }
+
+    // Başlangıç
+    window.addEventListener('DOMContentLoaded', () => {
+      startConversation();
+      updateDefterBadge();
+    });
+  </script>
+</body>
+</html>
