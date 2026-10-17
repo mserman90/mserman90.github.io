@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
   <meta name="theme-color" content="#14532d">
   <meta name="color-scheme" content="light dark">
-  <meta name="description" content="Koyun Rehberi - Ağıl, mera ve küçükbaş çiftlikleri için %100 internetsiz çalışan etkileşimli sohbet tabanlı koyun ve kuzu sağlık teşhisi, koç katımı gebelik takvimi, kuzu hipotermi canlandırma, İKAS et/süt arınma süresi ve canlı kilo ölçer.">
-  <meta name="keywords" content="Koyun Rehberi, koyun sağlık asistanı, kuzu bakımı, çelerme enterotoksemi, ikiz kuzu gebelik zehirlenmesi, koç katımı takvimi, kuzu ishali sıvı hesabı, küçükbaş ikas et süt süresi, koyun kilo ölçer şerit metre, piyeten tırnak banyosu">
+  <meta name="description" content="Koyun Rehberi - Ağıl, mera ve küçükbaş çiftlikleri için %100 internetsiz çalışan koç katımı gebelik takvimi, kuzu bakımı & sıvı hesabı, İKAS arınma defteri ve şerit metreyle canlı kilo ölçer.">
+  <meta name="keywords" content="Koyun Rehberi, koç katımı takvimi, kuzu bakımı, kuzu ishali sıvı hesabı, küçükbaş ikas et süt süresi, koyun kilo ölçer şerit metre">
   <meta name="author" content="Dr. Mert Serman / Koyun Rehberi">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="https://mserman90.github.io/koyun-rehberi/">
@@ -28,7 +28,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mserman90.github.io/koyun-rehberi/">
   <meta property="og:title" content="Koyun Rehberi - Ağıl & Küçükbaş Sürü Sağlık Asistanı">
-  <meta property="og:description" content="İnternetsiz çalışan etkileşimli sohbet tabanlı koyun ve kuzu hastalık teşhisi, koç katımı takvimi, kuzu hipotermi triyajı ve İKAS arınma defteri.">
+  <meta property="og:description" content="İnternetsiz çalışan koç katımı takvimi, kuzu donma & sıvı hesabı, İKAS arınma defteri ve şerit metre kilo ölçer asistanı.">
   <meta property="og:image" content="https://mserman90.github.io/koyun-rehberi/og-image.png">
   <meta property="og:locale" content="tr_TR">
   <meta property="og:site_name" content="Koyun Rehberi">
@@ -42,13 +42,13 @@
     "alternateName": "Interactive Sheep & Lamb Health Assistant PWA",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "All",
-    "description": "Ağıl ve küçükbaş yetiştiricileri için etkileşimli sohbet arayüzüyle çalışan koyun ve kuzu sağlık teşhisi, koç katımı gebelik takvimi, kuzu kolostrum sıvı hesabı ve İKAS et ve süt arınma süresi takibi.",
+    "description": "Ağıl ve küçükbaş yetiştiricileri için koç katımı gebelik takvimi, kuzu kolostrum sıvı hesabı ve İKAS et ve süt arınma süresi takibi.",
     "url": "https://mserman90.github.io/koyun-rehberi/",
     "inLanguage": "tr"
   }
   </script>
 
-  <title>Koyun Rehberi | Ağıl & Küçükbaş Sürü Sağlık Asistanı</title>
+  <title>Koyun Rehberi | Koç Katımı, Kuzu Bakımı & İKAS Takibi</title>
 
   <style>
     /* =========================================================================
@@ -1216,7 +1216,7 @@
           Koyun Rehberi, internetin hiç çekmediği yayla, mera ve ağıl koşullarında telefonun kendi hafızasında kesintisiz çalışacak şekilde PWA (Progressive Web App) mimarisiyle geliştirilmiştir.
         </p>
         <ul style="padding-left:18px; margin-bottom:12px; font-size:0.85rem; line-height:1.5;">
-          <li><strong>Etkileşimli Sohbet:</strong> Hayvan grubunu ve ana şikayeti seçerek adım adım karar ağacıyla olası hastalığı tespit edin.</li>
+          <li><strong>Ağıl Yönetim Sohbeti:</strong> Koç katımı, kuzu donması ve sıvı hesabı, İKAS sorgulamalarını sohbetten başlatın.</li>
           <li><strong>Koç Katımı Takvimi:</strong> 150 günlük gebelik takvimini takip edin; kritik ultrason, flaşlama ve aşı tarihlerini kaçırmayın.</li>
           <li><strong>Kuzu Donması & Sıvı:</strong> Kuzu hipotermi derecesine göre canlandırma protokolünü ve ishalli kuzularda sıvı miktarını anında hesaplayın.</li>
           <li><strong>Sesli İKAS:</strong> Kulak küpesini mikrofonla söyleyerek kesim ve süt yasağı kilitlerini anında sesli dinleyin.</li>
@@ -1249,309 +1249,10 @@
     };
 
     // =========================================================================
-    // KÜÇÜKBAŞ HASTALIK VERİTABANI (SAHA KARAR AĞACI)
-    // =========================================================================
-    const SHEEP_DISEASES = [
-      {
-        id: "celerme",
-        name: "Çelerme (Enterotoksemi / Yem Çarpması)",
-        groups: ["toklu", "kuzu", "anac", "koc"],
-        category: "acil",
-        urgency: "RED",
-        badge: "🔴 ACİL / ANİ ÖLÜM",
-        symptoms: [
-          "Sürünün en semiz ve hızlı gelişen toklu veya kuzusunda aniden kasılma ve yere yıkılma",
-          "Kafayı geriye bükme (opistotonus), diş gıcırdatma, gözlerin dönmesi ve ağızdan köpük gelme",
-          "Ani yem değişikliği (arpa, fabrika yemi artışı veya körpe meraya salınım) sonrası başladı",
-          "Birkaç saat içinde ölüm meydana geliyor"
-        ],
-        doList: [
-          "Kesif yemi, arpayı ve fabrika yemini DERHAL tamamen kesin; sadece kuru kaba ot/saman verin.",
-          "Sürünün geri kalanına veteriner kontrolünde çelerme aşısı ve Clostridium antitoksini uygulayın.",
-          "İçme sularına karbonat ve probiyotik takviyesi ekleyin."
-        ],
-        dontList: [
-          "Aşılanmamış hayvanları aniden körpe meraya veya arpa yemliğine sokmayın.",
-          "Kasılmış / baygın hayvana ağızdan zorla sıvı içirmeyin (ciğere kaçıp boğar)."
-        ],
-        medAdvice: "Hekim gözetiminde yüksek doz C ve D tipi Clostridium antitoksini ve penisilin.",
-        ikasAdvice: "Kesim bekleme süresi: İlaç prospektüsüne uyunuz (genelde 14-28 gün)."
-      },
-      {
-        id: "gebelik_toksemi",
-        name: "Gebelik Zehirlenmesi (İkiz Kuzu Hastalığı / Ketozis)",
-        groups: ["anac"],
-        category: "acil",
-        urgency: "RED",
-        badge: "🔴 ACİL / KOMA RİSKİ",
-        symptoms: [
-          "Doğuma 2-4 hafta kalmış gebe koyun (özellikle ikiz/üçüz taşıyan)",
-          "Sürüden ayrılma, kör gibi duvarlara çarpma, sersemlik ve adım atamama",
-          "Diş gıcırdatma, titremeler ve nefeste tatlımsı/çürük elma (aseton) kokusu",
-          "İştahsızlık ve ayağa kalkamama"
-        ],
-        doList: [
-          "Günde 2 kez ağızdan 60-100 mL Propilen Glikol veya gliserin içirin.",
-          "Veteriner hekim tarafından acil damardan %20-30 Dekstroz (Şeker) serumu ve B vitamini verdirin.",
-          "Koyunun önüne taze pekmezli ılık su ve lezzetli kaliteli kuru yonca koyun."
-        ],
-        dontList: [
-          "Son haftalardaki gebe koyunları aç bırakmayın veya aniden yemini kesmeyin.",
-          "Hayvanı sırtüstü veya yan yatırmayın; göğsü üstünde dik tutun."
-        ],
-        medAdvice: "Damardan hipertonik glukoz (%30 Dekstroz), kalsiyum ve ağızdan propilen glikol.",
-        ikasAdvice: "Koyun sağalmazsa sezaryenle doğum yaptırılabilir."
-      },
-      {
-        id: "kuzu_hipotermi",
-        name: "Kuzu Donması & Hipotermi (Açlık Şoku)",
-        groups: ["kuzu"],
-        category: "acil",
-        urgency: "RED",
-        badge: "🔴 ACİL / HAYATİ",
-        symptoms: [
-          "Yeni doğan veya birkaç günlük kuzu soğukta büzülmüş, kalkamıyor",
-          "Ağzın içi ve kulaklar buz gibi soğuk, emme refleksi tamamen kaybolmuş",
-          "Rektal derece 37.0°C'nin altına düşmüş (Hipotermi)"
-        ],
-        doList: [
-          "Hemen sıcak hava kutusuna (40°C) veya ısıtıcı lamba altına alın; havluyla kurulayın.",
-          "Eğer derece < 37°C ise ASLA AĞIZDAN SÜT VERMEYİN! Önce göbekten ılık %20 Dekstroz serumu yapılmalıdır.",
-          "Vücut ısısı 37.5°C üzerine çıkıp yutkunma refleksi gelince ılık kolostrum verin."
-        ],
-        dontList: [
-          "Vücudu buz gibi kuzuya ağızdan zorla süt içirmeyin (işkembede sindirilemez, zehirler ve ciğere kaçar!).",
-          "Kuzuyu doğrudan alev veya sıcak sobaya dayamayın (cildi yanar)."
-        ],
-        medAdvice: "Gerektiğinde veteriner kontrolünde periton içi (karın boşluğu) ılık %20 dekstroz enjeksiyonu.",
-        ikasAdvice: "İlk 2 saat içinde kolostrum verilmesi şarttır."
-      },
-      {
-        id: "piyeten",
-        name: "Bulaşıcı Tırnak Çürüğü & Ayak Yanması (Piyeten)",
-        groups: ["anac", "toklu", "koc"],
-        category: "ayak_agiz",
-        urgency: "YELLOW",
-        badge: "🟡 AĞIR TOPALLIK / TIRNAK SIZISI",
-        symptoms: [
-          "Tırnak aralığında kötü kokulu akıntı, kabuklanma ve tırnak tabanında ayrılma",
-          "Dizleri üstünde otlama, ayağını basamama ve sürü gerisinde kalma",
-          "Sürüdeki birçok hayvanda aynı anda topallık başlaması"
-        ],
-        doList: [
-          "Tırnakları kanatmadan dikkatlice budayın ve çürük dokuları temizleyin.",
-          "Sürüyü %10 Çinko Sülfat veya %5 Bakır Sülfat (Göztaşı) ayak banyosundan geçirin.",
-          "Banyodan çıkan hayvanları en az 1 saat temiz kuru beton/taş zeminde bekletin."
-        ],
-        dontList: [
-          "Tırnağı kanatacak kadar derin kesmeyin.",
-          "Banyodan çıkan hayvanları hemen ıslak, çamurlu ağıla veya meraya salmayın."
-        ],
-        medAdvice: "Topikal oksitetrasiklin spreyi ve sistemik uzun etkili antibiyotik desteği.",
-        ikasAdvice: "Kesim ve süt bekleme sürelerine dikkat ediniz."
-      },
-      {
-        id: "ektima",
-        name: "Ektima (Orf / Bulaşıcı Ağız Yaraları)",
-        groups: ["kuzu", "anac"],
-        category: "ayak_agiz",
-        urgency: "YELLOW",
-        badge: "🟡 BULAŞICI / ZOONOZ",
-        symptoms: [
-          "Dudak kenarlarında, burun deliklerinde ve diş etinde karnabahar gibi kalın kabuklu yaralar",
-          "Kuzuların acıdan anayı emememesi, ağız kenarlarında kanama",
-          "Koyunların meme uçlarında benzer kabuklu yaraların çıkması"
-        ],
-        doList: [
-          "Yaraların üzerine gliserin iyot, çinko merhem veya antibiyotikli sprey sürün.",
-          "Kuzulara yumuşak yapraklı yonca otu ve ılık kepek bulamacı verin.",
-          "Müdahale ederken MUTLAKA ELDİVEN TAKIN (İnsanın eline bulaşır!)."
-        ],
-        dontList: [
-          "Kabukları zorla kanatarak soymayın (virüs ağıla yayılır).",
-          "Yaralı kuzuları başka sürünün içine karıştırmayın."
-        ],
-        medAdvice: "İkincil bakteriyel enfeksiyonları önlemek için antibiyotikli sprey ve vitamin takviyesi.",
-        ikasAdvice: "Genellikle 3-4 haftada kendiliğinden iyileşir."
-      },
-      {
-        id: "kuzu_ishali",
-        name: "Şiddetli Kuzu İshali & Su Kaybı (Sarı/Beyaz İshal - Dehidrasyon)",
-        groups: ["kuzu"],
-        category: "sindirim",
-        urgency: "RED",
-        badge: "🔴 ACİL SU KAYBI (KURUMA)",
-        symptoms: [
-          "Kuzuda sarı, yeşil veya sulu beyaz köpüklü ishal",
-          "Kuyruk altı ve bacakların dışkıya bulanması",
-          "Gözlerde çökme, emme isteksizliği ve karın çekilmesi",
-          "Hızlı zayıflama ve dermansızlık"
-        ],
-        doList: [
-          "Sütü 1 öğün durdurup yerine ılık oral elektrolit sıvısı içirin.",
-          "Kuzuyu hemen ılık, kuru ve altlığı kalın ayrı bir bölmeye alın.",
-          "Veteriner hekime dışkı rengini belirterek uygun bağırsak antibiyotiği ve antiprotozoal başlatın."
-        ],
-        dontList: [
-          "Sıvı takviyesi yapmadan sadece antibiyotik verip beklemeyin (kuzu susuzluktan ölür!).",
-          "Soğuk süt veya soğuk elektrolit içirmeyin."
-        ],
-        medAdvice: "Elektrolit sıvısı, halofuginon (Kripto ise), bağırsak koruyucu ve probiyotik.",
-        ikasAdvice: "Kuzu ishali sıvı hesaplayıcısını kullanınız."
-      },
-      {
-        id: "idrar_tasi",
-        name: "Sidik Zoru & İdrar Taşı Tıkanması (Ürolitiyazis)",
-        groups: ["toklu", "koc"],
-        category: "idrar",
-        urgency: "RED",
-        badge: "🔴 ACİL SİDİK TIKANMASI",
-        symptoms: [
-          "Besi toklusunda veya koçta sürekli ıkınma, kuyruk sallama ve karnına tekme atma",
-          "İdrarın hiç gelmemesi ya da damla damla kanlı akması",
-          "Penis ucunda kristal/kum birikintisi, karında şişme ve sancı"
-        ],
-        doList: [
-          "Hemen veteriner hekime haber verin; penis ucundaki uzantı (processus urethrae) kontrol edilmelidir.",
-          "Besi yemini anında kesin, bol temiz su ve kaba ot verin.",
-          "İdrarı asitleştirmek için veteriner kontrolünde amonyum klorür uygulayın."
-        ],
-        dontList: [
-          "Kesif yemi ve arpayı kalsiyum desteği olmadan aşırı vermeyin (Ca:P oranı bozulur).",
-          "Hayvanın su içmesini kısıtlamayın."
-        ],
-        medAdvice: "Spazmolitik (kas gevşetici), yangı giderici ve gerekirse penis ucu cerrahi müdahalesi.",
-        ikasAdvice: "İdrar kesesi patlarsa hayvan zehirlenir ve kesime de uygun olmaz."
-      },
-      {
-        id: "mavi_meme",
-        name: "Mavi Meme (Kangrenli Mastitis)",
-        groups: ["anac"],
-        category: "meme",
-        urgency: "RED",
-        badge: "🔴 ACİL / KANGREN",
-        symptoms: [
-          "Memenin bir lobunun morarması, soğuması ve hissizleşmesi (mavi/siyah renk)",
-          "Memeden kanlı, pis kokulu serum şeklinde sıvı gelmesi",
-          "Yüksek ateş (41°C), koyunun topallaması ve sütten tamamen kesilmesi"
-        ],
-        doList: [
-          "Koyunu hemen sürüden ayırın; kuzunun o memeyi emmesini DERHAL engelleyin!",
-          "Veteriner hekim kontrolünde acil yüksek doz damar içi antibiyotik ve yangı kesici başlatın.",
-          "Memeye soğuk kompres yapın ve içindeki pis sıvıyı sık sık ayrı bir kaba sağarak imha edin."
-        ],
-        dontList: [
-          "Kuzunun kangrenli memeyi emmesine asla izin vermeyin (yavru anında ölür!).",
-          "Sağılan enfekte sütü ağıl zeminine dökmeyin."
-        ],
-        medAdvice: "Yüksek doz penisilin/oksitetrasiklin, fluniksin meglumin ve sıvı desteği.",
-        ikasAdvice: "Süt kesinlikle dökülmeli; et arınma süresine uyulmalıdır."
-      },
-      {
-        id: "cicek",
-        name: "Koyun Çiçeği (Variola Ovina)",
-        groups: ["anac", "kuzu", "toklu", "koc"],
-        category: "ayak_agiz",
-        urgency: "RED",
-        badge: "🔴 İHBARI MECBURİ",
-        symptoms: [
-          "Yünsüz bölgelerde (göz çevresi, dudak, kuyruk altı, kasık) kırmızı kabarcıklar ve çıbanlar",
-          "Yüksek ateş (41°C), göz ve burun akıntısı, şiddetli halsizlik",
-          "Sürüde hızla yayılan solunum güçlüğü"
-        ],
-        doList: [
-          "İhbarı mecburi hastalıktır; DERHAL İl/İlçe Tarım Müdürlüğüne haber verin.",
-          "Ağılı karantinaya alın, dışarıya hayvan ve gübre çıkışını durdurun.",
-          "Sağlam hayvanlara acil çiçek aşısı yaptırın."
-        ],
-        dontList: [
-          "Sürüden dışarıya hayvan satmayın, meraya çıkarmayın.",
-          "Kabukları yolmayın."
-        ],
-        medAdvice: "Resmi veteriner hekim protokolü ve koruyucu antibiyotik/vitamin desteği.",
-        ikasAdvice: "Karantina kurallarına kesinlikle uyulmalıdır."
-      },
-      {
-        id: "akciger_kilkurdu",
-        name: "Pnömoni & Akciğer Kıl Kurdu",
-        groups: ["anac", "kuzu", "toklu"],
-        category: "solunum",
-        urgency: "YELLOW",
-        badge: "🟡 KRONİK SOLUNUM",
-        symptoms: [
-          "Özellikle sabahları veya koşturunca kuru, nöbet şeklinde öksürük",
-          "Burundan koyu akıntı gelmesi, hızlı ve karından nefes alıp verme",
-          "İştahsızlık, yapağıda matlaşma ve zayıflama"
-        ],
-        doList: [
-          "Sürüye veteriner kontrolünde iç parazit (akciğer kıl kurdu) iğnesi veya hapı uygulayın.",
-          "Ağılın havalandırmasını düzeltin; amonyak kokusunu ve tozu engelleyin.",
-          "Hırıltılı ve ateşli hayvanlara antibiyotik tedavisi uygulayın."
-        ],
-        dontList: [
-          "Ağılı havasız bırakmayın (cereyan yapmadan üstten havalandırın).",
-          "Parazit mücadelesini aksatmayın."
-        ],
-        medAdvice: "İvermektin/Levamizol paraziter ilaç ve florfenikol/tulatromisin solunum antibiyotiği.",
-        ikasAdvice: "Karasal parazit ilaçlarının et bekleme süreleri uzundur (28-45 gün)."
-      },
-      {
-        id: "kelebek",
-        name: "Karaciğer Kelebeği (Fasciolosis) & Çene Altı Şişliği",
-        groups: ["anac", "toklu"],
-        category: "sindirim",
-        urgency: "YELLOW",
-        badge: "🟡 KRONİK PARAZİTER",
-        symptoms: [
-          "Çene altında yumuşak su toplamış şişlik (şişe çene belirtisi)",
-          "Göz kapaklarının içinin kireç gibi beyazlaşması (kansızlık)",
-          "İleri derecede zayıflama, yapağı dökülmesi ve sulu ishal"
-        ],
-        doList: [
-          "Hayvanları sulak, bataklık ve göllenmiş meralardan uzak tutun.",
-          "Veteriner hekim kontrolünde karaciğer kelebeğine özel parazit ilacı (Triclabendazole vb.) uygulayın.",
-          "Demir ve vitamin takviyesi yapın."
-        ],
-        dontList: [
-          "İlkbahar ve sonbaharda bataklık kenarlarında otlatmayın.",
-          "Sıradan iç parazit haplarının kelebeğe etki edeceğini sanmayın (özel molekül gerekir)."
-        ],
-        medAdvice: "Fasciola hepatica etkili spesifik antihelmintik (Triclabendazole/Closantel).",
-        ikasAdvice: "Et kalıntı süresi uzun olabilir, deftere kaydediniz."
-      },
-      {
-        id: "beyaz_kas",
-        name: "Beyaz Kas Hastalığı (Kuzu Tutulması / Selenyum Eksikliği)",
-        groups: ["kuzu"],
-        category: "kas_iskelet",
-        urgency: "YELLOW",
-        badge: "🟡 MİNERAL EKSİKLİĞİ",
-        symptoms: [
-          "1-3 aylık hızlı büyüyen kuzularda arka bacaklarda tutukluk, sendeleyerek yürüme",
-          "Ayağa kalkmakta zorlanma, kaslarda sertlik ve titreme",
-          "Kalp kası tutulduğunda aniden nefes darlığı ve ölüm"
-        ],
-        doList: [
-          "Hemen veteriner hekim gözetiminde Selenyum + E Vitamini enjeksiyonu yapın.",
-          "Gebe koyunlara doğuma 1 ay kala Selenyum-E Vitamini desteği verin (sütten kuzuya geçer).",
-          "Kuzuların önüne selenyumlu yalama taşı koyun."
-        ],
-        dontList: [
-          "Aşırı doz selenyum vermeyin (zehirleyebilir, mililitresine dikkat ediniz).",
-          "Yürümekte zorlanan kuzuları zorla koşturmayın (kalp kası durabilir)."
-        ],
-        medAdvice: "Enjektabl Selenyum + Vitamin E kombinasyonu.",
-        ikasAdvice: "Prospektüs dozuna harfiyen uyulmalıdır."
-      }
-    ];
-
-    // =========================================================================
-    // ETKİLEŞİMLİ SOHBET DURUM YÖNETİMİ
+    // KÜÇÜKBAŞ AĞIL VE MERA ASİSTANI (ETKİLEŞİMLİ SOHBET AKIŞI)
     // =========================================================================
     let state = {
-      group: null,      // 'anac', 'kuzu', 'toklu', 'koc'
-      category: null,   // 'acil', 'sindirim', 'ayak_agiz', 'solunum', 'meme', 'idrar'
-      selectedDisease: null
+      group: null
     };
 
     function getTimeString() {
@@ -1643,186 +1344,59 @@
       }, delay);
     }
 
-    // =========================================================================
-    // SOHBET ADIMLARI
-    // =========================================================================
     function startConversation() {
       const stream = document.getElementById("chat-stream");
       if (!stream) return;
 
       stream.innerHTML = '<div class="chat-date-pill">BUGÜN</div>';
-      state = { group: null, category: null, selectedDisease: null };
+      state = { group: null };
 
       showTypingIndicator(() => {
         addIncomingMessage(
           `Merhaba! Ben <strong>Koyun Rehberi</strong>.<br><br>
-          Ağılda veya merada rahatsızlanan koyun veya kuzunun durumunu adım adım kontrol edelim.<br><br>
-          Önce söyle bakalım, <strong>hangi hayvanın rahatsız?</strong>`,
+          Ağıl ve mera işletmeniz için <strong>150 günlük koç katımı & gebelik takvimi</strong>, <strong>kuzu donması / canlandırma & ishal sıvı hesabı</strong>, <strong>küçükbaş İKAS arınma defteri</strong> ve <strong>şerit metreyle canlı kilo ölçer</strong> araçlarını buradan yönetebilirsiniz.<br><br>
+          <em>Hastalık ön teşhisi ve soru-cevaplı klinik karar ağacı Çoban Doktor modülünde toplanmıştır.</em><br><br>
+          Hangi işlemi yapmak istersiniz?`,
           [
-            { icon: "🐑", text: "Anaç Koyun (Sağmal / Gebe)", action: "handleSelectGroup('anac', 'Anaç Koyun')", class: "primary" },
-            { icon: "🍼", text: "Süt Kuzusu (0 - 60 Günlük)", action: "handleSelectGroup('kuzu', 'Süt Kuzusu')", class: "primary" },
-            { icon: "🌾", text: "Besi Kuzusu / Toklu (20 - 55 kg)", action: "handleSelectGroup('toklu', 'Besi Kuzusu / Toklu')", class: "primary" },
-            { icon: "🐏", text: "Koç / Damızlık", action: "handleSelectGroup('koc', 'Koç / Damızlık')", class: "" },
-            { icon: "🐐", text: "Keçi / Oğlak", action: "handleSelectGroup('anac', 'Keçi / Oğlak')", class: "" }
+            { icon: "📅", text: "Koç Katımı & Gebelik Takvimi (150 Gün)", action: "handleKoyunAction('koc')", class: "primary" },
+            { icon: "🍼", text: "Kuzu Bakımı & Donma / İshal Sıvı Hesabı", action: "handleKoyunAction('kuzu')", class: "primary" },
+            { icon: "🏷️", text: "Küçükbaş İKAS İlaç Arınma Defteri", action: "handleKoyunAction('ikas')", class: "primary" },
+            { icon: "🎙️", text: "Sesli İKAS (Ağıl & Mezbaha Kilit Denetimi)", action: "handleKoyunAction('sesli')", class: "" },
+            { icon: "📏", text: "Şerit Metreyle Canlı Kilo Ölçer", action: "handleKoyunAction('kilo')", class: "" },
+            { icon: "📋", text: "Altın Küçükbaş İlk Yardım Protokolleri", action: "handleKoyunAction('protokol')", class: "" },
+            { icon: "🩺", text: "Hastalık Ön Teşhisi İçin Çoban Doktor'a Git", action: "handleKoyunAction('coban')", class: "blue" }
           ]
         );
       }, 300);
     }
 
-    function handleSelectGroup(groupKey, groupTitle) {
-      state.group = groupKey;
-      addOutgoingMessage(`Hayvan Grubu: ${groupTitle}`);
-
-      showTypingIndicator(() => {
-        addIncomingMessage(
-          `Geçmiş olsun. <strong>${groupTitle}</strong> için gözüne çarpan <strong>en belirgin ana şikayet</strong> nedir?`,
-          [
-            { icon: "⚡", text: "Acil / Ani Yığılma, Kasılma veya Donma", action: "handleSelectCategory('acil', 'Acil / Yığılma / Donma')", class: "danger" },
-            { icon: "💧", text: "İshal, Sıvı Kaybı & Karın Ağrısı", action: "handleSelectCategory('sindirim', 'İshal & Sindirim')", class: "warning" },
-            { icon: "🩹", text: "Topallık, Ayak veya Ağız Yaraları", action: "handleSelectCategory('ayak_agiz', 'Ayak & Ağız Yaraları')", class: "warning" },
-            { icon: "🫁", text: "Öksürük, Hırıltı & Hızlı Nefes", action: "handleSelectCategory('solunum', 'Öksürük & Solunum')", class: "" },
-            { icon: "🥛", text: "Meme Şişliği, Morarma veya Doğum Sorunu", action: "handleSelectCategory('meme', 'Meme & Doğum')", class: "" },
-            { icon: "🪨", text: "İdrar Yapamama / Ikınma (Sidik Zoru)", action: "handleSelectCategory('idrar', 'İdrar Zorluğu')", class: "danger" },
-            { icon: "🦴", text: "Sendeleme, Tutuk Yürüme & Zayıflama", action: "handleSelectCategory('kas_iskelet', 'Sendeleme & Zayıflama')", class: "" }
-          ]
-        );
-      }, 350);
-    }
-
-    function handleSelectCategory(catKey, catTitle) {
-      state.category = catKey;
-      addOutgoingMessage(`Şikayet: ${catTitle}`);
-
-      // Kategoriye ve seçilen hayvana göre filtrele
-      const matches = SHEEP_DISEASES.filter(d => {
-        const groupMatch = !state.group || d.groups.includes(state.group);
-        const catMatch = d.category === catKey;
-        return groupMatch && catMatch;
-      });
-
-      const fallbackMatches = matches.length > 0 ? matches : SHEEP_DISEASES.filter(d => d.category === catKey);
-
-      showTypingIndicator(() => {
-        if (fallbackMatches.length === 1) {
-          showDiseaseResult(fallbackMatches[0]);
-        } else if (fallbackMatches.length > 1) {
-          const diseaseButtons = fallbackMatches.map(d => ({
-            icon: d.urgency === 'RED' ? '🔴' : '🟡',
-            text: `<strong>${d.name}</strong><br><span style="font-size:0.75rem; color:#64748b;">${d.symptoms[0].substring(0, 55)}...</span>`,
-            action: `handleSelectDisease('${d.id}')`,
-            class: d.urgency === 'RED' ? 'danger' : ''
-          }));
-
-          addIncomingMessage(
-            `Aşağıdaki durumlardan hangisi hayvandaki belirtilere daha çok uyuyor?`,
-            diseaseButtons
-          );
-        } else {
-          addIncomingMessage(
-            `Bu kategoride doğrudan eşleşen özel bir hastalık bulunamadı. Genel küçükbaş acil durum protokollerini incelemek ister misiniz?`,
-            [
-              { icon: "📋", text: "Altın Protokolleri Aç", action: "openProtokolModal()", class: "primary" },
-              { icon: "🔄", text: "Farklı Şikayet Seç", action: "restartChat()", class: "" }
-            ]
-          );
-        }
-      }, 350);
-    }
-
-    function handleSelectDisease(diseaseId) {
-      const disease = SHEEP_DISEASES.find(d => d.id === diseaseId);
-      if (!disease) return;
-      addOutgoingMessage(`Şüphe: ${disease.name}`);
-      showTypingIndicator(() => {
-        showDiseaseResult(disease);
-      }, 350);
-    }
-
-    function showDiseaseResult(d) {
-      state.selectedDisease = d;
-
-      const doItems = d.doList.map(item => `<li>${item}</li>`).join("");
-      const dontItems = d.dontList.map(item => `<li>${item}</li>`).join("");
-      const symptomsList = d.symptoms.map(s => `• ${s}`).join("<br>");
-
-      const cardHtml = `
-        <div class="diag-result-card">
-          <div class="diag-badge ${d.urgency.toLowerCase()}">${d.badge}</div>
-          <div class="diag-title">${d.name}</div>
-          <div class="diag-desc">
-            <strong>Karakteristik Belirtiler:</strong><br>
-            ${symptomsList}
-          </div>
-
-          <div class="diag-box do">
-            <strong>✅ NE YAPMALI? (İlk Yardım):</strong>
-            <ul style="padding-left:16px; margin-top:4px;">${doItems}</ul>
-          </div>
-
-          <div class="diag-box dont">
-            <strong>⛔ NE YAPMAMALI? (Hayati Hatalar):</strong>
-            <ul style="padding-left:16px; margin-top:4px;">${dontItems}</ul>
-          </div>
-
-          <div class="diag-box med">
-            <strong>💉 Veteriner Tedavi Esasları:</strong><br>
-            ${d.medAdvice}
-          </div>
-
-          <div class="diag-box ikas">
-            <strong>🛑 İlaç Arınma Süresi (İKAS) Uyarısı:</strong><br>
-            ${d.ikasAdvice}
-          </div>
-
-          <div class="diag-actions">
-            <button onclick="shareDiseaseResult('${d.id}')" class="btn-diag-act btn-diag-share">
-              ${SVG_ICONS.share}
-              <span>Raporu Paylaş</span>
-            </button>
-            <button onclick="openKupeDefteriFromDiag('${d.name}')" class="btn-diag-act btn-diag-record">
-              ${SVG_ICONS.tag}
-              <span>İKAS Defterine Kaydet</span>
-            </button>
-          </div>
-        </div>
-      `;
-
-      addIncomingMessage(
-        `Değerlendirme tamamlandı. Olası klinik tablo ve acil müdahale rehberi:` + cardHtml,
-        [
-          { icon: "🔄", text: "Başka Bir Hayvanı Muayene Et", action: "restartChat()", class: "primary" },
-          { icon: "📋", text: "Altın Protokolleri Görüntüle", action: "openProtokolModal()", class: "" }
-        ]
-      );
-    }
-
-    function shareDiseaseResult(diseaseId) {
-      const d = SHEEP_DISEASES.find(x => x.id === diseaseId);
-      if (!d) return;
-
-      const text = `📋 KOYUN REHBERİ TEŞHİS RAPORU\n` +
-        `Hastalık: ${d.name} (${d.badge})\n\n` +
-        `Acil İlk Yardım:\n${d.doList.map(x => '• ' + x).join('\n')}\n\n` +
-        `Hayati Yasaklar:\n${d.dontList.map(x => '• ' + x).join('\n')}\n\n` +
-        `Koyun Rehberi: https://mserman90.github.io/koyun-rehberi/`;
-
-      if (navigator.share) {
-        navigator.share({ title: 'Koyun Rehberi Raporu', text: text }).catch(() => {});
-      } else {
-        navigator.clipboard.writeText(text).then(() => {
-          alert("Teşhis ve ilk yardım raporu panoya kopyalandı!");
-        });
+    function handleKoyunAction(action) {
+      if (action === 'koc') {
+        addOutgoingMessage("📅 Koç Katımı & Gebelik Takvimi (150 Gün)");
+        openKocKatimiModal();
+      } else if (action === 'kuzu') {
+        addOutgoingMessage("🍼 Kuzu Bakımı & Donma / Sıvı Hesabı");
+        openKuzuModal();
+      } else if (action === 'ikas') {
+        addOutgoingMessage("🏷️ Küçükbaş İKAS İlaç Arınma Defteri");
+        openKupeDefteriModal();
+      } else if (action === 'sesli') {
+        addOutgoingMessage("🎙️ Sesli İKAS Kilit Sorgusu");
+        openSesliIkasModal();
+      } else if (action === 'kilo') {
+        addOutgoingMessage("📏 Şerit Metreyle Canlı Kilo Ölçer");
+        openKiloModal();
+      } else if (action === 'protokol') {
+        addOutgoingMessage("📋 Altın Küçükbaş Acil Müdahale Protokolleri");
+        openProtokolModal();
+      } else if (action === 'coban') {
+        addOutgoingMessage("🩺 Çoban Doktor'a Geçiş Yapılıyor...");
+        window.location.href = "https://mserman90.github.io/coban-doktor/";
       }
     }
 
-    function openKupeDefteriFromDiag(medName) {
-      openKupeDefteriModal();
-      switchIkasTab('new');
-      const medInp = document.getElementById("formKupeNotes");
-      if (medInp) medInp.value = medName + " şüphesi ile tedavi edildi";
-    }
-
     function restartChat() {
+      state = { group: null };
       startConversation();
     }
 
