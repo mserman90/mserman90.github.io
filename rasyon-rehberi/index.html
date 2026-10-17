@@ -903,6 +903,10 @@
           <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
           <span>Protokoller</span>
         </button>
+        <button onclick="openSimplexModal()" class="wa-hdr-btn" title="En Düşük Maliyetli Rasyon Robotu (Simplex Doğrusal Optimizasyon)" style="background:#16a34a !important; border-color:#86efac !important; font-weight:700;">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg>
+          <span>En Ucuz (Simplex)</span>
+        </button>
         <button onclick="openTmrModal()" class="wa-hdr-btn" title="TMR Yem Karma Vagon Kantarı" style="background:#0284c7 !important; border-color:#38bdf8 !important;">
           <svg class="lucide-icon" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M10 14h4"/></svg>
           <span>Vagon</span>
@@ -957,6 +961,91 @@
       </button>
     </form>
 
+  </div>
+
+  <!-- EN DÜŞÜK MALİYETLİ RASYON ROBOTU (SIMPLEX DOĞRUSAL OPTİMİZASYON) MODAL -->
+  <div class="modal-overlay" id="simplex-modal" onclick="closeModalOnBackdrop(event, 'simplex-modal')">
+    <div class="modal-box" style="max-width:640px;">
+      <div class="modal-hdr" style="background:#16a34a;">
+        <div class="modal-title">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg>
+          <span>En Düşük Maliyetli Rasyon Robotu (Simplex)</span>
+        </div>
+        <button class="modal-close" onclick="closeSimplexModal()" aria-label="Kapat">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size:0.84rem; color:#475569; margin-bottom:12px;">
+          Seçtiğin yemlerin fiyatlarına göre hayvanın besin maddesi ihtiyaçlarını karşılayan <strong>matematiksel olarak en ucuz rasyon karışımını (Doğrusal Programlama)</strong> anında çözer.
+        </p>
+
+        <!-- HAZIR ŞABLONLAR -->
+        <div style="margin-bottom:14px;">
+          <label style="font-size:0.78rem; font-weight:800; color:#334155; text-transform:uppercase; margin-bottom:6px; display:block;">1. Hayvan Grubu Hazır Şablonu Seç:</label>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(130px, 1fr)); gap:6px;">
+            <button type="button" class="btn-filter-pill active" id="sp-preset-dairy30" onclick="applySimplexPreset('dairy30')">🐄 Süt (30 L)</button>
+            <button type="button" class="btn-filter-pill" id="sp-preset-dairy20" onclick="applySimplexPreset('dairy20')">🐄 Süt (20 L)</button>
+            <button type="button" class="btn-filter-pill" id="sp-preset-beef-fin" onclick="applySimplexPreset('beef_fin')">🐂 Besi Bitirme</button>
+            <button type="button" class="btn-filter-pill" id="sp-preset-beef-grow" onclick="applySimplexPreset('beef_grow')">🐂 Besi Gelişme</button>
+            <button type="button" class="btn-filter-pill" id="sp-preset-sheep-lact" onclick="applySimplexPreset('sheep_lact')">🐑 Sağmal Koyun</button>
+            <button type="button" class="btn-filter-pill" id="sp-preset-lamb-fat" onclick="applySimplexPreset('lamb_fat')">🐑 Kuzu Besisi</button>
+          </div>
+        </div>
+
+        <!-- HEDEF BESİN KISITLARI -->
+        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:12px; margin-bottom:14px;">
+          <label style="font-size:0.78rem; font-weight:800; color:#0f172a; text-transform:uppercase; margin-bottom:8px; display:block;">2. Besin Maddesi İhtiyaçları & Kısıtlar:</label>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+            <div>
+              <label style="font-size:0.75rem; color:#475569; font-weight:700; display:block;">Kuru Madde Tüketimi (kg KM):</label>
+              <input type="number" id="sp-target-km" step="0.1" value="21.0" style="width:100%; padding:7px 10px; border:1.5px solid #cbd5e1; border-radius:8px; font-weight:700;">
+            </div>
+            <div>
+              <label style="font-size:0.75rem; color:#475569; font-weight:700; display:block;">Min. Ham Protein (% HP):</label>
+              <input type="number" id="sp-target-hp" step="0.1" value="16.5" style="width:100%; padding:7px 10px; border:1.5px solid #cbd5e1; border-radius:8px; font-weight:700;">
+            </div>
+            <div>
+              <label style="font-size:0.75rem; color:#475569; font-weight:700; display:block;">Min. Net Enerji (NEL Mcal/kg):</label>
+              <input type="number" id="sp-target-nel" step="0.01" value="1.65" style="width:100%; padding:7px 10px; border:1.5px solid #cbd5e1; border-radius:8px; font-weight:700;">
+            </div>
+            <div>
+              <label style="font-size:0.75rem; color:#475569; font-weight:700; display:block;">Min. Kaba Yem Oranı (% KM):</label>
+              <input type="number" id="sp-min-kaba" step="1" value="45" style="width:100%; padding:7px 10px; border:1.5px solid #cbd5e1; border-radius:8px; font-weight:700;">
+            </div>
+            <div>
+              <label style="font-size:0.75rem; color:#475569; font-weight:700; display:block;">Min. NDF Lif Oranı (% KM):</label>
+              <input type="number" id="sp-min-ndf" step="1" value="28" style="width:100%; padding:7px 10px; border:1.5px solid #cbd5e1; border-radius:8px; font-weight:700;">
+            </div>
+            <div>
+              <label style="font-size:0.75rem; color:#475569; font-weight:700; display:block;">Günlük Süt Verimi (Litre, opsiyonel):</label>
+              <input type="number" id="sp-target-milk" step="1" value="30" placeholder="Litre başı maliyet için" style="width:100%; padding:7px 10px; border:1.5px solid #cbd5e1; border-radius:8px; font-weight:700;">
+            </div>
+          </div>
+        </div>
+
+        <!-- KULLANILABİLİR YEMLER SEÇİMİ -->
+        <div style="margin-bottom:14px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <label style="font-size:0.78rem; font-weight:800; color:#334155; text-transform:uppercase; margin:0;">3. Rasyona Katılacak Yemler & Fiyatları:</label>
+            <span style="font-size:0.74rem; color:#0284c7; cursor:pointer; font-weight:700;" onclick="selectAllSimplexFeeds(true)">Tümünü Seç</span>
+          </div>
+          <div id="simplex-feeds-container" style="display:flex; flex-direction:column; gap:6px; max-height:220px; overflow-y:auto; border:1px solid #e2e8f0; border-radius:10px; padding:8px; background:#ffffff;">
+            <!-- Yem listesi JS ile basılır -->
+          </div>
+        </div>
+
+        <button type="button" class="btn-action-primary" onclick="solveSimplexRation()" style="width:100%; background:#16a34a; font-size:1rem; padding:12px; display:flex; align-items:center; justify-content:center; gap:8px;">
+          <span>🚀 En Düşük Maliyetli Rasyonu Çöz (Simplex)</span>
+        </button>
+
+        <!-- SONUÇ KARTI -->
+        <div id="simplex-result-box" style="display:none; margin-top:16px;">
+          <!-- Sonuç JS ile basılır -->
+        </div>
+      </div>
+      <div class="modal-ftr">
+        <button class="btn-diag-act" onclick="closeSimplexModal()" style="background:#64748b; color:#fff;">Kapat</button>
+      </div>
+    </div>
   </div>
 
   <!-- TMR YEM KARMA VAGON KANTARI MODALI -->
@@ -1020,6 +1109,24 @@
             ➕ Yeni Yem Yaz & Ekle
           </button>
         </div>
+
+        <!-- YEM YEDEKLEME & DIŞA AKTARMA -->
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:12px; flex-wrap:wrap; background:#fff7ed; border:1px solid #fed7aa; border-radius:10px; padding:8px 12px;">
+          <span style="font-size:0.8rem; font-weight:700; color:#c2410c;">💾 Yem Ambarı & Fiyat Yedekleri:</span>
+          <div style="display:flex; align-items:center; gap:6px;">
+            <button type="button" class="filter-pill" onclick="exportFeedsJSON()" title="Yem Ambarını JSON Olarak İndir" style="background:#0284c7; color:#fff; border-color:#0284c7; display:inline-flex; align-items:center; gap:4px; padding:4px 8px; font-size:0.75rem;">
+              <span>📥 JSON</span>
+            </button>
+            <label class="filter-pill" style="background:#fff; border:1.5px solid #cbd5e1; cursor:pointer; margin:0; display:inline-flex; align-items:center; gap:4px; padding:4px 8px; font-size:0.75rem;" title="JSON Yedekten Geri Yükle">
+              <span>📤 Yükle</span>
+              <input type="file" id="feedsJsonImportInput" accept=".json" style="display:none;" onchange="importFeedsJSON(event)">
+            </label>
+            <button type="button" class="filter-pill" onclick="exportFeedsCSV()" title="Yem Fiyatlarını Excel/CSV İndir" style="background:#059669; color:#fff; border-color:#059669; display:inline-flex; align-items:center; gap:4px; padding:4px 8px; font-size:0.75rem;">
+              <span>📊 Excel/CSV</span>
+            </button>
+          </div>
+        </div>
+
         <div id="feeds-list-container" style="display:flex; flex-direction:column; gap:8px;">
           <!-- Yemler JS ile basılır -->
         </div>
@@ -2417,6 +2524,638 @@
       closeFeedsModal();
       alert("Yem fiyatları başarıyla kaydedildi! Yeni rasyonlar bu fiyatlarla hesaplanacaktır.");
     }
+
+    // =========================================================================
+    // YEM AMBARI YEDEKLEME VE DIŞA AKTARMA (JSON & CSV)
+    // =========================================================================
+    function exportFeedsJSON() {
+      const feeds = getFeeds();
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(feeds, null, 2));
+      const today = new Date().toISOString().slice(0, 10);
+      const dlAnchor = document.createElement("a");
+      dlAnchor.setAttribute("href", dataStr);
+      dlAnchor.setAttribute("download", `rasyon_yem_ambari_${today}.json`);
+      document.body.appendChild(dlAnchor);
+      dlAnchor.click();
+      dlAnchor.remove();
+    }
+
+    function importFeedsJSON(event) {
+      const file = event.target.files?.[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const imported = JSON.parse(e.target.result);
+          if (!Array.isArray(imported)) {
+            alert("Hatalı dosya biçimi: JSON bir yem listesi içermelidir.");
+            return;
+          }
+          const current = getFeeds();
+          const currentMap = new Map(current.map(f => [f.id, f]));
+          let count = 0;
+          imported.forEach(item => {
+            if (item.id && item.name) {
+              currentMap.set(item.id, item);
+              count++;
+            }
+          });
+          const updated = Array.from(currentMap.values());
+          saveFeeds(updated);
+          renderFeedsList();
+          renderFeedSelectorList();
+          alert(`Yedekten ${count} adet yem ve fiyat bilgisi başarıyla güncellendi!`);
+        } catch (err) {
+          alert("Dosya okunurken hata oluştu: " + err.message);
+        }
+      };
+      reader.readAsText(file);
+      event.target.value = "";
+    }
+
+    function exportFeedsCSV() {
+      const feeds = getFeeds();
+      if (!feeds || feeds.length === 0) {
+        alert("Dışa aktarılacak yem bulunmuyor.");
+        return;
+      }
+
+      const headers = [
+        "Yem Kodu",
+        "Yem Adı",
+        "Kategori",
+        "Kuru Madde (%)",
+        "Ham Protein (%)",
+        "NEL (Mcal/kg)",
+        "ME (Mcal/kg)",
+        "NDF (%)",
+        "Fiyat (TL/kg)"
+      ];
+
+      const rows = feeds.map(f => [
+        `"${f.id}"`,
+        `"${(f.name || '').replace(/"/g, '""')}"`,
+        `"${f.category || 'kesif'}"`,
+        f.kmPct || 88,
+        f.hpPct || 0,
+        f.nel || 0,
+        f.me || 0,
+        f.ndf || 0,
+        f.price || 0
+      ].join(";"));
+
+      const csvContent = "\uFEFF" + headers.join(";") + "\n" + rows.join("\n");
+      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const today = new Date().toISOString().slice(0, 10);
+      const dlAnchor = document.createElement("a");
+      dlAnchor.setAttribute("href", url);
+      dlAnchor.setAttribute("download", `rasyon_yem_fiyatlari_${today}.csv`);
+      document.body.appendChild(dlAnchor);
+      dlAnchor.click();
+      dlAnchor.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    // =========================================================================
+    // DOĞRUSAL RASYON MALİYET OPTİMİZASYONU (TWO-PHASE SIMPLEX LP ENGINE)
+    // =========================================================================
+    class SimplexSolver {
+      static solveLeastCost({ feeds, targetKM, targetHP, targetNEL, targetME, minKabaPct, minNDFPct }) {
+        const n = feeds.length;
+        if (n === 0) return { success: false, message: "En az bir adet yem seçilmelidir." };
+
+        const c = feeds.map(f => {
+          const kmFactor = (f.kmPct || 88) / 100;
+          return (f.price || 0) / kmFactor;
+        });
+
+        const constraints = [];
+        function addConstraint(coeffs, op, rhs, label) {
+          constraints.push({ coeffs, op, rhs, label });
+        }
+
+        // 1. Toplam KM: sum(x_j) = targetKM
+        addConstraint(new Array(n).fill(1), '=', targetKM, "Toplam Kuru Madde");
+
+        // 2. Minimum Ham Protein (HP): sum(hpPct_j / 100 * x_j) >= targetKM * (targetHP / 100)
+        if (targetHP > 0) {
+          const minHPKg = targetKM * (targetHP / 100);
+          addConstraint(feeds.map(f => (f.hpPct || 0) / 100), '>=', minHPKg, "Ham Protein");
+        }
+
+        // 3. Minimum Net Enerji (NEL)
+        if (targetNEL > 0) {
+          const minNELMcal = targetKM * targetNEL;
+          addConstraint(feeds.map(f => (f.nel || 0)), '>=', minNELMcal, "Net Enerji (NEL)");
+        }
+
+        // 4. Minimum Metabolik Enerji (ME)
+        if (targetME > 0 && targetNEL <= 0) {
+          const minMEMcal = targetKM * targetME;
+          addConstraint(feeds.map(f => (f.me || 0)), '>=', minMEMcal, "Metabolik Enerji (ME)");
+        }
+
+        // 5. Minimum Kaba Yem Oranı
+        if (minKabaPct > 0) {
+          const minKabaKg = targetKM * (minKabaPct / 100);
+          addConstraint(feeds.map(f => f.category === 'kaba' ? 1 : 0), '>=', minKabaKg, "Kaba Yem Oranı");
+        }
+
+        // 6. Minimum NDF Lif Oranı
+        if (minNDFPct > 0) {
+          const minNDFKg = targetKM * (minNDFPct / 100);
+          addConstraint(feeds.map(f => (f.ndf || 0) / 100), '>=', minNDFKg, "NDF Lif Oranı");
+        }
+
+        // 7. Bireysel Yem Üst ve Alt Limitleri
+        feeds.forEach((f, idx) => {
+          if (f.maxKgKM !== undefined && f.maxKgKM !== null && f.maxKgKM < targetKM) {
+            const uCoeffs = new Array(n).fill(0);
+            uCoeffs[idx] = 1;
+            addConstraint(uCoeffs, '<=', f.maxKgKM, `${f.name} Üst Sınır`);
+          }
+          if (f.minKgKM !== undefined && f.minKgKM !== null && f.minKgKM > 0) {
+            const lCoeffs = new Array(n).fill(0);
+            lCoeffs[idx] = 1;
+            addConstraint(lCoeffs, '>=', f.minKgKM, `${f.name} Alt Sınır`);
+          }
+        });
+
+        const numVars = c.length;
+        const numConstraints = constraints.length;
+
+        let slackSurplusCount = 0;
+        let artificialCount = 0;
+        const stdConstraints = [];
+
+        constraints.forEach(con => {
+          let coeffs = [...con.coeffs];
+          let rhs = con.rhs;
+          let op = con.op;
+          if (rhs < 0) {
+            coeffs = coeffs.map(v => -v);
+            rhs = -rhs;
+            if (op === '<=') op = '>=';
+            else if (op === '>=') op = '<=';
+          }
+          let slackSurplusIndex = -1;
+          let isSurplus = false;
+          let artificialIndex = -1;
+
+          if (op === '<=') {
+            slackSurplusIndex = slackSurplusCount++;
+          } else if (op === '>=') {
+            slackSurplusIndex = slackSurplusCount++;
+            isSurplus = true;
+            artificialIndex = artificialCount++;
+          } else if (op === '=') {
+            artificialIndex = artificialCount++;
+          }
+
+          stdConstraints.push({ coeffs, rhs, op, slackSurplusIndex, isSurplus, artificialIndex, label: con.label });
+        });
+
+        const totalVars = numVars + slackSurplusCount + artificialCount;
+        const numRows = numConstraints + 2;
+        const numCols = totalVars + 1;
+        const tableau = Array.from({ length: numRows }, () => new Array(numCols).fill(0));
+        const basis = new Array(numConstraints);
+
+        stdConstraints.forEach((sc, i) => {
+          const r = i + 2;
+          for (let j = 0; j < numVars; j++) tableau[r][j] = sc.coeffs[j];
+          if (sc.slackSurplusIndex !== -1) {
+            const col = numVars + sc.slackSurplusIndex;
+            tableau[r][col] = sc.isSurplus ? -1 : 1;
+            if (!sc.isSurplus) basis[i] = col;
+          }
+          if (sc.artificialIndex !== -1) {
+            const col = numVars + slackSurplusCount + sc.artificialIndex;
+            tableau[r][col] = 1;
+            basis[i] = col;
+          }
+          tableau[r][numCols - 1] = sc.rhs;
+        });
+
+        for (let j = 0; j < numVars; j++) tableau[1][j] = c[j];
+
+        if (artificialCount > 0) {
+          for (let k = 0; k < artificialCount; k++) {
+            const col = numVars + slackSurplusCount + k;
+            tableau[0][col] = 1;
+          }
+          stdConstraints.forEach((sc, i) => {
+            if (sc.artificialIndex !== -1) {
+              const r = i + 2;
+              for (let col = 0; col < numCols; col++) {
+                tableau[0][col] -= tableau[r][col];
+              }
+            }
+          });
+        }
+
+        const EPS = 1e-8;
+        function pivot(pRow, pCol) {
+          const pVal = tableau[pRow][pCol];
+          for (let col = 0; col < numCols; col++) tableau[pRow][col] /= pVal;
+          for (let r = 0; r < numRows; r++) {
+            if (r !== pRow) {
+              const factor = tableau[r][pCol];
+              if (Math.abs(factor) > EPS) {
+                for (let col = 0; col < numCols; col++) tableau[r][col] -= factor * tableau[pRow][col];
+              }
+            }
+          }
+          basis[pRow - 2] = pCol;
+        }
+
+        function runSimplex(objRow, eligibleCols) {
+          const MAX_ITER = 300;
+          let iter = 0;
+          while (iter++ < MAX_ITER) {
+            let enterCol = -1;
+            let minVal = -EPS;
+            for (const col of eligibleCols) {
+              if (tableau[objRow][col] < minVal) {
+                minVal = tableau[objRow][col];
+                enterCol = col;
+              }
+            }
+            if (enterCol === -1) return { status: "optimal" };
+
+            let leaveRow = -1;
+            let minRatio = Infinity;
+            for (let i = 0; i < numConstraints; i++) {
+              const r = i + 2;
+              const a_val = tableau[r][enterCol];
+              if (a_val > EPS) {
+                const ratio = tableau[r][numCols - 1] / a_val;
+                if (ratio < minRatio - EPS) {
+                  minRatio = ratio;
+                  leaveRow = r;
+                }
+              }
+            }
+            if (leaveRow === -1) return { status: "unbounded" };
+            pivot(leaveRow, enterCol);
+          }
+          return { status: "max_iter" };
+        }
+
+        if (artificialCount > 0) {
+          const phase1Cols = [];
+          for (let col = 0; col < totalVars; col++) phase1Cols.push(col);
+          runSimplex(0, phase1Cols);
+          const wVal = tableau[0][numCols - 1];
+          if (Math.abs(wVal) > 1e-4) {
+            return {
+              success: false,
+              infeasible: true,
+              message: "Seçilen yemlerin protein, enerji veya kaba yem oranları belirlenen hedefi karşılamaya yetmiyor. Lütfen protein hedefini esnetin veya yüksek proteinli/enerjili ek yemler (örneğin Soya Küspesi veya Mısır Kırması) seçin."
+            };
+          }
+          for (let i = 0; i < numConstraints; i++) {
+            const bCol = basis[i];
+            if (bCol >= numVars + slackSurplusCount) {
+              const r = i + 2;
+              for (let col = 0; col < numVars + slackSurplusCount; col++) {
+                if (Math.abs(tableau[r][col]) > EPS) {
+                  pivot(r, col);
+                  break;
+                }
+              }
+            }
+          }
+        }
+
+        const phase2Cols = [];
+        for (let col = 0; col < numVars + slackSurplusCount; col++) phase2Cols.push(col);
+
+        for (let i = 0; i < numConstraints; i++) {
+          const bCol = basis[i];
+          if (bCol < numVars + slackSurplusCount) {
+            const factor = tableau[1][bCol];
+            if (Math.abs(factor) > EPS) {
+              const r = i + 2;
+              for (let col = 0; col < numCols; col++) tableau[1][col] -= factor * tableau[r][col];
+            }
+          }
+        }
+
+        const p2Res = runSimplex(1, phase2Cols);
+        if (p2Res.status === "unbounded") {
+          return { success: false, message: "Rasyon problemi matematiksel olarak sınırsızlığa ulaştı." };
+        }
+
+        const solKM = new Array(numVars).fill(0);
+        for (let i = 0; i < numConstraints; i++) {
+          const bCol = basis[i];
+          if (bCol < numVars) {
+            solKM[bCol] = Math.max(0, tableau[i + 2][numCols - 1]);
+          }
+        }
+
+        let totalCostTL = 0;
+        let actualKM = 0;
+        let actualHPKg = 0;
+        let actualNELMcal = 0;
+        let actualMEMcal = 0;
+        let actualKabaKM = 0;
+        let actualNDFKg = 0;
+
+        const breakdown = feeds.map((f, idx) => {
+          const kmKg = solKM[idx];
+          const kmFactor = (f.kmPct || 88) / 100;
+          const freshKg = kmKg / kmFactor;
+          const costTL = freshKg * (f.price || 0);
+
+          totalCostTL += costTL;
+          actualKM += kmKg;
+          actualHPKg += kmKg * ((f.hpPct || 0) / 100);
+          actualNELMcal += kmKg * (f.nel || 0);
+          actualMEMcal += kmKg * (f.me || 0);
+          actualNDFKg += kmKg * ((f.ndf || 0) / 100);
+          if (f.category === 'kaba') actualKabaKM += kmKg;
+
+          return {
+            feed: f,
+            kmKg: Number(kmKg.toFixed(2)),
+            freshKg: Number(freshKg.toFixed(2)),
+            costTL: Number(costTL.toFixed(2)),
+            percentKM: 0
+          };
+        });
+
+        if (actualKM > 0) {
+          breakdown.forEach(item => {
+            item.percentKM = Number(((item.kmKg / actualKM) * 100).toFixed(1));
+          });
+        }
+
+        const includedFeeds = breakdown.filter(b => b.freshKg > 0.01);
+        const actualHPPct = actualKM > 0 ? (actualHPKg / actualKM) * 100 : 0;
+        const actualNEL = actualKM > 0 ? actualNELMcal / actualKM : 0;
+        const actualME = actualKM > 0 ? actualMEMcal / actualKM : 0;
+        const actualKabaPct = actualKM > 0 ? (actualKabaKM / actualKM) * 100 : 0;
+        const actualNDFPct = actualKM > 0 ? (actualNDFKg / actualKM) * 100 : 0;
+        const costPerKgKM = actualKM > 0 ? totalCostTL / actualKM : 0;
+
+        return {
+          success: true,
+          totalCostTL: Number(totalCostTL.toFixed(2)),
+          costPerKgKM: Number(costPerKgKM.toFixed(2)),
+          actualKM: Number(actualKM.toFixed(2)),
+          actualHPPct: Number(actualHPPct.toFixed(1)),
+          actualNEL: Number(actualNEL.toFixed(2)),
+          actualME: Number(actualME.toFixed(2)),
+          actualKabaPct: Number(actualKabaPct.toFixed(1)),
+          actualNDFPct: Number(actualNDFPct.toFixed(1)),
+          breakdown: includedFeeds,
+          allFeeds: breakdown
+        };
+      }
+    }
+
+    // =========================================================================
+    // EN DÜŞÜK MALİYETLİ RASYON ROBOTU UI ETKİLEŞİMLERİ
+    // =========================================================================
+    let currentSimplexResult = null;
+
+    function openSimplexModal() {
+      const modal = document.getElementById("simplex-modal");
+      if (!modal) return;
+      modal.classList.add("active");
+      renderSimplexFeeds();
+    }
+
+    function closeSimplexModal() {
+      const modal = document.getElementById("simplex-modal");
+      if (modal) modal.classList.remove("active");
+    }
+
+    function applySimplexPreset(key) {
+      const presets = ["dairy30", "dairy20", "beef_fin", "beef_grow", "sheep_lact", "lamb_fat"];
+      presets.forEach(p => {
+        const btn = document.getElementById(`sp-preset-${p}`);
+        if (btn) btn.classList.toggle("active", p === key);
+      });
+
+      const kmInp = document.getElementById("sp-target-km");
+      const hpInp = document.getElementById("sp-target-hp");
+      const nelInp = document.getElementById("sp-target-nel");
+      const kabaInp = document.getElementById("sp-min-kaba");
+      const ndfInp = document.getElementById("sp-min-ndf");
+      const milkInp = document.getElementById("sp-target-milk");
+
+      if (key === "dairy30") {
+        kmInp.value = "21.0"; hpInp.value = "16.5"; nelInp.value = "1.65"; kabaInp.value = "45"; ndfInp.value = "28"; milkInp.value = "30";
+      } else if (key === "dairy20") {
+        kmInp.value = "17.0"; hpInp.value = "15.0"; nelInp.value = "1.55"; kabaInp.value = "50"; ndfInp.value = "30"; milkInp.value = "20";
+      } else if (key === "beef_fin") {
+        kmInp.value = "11.0"; hpInp.value = "13.5"; nelInp.value = "1.75"; kabaInp.value = "22"; ndfInp.value = "20"; milkInp.value = "0";
+      } else if (key === "beef_grow") {
+        kmInp.value = "9.0"; hpInp.value = "14.5"; nelInp.value = "1.65"; kabaInp.value = "32"; ndfInp.value = "25"; milkInp.value = "0";
+      } else if (key === "sheep_lact") {
+        kmInp.value = "2.2"; hpInp.value = "14.5"; nelInp.value = "1.55"; kabaInp.value = "45"; ndfInp.value = "28"; milkInp.value = "0";
+      } else if (key === "lamb_fat") {
+        kmInp.value = "1.5"; hpInp.value = "16.0"; nelInp.value = "1.80"; kabaInp.value = "25"; ndfInp.value = "22"; milkInp.value = "0";
+      }
+    }
+
+    function renderSimplexFeeds() {
+      const container = document.getElementById("simplex-feeds-container");
+      if (!container) return;
+      const feeds = getFeeds();
+
+      container.innerHTML = feeds.map(f => {
+        const isKatki = f.category === "katki";
+        const isChecked = !isKatki; // kaba ve kesif varsayılan seçili gelsin
+        const catBadge = f.category === "kaba" ? '<span style="background:#dcfce7; color:#166534; font-size:0.7rem; padding:2px 6px; border-radius:4px; font-weight:700;">Kaba</span>' :
+                        (f.category === "kesif" ? '<span style="background:#e0f2fe; color:#0369a1; font-size:0.7rem; padding:2px 6px; border-radius:4px; font-weight:700;">Kesif</span>' :
+                        '<span style="background:#fef3c7; color:#92400e; font-size:0.7rem; padding:2px 6px; border-radius:4px; font-weight:700;">Katkı</span>');
+
+        return `
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; padding:6px 8px; border-bottom:1px solid #f1f5f9;">
+            <label style="display:flex; align-items:center; gap:8px; cursor:pointer; flex:1; font-size:0.84rem; font-weight:600;">
+              <input type="checkbox" id="sp-chk-${f.id}" ${isChecked ? 'checked' : ''} style="width:17px; height:17px; accent-color:#16a34a;">
+              <span>${f.name}</span>
+              ${catBadge}
+            </label>
+            <div style="display:flex; align-items:center; gap:4px; font-size:0.8rem;">
+              <span style="color:#64748b;">Fiyat:</span>
+              <input type="number" id="sp-price-${f.id}" step="0.1" value="${f.price || 0}" style="width:70px; padding:3px 6px; border:1px solid #cbd5e1; border-radius:6px; font-weight:700; text-align:right;">
+              <span style="color:#64748b;">TL</span>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function selectAllSimplexFeeds(status) {
+      const feeds = getFeeds();
+      feeds.forEach(f => {
+        const chk = document.getElementById(`sp-chk-${f.id}`);
+        if (chk) chk.checked = status;
+      });
+    }
+
+    function solveSimplexRation() {
+      const targetKM = parseFloat(document.getElementById("sp-target-km").value) || 21.0;
+      const targetHP = parseFloat(document.getElementById("sp-target-hp").value) || 16.5;
+      const targetNEL = parseFloat(document.getElementById("sp-target-nel").value) || 1.65;
+      const minKabaPct = parseFloat(document.getElementById("sp-min-kaba").value) || 45;
+      const minNDFPct = parseFloat(document.getElementById("sp-min-ndf").value) || 28;
+      const milkL = parseFloat(document.getElementById("sp-target-milk").value) || 0;
+
+      const allFeeds = getFeeds();
+      const selectedFeeds = [];
+
+      allFeeds.forEach(f => {
+        const chk = document.getElementById(`sp-chk-${f.id}`);
+        if (chk && chk.checked) {
+          const priceInp = document.getElementById(`sp-price-${f.id}`);
+          const customPrice = priceInp ? (parseFloat(priceInp.value) || f.price) : f.price;
+          selectedFeeds.push({
+            ...f,
+            price: customPrice
+          });
+        }
+      });
+
+      if (selectedFeeds.length === 0) {
+        alert("Lütfen rasyonda kullanılacak en az bir yem işaretleyiniz.");
+        return;
+      }
+
+      const resBox = document.getElementById("simplex-result-box");
+      resBox.style.display = "block";
+      resBox.innerHTML = `
+        <div style="text-align:center; padding:20px; color:#475569;">
+          <div>Matematiksel optimizasyon çözülüyor...</div>
+        </div>
+      `;
+
+      setTimeout(() => {
+        const result = SimplexSolver.solveLeastCost({
+          feeds: selectedFeeds,
+          targetKM,
+          targetHP,
+          targetNEL,
+          targetME: 0,
+          minKabaPct,
+          minNDFPct
+        });
+
+        currentSimplexResult = result;
+
+        if (!result.success) {
+          resBox.innerHTML = `
+            <div style="background:#fef2f2; border:1.5px solid #fecaca; border-radius:12px; padding:14px; color:#991b1b;">
+              <div style="font-weight:800; font-size:0.95rem; display:flex; align-items:center; gap:6px; margin-bottom:6px;">
+                <span>⚠️</span> <span>Optimum Çözüm Bulunamadı</span>
+              </div>
+              <div style="font-size:0.84rem; line-height:1.4;">${result.message}</div>
+            </div>
+          `;
+          return;
+        }
+
+        const milkCostHtml = milkL > 0 ? `
+          <div style="background:#ffffff; border-radius:8px; padding:8px 12px; border:1px solid #bbf7d0; text-align:center;">
+            <div style="font-size:0.75rem; color:#166534; font-weight:700;">1 Litre Süt Yem Maliyeti</div>
+            <div style="font-size:1.15rem; font-weight:900; color:#15803d; font-variant-numeric:tabular-nums;">${(result.totalCostTL / milkL).toFixed(2)} TL/L</div>
+          </div>
+        ` : '';
+
+        const tableRows = result.breakdown.map(item => {
+          return `
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:8px 6px; font-weight:700; color:#0f172a;">${item.feed.name}</td>
+              <td style="padding:8px 6px; text-align:right; font-weight:900; color:#15803d; font-size:0.95rem; font-variant-numeric:tabular-nums;">${item.freshKg} kg</td>
+              <td style="padding:8px 6px; text-align:right; color:#475569; font-variant-numeric:tabular-nums;">${item.kmKg} kg</td>
+              <td style="padding:8px 6px; text-align:right; color:#475569; font-variant-numeric:tabular-nums;">${item.feed.price.toFixed(2)} TL</td>
+              <td style="padding:8px 6px; text-align:right; font-weight:800; color:#0f172a; font-variant-numeric:tabular-nums;">${item.costTL} TL</td>
+              <td style="padding:8px 6px; text-align:right; color:#64748b; font-size:0.78rem; font-variant-numeric:tabular-nums;">%${item.percentKM}</td>
+            </tr>
+          `;
+        }).join("");
+
+        resBox.innerHTML = `
+          <div style="background:#f0fdf4; border:1.5px solid #86efac; border-radius:12px; padding:14px; margin-bottom:12px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; flex-wrap:wrap; gap:8px;">
+              <div style="font-weight:900; font-size:1.05rem; color:#166534; display:flex; align-items:center; gap:6px;">
+                <span>🎯</span> <span>En Düşük Maliyetli Rasyon Çözüldü</span>
+              </div>
+              <span style="font-size:0.75rem; background:#dcfce7; color:#15803d; padding:3px 8px; border-radius:6px; font-weight:800;">Simplex LP Optimal</span>
+            </div>
+
+            <!-- MALİYET KUTULARI -->
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(130px, 1fr)); gap:8px; margin-bottom:12px;">
+              <div style="background:#ffffff; border-radius:8px; padding:8px 12px; border:1px solid #bbf7d0; text-align:center;">
+                <div style="font-size:0.75rem; color:#166534; font-weight:700;">Günlük Toplam Maliyet</div>
+                <div style="font-size:1.25rem; font-weight:900; color:#15803d; font-variant-numeric:tabular-nums;">${result.totalCostTL} TL</div>
+              </div>
+              <div style="background:#ffffff; border-radius:8px; padding:8px 12px; border:1px solid #bbf7d0; text-align:center;">
+                <div style="font-size:0.75rem; color:#166534; font-weight:700;">1 kg KM Maliyeti</div>
+                <div style="font-size:1.15rem; font-weight:900; color:#0f172a; font-variant-numeric:tabular-nums;">${result.costPerKgKM} TL/kg</div>
+              </div>
+              ${milkCostHtml}
+            </div>
+
+            <!-- BESİN ANALİZİ -->
+            <div style="background:#ffffff; border-radius:8px; padding:8px 10px; border:1px solid #e2e8f0; font-size:0.78rem; display:flex; justify-content:space-around; flex-wrap:wrap; gap:6px; margin-bottom:12px;">
+              <div><strong>KM:</strong> ${result.actualKM} kg</div>
+              <div><strong>Ham Protein:</strong> %${result.actualHPPct}</div>
+              <div><strong>NEL Enerji:</strong> ${result.actualNEL} Mcal/kg</div>
+              <div><strong>Kaba Yem:</strong> %${result.actualKabaPct}</div>
+              <div><strong>NDF Lif:</strong> %${result.actualNDFPct}</div>
+            </div>
+
+            <!-- TARTIM TABLOSU -->
+            <div style="overflow-x:auto; margin-bottom:12px;">
+              <table style="width:100%; border-collapse:collapse; font-size:0.8rem; background:#ffffff; border-radius:8px; overflow:hidden; border:1px solid #e2e8f0;">
+                <thead>
+                  <tr style="background:#f8fafc; border-bottom:1.5px solid #cbd5e1; text-align:left; font-size:0.74rem; color:#475569;">
+                    <th style="padding:6px;">Yem Adı</th>
+                    <th style="padding:6px; text-align:right;">Kantar Tartım</th>
+                    <th style="padding:6px; text-align:right;">Kuru Madde</th>
+                    <th style="padding:6px; text-align:right;">Birim Fiyat</th>
+                    <th style="padding:6px; text-align:right;">Günlük Tutar</th>
+                    <th style="padding:6px; text-align:right;">% KM</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${tableRows}
+                </tbody>
+              </table>
+            </div>
+
+            <button type="button" class="btn-action-primary" onclick="transferSimplexToTmr()" style="width:100%; background:#0284c7; padding:10px; font-size:0.9rem; display:flex; align-items:center; justify-content:center; gap:6px;">
+              <span>📋 Bu Rasyonu TMR Yem Karma Vagonuna Aktar</span>
+            </button>
+          </div>
+        `;
+      }, 250);
+    }
+
+    function transferSimplexToTmr() {
+      if (!currentSimplexResult || !currentSimplexResult.breakdown) {
+        alert("Aktarılacak geçerli bir rasyon bulunamadı.");
+        return;
+      }
+      state.latestRation = {
+        evaluatedItems: currentSimplexResult.breakdown.map(item => ({
+          name: item.feed.name,
+          freshKg: item.freshKg
+        }))
+      };
+
+      closeSimplexModal();
+      openTmrModal();
+    }
+
 
     // =========================================================================
     // KENDİ YEM HAM MADDELERİNİ SEÇME VE TANIMLAMA MOTORU

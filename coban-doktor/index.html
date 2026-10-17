@@ -2337,6 +2337,30 @@
           </button>
         </div>
 
+        <!-- BİLDİRİM & YEDEKLEME HIZLI ARAÇLARI -->
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:12px; flex-wrap:wrap; background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:8px 12px;">
+          <div style="display:flex; align-items:center; gap:6px;">
+            <button type="button" class="filter-pill" id="btn-kupe-notif" onclick="toggleKupeNotifications()" style="background:#0f172a; color:#fff; border-color:#0f172a; display:inline-flex; align-items:center; gap:5px; font-weight:700;">
+              <span>🔔</span> <span id="lbl-kupe-notif">Bildirimleri Aç</span>
+            </button>
+            <button type="button" class="filter-pill" onclick="sendTestKupeNotification()" title="Test Bildirimi Gönder" style="background:#fff; border-color:#cbd5e1; font-size:0.75rem;">
+              Test Et
+            </button>
+          </div>
+          <div style="display:flex; align-items:center; gap:6px;">
+            <button type="button" class="filter-pill" onclick="exportKupeJSON()" title="Tüm Küpe Defterini JSON Olarak İndir" style="background:#0284c7; color:#fff; border-color:#0284c7; display:inline-flex; align-items:center; gap:4px;">
+              <span>📥 JSON</span>
+            </button>
+            <label class="filter-pill" style="background:#fff; border:1.5px solid #cbd5e1; cursor:pointer; margin:0; display:inline-flex; align-items:center; gap:4px;" title="JSON Yedekten Geri Yükle">
+              <span>📤 Yükle</span>
+              <input type="file" id="kupeJsonImportInput" accept=".json" style="display:none;" onchange="importKupeJSON(event)">
+            </label>
+            <button type="button" class="filter-pill" onclick="exportKupeCSV()" title="Excel / CSV Olarak İndir" style="background:#059669; color:#fff; border-color:#059669; display:inline-flex; align-items:center; gap:4px;">
+              <span>📊 Excel/CSV</span>
+            </button>
+          </div>
+        </div>
+
         <button onclick="shareAllActiveDirect()" class="btn-batch-wa" id="btn-batch-share" style="display:none;">
           <svg class="lucide-icon" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>
           <span>Aktif Arınma Listesini Paylaş / İlet</span>
@@ -4611,7 +4635,244 @@
 
       switchKupeTab(initialTab);
       renderKupeRecords();
+      updateKupeNotifUI();
       modal.classList.add("active");
+    }
+
+    // =========================================================================
+    // PWA WEB NOTIFICATION (TARAYICI BİLDİRİMLERİ) & VERİ YEDEKLEME (JSON/CSV)
+    // =========================================================================
+
+    function updateKupeNotifUI() {
+      const btnLbl = document.getElementById("lbl-kupe-notif");
+      const btn = document.getElementById("btn-kupe-notif");
+      if (!btn || !btnLbl) return;
+
+      if (!("Notification" in window)) {
+        btnLbl.textContent = "Bildirim Desteklenmiyor";
+        btn.disabled = true;
+        btn.style.opacity = "0.6";
+        return;
+      }
+
+      if (Notification.permission === "granted") {
+        btnLbl.textContent = "Alarmlar Açık ✓";
+        btn.style.background = "#16a34a";
+        btn.style.borderColor = "#16a34a";
+      } else if (Notification.permission === "denied") {
+        btnLbl.textContent = "Bildirim Engellendi ✕";
+        btn.style.background = "#dc2626";
+        btn.style.borderColor = "#dc2626";
+      } else {
+        btnLbl.textContent = "Bildirimleri Aç (İzin Ver)";
+        btn.style.background = "#0f172a";
+        btn.style.borderColor = "#0f172a";
+      }
+    }
+
+    async function toggleKupeNotifications() {
+      if (!("Notification" in window)) {
+        alert("Tarayıcınız web bildirimlerini desteklemiyor.");
+        return;
+      }
+
+      if (Notification.permission === "default") {
+        const perm = await Notification.requestPermission();
+        updateKupeNotifUI();
+        if (perm === "granted") {
+          sendWebPushNotification(
+            "Çoban Doktor İlaç Takipçisi Aktif 🔔",
+            "İlaç arınma süreleri bittiğinde ve kritik günlerde bildirim alacaksınız."
+          );
+          checkKupeAlarms(true);
+        }
+      } else if (Notification.permission === "granted") {
+        checkKupeAlarms(true);
+      } else {
+        alert("Bildirim izni daha önce reddedilmiş. Lütfen tarayıcınızın site ayarlarından bildirim iznini açınız.");
+      }
+    }
+
+    function sendWebPushNotification(title, body, tag = "coban-doktor-notif") {
+      if (!("Notification" in window) || Notification.permission !== "granted") return;
+
+      const options = {
+        body,
+        icon: "./icon-192.png",
+        badge: "./favicon-32x32.png",
+        tag,
+        renotify: true,
+        data: { url: window.location.href }
+      };
+
+      if ("serviceWorker" in navigator && navigator.serviceWorker.controller) {
+        navigator.serviceWorker.ready.then(reg => {
+          reg.showNotification(title, options).catch(() => {
+            new Notification(title, options);
+          });
+        });
+      } else {
+        try {
+          new Notification(title, options);
+        } catch (e) {}
+      }
+    }
+
+    function sendTestKupeNotification() {
+      if (!("Notification" in window)) {
+        alert("Tarayıcınız bildirim desteklemiyor.");
+        return;
+      }
+      if (Notification.permission !== "granted") {
+        Notification.requestPermission().then(p => {
+          updateKupeNotifUI();
+          if (p === "granted") {
+            sendWebPushNotification("Test Bildirimi - Çoban Doktor", "Sistem bildirimleri ve ilaç arınma alarmları başarıyla çalışıyor!");
+          } else {
+            alert("Lütfen önce bildirim izni veriniz.");
+          }
+        });
+      } else {
+        sendWebPushNotification("Test Bildirimi - Çoban Doktor", "Sistem bildirimleri ve ilaç arınma alarmları başarıyla çalışıyor!");
+      }
+    }
+
+    function checkKupeAlarms(isManual = false) {
+      if (!("Notification" in window) || Notification.permission !== "granted") return;
+      const records = getKupeRecords();
+      if (!records || records.length === 0) return;
+
+      const now = Date.now();
+      let clearedTodayCount = 0;
+      let activeCount = 0;
+
+      records.forEach(rec => {
+        const w = computeWithdrawal(rec);
+        if (w.isAnyActive) {
+          activeCount++;
+        }
+        const appTime = new Date(rec.applicationDate).getTime();
+        const milkEnd = appTime + (Number(rec.milkDays) * 86400000);
+        const meatEnd = appTime + (Number(rec.meatDays) * 86400000);
+        if (rec.milkDays > 0 && now >= milkEnd && (now - milkEnd) < 86400000) clearedTodayCount++;
+        if (rec.meatDays > 0 && now >= meatEnd && (now - meatEnd) < 86400000) clearedTodayCount++;
+      });
+
+      if (clearedTodayCount > 0) {
+        sendWebPushNotification(
+          "🥛 İlaç Arınması Bitti!",
+          `${clearedTodayCount} kaydın arınma süresi tamamlandı. Süt/et güvenli duruma geçti.`
+        );
+      } else if (isManual && activeCount > 0) {
+        sendWebPushNotification(
+          "⚠️ Aktif İKAS Bekleme Listesi",
+          `Şu anda ${activeCount} hayvanınızın ilaç bekleme süresi devam ediyor.`
+        );
+      } else if (isManual) {
+        alert("Arınma süresi devam eden yasaklı hayvanınız bulunmuyor. Tüm kayıtlar temiz!");
+      }
+    }
+
+    function exportKupeJSON() {
+      const records = getKupeRecords();
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(records, null, 2));
+      const today = new Date().toISOString().slice(0, 10);
+      const dlAnchor = document.createElement("a");
+      dlAnchor.setAttribute("href", dataStr);
+      dlAnchor.setAttribute("download", `cobandoktor_kupe_kayitlari_${today}.json`);
+      document.body.appendChild(dlAnchor);
+      dlAnchor.click();
+      dlAnchor.remove();
+    }
+
+    function importKupeJSON(event) {
+      const file = event.target.files?.[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const imported = JSON.parse(e.target.result);
+          if (!Array.isArray(imported)) {
+            alert("Hatalı dosya biçimi: JSON bir liste içermelidir.");
+            return;
+          }
+          const current = getKupeRecords();
+          const existingIds = new Set(current.map(r => r.id));
+          let added = 0;
+          imported.forEach(item => {
+            if (item.earTag && (item.medicine || item.drugName)) {
+              if (!item.medicine && item.drugName) item.medicine = item.drugName;
+              if (!item.id || existingIds.has(item.id)) {
+                item.id = "rec_" + Date.now() + "_" + Math.random().toString(36).substr(2, 5);
+              }
+              current.unshift(item);
+              existingIds.add(item.id);
+              added++;
+            }
+          });
+          saveKupeRecords(current);
+          renderKupeRecords();
+          alert(`Yedekten ${added} adet küpe kaydı başarıyla yüklendi!`);
+        } catch (err) {
+          alert("Dosya okunurken hata oluştu: " + err.message);
+        }
+      };
+      reader.readAsText(file);
+      event.target.value = "";
+    }
+
+    function exportKupeCSV() {
+      const records = getKupeRecords();
+      if (!records || records.length === 0) {
+        alert("Dışa aktarılacak kayıt bulunmuyor.");
+        return;
+      }
+
+      const headers = [
+        "Küpe No",
+        "Hayvan Grubu",
+        "İlaç Adı",
+        "Uygulama Tarihi",
+        "Süt Arınma Günü",
+        "Süt Bitiş Tarihi",
+        "Süt Durumu",
+        "Et Arınma Günü",
+        "Et Bitiş Tarihi",
+        "Et Durumu",
+        "Notlar"
+      ];
+
+      const rows = records.map(r => {
+        const w = computeWithdrawal(r);
+        const milkStatus = r.milkDays > 0 ? (w.isMilkActive ? "DÖKÜLECEK (Yasak)" : "ARINDI (Güvenli)") : "Süresiz";
+        const meatStatus = r.meatDays > 0 ? (w.isMeatActive ? "KESİM YASAK" : "ARINDI (Güvenli)") : "Süresiz";
+        return [
+          `"${(r.earTag || '').replace(/"/g, '""')}"`,
+          `"${(r.speciesGroup || '').replace(/"/g, '""')}"`,
+          `"${(r.medicine || '').replace(/"/g, '""')}"`,
+          `"${w.appDateStr}"`,
+          r.milkDays || 0,
+          `"${w.milkEndDateStr}"`,
+          `"${milkStatus}"`,
+          r.meatDays || 0,
+          `"${w.meatEndDateStr}"`,
+          `"${meatStatus}"`,
+          `"${(r.notes || '').replace(/"/g, '""')}"`
+        ].join(";");
+      });
+
+      const csvContent = "\uFEFF" + headers.join(";") + "\n" + rows.join("\n");
+      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const today = new Date().toISOString().slice(0, 10);
+      const dlAnchor = document.createElement("a");
+      dlAnchor.setAttribute("href", url);
+      dlAnchor.setAttribute("download", `cobandoktor_kupe_defteri_${today}.csv`);
+      document.body.appendChild(dlAnchor);
+      dlAnchor.click();
+      dlAnchor.remove();
+      URL.revokeObjectURL(url);
     }
 
     function closeKupeDefteriModal() {
@@ -5839,8 +6100,12 @@
       });
     }
 
-    // İlk açılışta rozeti güncelle
+    // İlk açılışta rozeti güncelle ve alarmları kontrol et
     updateDefterBadge();
+    setTimeout(() => {
+      updateKupeNotifUI();
+      checkKupeAlarms(false);
+    }, 1500);
   </script>
 </body>
 </html>

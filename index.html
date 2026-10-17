@@ -761,6 +761,7 @@
         <p>Çoban Doktor, Rasyon ve Üretim Bağımsız Çiftlik Portalı</p>
       </div>
       <div class="header-actions">
+        <button id="backupModalBtn" class="header-btn" onclick="openBackupCenterModal()" title="Çiftlik Veri Merkezi (Tüm Modülleri Yedekle / Yükle)">💾 Veri Yedekle</button>
         <button id="pwaInstallBtn" class="header-btn" onclick="triggerPwaInstall()" style="display:none;" title="Uygulamayı Telefona / Ana Ekrana Yükle">Uygulamayı Yükle</button>
         <button id="infoMenuBtn" class="header-btn" onclick="openInfoModal()" title="Kapsam, Özellikler ve Kurulum Bilgisi">Bilgi</button>
         <button id="themeToggleBtn" class="header-btn" onclick="toggleTheme()" title="Koyu / Açık Mod Değiştir">Gece Modu</button>
@@ -1055,6 +1056,62 @@
     </div>
   </div>
 
+  <!-- =========================================================================
+       ÇİFTLİK VERİ MERKEZİ & BİLDİRİM MODALI (FULL FARM BACKUP & RESTORE)
+       ========================================================================= -->
+  <div id="backupCenterModal" class="info-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="backupModalTitle" onclick="handleBackupOverlayClick(event)">
+    <div class="info-modal-container" style="max-width:580px;" onclick="event.stopPropagation()">
+      <div class="info-modal-header">
+        <div>
+          <h2 id="backupModalTitle" class="info-modal-title">💾 Çiftlik Veri Merkezi & Bildirimler</h2>
+          <p class="info-modal-subtitle">Tüm modülleri tek tıkla yedekleyin, aktarın ve alarmları yönetin</p>
+        </div>
+        <button class="info-modal-close-btn" onclick="closeBackupCenterModal()" aria-label="Pencereyi Kapat">&times;</button>
+      </div>
+      <div class="info-modal-body">
+        <p class="modal-desc-text">
+          Çoban Doktor (ilaç & küpe defteri), Üretim Rehberi (üreme & doğum takvimi) ve Rasyon Rehberi (özel yemler & fiyatlar) verilerinizi tek bir dosyada güvenle yedekleyin veya başka bir telefona/bilgisayara kolayca aktarın.
+        </p>
+
+        <!-- TEK TIKLA YEDEK ALMA VE YÜKLEME -->
+        <div style="background:var(--bg); border:2px solid var(--border); border-radius:8px; padding:16px; margin-bottom:16px;">
+          <h4 style="font-weight:900; font-size:1rem; margin-bottom:6px; color:var(--text);">📦 Tüm Çiftliği Tek Seferde Yedekle:</h4>
+          <p style="font-size:0.82rem; color:var(--text-muted); font-weight:600; margin-bottom:14px; line-height:1.4;">
+            Tüm modüllerdeki küpelerinizi, ilaç arınma takiplerinizi, tohumlama kayıtlarınızı ve güncel yem fiyatlarınızı tek bir JSON dosyası olarak indirir.
+          </p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <button type="button" onclick="exportFullFarmBackup()" style="background:#000000; color:#ffffff; flex:1; min-width:180px; padding:12px 14px; font-size:0.88rem; border-radius:6px; border:2px solid #000000; font-weight:900; cursor:pointer;">
+              📥 Tüm Verileri Yedekle (.json)
+            </button>
+            <label style="background:var(--bg); color:var(--text); flex:1; min-width:180px; padding:12px 14px; font-size:0.88rem; border-radius:6px; border:2px solid var(--border); font-weight:900; cursor:pointer; text-align:center; display:inline-flex; align-items:center; justify-content:center;">
+              <span>📤 Yedekten Geri Yükle</span>
+              <input type="file" id="fullFarmImportInput" accept=".json" style="display:none;" onchange="importFullFarmBackup(event)">
+            </label>
+          </div>
+        </div>
+
+        <!-- PWA WEB BİLDİRİMLERİ -->
+        <div style="background:var(--bg); border:2px solid var(--border); border-radius:8px; padding:16px;">
+          <h4 style="font-weight:900; font-size:1rem; margin-bottom:6px; color:var(--text);">🔔 Web Bildirimleri & İlaç/Doğum Alarmları:</h4>
+          <p style="font-size:0.82rem; color:var(--text-muted); font-weight:600; margin-bottom:14px; line-height:1.4;">
+            İlaç arınma süresi bittiğinde veya hayvanınızın doğum zamanı yaklaştığında tarayıcı üzerinden anlık sesli/görsel uyarı alın.
+          </p>
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+            <button type="button" id="btn-portal-notif" onclick="togglePortalNotifications()" style="background:#000000; color:#ffffff; border:2px solid #000000; padding:10px 14px; border-radius:6px; font-weight:900; font-size:0.84rem; cursor:pointer;">
+              Bildirim İzni Ver / Kontrol Et
+            </button>
+            <button type="button" onclick="testPortalNotification()" style="background:var(--bg); border:2px solid var(--border); color:var(--text); padding:10px 14px; border-radius:6px; font-weight:900; font-size:0.84rem; cursor:pointer;">
+              Test Bildirimi Gönder
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="info-modal-footer">
+        <button class="info-modal-footer-btn" onclick="closeBackupCenterModal()">Kapat</button>
+      </div>
+    </div>
+  </div>
+
   <script>
     /* =========================================================================
        TEMA YÖNETİMİ (AÇIK / KOYU MOD - MAKSİMUM KONTRAST)
@@ -1110,6 +1167,140 @@
         closeInfoModal();
       }
     }
+
+    /* =========================================================================
+       ÇİFTLİK VERİ MERKEZİ & BİLDİRİM FONKSİYONLARI
+       ========================================================================= */
+    const backupModal = document.getElementById("backupCenterModal");
+
+    function openBackupCenterModal() {
+      if (backupModal) {
+        backupModal.classList.add("open");
+        document.body.style.overflow = "hidden";
+        updatePortalNotifUI();
+      }
+    }
+
+    function closeBackupCenterModal() {
+      if (backupModal) {
+        backupModal.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+    }
+
+    function handleBackupOverlayClick(event) {
+      if (event.target === backupModal) {
+        closeBackupCenterModal();
+      }
+    }
+
+    function exportFullFarmBackup() {
+      const backup = {
+        version: 1,
+        exportedAt: new Date().toISOString(),
+        cobanDoktorKupe: JSON.parse(localStorage.getItem("cobandoktor_kupe_records_v1") || "[]"),
+        uretimRehberi: JSON.parse(localStorage.getItem("uretim_rehberi_records_v1") || "[]"),
+        rasyonFeeds: JSON.parse(localStorage.getItem("rasyon_custom_feeds_v1") || "[]")
+      };
+
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(backup, null, 2));
+      const today = new Date().toISOString().slice(0, 10);
+      const dlAnchor = document.createElement("a");
+      dlAnchor.setAttribute("href", dataStr);
+      dlAnchor.setAttribute("download", `tosunpasa_ciftlik_tam_yedek_${today}.json`);
+      document.body.appendChild(dlAnchor);
+      dlAnchor.click();
+      dlAnchor.remove();
+    }
+
+    function importFullFarmBackup(event) {
+      const file = event.target.files?.[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const data = JSON.parse(e.target.result);
+          let kupeCount = 0;
+          let reproCount = 0;
+          let feedCount = 0;
+
+          if (Array.isArray(data.cobanDoktorKupe)) {
+            localStorage.setItem("cobandoktor_kupe_records_v1", JSON.stringify(data.cobanDoktorKupe));
+            kupeCount = data.cobanDoktorKupe.length;
+          }
+          if (Array.isArray(data.uretimRehberi)) {
+            localStorage.setItem("uretim_rehberi_records_v1", JSON.stringify(data.uretimRehberi));
+            reproCount = data.uretimRehberi.length;
+          }
+          if (Array.isArray(data.rasyonFeeds)) {
+            localStorage.setItem("rasyon_custom_feeds_v1", JSON.stringify(data.rasyonFeeds));
+            feedCount = data.rasyonFeeds.length;
+          }
+
+          alert(`Yedek Başarıyla Geri Yüklendi!\n\n📋 Küpe Defteri: ${kupeCount} kayıt\n📅 Üretim Defteri: ${reproCount} kayıt\n🌾 Yem Ambarı: ${feedCount} kayıt`);
+          closeBackupCenterModal();
+        } catch (err) {
+          alert("Yedek dosyası açılırken hata oluştu: " + err.message);
+        }
+      };
+      reader.readAsText(file);
+      event.target.value = "";
+    }
+
+    function updatePortalNotifUI() {
+      const btn = document.getElementById("btn-portal-notif");
+      if (!btn) return;
+      if (!("Notification" in window)) {
+        btn.textContent = "Tarayıcı Desteklemiyor";
+        btn.disabled = true;
+        return;
+      }
+      if (Notification.permission === "granted") {
+        btn.textContent = "Bildirimler Aktif ✓";
+        btn.style.background = "#16a34a";
+      } else if (Notification.permission === "denied") {
+        btn.textContent = "Bildirim Engellendi ✕";
+        btn.style.background = "#dc2626";
+      } else {
+        btn.textContent = "Bildirim İzni Ver";
+        btn.style.background = "#000000";
+      }
+    }
+
+    async function togglePortalNotifications() {
+      if (!("Notification" in window)) {
+        alert("Tarayıcınız web bildirimlerini desteklemiyor.");
+        return;
+      }
+      if (Notification.permission === "default") {
+        const perm = await Notification.requestPermission();
+        updatePortalNotifUI();
+        if (perm === "granted") {
+          testPortalNotification();
+        }
+      } else if (Notification.permission === "granted") {
+        testPortalNotification();
+      } else {
+        alert("Bildirim izni engellenmiş. Lütfen tarayıcı ayarlarından site bildirimlerine izin veriniz.");
+      }
+    }
+
+    function testPortalNotification() {
+      if (!("Notification" in window) || Notification.permission !== "granted") {
+        alert("Lütfen önce bildirim izni veriniz.");
+        return;
+      }
+      const options = {
+        body: "Tosun Paşa Çiftliği sistem bildirimleri başarıyla çalışıyor!",
+        icon: "./apple-touch-icon.png",
+        badge: "./favicon-32x32.png"
+      };
+      try {
+        new Notification("Tosun Paşa Çiftliği", options);
+      } catch (e) {}
+    }
+
 
     // Klavye kısayolları: ESC ile kapat, 'b' veya 'i' ile Bilgi aç, 't' ile Tema değiştir
     window.addEventListener("keydown", (e) => {

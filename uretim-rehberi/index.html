@@ -1147,6 +1147,30 @@
           <button class="filter-pill" id="f-close" onclick="setDefterFilter('close')">🚨 Doğumu Yaklaşanlar</button>
         </div>
 
+        <!-- BİLDİRİM & YEDEKLEME HIZLI ARAÇLARI -->
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:12px; flex-wrap:wrap; background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:8px 12px;">
+          <div style="display:flex; align-items:center; gap:6px;">
+            <button type="button" class="filter-pill" id="btn-repro-notif" onclick="toggleReproNotifications()" style="background:#0f172a; color:#fff; border-color:#0f172a; display:inline-flex; align-items:center; gap:5px; font-weight:700;">
+              <span>🔔</span> <span id="lbl-repro-notif">Doğum Alarmlarını Aç</span>
+            </button>
+            <button type="button" class="filter-pill" onclick="sendTestReproNotification()" title="Test Bildirimi Gönder" style="background:#fff; border-color:#cbd5e1; font-size:0.75rem;">
+              Test Et
+            </button>
+          </div>
+          <div style="display:flex; align-items:center; gap:6px;">
+            <button type="button" class="filter-pill" onclick="exportReproJSON()" title="Üretim Defterini JSON Olarak İndir" style="background:#0284c7; color:#fff; border-color:#0284c7; display:inline-flex; align-items:center; gap:4px;">
+              <span>📥 JSON</span>
+            </button>
+            <label class="filter-pill" style="background:#fff; border:1.5px solid #cbd5e1; cursor:pointer; margin:0; display:inline-flex; align-items:center; gap:4px;" title="JSON Yedekten Geri Yükle">
+              <span>📤 Yükle</span>
+              <input type="file" id="reproJsonImportInput" accept=".json" style="display:none;" onchange="importReproJSON(event)">
+            </label>
+            <button type="button" class="filter-pill" onclick="exportReproCSV()" title="Excel / CSV Olarak İndir" style="background:#059669; color:#fff; border-color:#059669; display:inline-flex; align-items:center; gap:4px;">
+              <span>📊 Excel/CSV</span>
+            </button>
+          </div>
+        </div>
+
         <div id="defter-records-container" style="display:flex; flex-direction:column; gap:8px; max-height:340px; overflow-y:auto;">
           <!-- Kayıtlar dinamik basılır -->
         </div>
@@ -1262,10 +1286,268 @@
     function closeEstrusModal() { closeModal('estrus-modal'); }
     function openMaturityModal() { openModal('maturity-modal'); evalMaturityLive(); }
     function closeMaturityModal() { closeModal('maturity-modal'); }
-    function openReproDefteriModal() { openModal('repro-defter-modal'); renderDefterRecords(); }
+    function openReproDefteriModal() { openModal('repro-defter-modal'); renderDefterRecords(); updateReproNotifUI(); }
     function closeReproDefteriModal() { closeModal('repro-defter-modal'); }
     function openGuideModal() { openModal('guide-modal'); }
     function closeGuideModal() { closeModal('guide-modal'); }
+
+    // =========================================================================
+    // PWA WEB NOTIFICATION (DOĞUM & KURU DÖNEM) & VERİ YEDEKLEME (JSON/CSV)
+    // =========================================================================
+
+    function updateReproNotifUI() {
+      const btnLbl = document.getElementById("lbl-repro-notif");
+      const btn = document.getElementById("btn-repro-notif");
+      if (!btn || !btnLbl) return;
+
+      if (!("Notification" in window)) {
+        btnLbl.textContent = "Desteklenmiyor";
+        btn.disabled = true;
+        btn.style.opacity = "0.6";
+        return;
+      }
+
+      if (Notification.permission === "granted") {
+        btnLbl.textContent = "Doğum Alarmları Açık ✓";
+        btn.style.background = "#16a34a";
+        btn.style.borderColor = "#16a34a";
+      } else if (Notification.permission === "denied") {
+        btnLbl.textContent = "Bildirim Engellendi ✕";
+        btn.style.background = "#dc2626";
+        btn.style.borderColor = "#dc2626";
+      } else {
+        btnLbl.textContent = "Alarmları Aç (İzin Ver)";
+        btn.style.background = "#0f172a";
+        btn.style.borderColor = "#0f172a";
+      }
+    }
+
+    async function toggleReproNotifications() {
+      if (!("Notification" in window)) {
+        alert("Tarayıcınız web bildirimlerini desteklemiyor.");
+        return;
+      }
+
+      if (Notification.permission === "default") {
+        const perm = await Notification.requestPermission();
+        updateReproNotifUI();
+        if (perm === "granted") {
+          sendWebReproNotification(
+            "Üretim Rehberi Alarmları Aktif 🔔",
+            "Doğum yaklaştığında, kuruya çıkarma veya 21. gün gebelik kontrolü geldiğinde bildirim alacaksınız."
+          );
+          checkReproAlarms(true);
+        }
+      } else if (Notification.permission === "granted") {
+        checkReproAlarms(true);
+      } else {
+        alert("Bildirim izni daha önce reddedilmiş. Lütfen tarayıcınızın site ayarlarından bildirim iznini açınız.");
+      }
+    }
+
+    function sendWebReproNotification(title, body, tag = "uretim-rehberi-notif") {
+      if (!("Notification" in window) || Notification.permission !== "granted") return;
+
+      const options = {
+        body,
+        icon: "./icon-192.png",
+        badge: "./favicon-32x32.png",
+        tag,
+        renotify: true,
+        data: { url: window.location.href }
+      };
+
+      if ("serviceWorker" in navigator && navigator.serviceWorker.controller) {
+        navigator.serviceWorker.ready.then(reg => {
+          reg.showNotification(title, options).catch(() => {
+            new Notification(title, options);
+          });
+        });
+      } else {
+        try {
+          new Notification(title, options);
+        } catch (e) {}
+      }
+    }
+
+    function sendTestReproNotification() {
+      if (!("Notification" in window)) {
+        alert("Tarayıcınız bildirim desteklemiyor.");
+        return;
+      }
+      if (Notification.permission !== "granted") {
+        Notification.requestPermission().then(p => {
+          updateReproNotifUI();
+          if (p === "granted") {
+            sendWebReproNotification("Test Bildirimi - Üretim Rehberi", "Sürü üreme, doğum ve kuru dönem alarmları başarıyla çalışıyor!");
+          } else {
+            alert("Lütfen önce bildirim izni veriniz.");
+          }
+        });
+      } else {
+        sendWebReproNotification("Test Bildirimi - Üretim Rehberi", "Sürü üreme, doğum ve kuru dönem alarmları başarıyla çalışıyor!");
+      }
+    }
+
+    function checkReproAlarms(isManual = false) {
+      if (!("Notification" in window) || Notification.permission !== "granted") return;
+      const records = getReproRecords();
+      if (!records || records.length === 0) {
+        if (isManual) alert("Defterde kayıtlı hayvan bulunmuyor.");
+        return;
+      }
+
+      const now = new Date();
+      now.setHours(0, 0, 0, 0);
+
+      let closeBirthCount = 0;
+      let dryCount = 0;
+      let check21Count = 0;
+
+      records.forEach(rec => {
+        const bDate = new Date(rec.birthDateMs);
+        bDate.setHours(0, 0, 0, 0);
+        const daysToBirth = Math.round((bDate - now) / 86400000);
+
+        if (daysToBirth >= 0 && daysToBirth <= 7) {
+          closeBirthCount++;
+        }
+
+        if (rec.dryDateMs) {
+          const dDate = new Date(rec.dryDateMs);
+          dDate.setHours(0, 0, 0, 0);
+          const daysToDry = Math.round((dDate - now) / 86400000);
+          if (daysToDry >= 0 && daysToDry <= 5) {
+            dryCount++;
+          }
+        }
+
+        if (rec.startDateStr) {
+          const sDate = new Date(rec.startDateStr + "T00:00:00");
+          sDate.setHours(0, 0, 0, 0);
+          const daysSinceInsem = Math.round((now - sDate) / 86400000);
+          if (daysSinceInsem >= 19 && daysSinceInsem <= 23) {
+            check21Count++;
+          }
+        }
+      });
+
+      if (closeBirthCount > 0) {
+        sendWebReproNotification("🍼 Doğum Alarmı!", `${closeBirthCount} hayvanınızın beklenen doğumuna 7 günden az kaldı! Ahır hazırlıklarını yapın.`);
+      } else if (dryCount > 0) {
+        sendWebReproNotification("🥛 Kuru Dönem Zamanı!", `${dryCount} sağmal ineğin kuruya çıkarılma vakti geldi (Doğuma 60 gün).`);
+      } else if (check21Count > 0) {
+        sendWebReproNotification("🔍 21. Gün Gebelik / Kızgınlık Kontrolü!", `${check21Count} hayvanınızın tohumlama üzerinden 21 gün geçti, kızgınlık belirtisi var mı kontrol edin.`);
+      } else if (isManual) {
+        alert("Bugün için acil bir doğum veya kuruya çıkarma uyarısı bulunmuyor. Sürünüzün durumu normal.");
+      }
+    }
+
+    function exportReproJSON() {
+      const records = getReproRecords();
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(records, null, 2));
+      const today = new Date().toISOString().slice(0, 10);
+      const dlAnchor = document.createElement("a");
+      dlAnchor.setAttribute("href", dataStr);
+      dlAnchor.setAttribute("download", `uretim_rehberi_defter_${today}.json`);
+      document.body.appendChild(dlAnchor);
+      dlAnchor.click();
+      dlAnchor.remove();
+    }
+
+    function importReproJSON(event) {
+      const file = event.target.files?.[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const imported = JSON.parse(e.target.result);
+          if (!Array.isArray(imported)) {
+            alert("Hatalı dosya biçimi: JSON bir liste içermelidir.");
+            return;
+          }
+          const current = getReproRecords();
+          const existingIds = new Set(current.map(r => r.id));
+          let added = 0;
+          imported.forEach(item => {
+            if (item.tag || item.earTag) {
+              if (!item.tag && item.earTag) item.tag = item.earTag;
+              if (!item.id || existingIds.has(item.id)) {
+                item.id = "repro_" + Date.now() + "_" + Math.random().toString(36).substr(2, 5);
+              }
+              current.unshift(item);
+              existingIds.add(item.id);
+              added++;
+            }
+          });
+          saveReproRecords(current);
+          renderDefterRecords();
+          alert(`Yedekten ${added} adet üreme kaydı başarıyla yüklendi!`);
+        } catch (err) {
+          alert("Dosya okunurken hata oluştu: " + err.message);
+        }
+      };
+      reader.readAsText(file);
+      event.target.value = "";
+    }
+
+    function exportReproCSV() {
+      const records = getReproRecords();
+      if (!records || records.length === 0) {
+        alert("Dışa aktarılacak kayıt bulunmuyor.");
+        return;
+      }
+
+      const headers = [
+        "Küpe No",
+        "Tür",
+        "Tohumlama Tarihi",
+        "Kuruya Çıkarma Tarihi",
+        "Aşı & Selenyum Tarihi",
+        "Beklenen Doğum Tarihi",
+        "Kalan Gün",
+        "Durum"
+      ];
+
+      const now = new Date();
+      now.setHours(0, 0, 0, 0);
+
+      const rows = records.map(r => {
+        const bDate = new Date(r.birthDateMs);
+        bDate.setHours(0, 0, 0, 0);
+        const daysLeft = Math.round((bDate - now) / 86400000);
+        const status = daysLeft < 0 ? "Doğum Günü Geçti" : (daysLeft <= 7 ? "Doğum Çok Yakın!" : (daysLeft <= 60 ? "Kuru Dönemde" : "Gebe"));
+
+        const sDateStr = r.startDateStr || "";
+        const dDateStr = r.dryDateMs ? formatTrDate(new Date(r.dryDateMs)) : "-";
+        const vDateStr = r.vacDateMs ? formatTrDate(new Date(r.vacDateMs)) : "-";
+        const bDateStr = r.birthDateMs ? formatTrDate(new Date(r.birthDateMs)) : "-";
+
+        return [
+          `"${(r.tag || '').replace(/"/g, '""')}"`,
+          `"${(r.type || r.species || '').replace(/"/g, '""')}"`,
+          `"${sDateStr}"`,
+          `"${dDateStr}"`,
+          `"${vDateStr}"`,
+          `"${bDateStr}"`,
+          daysLeft,
+          `"${status}"`
+        ].join(";");
+      });
+
+      const csvContent = "\uFEFF" + headers.join(";") + "\n" + rows.join("\n");
+      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const today = new Date().toISOString().slice(0, 10);
+      const dlAnchor = document.createElement("a");
+      dlAnchor.setAttribute("href", url);
+      dlAnchor.setAttribute("download", `uretim_rehberi_defter_${today}.csv`);
+      document.body.appendChild(dlAnchor);
+      dlAnchor.click();
+      dlAnchor.remove();
+      URL.revokeObjectURL(url);
+    }
 
     function toggleContrast() {
       document.body.classList.toggle('high-contrast');
@@ -1868,6 +2150,10 @@
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('./sw.js').catch(() => {});
       }
+      setTimeout(() => {
+        updateReproNotifUI();
+        checkReproAlarms(false);
+      }, 1500);
     });
   </script>
 </body>
