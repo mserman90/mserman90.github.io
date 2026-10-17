@@ -1,4 +1,4 @@
-const CACHE_NAME = 'rasyonsys-chat-v20';
+const CACHE_NAME = 'rasyonsys-chat-v21';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',

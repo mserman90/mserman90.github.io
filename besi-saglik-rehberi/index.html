@@ -1345,7 +1345,7 @@
 
       showTypingIndicator(() => {
         addIncomingMessage(
-          `Selamünaleyküm usta. Ben <strong>Besi Sağlık Asistanı</strong>.<br><br>
+          `Merhaba! Ben <strong>Besi Sağlık Asistanı</strong>.<br><br>
           Besihanende hasta, durgun veya acil müdahale gereken danan için teşhis başlatmak üzeresin.
           İnternet olmasa da tüm hesaplar ve klinik kütüphane cebinde çalışır.<br><br>
           Öncelikle sorun yaşadığın <strong>dana grubu</strong> hangisidir?`,
@@ -1385,7 +1385,7 @@
         }));
 
         addIncomingMessage(
-          `Geçmiş olsun usta. <strong>${group}</strong> için hayvanda gözüne çarpan <strong>ilk ana şikayet</strong> nedir?`,
+          `Geçmiş olsun. <strong>${group}</strong> için hayvanda gözüne çarpan <strong>ilk ana şikayet</strong> nedir?`,
           catButtons
         );
       }, 400);
@@ -1417,7 +1417,7 @@
     function askTempStep() {
       addIncomingMessage(
         `<strong>Rektal Ateş Kontrolü:</strong><br><br>
-        Usta, <strong>${state.group}</strong> için dereceyle makat ateşini ölçtün mü?<br>
+        <strong>${state.group}</strong> için dereceyle makat ateşini ölçtün mü?<br>
         <span style="font-size:0.78rem; color:#64748b;">(Besi sığırlarında normal ateş: <strong>38.0°C - 39.3°C</strong>)</span>`,
         [
           { icon: SVG_ICONS.checkCircle, text: "Normal Ateş (~38.8°C)", action: "handleTempAnswer(38.8)", class: "primary" },
@@ -1543,7 +1543,7 @@
       `;
 
       addIncomingMessage(
-        `Usta, verdiğin belirtilere göre en yüksek olasılıklı ön teşhis ve acil müdahale rehberin hazır:<br><br>${reportHtml}`,
+        `Verdiğin belirtilere göre en yüksek olasılıklı ön teşhis ve acil müdahale rehberin hazır:<br><br>${reportHtml}`,
         [
           { icon: SVG_ICONS.refresh, text: "Yeni Muayene Başlat", action: "restartChat()", class: "primary" },
           { icon: SVG_ICONS.gauge, text: "Sesli Kantar & Mezbaha Kontrolü", action: "openKantarModal()", class: "blue" },

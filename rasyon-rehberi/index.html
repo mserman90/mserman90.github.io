@@ -1070,7 +1070,7 @@
 
       showTypingIndicator(() => {
         addIncomingMessage(
-          `Selamünaleyküm ustam! Ben <strong>Rasyon Asistanı</strong>.<br><br>
+          `Merhaba! Ben <strong>Rasyon Asistanı</strong>.<br><br>
           Ahırındaki hayvanlar için uluslararası <strong>NASEM 2021 & NRC</strong> standartlarında, en düşük maliyetli ve asidoz korumalı TMR rasyonu adım adım hazırlayalım.<br><br>
           İlk olarak söyle bakalım, <strong>hangi hayvan grubuna rasyon hazırlayacağız?</strong>`,
           [
@@ -1092,7 +1092,7 @@
       showTypingIndicator(() => {
         if (speciesKey === "dairy") {
           addIncomingMessage(
-            `Harika ustam. <strong>Sağmal ineklerin</strong> için ortalama canlı ağırlık ve günlük hedef süt verimi nedir?`,
+            `Harika. <strong>Sağmal ineklerin</strong> için ortalama canlı ağırlık ve günlük hedef süt verimi nedir?`,
             [
               { icon: SVG_ICONS.sparkles, text: "650 kg İnek • 25 Litre Süt (%3.8 Yağ)", action: "selectYield(650, 25, '650 kg • 25 Litre Süt')", class: "primary" },
               { icon: SVG_ICONS.sparkles, text: "650 kg İnek • 30 Litre Süt (%3.8 Yağ)", action: "selectYield(650, 30, '650 kg • 30 Litre Süt')", class: "primary" },
@@ -1103,7 +1103,7 @@
           );
         } else if (speciesKey === "beef") {
           addIncomingMessage(
-            `Tamamdır ustam. <strong>Besi danaların</strong> ortalama kaç kg ve günde kaç gram canlı ağırlık artışı (CAAG) hedefliyorsun?`,
+            `Tamamdır. <strong>Besi danaların</strong> ortalama kaç kg ve günde kaç gram canlı ağırlık artışı (CAAG) hedefliyorsun?`,
             [
               { icon: SVG_ICONS.sparkles, text: "350 kg (Besiye Giriş) • 1.400 gr/gün", action: "selectYield(350, 1.4, '350 kg • 1.400 gr/gün')", class: "blue" },
               { icon: SVG_ICONS.sparkles, text: "450 kg (Orta Besi) • 1.500 gr/gün", action: "selectYield(450, 1.5, '450 kg • 1.500 gr/gün')", class: "blue" },
@@ -1172,7 +1172,7 @@
 
       showTypingIndicator(() => {
         addIncomingMessage(
-          `Anlaşıldı ustam. Şimdi ambarında bulunan <strong>yemleri</strong> belirleyelim. Ahırında hangi yem kaynakları var?`,
+          `Anlaşıldı. Şimdi ambarında bulunan <strong>yemleri</strong> belirleyelim. Ahırında hangi yem kaynakları var?`,
           [
             { icon: SVG_ICONS.feed, text: "🌾 Klasik Çiftlik (Mısır Silajı + Kuru Yonca + Arpa + Süt Yemi + Saman)", action: "selectFeedBasket('classic', 'Klasik Çiftlik Yemleri')", class: "primary" },
             { icon: SVG_ICONS.feed, text: "🌽 Tahıl & Küspe Ağırlıklı (Silaj + Yonca + Arpa/Mısır + ATK/Soya Küspesi)", action: "selectFeedBasket('grain_meal', 'Tahıl ve Küspe Ağırlıklı')", class: "primary" },
@@ -1480,7 +1480,7 @@
       `;
 
       addIncomingMessage(
-        `Ustam rasyonunu NASEM standartlarına göre hazırladım. Analiz ve yemlik reçetesi aşağıdadır:<br>${cardHtml}`,
+        `Rasyonunu NASEM standartlarına göre hazırladım. Analiz ve yemlik reçetesi aşağıdadır:<br>${cardHtml}`,
         [
           { icon: SVG_ICONS.refresh, text: "Başka Hayvan İçin Rasyon Hazırla", action: "restartChat()", class: "primary" },
           { icon: SVG_ICONS.coin, text: "Yem Fiyatlarını Ambar'da Güncelle", action: "openFeedsModal()", class: "" }

@@ -1291,7 +1291,7 @@
 
       showTypingIndicator(() => {
         addIncomingMessage(
-          `Selamünaleyküm ustam! Ben <strong>Süt Sağlık Asistanı</strong>.<br><br>
+          `Merhaba! Ben <strong>Süt Sağlık Asistanı</strong>.<br><br>
           Sağmal ineğin, kurudaki hayvanın veya süt buzağının sağlık durumunu adım adım kontrol edelim.<br><br>
           Önce söyle bakalım, <strong>hangi hayvan grubu rahatsız?</strong>`,
           [
@@ -1317,7 +1317,7 @@
         }));
 
         addIncomingMessage(
-          `Geçmiş olsun ustam. <strong>${group}</strong> için hayvanda gözüne çarpan <strong>ilk ana şikayet</strong> nedir?`,
+          `Geçmiş olsun. <strong>${group}</strong> için hayvanda gözüne çarpan <strong>ilk ana şikayet</strong> nedir?`,
           catButtons
         );
       }, 400);
@@ -1352,7 +1352,7 @@
 
       addIncomingMessage(
         `<strong>Rektal Ateş Kontrolü:</strong><br><br>
-        Ustam, <strong>${state.group}</strong> için dereceyle makat ateşini ölçtün mü?<br>
+        <strong>${state.group}</strong> için dereceyle makat ateşini ölçtün mü?<br>
         <span style="font-size:0.78rem; color:#64748b;">(Normal ateş aralığı: <strong>${normText}</strong>)</span>`,
         [
           { icon: SVG_ICONS.checkCircle, text: "Normal Ateş (~38.6°C)", action: "handleTempAnswer(38.6)", class: "primary" },
@@ -1486,7 +1486,7 @@
       `;
 
       addIncomingMessage(
-        `Ustam incelemeyi tamamladım. Hayvanındaki belirtiler ışığında teşhis ve acil hareket planı aşağıdadır:<br>${cardHtml}`,
+        `İncelemeyi tamamladım. Hayvanındaki belirtiler ışığında teşhis ve acil hareket planı aşağıdadır:<br>${cardHtml}`,
         [
           { icon: SVG_ICONS.refresh, text: "Başka Hayvan Muayene Et", action: "restartChat()", class: "primary" }
         ]

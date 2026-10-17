@@ -3170,7 +3170,7 @@
         }));
 
         addIncomingMessage(
-          `Ustam, <strong>${grp}</strong> için rektal <strong>${tempInput.toFixed(1)}°C</strong> ateş ile muayeneye başladık.<br><br>
+          `Merhaba, <strong>${grp}</strong> için rektal <strong>${tempInput.toFixed(1)}°C</strong> ateş ile muayeneye başladık.<br><br>
           Hayvanda gözüne çarpan <strong>ilk ana şikayet</strong> nedir?`,
           catButtons
         );
@@ -3265,7 +3265,7 @@
 
       showTypingIndicator(() => {
         addIncomingMessage(
-          `Selamünaleyküm ustam! Ben <strong>Çoban Doktor</strong>.<br><br>
+          `Merhaba! Ben <strong>Çoban Doktor</strong>.<br><br>
           Ahırda veya merada rahatsızlanan hayvanının durumunu adım adım kontrol edelim.<br><br>
           Önce söyle bakalım, <strong>hangi hayvanın rahatsız?</strong>`,
           [
@@ -3296,7 +3296,7 @@
         }));
 
         addIncomingMessage(
-          `Geçmiş olsun ustam. <strong>${group}</strong> için hayvanda gözüne çarpan <strong>ilk ana şikayet</strong> nedir?`,
+          `Geçmiş olsun. <strong>${group}</strong> için hayvanda gözüne çarpan <strong>ilk ana şikayet</strong> nedir?`,
           catButtons
         );
       }, 400);
@@ -3333,7 +3333,7 @@
 
       addIncomingMessage(
         `<strong>Ateş / Derece Kontrolü:</strong><br><br>
-        Ustam, <strong>${state.group}</strong> için rektal dereceyle <strong>vücut ateşini</strong> ölçtün mü?<br>
+        <strong>${state.group}</strong> için rektal dereceyle <strong>vücut ateşini</strong> ölçtün mü?<br>
         <span style="font-size:0.78rem; color:#64748b;">(${ref.type} için normal ateş: <strong>${ref.normMin}°C - ${ref.normMax}°C</strong>)</span>`,
         [
           { icon: SVG_ICONS.checkCircle, text: `Normal Ateş (~${midNorm}°C)`, action: `handleTempAnswer(${midNorm})`, class: "primary" },
@@ -3554,7 +3554,7 @@
       `;
 
       addIncomingMessage(
-        `Ustam incelemeyi tamamladım. Hayvanındaki belirtiler ışığında teşhis ve acil hareket planı aşağıdadır:<br>${cardHtml}`,
+        `İncelemeyi tamamladım. Hayvanındaki belirtiler ışığında teşhis ve acil hareket planı aşağıdadır:<br>${cardHtml}`,
         [
           { icon: SVG_ICONS.refresh, text: "Başka Hayvan Muayene Et", action: "restartChat()", class: "primary" }
         ]
