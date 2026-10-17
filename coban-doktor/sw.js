@@ -1,4 +1,4 @@
-const CACHE_NAME = 'cobandoktor-offline-v1';
+const CACHE_NAME = 'cobandoktor-whatsapp-v2';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',

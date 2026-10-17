@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
-  <meta name="theme-color" content="#047857">
+  <meta name="theme-color" content="#075e54">
   <meta name="color-scheme" content="light dark">
-  <meta name="description" content="Çoban Doktor - Sığır ve koyun yetiştiricileri için %100 internetsiz çalışan pratik ön teşhis, acil ilk yardım adımları, hastalık belirti sorgulama ve veterinere WhatsApp bildirim asistanı.">
-  <meta name="keywords" content="çoban doktor, sığır hastalıkları teşhis, koyun hastalıkları teşhis, buzağı ishali ilk yardım, şap hastalığı, çelerme, ikiz koması, süt humması, arpa vurması tırnak yanması, mastitis, veteriner acil whatsapp">
+  <meta name="description" content="Çoban Doktor - WhatsApp sohbeti formatında çalışan sığır ve koyun hızlı ön teşhis, acil ilk yardım ve veteriner bildirim asistanı.">
+  <meta name="keywords" content="çoban doktor, whatsapp teşhis botu, sığır hastalıkları, koyun hastalıkları, buzağı ishali, şap, çelerme, veteriner whatsapp">
   <meta name="author" content="Dr. Mert Serman / Çoban Doktor">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://mserman90.github.io/coban-doktor/">
@@ -26,11 +26,10 @@
   <!-- Open Graph / WhatsApp -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mserman90.github.io/coban-doktor/">
-  <meta property="og:title" content="Çoban Doktor - Sığır ve Koyun Ön Teşhis Rehberi">
-  <meta property="og:description" content="%100 internetsiz çalışan sığır ve koyun hızlı hastalık ön teşhis rehberi, ilk yardım ve acil veterinere bildirim sistemi.">
+  <meta property="og:title" content="Çoban Doktor - WhatsApp Ön Teşhis Sohbeti">
+  <meta property="og:description" content="WhatsApp sohbeti gibi çalışan sığır ve koyun hastalık ön teşhis rehberi ve veteriner ilk yardım asistanı.">
   <meta property="og:image" content="https://mserman90.github.io/coban-doktor/apple-touch-icon.png">
   <meta property="og:locale" content="tr_TR">
-  <meta property="og:site_name" content="Çoban Doktor">
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -38,44 +37,35 @@
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "Çoban Doktor",
-    "alternateName": "Sığır ve Koyun Hızlı Ön Teşhis Rehberi PWA",
+    "alternateName": "WhatsApp Biçimli Sığır ve Koyun Ön Teşhis Rehberi",
     "applicationCategory": "BusinessApplication",
-    "applicationSubCategory": "Veterinary & Livestock Diagnostic Guide",
     "operatingSystem": "All",
-    "softwareVersion": "1.0",
-    "description": "Sığır ve koyun yetiştiricileri için internetsiz çalışan soru-cevaplı hastalık ön teşhis rehberi, ilk yardım ve veteriner bildirim sistemi.",
+    "softwareVersion": "2.0",
+    "description": "WhatsApp sohbet arayüzüyle çalışan sığır ve koyun hastalık ön teşhis rehberi ve acil durum asistanı.",
     "url": "https://mserman90.github.io/coban-doktor/",
-    "inLanguage": "tr",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "TRY"
-    }
+    "inLanguage": "tr"
   }
   </script>
 
-  <title>Çoban Doktor - Sığır ve Koyun Hızlı Ön Teşhis Rehberi</title>
+  <title>Çoban Doktor - WhatsApp Ön Teşhis Sohbeti</title>
 
   <style>
     /* =========================================================================
-       SIFIR BAĞIMLILIK (%100 ÇEVRİMDIŞI) MODERN VE ERİŞİLEBİLİR STİL SİSTEMİ
+       WHATSAPP SOHBET ARAYÜZÜ (%100 ÇEVRİMDIŞI / SIFIR DIŞ BAĞIMLILIK)
        ========================================================================= */
     :root {
-      --bg: #f5f5f4;
-      --card-bg: #ffffff;
-      --text: #1c1917;
-      --text-muted: #57534e;
-      --primary: #047857;
-      --primary-hover: #065f46;
-      --primary-light: #ecfdf5;
-      --primary-border: #a7f3d0;
-      --border: #e7e5e4;
-      --danger: #dc2626;
-      --danger-light: #fef2f2;
-      --danger-border: #fecaca;
-      --warning: #d97706;
-      --warning-light: #fffbeb;
-      --radius: 16px;
+      --wa-header: #008069;
+      --wa-header-dark: #075e54;
+      --wa-bg: #efeae2;
+      --wa-chat-bg: #f0f2f5;
+      --wa-incoming: #ffffff;
+      --wa-outgoing: #d9fdd3;
+      --wa-text: #111b21;
+      --wa-text-muted: #667781;
+      --wa-btn-border: #e9edef;
+      --wa-btn-active: #00a884;
+      --wa-danger: #ea0038;
+      --wa-warning: #b25e02;
     }
 
     * {
@@ -86,406 +76,439 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-      min-height: 100vh;
-      min-height: 100dvh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #d1d7db;
+      color: var(--wa-text);
+      line-height: 1.45;
+      height: 100vh;
+      height: 100dvh;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
       user-select: none;
       -webkit-user-select: none;
     }
 
-    /* ÜST BAŞLIK */
-    header {
-      background-color: var(--primary);
-      color: #ffffff;
-      padding: calc(12px + env(safe-area-inset-top, 0px)) 16px 12px 16px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-    }
-    .header-inner {
-      max-width: 640px;
-      margin: 0 auto;
+    /* TELEFON KASASI / MERKEZİ EKRAN TAŞIYICI */
+    .app-wrapper {
+      width: 100%;
+      max-width: 540px;
+      height: 100vh;
+      height: 100dvh;
+      background-color: var(--wa-bg);
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
+      flex-direction: column;
+      position: relative;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
     }
-    .header-brand {
+
+    /* WHATSAPP ÜST BAŞLIK */
+    .wa-header {
+      background-color: var(--wa-header);
+      color: #ffffff;
+      padding: calc(10px + env(safe-area-inset-top, 0px)) 12px 10px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      z-index: 10;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+    .wa-profile {
       display: flex;
       align-items: center;
       gap: 10px;
       cursor: pointer;
+      flex: 1;
+      min-width: 0;
     }
-    .brand-icon {
-      font-size: 2.2rem;
-      line-height: 1;
-    }
-    .header-brand h1 {
-      font-size: 1.25rem;
-      font-weight: 900;
-      letter-spacing: -0.02em;
-      line-height: 1.15;
-    }
-    .header-brand p {
-      font-size: 0.72rem;
-      color: #a7f3d0;
-      font-weight: 600;
-    }
-    .header-actions {
+    .wa-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #ffffff;
       display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      border: 2px solid rgba(255, 255, 255, 0.4);
+    }
+    .wa-info {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+    .wa-name {
+      font-size: 1.05rem;
+      font-weight: 800;
+      line-height: 1.2;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .wa-status {
+      font-size: 0.74rem;
+      color: #c5efe4;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .wa-actions {
+      display: flex;
+      align-items: center;
       gap: 6px;
     }
-    .hdr-btn {
-      background: rgba(255, 255, 255, 0.18);
+    .wa-hdr-btn {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
       color: #ffffff;
-      border: 1.5px solid rgba(255, 255, 255, 0.4);
-      padding: 6px 12px;
-      border-radius: 10px;
-      font-size: 0.85rem;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 0.8rem;
       font-weight: 800;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 38px;
-      transition: all 0.15s ease;
+      min-height: 34px;
     }
-    .hdr-btn:active {
-      transform: scale(0.95);
+    .wa-hdr-btn:active {
+      background: rgba(255, 255, 255, 0.3);
     }
 
-    /* ANA TAŞIYICI */
-    main#app-container {
-      max-width: 640px;
-      width: 100%;
-      margin: 0 auto;
+    /* SOHBET ALANI */
+    .chat-container {
       flex: 1;
-      padding: 16px;
+      overflow-y: auto;
+      padding: 16px 12px 24px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 12px;
+      background-color: var(--wa-bg);
+      background-image: radial-gradient(#d1c7b8 1px, transparent 1px);
+      background-size: 20px 20px;
+      scroll-behavior: smooth;
     }
 
-    /* KART STİLLERİ */
-    .card {
-      background-color: var(--card-bg);
-      border-radius: var(--radius);
-      padding: 16px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-      border: 1.5px solid var(--border);
-    }
-    .card-banner {
-      border-left: 6px solid var(--primary);
-    }
-    .card-title {
-      font-size: 1.2rem;
-      font-weight: 900;
-      line-height: 1.25;
-      color: var(--text);
-    }
-    .card-subtitle {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      margin-top: 4px;
-      font-weight: 600;
+    /* TARİH ÇİZGİSİ */
+    .chat-date-pill {
+      align-self: center;
+      background-color: #ffffff;
+      color: var(--wa-text-muted);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 8px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      margin-bottom: 4px;
     }
 
-    /* BUTONLAR */
-    .btn {
+    /* MESAJ BALONLARI */
+    .msg-row {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      padding: 14px 16px;
-      border-radius: 14px;
-      font-size: 1rem;
-      font-weight: 800;
-      border: none;
-      cursor: pointer;
-      transition: all 0.12s ease;
-      text-align: center;
-      text-decoration: none;
+      flex-direction: column;
+      max-width: 88%;
+      animation: msgPop 0.18s ease-out;
     }
-    .btn:active {
-      transform: scale(0.97);
+    @keyframes msgPop {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    .btn-primary {
-      background-color: var(--primary);
-      color: #ffffff;
+    .msg-row.incoming {
+      align-self: flex-start;
     }
-    .btn-secondary {
-      background-color: #e7e5e4;
-      color: #1c1917;
-    }
-    .btn-warning {
-      background-color: var(--warning);
-      color: #ffffff;
-    }
-    .btn-danger {
-      background-color: var(--danger);
-      color: #ffffff;
-    }
-    .btn-whatsapp {
-      background-color: #16a34a;
-      color: #ffffff;
-      font-size: 1.05rem;
-      box-shadow: 0 4px 14px rgba(22, 163, 74, 0.35);
+    .msg-row.outgoing {
+      align-self: flex-end;
     }
 
-    /* TÜR SEÇİM KUTULARI */
-    .species-group {
-      margin-bottom: 12px;
-    }
-    .species-group-title {
-      font-size: 1.1rem;
-      font-weight: 900;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 8px;
-    }
-    .btn-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-    }
-
-    /* KATEGORİ LİSTESİ */
-    .category-card {
-      background-color: var(--card-bg);
-      border: 2px solid var(--border);
-      border-radius: 14px;
-      padding: 14px 16px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      cursor: pointer;
-      transition: all 0.12s ease;
-      text-align: left;
-      width: 100%;
-    }
-    .category-card:active {
-      transform: scale(0.98);
-      border-color: var(--primary);
-      background-color: var(--primary-light);
-    }
-    .category-icon {
-      font-size: 2.2rem;
-      flex-shrink: 0;
-    }
-    .category-name {
-      font-size: 1.05rem;
-      font-weight: 800;
-      color: var(--text);
-    }
-    .category-desc {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      margin-top: 2px;
-      line-height: 1.35;
-    }
-
-    /* SORU LİSTESİ VE BELİRTİLER */
-    .symptom-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      background-color: #f5f5f4;
-      padding: 12px 14px;
+    .msg-bubble {
+      padding: 10px 14px 6px 14px;
       border-radius: 12px;
       font-size: 0.95rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-      border: 1px solid var(--border);
       line-height: 1.4;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+      position: relative;
+      word-wrap: break-word;
     }
-    .symptom-bullet {
-      font-size: 1.2rem;
-      line-height: 1;
-      flex-shrink: 0;
+    .incoming .msg-bubble {
+      background-color: var(--wa-incoming);
+      border-top-left-radius: 2px;
+    }
+    .outgoing .msg-bubble {
+      background-color: var(--wa-outgoing);
+      border-top-right-radius: 2px;
     }
 
-    /* SONUÇ VE AKSİYON LİSTESİ */
-    .urgency-badge {
-      padding: 14px 16px;
-      border-radius: 14px;
-      font-size: 1.05rem;
+    .msg-time {
+      font-size: 0.68rem;
+      color: var(--wa-text-muted);
+      float: right;
+      margin-top: 4px;
+      margin-left: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+    .msg-time .check {
+      color: #53bdeb;
       font-weight: 900;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      font-size: 0.8rem;
     }
-    .badge-red {
-      background-color: var(--danger);
+
+    /* İNTERAKTİF SEÇENEK BUTONLARI (WHATSAPP BUSINESS BUTONLARI GİBİ) */
+    .btn-options-container {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 8px;
+      width: 100%;
+    }
+    .wa-choice-btn {
+      background-color: #ffffff;
+      color: #00a884;
+      border: 1.5px solid #d1d7db;
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-size: 0.96rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+      text-align: left;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+      transition: all 0.12s ease;
+      touch-action: manipulation;
+    }
+    .wa-choice-btn:active {
+      background-color: #00a884;
       color: #ffffff;
+      border-color: #00a884;
+      transform: scale(0.98);
     }
-    .badge-yellow {
-      background-color: var(--warning);
-      color: #ffffff;
+    .wa-choice-btn.primary {
+      color: #008069;
+      border-color: #a7f3d0;
+      background-color: #f0fdf4;
     }
-    .action-box {
+    .wa-choice-btn.danger {
+      color: #dc2626;
+      border-color: #fecaca;
+      background-color: #fef2f2;
+    }
+    .wa-choice-btn.warning {
+      color: #d97706;
+      border-color: #fed7aa;
+      background-color: #fffbeb;
+    }
+
+    /* TEŞHİS RAPOR KARTI (WHATSAPP REÇETE KARTI) */
+    .report-card {
+      background: #ffffff;
       border-radius: 12px;
       padding: 14px;
-      margin-top: 10px;
+      border: 2px solid #00a884;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+      margin-top: 6px;
     }
-    .action-box.do-box {
-      background-color: var(--primary-light);
-      border: 1.5px solid var(--primary-border);
-    }
-    .action-box.dont-box {
-      background-color: var(--danger-light);
-      border: 1.5px solid var(--danger-border);
-    }
-    .action-box-title {
-      font-size: 0.95rem;
+    .report-badge {
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 0.85rem;
       font-weight: 900;
+      text-align: center;
       margin-bottom: 8px;
+    }
+    .badge-red {
+      background: #fee2e2;
+      color: #b91c1c;
+      border: 1.5px solid #f87171;
+    }
+    .badge-yellow {
+      background: #fef3c7;
+      color: #92400e;
+      border: 1.5px solid #fcd34d;
+    }
+    .report-title {
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: #111b21;
+      margin-bottom: 10px;
+      line-height: 1.25;
+    }
+    .action-header {
+      font-size: 0.85rem;
+      font-weight: 900;
+      margin-top: 10px;
+      margin-bottom: 4px;
       display: flex;
       align-items: center;
       gap: 6px;
     }
-    .do-box .action-box-title { color: #065f46; }
-    .dont-box .action-box-title { color: #991b1b; }
+    .do-header { color: #047857; }
+    .dont-header { color: #b91c1c; }
     .action-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 4px;
+      font-size: 0.86rem;
+      font-weight: 600;
     }
     .action-list li {
       display: flex;
-      gap: 8px;
-      font-size: 0.88rem;
-      font-weight: 600;
-      line-height: 1.4;
+      align-items: flex-start;
+      gap: 6px;
+      line-height: 1.35;
     }
 
-    /* KÜPE GİRİŞİ */
-    .ear-tag-input {
+    /* KÜPE GİRİŞ ÇUBUĞU */
+    .ear-input-box {
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1.5px dashed #e2e8f0;
+    }
+    .ear-input-box label {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: #475569;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .ear-input {
       width: 100%;
-      padding: 12px 14px;
-      border: 2px solid var(--border);
-      border-radius: 10px;
-      font-size: 1.1rem;
+      padding: 10px 12px;
+      border: 2px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 1rem;
       font-weight: 800;
       text-transform: uppercase;
       outline: none;
-      margin-top: 4px;
     }
-    .ear-tag-input:focus {
-      border-color: var(--primary);
+    .ear-input:focus {
+      border-color: #008069;
     }
 
-    /* GÜNEŞ IŞIĞI / YÜKSEK KONTRAST MODU */
-    body.high-contrast {
-      --bg: #000000;
-      --card-bg: #121212;
-      --text: #ffff00;
-      --text-muted: #e5e500;
-      --border: #ffff00;
-      --primary: #ffff00;
-      --primary-light: #1c1c00;
-      --primary-border: #ffff00;
+    /* WHATSAPP GÖNDER BUTONU */
+    .btn-send-wa {
+      width: 100%;
+      background-color: #25d366;
+      color: #ffffff;
+      border: none;
+      padding: 14px;
+      border-radius: 10px;
+      font-size: 1.05rem;
+      font-weight: 900;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 12px;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+      transition: transform 0.1s ease;
     }
-    body.high-contrast header {
-      background-color: #000000;
+    .btn-send-wa:active {
+      transform: scale(0.97);
+    }
+
+    /* YAZIYOR... (TYPING INDICATOR) */
+    .typing-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 8px 14px;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      width: fit-content;
+    }
+    .typing-dot {
+      width: 6px;
+      height: 6px;
+      background: #8696a0;
+      border-radius: 50%;
+      animation: typing 1.2s infinite ease-in-out;
+    }
+    .typing-dot:nth-child(1) { animation-delay: 0s; }
+    .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes typing {
+      0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+      40% { transform: scale(1.1); opacity: 1; }
+    }
+
+    /* GÜNEŞ IŞIĞI / YÜKSEK KONTRAST */
+    body.high-contrast {
+      --wa-header: #000000;
+      --wa-bg: #000000;
+      --wa-incoming: #141414;
+      --wa-outgoing: #1f1f00;
+      --wa-text: #ffff00;
+      --wa-text-muted: #cccc00;
+    }
+    body.high-contrast .wa-header {
       border-bottom: 3px solid #ffff00;
     }
-    body.high-contrast .header-brand h1 { color: #ffff00; }
-    body.high-contrast .header-brand p { color: #ffffff; }
-    body.high-contrast .hdr-btn {
-      background: #ffff00;
-      color: #000000;
-      border-color: #ffff00;
+    body.high-contrast .msg-bubble {
+      border: 1.5px solid #ffff00;
+      color: #ffff00;
     }
-    body.high-contrast .card {
+    body.high-contrast .wa-choice-btn {
+      background: #141414;
       border: 2px solid #ffff00;
-    }
-    body.high-contrast .btn-primary {
-      background-color: #ffff00;
-      color: #000000;
-      font-weight: 900;
-    }
-    body.high-contrast .symptom-item {
-      background-color: #1a1a00;
-      border-color: #ffff00;
       color: #ffff00;
     }
-    body.high-contrast .category-card {
-      border-color: #ffff00;
-    }
-    body.high-contrast .action-box.do-box,
-    body.high-contrast .action-box.dont-box {
-      background-color: #141414;
-      border-color: #ffff00;
+    body.high-contrast .report-card {
+      background: #141414;
+      border: 2px solid #ffff00;
       color: #ffff00;
     }
-    body.high-contrast .action-box-title { color: #ffff00 !important; }
-    body.high-contrast .ear-tag-input {
+    body.high-contrast .report-title { color: #ffff00; }
+    body.high-contrast .ear-input {
       background: #141414;
       color: #ffff00;
-      border-color: #ffff00;
+      border: 1.5px solid #ffff00;
     }
 
-    /* BÜYÜK YAZI MODU */
-    body.large-text {
-      font-size: 1.15rem;
-    }
-    body.large-text .card-title { font-size: 1.4rem; }
-    body.large-text .btn { font-size: 1.15rem; padding: 16px 18px; }
-    body.large-text .symptom-item { font-size: 1.1rem; }
-
-    /* ALT BİLGİ */
-    footer {
-      text-align: center;
-      padding: 14px 16px;
-      font-size: 0.74rem;
-      color: var(--text-muted);
-      border-top: 1px solid var(--border);
-      max-width: 640px;
-      margin: 0 auto;
-      width: 100%;
-    }
+    /* BÜYÜK YAZI */
+    body.large-text .msg-bubble { font-size: 1.15rem; }
+    body.large-text .wa-choice-btn { font-size: 1.15rem; padding: 14px 16px; }
+    body.large-text .report-title { font-size: 1.45rem; }
   </style>
 </head>
 <body>
 
-  <!-- ÜST ERİŞİLEBİLİRLİK BARI -->
-  <header>
-    <div class="header-inner">
-      <div class="header-brand" onclick="resetApp()" title="Başa Dön">
-        <span class="brand-icon">🩺</span>
-        <div>
-          <h1>Çoban Doktor</h1>
-          <p>Sığır ve Koyun Hızlı Ön Teşhis Rehberi</p>
+  <div class="app-wrapper">
+
+    <!-- WHATSAPP ÜST BARI -->
+    <header class="wa-header">
+      <div class="wa-profile" onclick="restartChat()" title="Sohbeti Baştan Başlat">
+        <div class="wa-avatar">🩺</div>
+        <div class="wa-info">
+          <div class="wa-name">Çoban Doktor</div>
+          <div class="wa-status" id="wa-online-status">çevrimiçi</div>
         </div>
       </div>
-      <div class="header-actions">
-        <button onclick="toggleLargeText()" class="hdr-btn" title="Yazıyı Büyüt / Küçült">A+</button>
-        <button onclick="toggleContrast()" class="hdr-btn" title="Güneş Işığı / Gece Modu">☀️ Mod</button>
+      <div class="wa-actions">
+        <button onclick="toggleLargeText()" class="wa-hdr-btn" title="Yazıyı Büyüt">A+</button>
+        <button onclick="toggleContrast()" class="wa-hdr-btn" title="Güneş Işığı Modu">☀️ Mod</button>
+        <button onclick="restartChat()" class="wa-hdr-btn" title="Baştan Başla">🔄 Sıfırla</button>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <!-- ANA İÇERİK ALANI -->
-  <main id="app-container">
-    <!-- Dinamik JS Ekranı -->
-  </main>
+    <!-- SOHBET MESAJLARI AKIŞI -->
+    <main class="chat-container" id="chat-stream">
+      <!-- Mesajlar JavaScript tarafından buraya yazılır -->
+    </main>
 
-  <!-- ALT BİLGİ -->
-  <footer>
-    Bu uygulama yetiştiriciler için hızlı ön bilgilendirme ve acil durum rehberidir. Kesin teşhis ve ilaç tedavisi için mutlaka Veteriner Hekiminize başvurunuz.
-  </footer>
+  </div>
 
   <script>
     // =========================================================================
-    // HASTALIK VERİTABANI VE SAHA KARAR AĞACI
+    // HASTALIK VERİTABANI (SAHA KARAR AĞACI)
     // =========================================================================
     const DISEASES = [
       {
@@ -496,42 +519,19 @@
         urgency: "RED",
         symptoms: [
           "Ağzından ip gibi yoğun salya akıyor, ağzını şapırdatıyor",
-          "Dilinde, diş etinde, damağında su toplamış veya soyulmuş kırmızı yaralar var",
+          "Dilinde, diş etinde veya damağında su toplamış kırmızı soyulmalar var",
           "Tırnak aralarında yara var, ayaklarını basamıyor ve şiddetli topallıyor",
           "Memede kabarcık ve yara var, sürüdeki diğer hayvanlara hızla bulaşıyor"
         ],
         doList: [
-          "Hasta hayvanı DERHAL sürüden ayrı, kuru ve korunaklı bir bölmeye (karantinaya) alın.",
-          "İhbarı mecburi hastalıktır; vakit kaybetmeden İl/İlçe Tarım Müdürlüğüne veya Veteriner Hekime haber verin.",
-          "Ağzını karbonatlı/tuzlu ılık suyla yıkayın, yumuşak ot ve kepek bulamacı verin.",
-          "Sürüye yabancı araç ve ziyaretçi sokmayın, ahır girişine dezenfektanlı kireç paspası koyun."
+          "Hasta hayvanı DERHAL sürüden ayrı, kuru bir bölmeye (karantinaya) alın.",
+          "İhbarı mecburi hastalıktır; vakit kaybetmeden İl/İlçe Tarım Müdürlüğüne haber verin.",
+          "Ağzını karbonatlı ılık suyla yıkayın, yumuşak ot ve kepek bulamacı verin.",
+          "Ahır girişine sönmemiş kireç paspası serin, yabancı sokmayın."
         ],
         dontList: [
-          "Hayvanı kesinlikle pazara götürmeyin, dışarıdan sürüye hayvan sokmayın.",
-          "Hasta hayvanla sağlam hayvanlara aynı yemlik ve suluktan su/yem vermeyin.",
-          "Tırnaktaki veya ağızdaki yaraları sert cisimlerle kazımayın."
-        ]
-      },
-      {
-        id: "noduler",
-        name: "Çiçek / Yumru Deri Hastalığı (Nodüler Ekzantem)",
-        species: ["sigir", "koyun"],
-        category: "agiz_deri",
-        urgency: "RED",
-        symptoms: [
-          "Deride fındık/ceviz büyüklüğünde sert şişlikler, kabartılar ve yumrular var",
-          "Yüksek ateş (40-41°C), göz ve burun akıntısı, şiddetli iştahsızlık var",
-          "Bacaklarda ödem/şişlik ve topallık oluştu, süt aniden kesildi",
-          "Sineklerin ve sokucu haşerelerin yoğun olduğu dönemde başladı"
-        ],
-        doList: [
-          "Hasta hayvanı hemen sineklerden korunaklı, kapalı ve ayrı bir bölmeye ayırın.",
-          "Bulaşmayı önlemek için ahırda ve hayvanların üzerinde derhal sinek mücadelesi yapın.",
-          "Derhal Veteriner Hekime haber verip aşı ve destekleyici tedavi başlatın."
-        ],
-        dontList: [
-          "Derideki nodülleri ve şişlikleri bıçakla kesmeyin, patlatmayın.",
-          "Hasta hayvanları merada diğer sürülerle temas ettirmeyin."
+          "Hayvanı pazara götürmeyin, dışarıdan sürüye hayvan sokmayın.",
+          "Hasta hayvanla sağlam hayvanlara aynı suluktan su vermeyin."
         ]
       },
       {
@@ -548,12 +548,33 @@
         ],
         doList: [
           "Kesif yemi, arpayı ve fabrika yemini DERHAL tamamen kesin; sadece kuru kaba saman/ot verin.",
-          "Acil durumlarda sürünün diğer hayvanlarına veteriner kontrolünde çelerme aşısı ve serum uygulayın.",
-          "Sağ kalan hayvanlara içme suyuyla karbonat ve probiyotik takviyesi sağlayın."
+          "Sürünün diğer hayvanlarına veteriner kontrolünde çelerme aşısı ve koruyucu serum uygulayın.",
+          "İçme suyuna karbonat ve probiyotik takviyesi yapın."
         ],
         dontList: [
-          "Aşılanmamış koyun ve kuzuları aniden zengin körpe meraya veya arpa yemliğine salmayın.",
-          "Can çekişen veya baygın hayvana ağızdan zorla sıvı içirmeyin (ciğerine kaçıp boğar)."
+          "Aşılanmamış koyun ve kuzuları aniden körpe meraya veya arpa yemliğine salmayın.",
+          "Baygın hayvana ağızdan zorla sıvı içirmeyin (ciğerine kaçıp boğar)."
+        ]
+      },
+      {
+        id: "noduler",
+        name: "Çiçek / Yumru Deri Hastalığı (Nodüler Ekzantem)",
+        species: ["sigir", "koyun"],
+        category: "agiz_deri",
+        urgency: "RED",
+        symptoms: [
+          "Deride fındık/ceviz büyüklüğünde sert şişlikler, kabartılar ve yumrular var",
+          "Yüksek ateş (40-41°C), göz ve burun akıntısı, şiddetli iştahsızlık var",
+          "Bacaklarda ödem/şişlik ve topallık oluştu, süt aniden kesildi"
+        ],
+        doList: [
+          "Hasta hayvanı hemen sineklerden korunaklı, kapalı ve ayrı bir bölmeye ayırın.",
+          "Ahırda ve hayvanların üzerinde derhal sinek mücadelesi yapın.",
+          "Veteriner Hekime haber verip aşılama ve karantina başlatın."
+        ],
+        dontList: [
+          "Derideki nodülleri bıçakla kesmeyin, patlatmayın.",
+          "Hasta hayvanları merada diğer sürülerle temas ettirmeyin."
         ]
       },
       {
@@ -565,16 +586,15 @@
         symptoms: [
           "Aniden yüksek ateş başladı (40-41°C), hayvan şiddetle titriyor",
           "Bacakları tutmuyor, ayakta duramıyor, felç olmuş gibi yatıyor",
-          "Yem yemeyi ve sütü bıçak gibi kesti, ağzından salya geliyor",
-          "Genellikle 3 gün sürer ve uygun bakımla toparlar"
+          "Yem yemeyi ve sütü bıçak gibi kesti, ağzından salya geliyor"
         ],
         doList: [
           "Hayvanı bol saplı, kuru, gölge ve yumuşak bir yere yatırın.",
-          "Yatış yönünü günde 3-4 kez değiştirin (uzun süre aynı tarafta yatarsa bacak felci kalıcı olur).",
+          "Yatış yönünü günde 3-4 kez değiştirin (bacak felci kalıcı olmasın).",
           "Ateş düşürücü ve kalsiyum desteği için Veteriner Hekiminizi çağırın."
         ],
         dontList: [
-          "Yutkunma refleksi felç olabileceği için zorla şişeyle su veya ilaç içirmeyin.",
+          "Yutkunamayacağı için zorla şişeyle su veya ilaç içirmeyin.",
           "Hayvanı tekmeyle veya zorla ayağa kaldırmaya çalışmayın."
         ]
       },
@@ -585,19 +605,19 @@
         category: "solunum",
         urgency: "YELLOW",
         symptoms: [
-          "Sık ve kuru öksürüyor, burnundan iltihaplı/koyu sarı-yeşil akıntı geliyor",
+          "Sık ve kuru öksürüyor, burnundan koyu sarı-yeşil akıntı geliyor",
           "Karnından hızlı hızlı körük gibi soluyor, boynunu öne uzatıyor",
           "Kulakları düşmüş, gözleri mat, ateşi 39.5°C'nin üstünde",
-          "Yakın zamanda kamyonla nakliye yapıldı veya hava aniden soğudu"
+          "Yakın zamanda nakliye yapıldı veya hava aniden soğudu"
         ],
         doList: [
-          "Hayvanı rüzgar almayan, hava cereyansız, havadar ve kuru altlıklı bir bölmeye alın.",
-          "Ciğerleri koruyucu antibiyotik ve ateş düşürücü iğne için Veteriner Hekiminizi çağırın.",
+          "Hayvanı hava cereyansız, havadar ve kuru altlıklı bir bölmeye alın.",
+          "Ciğerleri koruyucu antibiyotik ve ateş düşürücü için Veteriner Hekiminizi arayın.",
           "Önüne ılık su ve temiz kaliteli kuru ot koyun."
         ],
         dontList: [
-          "Basık, amonyak kokulu ve havasız ahırda tutmayın.",
-          "Gelişigüzel yarım doz antibiyotik yapıp 1 günde bırakmayın (hastalık kronikleşir)."
+          "Basık ve amonyak kokulu havasız ahırda tutmayın.",
+          "Hekime danışmadan gelişigüzel antibiyotik yapıp yarıda bırakmayın."
         ]
       },
       {
@@ -608,14 +628,14 @@
         urgency: "RED",
         symptoms: [
           "Yavru su gibi cıvık, sarı-beyaz, köpüklü veya kanlı ishal yapıyor",
-          "Gözleri içeri çökmüş, boyun derisi çekildiğinde hemen yerine oturmuyor",
-          "Kulakları ve bacak uçları buz gibi soğuk, emme refleksi tamamen kaybolmuş",
+          "Gözleri içeri çökmüş, boyun derisi çekildiğinde yerine oturmuyor",
+          "Kulakları ve bacak uçları buz gibi soğuk, emme refleksi durmuş",
           "Yerde baygın yatıyor, ayağa kalkacak gücü kalmamış"
         ],
         doList: [
           "Tuz ve su kaybını önlemek için derhal Buzağı İshal Elektroliti hazırlayıp ılık içirin.",
-          "Altına bol kuru sap serin, göğsünü sıcak tutacak yelek/battaniye örtün.",
-          "Gözleri çökmüş ve ememiyorsa damardan serum için ACİL Veteriner Hekim çağırın."
+          "Altına bol kuru sap serin, göğsünü sıcak tutacak battaniye örtün.",
+          "Gözleri çökmüşse damardan serum için ACİL Veteriner Hekim çağırın."
         ],
         dontList: [
           "İshal oldu diye sütü tamamen kesmeyin (elektroliti sütün öğün aralarında verin).",
@@ -631,16 +651,15 @@
         symptoms: [
           "Sütte pıhtı, lor parçaları, sarımtırak su veya kan var",
           "Meme lobu taş gibi sert, şiş, el değdiğinde ateş gibi sıcak ve ağrılı",
-          "Sağım yapılırken hayvan tekmeliyor, memeye dokundurmuyor",
-          "İleri vakada hayvan yemden kesilir ve titreyerek yatar"
+          "Sağım yapılırken hayvan tekmeliyor, memeye dokundurmuyor"
         ],
         doList: [
-          "Hasta memeyi sık sık (günde 4-5 kez) tamamen sağarak içindeki zehirli sütü boşaltın.",
+          "Hasta memeyi sık sık (günde 4-5 kez) tamamen sağarak içindeki bozuk sütü boşaltın.",
           "Hasta hayvanı her zaman EN SON sağın ki diğer hayvanlara meme mikrobu bulaşmasın.",
           "Meme içi antibiyotik tüp ve yangı giderici için Veteriner Hekiminize danışın."
         ],
         dontList: [
-          "Pıhtılı bozuk sütü yere veya altlığa sağmayın (ayrı bir kaba sağıp dökün).",
+          "Pıhtılı bozuk sütü yere veya altlığa sağmayın (ayrı kaba sağıp dökün).",
           "Bu sütü kesinlikle buzağılara veya kuzulara içirmeyin, tanka katmayın."
         ]
       },
@@ -654,15 +673,15 @@
           "Hayvan köz üstünde yürür gibi ayaklarını değiştirerek basıyor",
           "Tırnak dipleri ve ayak tabanı el yakacak kadar sıcak",
           "Cıvık, köpüklü, ekşi kokulu ve sarımtırak tezek yapıyor",
-          "Yem kırma veya arpa ambarına girme, aşırı fabrika yemi yeme öyküsü var"
+          "Aşırı arpa, ezme veya fabrika yemi yeme öyküsü var"
         ],
         doList: [
           "Kesif yemi ve arpayı DERHAL kesin; bol kuru saman ve kaliteli ot verin.",
           "Ağızdan 150-200 gram yemek sodasını (karbonat) ılık suda eritip içirin.",
-          "Ayaklarına 20-30 dakika boyunca hortumla soğuk su tutarak yangıyı dindirin."
+          "Ayaklarına 20-30 dakika boyunca hortumla soğuk su tutun."
         ],
         dontList: [
-          "Düzelene kadar kesinlikle arpa, ezme veya mısır tanesi vermeyin.",
+          "Düzelene kadar kesinlikle tane arpa veya ezme vermeyin.",
           "Hayvanı sert zeminlerde koşturmaya veya yürütmeye zorlamayın."
         ]
       },
@@ -684,8 +703,8 @@
           "Üzerine battaniye örterek vücut sıcaklığını koruyun."
         ],
         dontList: [
-          "Ağzından asla zorla sıvı içirmeyin (yutkunamaz, doğrudan ciğerine kaçar!).",
-          "Tek başına kalsiyum iğnesini damara hızlı vermeyin (kalbi anında durdurabilir)."
+          "Ağzından asla zorla sıvı içirmeyin (yutkunamaz, ciğerine kaçar!).",
+          "Tek başına kalsiyum iğnesini damara hızlı vurmayın (kalbi anında durdurabilir)."
         ]
       },
       {
@@ -695,19 +714,18 @@
         category: "genel",
         urgency: "RED",
         symptoms: [
-          "Doğuma 2-4 hafta kalmış gebe anaç koyunlarda durgunluk ve sürüden geri kalma var",
+          "Doğuma 2-4 hafta kalmış gebe koyunlarda durgunluk ve sürüden geri kalma var",
           "Koyun kör gibi yürür, burnunu duvara dayar, dişlerini gıcırdatır",
           "Nefesinde tatlımsı/aseton kokusu duyulur",
-          "Özellikle ikiz/üçüz gebe ve aşırı yağlı ya da çok zayıf koyunlarda görülür"
+          "Özellikle ikiz/üçüz gebe koyunlarda görülür"
         ],
         doList: [
-          "Hemen enerji desteği için ağızdan Gliserin veya Propilen Glikol (veya koyu pekmezli ılık su) verin.",
-          "Veteriner hekim kontrolünde damardan glikoz serumu ve vitamin desteği uygulatın.",
-          "Sürüdeki diğer gebe koyunlara kaliteli yonca ve kademeli ezme takviyesi yapın."
+          "Hemen enerji desteği için ağızdan Gliserin veya koyu pekmezli ılık su içirin.",
+          "Veteriner hekim kontrolünde damardan glikoz serumu uygulatın.",
+          "Sürüdeki diğer gebe koyunlara kaliteli yonca ve kademeli ezme verin."
         ],
         dontList: [
-          "Son haftalarda gebeleri aç bırakmayın, soğuk hava stresine maruz bırakmayın.",
-          "Ağır komadaki hayvana zorla büyük lokmalar yutturmayın."
+          "Son haftalarda gebeleri aç bırakmayın, soğuk stresine sokmayın."
         ]
       },
       {
@@ -719,16 +737,14 @@
         symptoms: [
           "Hayvan kafasını havaya dikip yıldızları seyreder gibi geriye atıyor",
           "Gözleri körleşmiş gibi sağa sola çarpıyor, dairesel hareketlerle dönüyor",
-          "Kaslarda titreme, diş gıcırdatma ve nöbetler halinde kasılma var",
-          "Yüksek tahıl/arpa beslemesi veya bozuk kükürtlü yem sonrası ortaya çıkar"
+          "Kaslarda titreme, diş gıcırdatma ve nöbetler halinde kasılma var"
         ],
         doList: [
-          "ACİL VETERİNER ÇAĞIRIN! Erken dönemde yapılan damar/kas içi Tiamin (B1 Vitamini) iğnesi tam iyileşme sağlar.",
+          "ACİL VETERİNER ÇAĞIRIN! Erken dönemde yapılan damar/kas içi Tiamin (B1 Vitamini) hayat kurtarır.",
           "Işıksız, sakin ve bol saplı bir bölmeye alın; kafasını çarpmaması için önlem alın.",
           "Kesif yemi derhal kesin, kaliteli kuru ot verin."
         ],
         dontList: [
-          "Nöbet geçiren hayvana müdahale ederken boynuz veya tekme darbelerine dikkat edin.",
           "Gecikmeyin; ilk 24 saatte B1 vitamini yapılmazsa beyin dokusu kalıcı hasar görür."
         ]
       },
@@ -741,17 +757,15 @@
         symptoms: [
           "Erkek danada veya koçta sürekli kuyruk sallama ve idrar yapamama var",
           "Karın altına tekme atıyor, acıyla inliyor, damla damla kanlı idrar geliyor",
-          "Karnı gergin, idrar kesesi patlarsa bir anda rahatlar ama karnı su toplar (su karnı)",
-          "Aşırı kepek, mısır veya kireçli kuyu suyu kullanımı sonrası yaygındır"
+          "Karnı gergin; aşırı kepek veya kireçli kuyu suyu kullanımı sonrası yaygındır"
         ],
         doList: [
-          "ACİL VETERİNER ÇAĞIRIN! İdrar kesesi patlamadan önce müdahale edilmesi şarttır.",
+          "ACİL VETERİNER ÇAĞIRIN! İdrar kesesi patlamadan önce müdahale şarttır.",
           "İdrar yolunu asitleştirici amonyum klorür veya veteriner tavsiyeli tozları uygulayın.",
-          "Temiz ve bol su içmesini sağlayın, yalama taşı ve tuz verin."
+          "Temiz ve bol su içmesini sağlayın, tuz verin."
         ],
         dontList: [
-          "Karın bölgesine sertçe bastırmayın (gergin idrar kesesi patlayabilir).",
-          "Sadece kepekle tek yönlü besleme yapmayın."
+          "Karın bölgesine sertçe bastırmayın (idrar kesesi patlayabilir)."
         ]
       },
       {
@@ -763,18 +777,17 @@
         symptoms: [
           "Sol açlık çukuru yukarı doğru davul gibi şişmiş, vurulduğunda tok ses veriyor",
           "Nefes almakta güçlük çekiyor, dili dışarıda, gözleri büyümüş",
-          "Körpe yoncaya girme, kırağılı taze mera veya aşırı ıslak ot sonrası aniden başladı",
-          "Hayvan huzursuz, durup durup yatıp kalkıyor"
+          "Körpe yoncaya girme, kırağılı mera veya aşırı ıslak ot sonrası aniden başladı"
         ],
         doList: [
-          "Köpük varsa köpüğü söndürmek için hemen 250-500 mL sıvı bitkisel yağ (çiçek yağı) içirin.",
-          "Ön ayaklarını yüksek bir yere çıkarın (işkembeyi göğüsten uzaklaştırır, nefesi rahatlatır).",
-          "Ağzına yanlamasına bir sopa/odun bağlayın (çiğneme refleksiyle gaz çıkışını tetikler).",
-          "Boğulma tehlikesi varsa hekim kontrolünde sol açlık çukurundan trokar salın."
+          "Köpüğü söndürmek için hemen 250-500 mL sıvı bitkisel yağ (çiçek yağı) içirin.",
+          "Ön ayaklarını yüksek bir yere çıkarın (işkembeyi göğüsten uzaklaştırıp nefesi rahatlatır).",
+          "Ağzına yanlamasına bir sopa bağlayın (çiğneme refleksiyle gaz çıkışını tetikler).",
+          "Boğulma tehlikesi varsa hekim kontrolünde sol böğürden trokar salın."
         ],
         dontList: [
           "Hayvanı sırtüstü veya sağ tarafına yatırmayın (boğulmayı hızlandırır).",
-          "Kırağılı/ıslak yonca merasına aç hayvanları asla sokmayın."
+          "Kırağılı yonca merasına aç hayvanları asla sokmayın."
         ]
       },
       {
@@ -785,36 +798,32 @@
         urgency: "RED",
         symptoms: [
           "Hayvanda önceden hiçbir belirti yokken aniden şişti veya ansızın öldü",
-          "Ağzından, burnundan veya makatından pıhtılaşmayan, katran gibi kara kan akıyor",
-          "Ölen hayvanın gövdesi çok hızlı şişer ve kokuşur"
+          "Ağzından, burnundan veya makatından pıhtılaşmayan, katran gibi kara kan akıyor"
         ],
         doList: [
           "HAYVANA KESİNLİKLE DOKUNMAYIN ve yanına insan ya da köpek yaklaştırmayın!",
-          "Derhal İl/İlçe Tarım Müdürlüğünü ve Veteriner Hekimi arayın (İnsana da bulaşan ölümcül hastalıktır).",
-          "Hayvanın yattığı yeri derhal sönmemiş kireçle kapatın ve karantinaya alın."
+          "Derhal İl/İlçe Tarım Müdürlüğünü ve Veteriner Hekimi arayın.",
+          "Hayvanın yattığı yeri sönmemiş kireçle kapatın ve karantinaya alın."
         ],
         dontList: [
           "HAYVANI ASLA KESMEYİN, BIÇAK VURMAYIN, DERİSİNİ YÜZMEYİN, ETİNİ TÜKETMEYİN!",
-          "Kanını toprağa veya suya akıtmayın (toprakta 50 yıl sporları canlı kalır)."
+          "Kanını toprağa veya suya akıtmayın."
         ]
       }
     ];
 
-    // =========================================================================
-    // ŞİKAYET KATEGORİLERİ
-    // =========================================================================
     const CATEGORIES = [
-      { id: "genel", icon: "🌡️", title: "Genel Durum / Ateş / Yatma", desc: "Yem yemiyor, titriyor, ayağa kalkamıyor, baygın veya ani ölüm şüphesi" },
-      { id: "agiz_deri", icon: "👅", title: "Ağızda Salya / Deride Yara", desc: "Ağzından salya akıyor, dilde/dişte yara veya deride sert yumrular var" },
-      { id: "solunum", icon: "🫁", title: "Öksürük / Burun Akıntısı", desc: "Öksürüyor, körük gibi hızlı soluyor, burun akıntısı ve hırıltı var" },
-      { id: "dogum_ishal", icon: "🍼", title: "İshal / Doğum / Yavru Atma", desc: "Buzağı/kuzu cıvık ishal, gebe hayvan düşük yaptı veya süt humması" },
-      { id: "meme", icon: "🥛", title: "Meme Şişliği / Bozuk Süt", desc: "Sütte pıhtı veya kan var, meme lobu taş gibi sert, sıcak ve ağrılı" },
-      { id: "ayak_topallik", icon: "🦶", title: "Topallık / Ayak Yanması", desc: "Köz üstünde gibi basıyor, tırnak arası yaralı, yürümekte zorlanıyor" },
-      { id: "siskinlik_idrar", icon: "🎈", title: "Şişkinlik / Gaz / Sidik Zoru", desc: "Sol böğür davul gibi gaz şişti veya hayvan idrar yapamıyor" }
+      { id: "genel", icon: "🌡️", title: "Genel Durum / Ateş / Yatma", desc: "Yem yemiyor, titriyor, ayağa kalkamıyor veya baygın" },
+      { id: "agiz_deri", icon: "👅", title: "Ağızda Salya / Deride Yara", desc: "Salya akıyor, dilde/tırnakta yara, deride şişlikler" },
+      { id: "solunum", icon: "🫁", title: "Öksürük / Hızlı Soluma", desc: "Öksürüyor, körük gibi soluyor, burun akıntısı var" },
+      { id: "dogum_ishal", icon: "🍼", title: "İshal / Doğum / Yavru Atma", desc: "Buzağı/kuzu cıvık ishal, düşük yaptı veya doğum felci" },
+      { id: "meme", icon: "🥛", title: "Meme Şişliği / Bozuk Süt", desc: "Süt pıhtılı/kanlı, meme taş gibi sert ve sıcak" },
+      { id: "ayak_topallik", icon: "🦶", title: "Topallık / Ayak Yanması", desc: "Köz üstünde gibi basıyor, tırnak arası yaralı" },
+      { id: "siskinlik_idrar", icon: "🎈", title: "Şişkinlik / Gaz / Sidik Zoru", desc: "Sol böğür davul gibi gaz şişti veya idrar yapamıyor" }
     ];
 
     // =========================================================================
-    // UYGULAMA DURUMU (STATE)
+    // SOHBET DURUMU (CHAT STATE)
     // =========================================================================
     let state = {
       step: 1,
@@ -828,7 +837,285 @@
       earTag: ""
     };
 
-    function resetApp() {
+    function getTimeString() {
+      const d = new Date();
+      const h = String(d.getHours()).padStart(2, "0");
+      const m = String(d.getMinutes()).padStart(2, "0");
+      return `${h}:${m}`;
+    }
+
+    function toggleContrast() {
+      document.body.classList.toggle("high-contrast");
+    }
+
+    function toggleLargeText() {
+      document.body.classList.toggle("large-text");
+    }
+
+    // =========================================================================
+    // SOHBET AKIŞI FONKSİYONLARI
+    // =========================================================================
+    const chatStream = document.getElementById("chat-stream");
+
+    function scrollChatToBottom() {
+      setTimeout(() => {
+        chatStream.scrollTop = chatStream.scrollHeight;
+      }, 50);
+    }
+
+    function addIncomingMessage(htmlContent, options = null) {
+      const row = document.createElement("div");
+      row.className = "msg-row incoming";
+
+      let optionsHtml = "";
+      if (options && options.length > 0) {
+        optionsHtml = `<div class="btn-options-container">` +
+          options.map(opt => `
+            <button class="wa-choice-btn ${opt.class || ''}" onclick="${opt.action}">
+              ${opt.icon ? `<span>${opt.icon}</span>` : ""}
+              <span>${opt.text}</span>
+            </button>
+          `).join("") +
+          `</div>`;
+      }
+
+      row.innerHTML = `
+        <div class="msg-bubble">
+          ${htmlContent}
+          <span class="msg-time">${getTimeString()}</span>
+        </div>
+        ${optionsHtml}
+      `;
+
+      chatStream.appendChild(row);
+      scrollChatToBottom();
+    }
+
+    function addOutgoingMessage(text) {
+      const row = document.createElement("div");
+      row.className = "msg-row outgoing";
+      row.innerHTML = `
+        <div class="msg-bubble">
+          ${text}
+          <span class="msg-time">${getTimeString()} <span class="check">✓✓</span></span>
+        </div>
+      `;
+      chatStream.appendChild(row);
+      scrollChatToBottom();
+    }
+
+    function showTypingIndicator(callback, delay = 400) {
+      const typingEl = document.createElement("div");
+      typingEl.className = "msg-row incoming";
+      typingEl.id = "typingIndicator";
+      typingEl.innerHTML = `
+        <div class="typing-indicator">
+          <span class="typing-dot"></span>
+          <span class="typing-dot"></span>
+          <span class="typing-dot"></span>
+        </div>
+      `;
+      chatStream.appendChild(typingEl);
+      scrollChatToBottom();
+
+      const statusEl = document.getElementById("wa-online-status");
+      if (statusEl) statusEl.textContent = "yazıyor...";
+
+      setTimeout(() => {
+        const el = document.getElementById("typingIndicator");
+        if (el) el.remove();
+        if (statusEl) statusEl.textContent = "çevrimiçi";
+        callback();
+      }, delay);
+    }
+
+    // =========================================================================
+    // ADIM YÖNETİMİ
+    // =========================================================================
+
+    function startConversation() {
+      chatStream.innerHTML = `
+        <div class="chat-date-pill">BUGÜN</div>
+      `;
+
+      showTypingIndicator(() => {
+        addIncomingMessage(
+          `Selamünaleyküm ustam! Ben <strong>Çoban Doktor</strong>. 🩺<br><br>
+          Ahırda veya merada rahatsızlanan hayvanının durumunu adım adım kontrol edelim.<br><br>
+          Önce söyle bakalım, <strong>hangi hayvanın rahatsız?</strong>`,
+          [
+            { icon: "🍼", text: "Sığır: Buzağı", action: "handleSelectSpecies('sigir', 'Buzağı')", class: "primary" },
+            { icon: "🥛", text: "Sığır: Sağmal İnek", action: "handleSelectSpecies('sigir', 'Sağmal İnek')", class: "primary" },
+            { icon: "🤰", text: "Sığır: Gebe / Düve", action: "handleSelectSpecies('sigir', 'Gebe / Düve')", class: "primary" },
+            { icon: "🥩", text: "Sığır: Besi Danası", action: "handleSelectSpecies('sigir', 'Besi Danası')", class: "primary" },
+            { icon: "🍼", text: "Koyun: Kuzu", action: "handleSelectSpecies('koyun', 'Kuzu')", class: "warning" },
+            { icon: "🐑", text: "Koyun: Anaç Koyun", action: "handleSelectSpecies('koyun', 'Anaç Koyun')", class: "warning" },
+            { icon: "🐏", text: "Koyun: Koç / Toklu", action: "handleSelectSpecies('koyun', 'Koç / Toklu')", class: "warning" },
+            { icon: "🥩", text: "Koyun: Besi Kuzusu", action: "handleSelectSpecies('koyun', 'Besi Kuzusu')", class: "warning" }
+          ]
+        );
+      }, 350);
+    }
+
+    function handleSelectSpecies(species, group) {
+      state.species = species;
+      state.group = group;
+
+      addOutgoingMessage(`${species === 'sigir' ? '🐄 Sığır' : '🐑 Koyun'} • ${group}`);
+
+      showTypingIndicator(() => {
+        const catButtons = CATEGORIES.map(c => ({
+          icon: c.icon,
+          text: `<strong>${c.title}</strong><br><span style="font-size:0.78rem; font-weight:500; color:#57534e;">${c.desc}</span>`,
+          action: `handleSelectCategory('${c.id}', '${c.title}')`
+        }));
+
+        addIncomingMessage(
+          `Geçmiş olsun ustam. <strong>${group}</strong> için hayvanda gözüne çarpan <strong>ilk ana şikayet</strong> nedir?`,
+          catButtons
+        );
+      }, 400);
+    }
+
+    function handleSelectCategory(catId, catTitle) {
+      state.category = catId;
+      addOutgoingMessage(catTitle);
+
+      state.candidates = DISEASES.filter(d => d.species.includes(state.species) && d.category === catId);
+      if (state.candidates.length === 0) {
+        state.candidates = DISEASES.filter(d => d.species.includes(state.species));
+      }
+
+      state.currentDiseaseIndex = 0;
+      state.scores = {};
+      state.selectedSymptoms = [];
+      state.candidates.forEach(d => state.scores[d.id] = 0);
+
+      showTypingIndicator(() => {
+        askDiseaseQuestion();
+      }, 400);
+    }
+
+    function askDiseaseQuestion() {
+      const currentDisease = state.candidates[state.currentDiseaseIndex];
+      const symptomList = currentDisease.symptoms.map(s => `• <strong>${s}</strong>`).join("<br>");
+
+      addIncomingMessage(
+        `<em>Soru ${state.currentDiseaseIndex + 1} / ${state.candidates.length}:</em><br><br>
+        Hayvanda şu belirtilerden hangilerini görüyorsun?<br><br>
+        ${symptomList}`,
+        [
+          { icon: "✅", text: "EVET, AYNEN BUNLAR VAR", action: "handleAnswer('YES')", class: "primary" },
+          { icon: "🤔", text: "BİR KISMI VAR / EMİN DEĞİLİM", action: "handleAnswer('PARTIAL')", class: "warning" },
+          { icon: "❌", text: "HAYIR, BUNLAR YOK", action: "handleAnswer('NO')", class: "danger" }
+        ]
+      );
+    }
+
+    function handleAnswer(answer) {
+      const currentDisease = state.candidates[state.currentDiseaseIndex];
+      if (answer === "YES") {
+        addOutgoingMessage("✅ Evet, aynen bu belirtiler var.");
+        state.scores[currentDisease.id] += 100;
+        state.selectedSymptoms.push(...currentDisease.symptoms);
+        showTypingIndicator(() => {
+          showDiagnosisResult();
+        }, 500);
+        return;
+      } else if (answer === "PARTIAL") {
+        addOutgoingMessage("🤔 Bir kısmı var, emin değilim.");
+        state.scores[currentDisease.id] += 50;
+        state.selectedSymptoms.push(currentDisease.symptoms[0]);
+      } else {
+        addOutgoingMessage("❌ Hayır, bu belirtiler yok.");
+      }
+
+      if (state.currentDiseaseIndex + 1 < state.candidates.length) {
+        state.currentDiseaseIndex++;
+        showTypingIndicator(() => {
+          askDiseaseQuestion();
+        }, 350);
+      } else {
+        showTypingIndicator(() => {
+          showDiagnosisResult();
+        }, 500);
+      }
+    }
+
+    function showDiagnosisResult() {
+      let bestMatch = state.candidates[0];
+      let maxScore = -1;
+      state.candidates.forEach(d => {
+        if (state.scores[d.id] > maxScore) {
+          maxScore = state.scores[d.id];
+          bestMatch = d;
+        }
+      });
+
+      const isRed = bestMatch.urgency === "RED";
+      const badgeClass = isRed ? "badge-red" : "badge-yellow";
+      const badgeText = isRed ? "🔴 ACİL VE BULAŞICI RİSK! HEMEN AYIRIN!" : "🟡 VETERİNER HEKİM KONTROLÜ GEREKLİ";
+
+      const doItems = bestMatch.doList.map(item => `<li><span>✔️</span><span>${item}</span></li>`).join("");
+      const dontItems = bestMatch.dontList.map(item => `<li><span>⛔</span><span>${item}</span></li>`).join("");
+
+      const cardHtml = `
+        <div class="report-card">
+          <div class="report-badge ${badgeClass}">${badgeText}</div>
+          <div style="font-size:0.75rem; color:#64748b; font-weight:800; text-transform:uppercase;">OLASI ÖN TEŞHİS:</div>
+          <div class="report-title">${bestMatch.name}</div>
+
+          <div class="action-header do-header">
+            <span>✅</span><span>HEMEN YAPILACAKLAR (İLK YARDIM):</span>
+          </div>
+          <ul class="action-list">
+            ${doItems}
+          </ul>
+
+          <div class="action-header dont-header">
+            <span>❌</span><span>KESİNLİKLE YAPMAYIN:</span>
+          </div>
+          <ul class="action-list">
+            ${dontItems}
+          </ul>
+
+          <div class="ear-input-box">
+            <label for="chatEarTag">🏷️ Hayvanın Kulak Küpe Numarası (Varsa yazın):</label>
+            <input id="chatEarTag" class="ear-input" type="text" placeholder="Örn: TR 42 1234567" autocomplete="off" oninput="this.value = this.value.toUpperCase()">
+          </div>
+
+          <button onclick="sendReportToWhatsApp('${bestMatch.name}', '${bestMatch.urgency}')" class="btn-send-wa">
+            📲 WhatsApp ile Veterinerime İlet
+          </button>
+        </div>
+      `;
+
+      addIncomingMessage(
+        `Ustam incelemeyi tamamladım. Hayvanındaki belirtiler ışığında teşhis ve acil hareket planı aşağıdadır:<br>${cardHtml}`,
+        [
+          { icon: "🔄", text: "Başka Hayvan Muayene Et", action: "restartChat()", class: "primary" }
+        ]
+      );
+    }
+
+    function sendReportToWhatsApp(diseaseName, urgency) {
+      const earInput = document.getElementById("chatEarTag");
+      const tag = earInput && earInput.value.trim() ? earInput.value.trim().toUpperCase() : "Belirtilmedi";
+      const spName = state.species === "sigir" ? "Büyükbaş (Sığır)" : "Küçükbaş (Koyun)";
+      const symptomsText = state.selectedSymptoms.length > 0 ? state.selectedSymptoms.slice(0, 3).join(", ") : "Genel hastalık ve iştahsızlık belirtileri";
+
+      const message = `*Çoban Doktor Ön Bildirim Raporu*\n` +
+        `🐾 *Tür / Grup:* ${spName} (${state.group})\n` +
+        `🏷️ *Kulak Küpe No:* ${tag}\n` +
+        `⚠️ *Ön Şüphe:* ${diseaseName} (${urgency === 'RED' ? 'ACİL MÜDAHALE / BULAŞICI' : 'HEKİM KONTROLÜ'})\n` +
+        `📋 *Gözlenen Belirtiler:* ${symptomsText}\n\n` +
+        `Hocam hayvanı sürüden ayırdım, ilk tedbirleri aldım. Teşhis ve tedavi için desteğinizi rica ederim.`;
+
+      const url = `https://wa.me/?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank");
+    }
+
+    function restartChat() {
       state = {
         step: 1,
         species: null,
@@ -840,265 +1127,14 @@
         selectedSymptoms: [],
         earTag: ""
       };
-      render();
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      startConversation();
     }
 
-    function toggleContrast() {
-      document.body.classList.toggle("high-contrast");
-    }
-
-    function toggleLargeText() {
-      document.body.classList.toggle("large-text");
-    }
-
-    function selectSpecies(sp, grp) {
-      state.species = sp;
-      state.group = grp;
-      state.step = 2;
-      render();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    function selectCategory(catId) {
-      state.category = catId;
-      state.candidates = DISEASES.filter(d => d.species.includes(state.species) && d.category === catId);
-      if (state.candidates.length === 0) {
-        state.candidates = DISEASES.filter(d => d.species.includes(state.species));
-      }
-      state.currentDiseaseIndex = 0;
-      state.scores = {};
-      state.selectedSymptoms = [];
-      state.candidates.forEach(d => state.scores[d.id] = 0);
-      state.step = 3;
-      render();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    function answerQuestion(answer) {
-      const currentDisease = state.candidates[state.currentDiseaseIndex];
-      if (answer === "YES") {
-        state.scores[currentDisease.id] += 100;
-        state.selectedSymptoms.push(...currentDisease.symptoms);
-        state.step = 4;
-        render();
-        window.scrollTo({ top: 0, behavior: "smooth" });
-        return;
-      } else if (answer === "PARTIAL") {
-        state.scores[currentDisease.id] += 50;
-        state.selectedSymptoms.push(currentDisease.symptoms[0]);
-      }
-
-      if (state.currentDiseaseIndex + 1 < state.candidates.length) {
-        state.currentDiseaseIndex++;
-        render();
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      } else {
-        state.step = 4;
-        render();
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-    }
-
-    function sendWhatsApp(diseaseName, urgency) {
-      const earTagInput = document.getElementById("earTagInput");
-      const tag = earTagInput && earTagInput.value.trim() ? earTagInput.value.trim().toUpperCase() : "Belirtilmedi";
-      const spName = state.species === "sigir" ? "Büyükbaş (Sığır)" : "Küçükbaş (Koyun)";
-      const symptomsText = state.selectedSymptoms.length > 0 ? state.selectedSymptoms.slice(0, 3).join(", ") : "Halsizlik ve genel hastalık belirtileri";
-
-      const message = `*Çoban Doktor Ön Bildirim Raporu*\n` +
-        `🐾 *Tür / Grup:* ${spName} (${state.group})\n` +
-        `🏷️ *Kulak Küpe No:* ${tag}\n` +
-        `⚠️ *Ön Şüphe:* ${diseaseName} (${urgency === 'RED' ? 'ACİL MÜDAHALE / BULAŞICI' : 'HEKİM KONTROLÜ'})\n` +
-        `📋 *Gözlenen Belirtiler:* ${symptomsText}\n\n` +
-        `Hocam hayvanı ayırdım, ilk tedbirleri aldım. Teşhis ve tedavi için desteğinizi rica ederim.`;
-
-      const url = `https://wa.me/?text=${encodeURIComponent(message)}`;
-      window.open(url, "_blank");
-    }
+    // İlk açılışta başlat
+    startConversation();
 
     // =========================================================================
-    // EKRAN ÇİZİM MOTORU (RENDER)
-    // =========================================================================
-    function render() {
-      const container = document.getElementById("app-container");
-
-      // ADIM 1: TÜR VE GRUP SEÇİMİ
-      if (state.step === 1) {
-        container.innerHTML = `
-          <div class="card card-banner">
-            <h2 class="card-title">1. Hangi Hayvanınız Rahatsız?</h2>
-            <p class="card-subtitle">Doğru ön teşhis için önce hasta hayvanın türünü ve grubunu seçin.</p>
-          </div>
-
-          <!-- BÜYÜKBAŞ (SIĞIR) -->
-          <div class="card species-group">
-            <div class="species-group-title">
-              <span style="font-size:1.8rem;">🐄</span>
-              <span>BÜYÜKBAŞ (Sığır)</span>
-            </div>
-            <div class="btn-grid">
-              <button onclick="selectSpecies('sigir', 'Buzağı')" class="btn btn-primary">🍼 Buzağı</button>
-              <button onclick="selectSpecies('sigir', 'Sağmal İnek')" class="btn btn-primary">🥛 Sağmal İnek</button>
-              <button onclick="selectSpecies('sigir', 'Gebe / Düve')" class="btn btn-primary">🤰 Gebe / Düve</button>
-              <button onclick="selectSpecies('sigir', 'Besi Danası')" class="btn btn-primary">🥩 Besi Danası</button>
-            </div>
-          </div>
-
-          <!-- KÜÇÜKBAŞ (KOYUN) -->
-          <div class="card species-group">
-            <div class="species-group-title">
-              <span style="font-size:1.8rem;">🐑</span>
-              <span>KÜÇÜKBAŞ (Koyun)</span>
-            </div>
-            <div class="btn-grid">
-              <button onclick="selectSpecies('koyun', 'Kuzu')" class="btn btn-warning">🍼 Kuzu</button>
-              <button onclick="selectSpecies('koyun', 'Anaç Koyun')" class="btn btn-warning">🐑 Anaç Koyun</button>
-              <button onclick="selectSpecies('koyun', 'Koç / Toklu')" class="btn btn-warning">🐏 Koç / Toklu</button>
-              <button onclick="selectSpecies('koyun', 'Besi Kuzusu')" class="btn btn-warning">🥩 Besi Kuzusu</button>
-            </div>
-          </div>
-        `;
-      }
-
-      // ADIM 2: ŞİKAYET KATEGORİSİ
-      else if (state.step === 2) {
-        const catButtons = CATEGORIES.map(c => `
-          <button onclick="selectCategory('${c.id}')" class="category-card">
-            <span class="category-icon">${c.icon}</span>
-            <div>
-              <div class="category-name">${c.title}</div>
-              <div class="category-desc">${c.desc}</div>
-            </div>
-          </button>
-        `).join("");
-
-        container.innerHTML = `
-          <div class="card card-banner">
-            <div style="font-size:0.78rem; font-weight:800; color:var(--primary); text-transform:uppercase;">
-              ${state.species === 'sigir' ? '🐄 BÜYÜKBAŞ' : '🐑 KÜÇÜKBAŞ'} • ${state.group}
-            </div>
-            <h2 class="card-title" style="margin-top:2px;">2. Hayvanda İlk Ne Gördünüz?</h2>
-            <p class="card-subtitle">En belirgin şikayeti içeren kutuya dokunun:</p>
-          </div>
-
-          <div style="display:flex; flex-direction:column; gap:10px;">
-            ${catButtons}
-          </div>
-
-          <button onclick="resetApp()" class="btn btn-secondary" style="margin-top:4px;">⬅️ Baştan Başla</button>
-        `;
-      }
-
-      // ADIM 3: ELİMİNATİF SORULAR
-      else if (state.step === 3) {
-        const currentDisease = state.candidates[state.currentDiseaseIndex];
-        const symptomList = currentDisease.symptoms.map(s => `
-          <div class="symptom-item">
-            <span class="symptom-bullet">👉</span>
-            <span>${s}</span>
-          </div>
-        `).join("");
-
-        container.innerHTML = `
-          <div class="card card-banner" style="border-left-color:var(--warning);">
-            <div style="font-size:0.75rem; font-weight:800; color:var(--warning); text-transform:uppercase;">
-              SORU ${state.currentDiseaseIndex + 1} / ${state.candidates.length} • ${state.group}
-            </div>
-            <h2 class="card-title" style="margin-top:2px;">Hayvanda şu belirtiler var mı?</h2>
-          </div>
-
-          <div class="card">
-            ${symptomList}
-          </div>
-
-          <div style="display:flex; flex-direction:column; gap:10px; margin-top:4px;">
-            <button onclick="answerQuestion('YES')" class="btn btn-primary" style="font-size:1.1rem; padding:16px;">
-              ✅ EVET, AYNEN BUNLAR VAR
-            </button>
-            <button onclick="answerQuestion('PARTIAL')" class="btn btn-warning">
-              🤔 BİR KISMI VAR / EMİN DEĞİLİM
-            </button>
-            <button onclick="answerQuestion('NO')" class="btn btn-danger">
-              ❌ HAYIR, BUNLAR YOK (Diğerine Geç)
-            </button>
-          </div>
-        `;
-      }
-
-      // ADIM 4: SONUÇ VE İLK YARDIM
-      else if (state.step === 4) {
-        let bestMatch = state.candidates[0];
-        let maxScore = -1;
-        state.candidates.forEach(d => {
-          if (state.scores[d.id] > maxScore) {
-            maxScore = state.scores[d.id];
-            bestMatch = d;
-          }
-        });
-
-        const isRed = bestMatch.urgency === "RED";
-        const badgeClass = isRed ? "badge-red" : "badge-yellow";
-        const badgeText = isRed ? "🔴 ACİL VE BULAŞICI RİSK! HEMEN AYIRIN!" : "🟡 VETERİNER HEKİM KONTROLÜ GEREKLİ";
-
-        const doItems = bestMatch.doList.map(item => `<li><span>✔️</span><span>${item}</span></li>`).join("");
-        const dontItems = bestMatch.dontList.map(item => `<li><span>⛔</span><span>${item}</span></li>`).join("");
-
-        container.innerHTML = `
-          <div class="urgency-badge ${badgeClass}">
-            ${badgeText}
-          </div>
-
-          <div class="card">
-            <div style="font-size:0.78rem; font-weight:800; color:var(--text-muted); text-transform:uppercase;">
-              OLASI ÖN TEŞHİS:
-            </div>
-            <h2 class="card-title" style="font-size:1.35rem; margin-top:2px; color:#000000;">${bestMatch.name}</h2>
-
-            <div class="action-box do-box">
-              <div class="action-box-title">
-                <span>✅</span>
-                <span>HEMEN YAPILACAKLAR (İLK MÜDAHALE):</span>
-              </div>
-              <ul class="action-list">
-                ${doItems}
-              </ul>
-            </div>
-
-            <div class="action-box dont-box">
-              <div class="action-box-title">
-                <span>❌</span>
-                <span>KESİNLİKLE YAPMAYIN (ZARAR VERİR):</span>
-              </div>
-              <ul class="action-list">
-                ${dontItems}
-              </ul>
-            </div>
-
-            <div style="margin-top:14px; padding-top:14px; border-top:1.5px dashed var(--border);">
-              <label for="earTagInput" style="display:block; font-size:0.84rem; font-weight:800;">
-                🏷️ Hayvanın Kulak Küpe Numarası (Varsa):
-              </label>
-              <input id="earTagInput" class="ear-tag-input" type="text" placeholder="Örn: TR 42 1234567" autocomplete="off" oninput="this.value = this.value.toUpperCase()">
-            </div>
-
-            <button onclick="sendWhatsApp('${bestMatch.name}', '${bestMatch.urgency}')" class="btn btn-whatsapp" style="margin-top:14px;">
-              📲 WhatsApp ile Veterinerime Gönder
-            </button>
-          </div>
-
-          <button onclick="resetApp()" class="btn btn-secondary">
-            🔄 Yeni Hayvan Muayene Et
-          </button>
-        `;
-      }
-    }
-
-    // İlk açılışta çalıştır
-    render();
-
-    // =========================================================================
-    // PWA SERVICE WORKER KAYDI (%100 ÇEVRİMDIŞI)
+    // PWA SERVICE WORKER
     // =========================================================================
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
