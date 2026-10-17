@@ -1,52 +1,41 @@
 # Tosun Paşa Çiftliği
 
-Besi sığırı, süt sığırı ve koyun işletmeleri için geliştirilmiş 3 bağımsız, açık kaynaklı, ücretsiz ve %100 çevrimdışı saha rehberine tek noktadan erişim sağlayan minimalist portal ekranı.
+Büyükbaş ve küçükbaş hayvancılık işletmeleri için geliştirilmiş 3 uzman, açık kaynaklı, ücretsiz ve %100 çevrimdışı saha uygulamasına tek noktadan erişim sağlayan bağımsız çiftlik portalı.
 
-Portal Adresi: [https://mserman90.github.io/](https://mserman90.github.io/)
-
----
-
-## Minimalist Hero Ekranı
-
-Hero ekranı ücretsiz açık kaynaklı kütüphanelerden (Google Noto Icons) çekilen kaliteli renkli simgeler ve doğrudan başlatma kartlarından oluşur:
-1. **Besi Sığırı** (Besi Çiftliği Rehberi)
-2. **Süt Sığırı** (Süt Çiftliği Rehberi)
-3. **Koyun** (Koyun Çiftliği Rehberi)
-
-Tüm detaylı açıklamalar, karşılaştırma tablosu, konu filtreleri ve internetsiz telefona kurulum kılavuzu üst başlıkta yer alan **"Bilgi"** menüsü içerisine taşınmıştır.
+Portal Canlı Adresi: [https://mserman90.github.io/](https://mserman90.github.io/)
 
 ---
 
-## 3 Bağımsız Saha Uygulaması
+## 3 Uzman Saha Uygulaması
 
-Bu portaldaki 3 uygulama birbirinden tamamen bağımsız olarak çalışır, kodları birleştirilmemiştir ve her biri kendi çevrimdışı veri tabanına (localStorage) sahiptir:
+Proje, birbirini tamamlayan ancak birbirinden tamamen bağımsız olarak %100 çevrimdışı çalışan 3 modülden oluşur:
 
-1. **Besi Çiftliği Rehberi** (`/besi-saglik-rehberi/`)
-   - 21 günlük kamyondan indirme, karşılama ve yem geçiş protokolü
-   - Mezbaha kesim kilidi ve et İKAS ceza önleyici sayaç
-   - Şerit metre ve kantarla canlı kilo (CAAG) ile %58 karkas randıman hesabı
-   - Besi acil durumları (CCN beyin dönmesi, sidik zoru, arpa vurması)
-   - Dışkı skoru ve yemlikten bütün tahıl kaçışı denetimi
+### 1. 🩺 Çoban Doktor (`/coban-doktor/`)
+- **Merkezi Hastalık Ön Teşhisi:** Sığır, buzağı, koyun ve kuzu için soru-cevaplı karar ağacı ile saha triyajı.
+- **Hızlı Ateş / Derece Kontrolü:** Rektal vücut ısısının hayvan türüne ve yaşına göre anında fizyolojik kıyaslanması.
+- **Canlı İKAS Süt & Et Kilidi Defteri:** İlaç arınma sürelerinin saniye saniye geri sayımı, tank sütü koruma kilidi ve mezbaha kesim yasağı denetimi.
+- **Sıvı & Kolostrum Tedavisi:** İshalli buzağı/kuzularda dehidrasyona göre 24 saatlik elektrolit-serum ihtiyacı ve Brix refraktometre kolostrum hesabı.
+- **Acil İlk Yardım Protokolleri:** Şişme, asidoz, çelerme, zehirlenme ve doğum felcinde veteriner altın müdahale kuralları.
 
-2. **Süt Çiftliği Rehberi** (`/sut-saglik-rehberi/`)
-   - Hasta muayenesi (ateş, kulak, geviş, meme şişliği)
-   - İlaç arınma süresi (İKAS) ve tank sütü döküm/zarar sayacı
-   - Sesli sağımcı uyarısı (küpe sorgulama ile "SAĞMA" uyarısı)
-   - 21 günlük tohumlama, kuruya alma ve doğum takvimi
-   - Buzağı ishal/sıvı tedavisi hesaplayıcısı
+### 2. 🌾 Rasyon Rehberi (`/rasyon-rehberi/`)
+- **Uluslararası Bilimsel Standart (NASEM 2021 / NRC / CNCPS):** Süt ineği, besi danası ve koyun/kuzu için hassas besleme motoru.
+- **Tek Tıkla Otomatik Yem Dengeleme:** Seçilen yemlerle hayvanın kuru madde, enerji ve protein ihtiyacını en düşük maliyetle çözen optimizasyon.
+- **TMR Vagon Kantarı:** Karıştırma sırası ve kümülatif kantar takibi ile 1.000 kg fabrika yemi kırma formülasyonu.
+- **Sınırsız Özel Yem Ekleme:** Çiftçinin kendi arpa kırması, silajı veya yerel küspesini sisteme kaydedip rasyona dahil edebilmesi.
+- **Metabolik Risk Analizi:** Gizli asidoz (SARA), laminit, DCAD ve sidik zoru risk uyarıları.
 
-3. **Koyun Çiftliği Rehberi** (`/koyun-saglik-rehberi/`)
-   - Mera ve ağıl acil durumları (çelerme, gebelik zehirlenmesi, kuzu donması)
-   - Küçükbaşa özel güvenli ilaç ve İKAS arınma kataloğu
-   - Koç katımı ve 150 günlük kuzulama takvimi
-   - Kuzu yaşatma ve ilk 2 saatlik ağız sütü (kolostrum) hesabı
-   - Şerit metreyle küçükbaş canlı ağırlık formülü
+### 3. 🍼 Üretim Rehberi (`/uretim-rehberi/`)
+- **283 Günlük Büyükbaş Gebelik & Doğum Çarkı:** 21. gün dönüş kontrolü, 45-60. gün ultrason, 223. gün kuruya alma ve 253. gün buzağı ishali aşısı takvimi.
+- **150 Günlük Küçükbaş Koç Katımı Takvimi:** Koç katımı, ikiz gebelik kontrolü, kurutma, flaşlama beslemesi ve kuzulama tarihi.
+- **Sabah - Akşam Tohumlama Saati:** Kızgınlığın (östrus) görüldüğü saate göre en yüksek tutma oranlı tohumlama zamanı.
+- **Damızlık Olgunluk Eşiği:** Düve ve toklularda ilk aşım için canlı ağırlık ve yaş barajı kontrolü.
+- **Çevrimdışı Sürü Döl Defteri:** Küpe bazlı yerel gebelik kayıtları ve doğuma kalan gün rozetleri.
 
 ---
 
-## Tasarım & Kullanıcı Deneyimi Standartları
+## Mimari & Standartlar
 
-- **Mutlak Kontrast & Monokrom Arayüz:** Siyah-beyaz zemin/yazı kontrastı ile gün ışığı altında ve gece ahırda maksimum okunabilirlik.
-- **Evrensel Renkli Kütüphane Simgeleri:** Google Noto açık kaynak simge kütüphanesinden çekilen yüksek kaliteli hayvan simgeleri.
-- **Yetiştirici Dili:** Tüm bilimsel ve klinik ifadeler sahadaki çiftçinin ve çobanın anlayacağı yalın Türkçe ile hazırlanmıştır.
-- **%100 Çevrimdışı Çalışma (PWA):** Şebekenin çekmediği kırsalda ve ahırda internetsiz tam fonksiyon çalışır.
+- **%100 Çevrimdışı ve Yerel (PWA):** Tüm uygulamalar Service Worker ve LocalStorage ile internet bağlantısı olmadan dağda, yaylada ve ahırda eksiksiz çalışır.
+- **Sıfır Sunucu & Tam Gizlilik:** Çiftlik kayıtları, hayvan küpeleri ve rasyon reçeteleri hiçbir sunucuya gönderilmez; yalnızca kullanıcının kendi cihazında saklanır.
+- **Çiftçi Dili & Sade Arayüz:** Karmaşık veteriner hekimlik ve zootekni terimleri ilkokul mezunu yetiştiricinin rahatlıkla anlayabileceği sade bir dille sunulmuştur.
+- **Yüksek Kontrast & Erişilebilirlik:** Güneş ışığı altında ve gece ahırda çalışmayı kolaylaştıran yüksek kontrast modu ve büyük yazı (A+) desteği.

@@ -1,0 +1,24 @@
+{
+  "name": "Üretim Rehberi - Tohumlama, Gebelik & Doğum Çarkı",
+  "short_name": "Üretim",
+  "description": "Büyükbaş 283 gün ve küçükbaş 150 gün suni tohumlama, koç katımı, kuruya alma ve doğum takvimi.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#064e3b",
+  "theme_color": "#008069",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
