@@ -2305,8 +2305,8 @@
       <!-- SEKMELER -->
       <div class="kupe-tabs">
         <button class="kupe-tab-btn" id="tabbtn-repro" onclick="switchKupeTab('repro')">
-          <svg class="lucide-icon" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-          <span>Sürü Sağlığı (Doğum)</span>
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          <span>Üreme Sağlığı & Doğum</span>
         </button>
         <button class="kupe-tab-btn active" id="tabbtn-list" onclick="switchKupeTab('list')">
           <svg class="lucide-icon" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4M12 16h4M8 11h.01M8 16h.01"/></svg>
@@ -2497,78 +2497,166 @@
         </div>
       </div>
 
-      <!-- SEKME 4: SÜRÜ SAĞLIĞI & GEBELİK / DOĞUM TAKVİMİ -->
+      <!-- SEKME 4: ÜREME SAĞLIĞI, DOĞUM HASTALIKLARI & İLK YARDIM -->
       <div class="kupe-tab-content" id="kupe-tab-repro">
-        <div class="gebelik-box">
-          <div style="font-weight:900; color:#14532d; font-size:0.95rem; margin-bottom:4px; display:flex; align-items:center; gap:6px;">
-            <svg class="lucide-icon" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-            <span>Gebelik & Doğum Takvimi Hesaplayıcı</span>
+        <!-- ÜRETİM REHBERİ ENTEGRASYON KÖPRÜSÜ -->
+        <div style="background:linear-gradient(135deg, #064e3b 0%, #047857 100%); border-radius:12px; padding:14px; color:#fff; margin-bottom:14px; box-shadow:0 4px 12px rgba(6,78,59,0.15);">
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+            <span style="font-size:1.3rem;">📅</span>
+            <strong style="font-size:1rem; font-weight:800; color:#ecfdf5;">Tohumlama, Doğum Çarkı & Sürü Üreme Defteri</strong>
           </div>
-          <p style="margin:0 0 10px 0; font-size:0.78rem; color:#166534; line-height:1.4;">
-            Tohumlama veya koç katımı tarihini seçin; <strong>tahmini doğum gününü</strong>, <strong>kuruya çıkarma zamanını</strong> ve <strong>doğuma 1 ay kala yapılacak aşı/vitamin tarihlerini</strong> anında hesaplayıp kaydedin.
+          <p style="font-size:0.82rem; margin:0 0 10px 0; color:#d1fae5; line-height:1.45;">
+            Suni tohumlama takvimleri, <strong>büyükbaş 283 günlük buzağılama çarkı</strong>, <strong>küçükbaş 150 günlük koç katımı</strong>, kuruya çıkarma ve damızlık olgunluk hesaplamaları <strong>Üretim Rehberi</strong> modülüne taşınmıştır.
           </p>
-
-          <!-- TÜR SEÇİMİ -->
-          <div class="gebelik-species-grid">
-            <button type="button" class="gebelik-species-btn active" id="btn-repro-inek" onclick="selectReproSpecies('inek')">
-              <svg class="lucide-icon icon-lg" viewBox="0 0 24 24"><path d="M19 5c-1.5 0-3 1-4 2.5C13.5 6 12 5.5 10 5.5S6.5 6 5 7.5C4 6 2.5 5 1 5c0 3 2 5.5 3.5 6.5C4.5 13 5 15 6 17c1.5 3 4 4 6 4s4.5-1 6-4c1-2 1.5-4 1.5-5.5C21 10.5 23 8 23 5c-1.5 0-3 1-4 2.5z"/></svg>
-              <span>İnek (Sığır)</span>
-              <span class="sub">Gebelik: 283 Gün</span>
-            </button>
-            <button type="button" class="gebelik-species-btn" id="btn-repro-koyun" onclick="selectReproSpecies('koyun')">
-              <svg class="lucide-icon icon-lg" viewBox="0 0 24 24"><path d="M9 12c-1.5-1-3-1-4.5 0s-1.5 3.5 0 5 4 1 5.5 0"/><path d="M15 12c1.5-1 3-1 4.5 0s1.5 3.5 0 5-4 1-5.5 0"/><path d="M8 8a4 4 0 0 1 8 0v7a4 4 0 0 1-8 0z"/></svg>
-              <span>Koyun / Keçi</span>
-              <span class="sub">Gebelik: 150 Gün</span>
-            </button>
-          </div>
-
-          <!-- KÜPE NO (OPSİYONEL) -->
-          <div class="kupe-form-group" style="margin-bottom:8px;">
-            <label class="kupe-form-label" for="reproEarTag">
-              <svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"/><circle cx="7" cy="7" r=".5" fill="currentColor"/></svg>
-              <span>Hayvan Küpe Numarası (Opsiyonel):</span>
-            </label>
-            <input type="text" id="reproEarTag" class="kupe-form-input" placeholder="Örn: TR16 88421" style="text-transform:uppercase;">
-          </div>
-
-          <!-- TOHUMLAMA / KOÇ KATIMI TARİHİ -->
-          <div class="gebelik-date-input-group">
-            <label class="kupe-form-label" for="reproEventDate" id="lbl-repro-date">
-              <svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-              <span>Tohumlama Tarihi (*):</span>
-            </label>
-            <input type="date" id="reproEventDate" class="gebelik-date-input" onchange="calculateReproTimeline()">
-          </div>
-
-          <!-- OTOMATİK ZAMAN ÇİZELGESİ ÖNİZLEMESİ -->
-          <div id="repro-timeline-container" class="gebelik-timeline-card" style="display:none;">
-            <!-- JavaScript dinamik olarak basar -->
-          </div>
-
-          <!-- BUTONLAR -->
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:10px;">
-            <button type="button" onclick="saveCurrentReproRecord()" class="btn-save-record" id="btn-save-repro" style="margin-top:0; background:#16a34a; font-size:0.86rem;">
-              <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
-              <span>Takvime Kaydet</span>
-            </button>
-            <button type="button" onclick="shareCurrentReproDirect()" class="btn-save-record" id="btn-share-repro" style="margin-top:0; background:#0284c7; font-size:0.86rem;">
-              <svg class="lucide-icon" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>
-              <span>Raporu İlet</span>
-            </button>
-          </div>
+          <a href="https://mserman90.github.io/uretim-rehberi/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; width:100%; background:#f8fafc; color:#065f46; font-weight:800; font-size:0.88rem; padding:10px 14px; border-radius:8px; text-decoration:none; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
+            <svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
+            <span>👉 Üretim Rehberini Aç (Tohumlama & Doğum Çarkı)</span>
+          </a>
         </div>
 
-        <!-- KAYITLI DOĞUM TAKVİMİ LİSTESİ -->
-        <div class="gebelik-saved-list">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-            <strong style="color:#0f172a; font-size:0.88rem; display:flex; align-items:center; gap:6px;">
-              <svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4M12 16h4M8 11h.01M8 16h.01"/></svg>
-              <span>Kayıtlı Gebelik & Doğum Takibi</span>
-            </strong>
-            <span style="font-size:0.75rem; color:#64748b;" id="repro-total-count">0 Kayıt</span>
+        <div style="font-weight:900; color:#0f172a; font-size:0.95rem; margin-bottom:8px; display:flex; align-items:center; gap:6px;">
+          <svg class="lucide-icon" style="color:#dc2626;" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          <span>Üreme Sağlığı, Doğum Hastalıkları & Acil Kılavuzu</span>
+        </div>
+        <p style="font-size:0.8rem; color:#475569; margin:0 0 12px 0; line-height:1.4;">
+          Doğum sırasında veya sonrasında gelişen hayati komplikasyonlarda veteriner hekim gelene kadar uygulanacak ilk yardım adımları ve teşhis rehberi:
+        </p>
+
+        <!-- HASTALIK KARTLARI LİSTESİ -->
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <!-- 1. GÜÇ DOĞUM -->
+          <div style="background:#fff; border:1px solid #fecaca; border-left:5px solid #dc2626; border-radius:10px; padding:12px;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:4px;">
+              <strong style="color:#991b1b; font-size:0.92rem;">🚨 Güç Doğum & Hatalı Geliş (Distosi)</strong>
+              <span style="background:#fee2e2; color:#b91c1c; font-weight:800; font-size:0.72rem; padding:2px 8px; border-radius:6px;">HAYATİ ACİL</span>
+            </div>
+            <div style="font-size:0.78rem; color:#475569; line-height:1.45; margin-bottom:8px;">
+              • İnek 2 saatten fazla ıkındığı halde yavru ilerlemiyorsa veya ayaklar ters/baş bükülmüşse.<br>
+              • <strong>Kural:</strong> Yalnızca anne ıkındığında aşağı meyilli çekin. <strong>ASLA traktör veya vinçle çekmeyin!</strong>
+            </div>
+            <button type="button" onclick="showReproDiseaseDirect('guc_dogum')" class="btn-save-record" style="margin:0; background:#dc2626; padding:8px 12px; font-size:0.82rem;">
+              <span>🩺 Güç Doğum Teşhis & İlk Yardımını Aç</span>
+            </button>
           </div>
-          <div id="repro-records-container">
-            <!-- Kayıtlı hayvanlar buraya basılır -->
+
+          <!-- 2. PROLAPSUS -->
+          <div style="background:#fff; border:1px solid #fed7aa; border-left:5px solid #ea580c; border-radius:10px; padding:12px;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:4px;">
+              <strong style="color:#9a3412; font-size:0.92rem;">🚨 Rahim Sarkması (Prolapsus Uteri)</strong>
+              <span style="background:#ffedd5; color:#c2410c; font-weight:800; font-size:0.72rem; padding:2px 8px; border-radius:6px;">ACİL HEKİM</span>
+            </div>
+            <div style="font-size:0.78rem; color:#475569; line-height:1.45; margin-bottom:8px;">
+              • Doğum sonrası devasa et kütlesinin dışarı fırlaması.<br>
+              • <strong>İlk Yardım:</strong> Rahmi nemli temiz çarşafla sarıp havada tutun. Ödemi küçültmek için üzerine temiz sofra şekeri serpin.
+            </div>
+            <button type="button" onclick="showReproDiseaseDirect('prolapsus')" class="btn-save-record" style="margin:0; background:#ea580c; padding:8px 12px; font-size:0.82rem;">
+              <span>🩺 Prolapsus Acil Protokolünü Aç</span>
+            </button>
+          </div>
+
+          <!-- 3. SONUN ATILAMAMASI -->
+          <div style="background:#fff; border:1px solid #fef08a; border-left:5px solid #ca8a04; border-radius:10px; padding:12px;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:4px;">
+              <strong style="color:#854d0e; font-size:0.92rem;">⚠️ Sonun Atılamaması & Eten Kalması</strong>
+              <span style="background:#fef9c3; color:#a16207; font-weight:800; font-size:0.72rem; padding:2px 8px; border-radius:6px;">RETENSİYO</span>
+            </div>
+            <div style="font-size:0.78rem; color:#475569; line-height:1.45; margin-bottom:8px;">
+              • Doğumun üzerinden 12-24 saat geçmesine rağmen eşin düşmemesi.<br>
+              • <strong>Dikkat:</strong> Eşi kesinlikle zorla asılıp çekmeyin (iç kanama yapar). Rektal ateşi ölçün, hekime PGF2a danışın.
+            </div>
+            <button type="button" onclick="showReproDiseaseDirect('sonun_atilamamasi')" class="btn-save-record" style="margin:0; background:#ca8a04; padding:8px 12px; font-size:0.82rem;">
+              <span>🩺 Eten Kalması Tedavisini Aç</span>
+            </button>
+          </div>
+
+          <!-- 4. METRİTİS -->
+          <div style="background:#fff; border:1px solid #fecaca; border-left:5px solid #b91c1c; border-radius:10px; padding:12px;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:4px;">
+              <strong style="color:#7f1d1d; font-size:0.92rem;">⚠️ Akut Rahim İltihabı (Metritis)</strong>
+              <span style="background:#fee2e2; color:#991b1b; font-weight:800; font-size:0.72rem; padding:2px 8px; border-radius:6px;">LOHUSALIK</span>
+            </div>
+            <div style="font-size:0.78rem; color:#475569; line-height:1.45; margin-bottom:8px;">
+              • Doğum sonrası ilk haftalarda pis kokulu akıntı, yüksek ateş (39.5-41°C) ve iştahsızlık.<br>
+              • <strong>Tedavi:</strong> Sistemik antibiyotik + yangı giderici (fluniksin/meloksikam) + PGF2a.
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px;">
+              <button type="button" onclick="showReproDiseaseDirect('metritis')" class="btn-save-record" style="margin:0; background:#b91c1c; padding:8px 10px; font-size:0.78rem;">
+                <span>🩺 Teşhis Rehberi</span>
+              </button>
+              <button type="button" onclick="openSaglikProtokolModal('metritis')" class="btn-save-record" style="margin:0; background:#0f172a; padding:8px 10px; font-size:0.78rem;">
+                <span>📋 Altın Protokol</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 5. DOĞUM FELCİ / SÜT HUMMASI -->
+          <div style="background:#fff; border:1px solid #bfdbfe; border-left:5px solid #2563eb; border-radius:10px; padding:12px;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:4px;">
+              <strong style="color:#1e40af; font-size:0.92rem;">🚨 Doğum Felci & Süt Humması (Hipokalsemi)</strong>
+              <span style="background:#dbeafe; color:#1d4ed8; font-weight:800; font-size:0.72rem; padding:2px 8px; border-radius:6px;">HİPOKALSEMİ</span>
+            </div>
+            <div style="font-size:0.78rem; color:#475569; line-height:1.45; margin-bottom:8px;">
+              • Doğumdan sonra ineğin kalkamaması, S-boyun pozisyonunda yatması ve kulakların soğuması.<br>
+              • <strong>Acil Tedavi:</strong> Yavaş damar içi kalsiyum boroglukonat infüzyonu.
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px;">
+              <button type="button" onclick="showReproDiseaseDirect('sut_hummasi')" class="btn-save-record" style="margin:0; background:#2563eb; padding:8px 10px; font-size:0.78rem;">
+                <span>🩺 Teşhis Rehberi</span>
+              </button>
+              <button type="button" onclick="openSaglikProtokolModal('humma')" class="btn-save-record" style="margin:0; background:#0f172a; padding:8px 10px; font-size:0.78rem;">
+                <span>📋 Kalsiyum Protokolü</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 6. ABORTUS / YAVRU ATMA -->
+          <div style="background:#fff; border:1px solid #fecaca; border-left:5px solid #991b1b; border-radius:10px; padding:12px;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:4px;">
+              <strong style="color:#7f1d1d; font-size:0.92rem;">🛑 Yavru Atma & Salgın Düşük (Abortus)</strong>
+              <span style="background:#fee2e2; color:#991b1b; font-weight:800; font-size:0.72rem; padding:2px 8px; border-radius:6px;">BRUSELLA RİSKİ</span>
+            </div>
+            <div style="font-size:0.78rem; color:#475569; line-height:1.45; margin-bottom:8px;">
+              • Erken atılan yavru. <strong>DİKKAT:</strong> Çıplak elle ASLA dokunmayın (insana bulaşır).<br>
+              • Hayvanı derhal karantinaya alın, atığı kireçle gömün ve İlçe Tarım'a ihbar edin.
+            </div>
+            <button type="button" onclick="showReproDiseaseDirect('abortus_dusuk')" class="btn-save-record" style="margin:0; background:#991b1b; padding:8px 12px; font-size:0.82rem;">
+              <span>🩺 Abortus Teşhis & Karantina Kılavuzunu Aç</span>
+            </button>
+          </div>
+
+          <!-- 7. DÖL TUTMAMA & KİSTİK OVER -->
+          <div style="background:#fff; border:1px solid #ddd6fe; border-left:5px solid #7c3aed; border-radius:10px; padding:12px;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:4px;">
+              <strong style="color:#5b21b6; font-size:0.92rem;">🔍 Döl Tutmama & Kistik Over (Repeat Breeder)</strong>
+              <span style="background:#ede9fe; color:#6d28d9; font-weight:800; font-size:0.72rem; padding:2px 8px; border-radius:6px;">KISIRLIK</span>
+            </div>
+            <div style="font-size:0.78rem; color:#475569; line-height:1.45; margin-bottom:8px;">
+              • 3 veya daha fazla kez tohumlandığı halde tutmayan veya sürekli boğasak gezen inekler.<br>
+              • Ultrason ile kist muayenesi, Ovsynch hormon programı ve negatif enerji açığının giderilmesi.
+            </div>
+            <button type="button" onclick="showReproDiseaseDirect('kistik_over_dol_tutmama')" class="btn-save-record" style="margin:0; background:#7c3aed; padding:8px 12px; font-size:0.82rem;">
+              <span>🩺 Döl Tutmama Tedavisini Aç</span>
+            </button>
+          </div>
+
+          <!-- 8. İKİZ GEBELİK TOKSEMİSİ -->
+          <div style="background:#fff; border:1px solid #fed7aa; border-left:5px solid #d97706; border-radius:10px; padding:12px;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:4px;">
+              <strong style="color:#92400e; font-size:0.92rem;">⚠️ İkiz Gebelik Toksemisi (Koyun)</strong>
+              <span style="background:#fef3c7; color:#b45309; font-weight:800; font-size:0.72rem; padding:2px 8px; border-radius:6px;">KETOZİS</span>
+            </div>
+            <div style="font-size:0.78rem; color:#475569; line-height:1.45; margin-bottom:8px;">
+              • Doğuma 1 ay kala gebe koyunlarda körlük, titreme, diş gıcırdatma ve yatıp kalkamama.<br>
+              • <strong>Acil Müdahale:</strong> Ağızdan gliserin / propilen glikol ve serum uygulaması.
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px;">
+              <button type="button" onclick="showReproDiseaseDirect('ikiz_koması')" class="btn-save-record" style="margin:0; background:#d97706; padding:8px 10px; font-size:0.78rem;">
+                <span>🩺 Teşhis Rehberi</span>
+              </button>
+              <button type="button" onclick="openSaglikProtokolModal('toksemi')" class="btn-save-record" style="margin:0; background:#0f172a; padding:8px 10px; font-size:0.78rem;">
+                <span>📋 Altın Protokol</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -3782,6 +3870,160 @@
                 "Buz gibi donmuş ve emme refleksi olmayan kuzuya ağızdan zorla lıkır lıkır süt dökmeyin (ciğerine kaçar).",    
                 "Kuzuyu kaynar suya sokmayın veya saç kurutma makinesini çok yakından tutarak derisini yakmayın."    
           ]    
+    },
+    {
+      id: "guc_dogum",
+      name: "Güç Doğum / Yavru Takılması (Distosi)",
+      species: ["sigir", "koyun"],
+      category: "dogum_ishal",
+      urgency: "RED",
+      contagious: false,
+      symptoms: [
+        "Doğum sancıları başlayalı 2 saatten fazla oldu ama yavru gelmiyor",
+        "Su kesesi patladı, hayvan sürekli acıyla ıkınıyor ama ilerleme yok",
+        "Dışarıda sadece tek ayak görünüyor veya baş geriye bükülmüş içeri kaçmış",
+        "Yavru ters geliyor (arka ayaklar önce çıkıyor veya kuyruk görünüyor)"
+      ],
+      doList: [
+        "ACİL VETERİNER HEKİM ÇAĞIRIN! Kanal darlığı veya ters gelişte gecikilirse yavru boğulur.",
+        "Ellerinizi ve doğum halatlarını sabunlu ılık su ve dezenfektanla iyice yıkayın.",
+        "Doğum yoluna bolca kayganlaştırıcı jel veya zeytinyağı sürün.",
+        "Çekme Kuralı: YALNIZCA ANNE IKINDIĞINDA ve ineğin arka bacaklarına doğru (aşağı meyilli) çekin.",
+        "Yavru doğar doğmaz burnundaki ve ağzındaki balgamı temizleyin, göğsüne soğuk su çarparak nefes almasını sağlayın."
+      ],
+      dontList: [
+        "YAVRUYU ASLA TRAKTÖR, ARABA VEYA VİNÇLE ÇEKMEYİN! Annenin kalça kemiğini kırar ve rahmi parçalar.",
+        "Anne ıkınmıyorken kuru kuruya var gücünüzle çekmeyin.",
+        "Doğum kanalını kontrol etmeden gelişi güzel halat bağlayıp asılmayın."
+      ]
+    },
+    {
+      id: "prolapsus",
+      name: "Rahim / Torba Sarkması (Prolapsus Uteri & Vagina)",
+      species: ["sigir", "koyun"],
+      category: "dogum_ishal",
+      urgency: "RED",
+      contagious: false,
+      symptoms: [
+        "Doğumdan hemen sonra veya doğuma yakın arkadan kocaman kırmızı/mor et kitlesi dışarı fırlamış",
+        "Dışarı sarkan rahim üzerinde mantar gibi pırtlaklar (karunkullar/kotiledonlar) var",
+        "Hayvan acıyla ıkınmaya devam ediyor, kanama ve yırtılma riski var",
+        "Dışarıda kalan doku kuruyor, kirleniyor ve soğuyor"
+      ],
+      doList: [
+        "HAYATİ ACİL DURUM! Derhal Veteriner Hekim çağırın.",
+        "Dışarı sarkan rahmi temiz, nemli, ılık suyla ıslatılmış temiz bir çarşaf veya naylonla sararak havada tutun.",
+        "Hayvanın arka tarafını yüksekte tutun (önü aşağıda, arkası yukarıda kalsın).",
+        "Doku şişmişse üzerine temiz sofra şekeri serpin (şeker ödemi söker ve rahmi küçültür).",
+        "Hekim gelene kadar rahmin yırtılmasını ve yere sürtünmesini engelleyin."
+      ],
+      dontList: [
+        "Rahmi kirli saman, gübre ve taşlı zemin üzerinde serbest bırakmayın.",
+        "Sertçe iterek rahmi delmeyin veya tırnaklarınızla kanatmayın.",
+        "Hayvanı ayağa kalkmaya ve koşmaya zorlamayın."
+      ]
+    },
+    {
+      id: "sonun_atilamamasi",
+      name: "Sonun Atılamaması & Eten Kalması (Retensiyo Sekundinarum)",
+      species: ["sigir", "koyun"],
+      category: "dogum_ishal",
+      urgency: "YELLOW",
+      contagious: false,
+      symptoms: [
+        "Doğumun üzerinden 12 ila 24 saat geçmesine rağmen eşi (sonu/plasenta) düşmedi",
+        "Arkadan sarkan çürümüş doku ve pis koku başladı",
+        "Hayvan iştahsız, sırtını kamburlaştırıyor ve hafif ateşi var",
+        "Zamanında atılamazsa rahim iltihabına (metritis) ve zehirlenmeye dönüşür"
+      ],
+      doList: [
+        "Veteriner hekim kontrolünde sistemik antibiyotik ve prostaglandin (PGF2a) uygulayın.",
+        "Hayvanın rektal ateşini günde 2 kez ölçün; 39.5°C'yi geçerse hemen ateş düşürücü ve hekim müdahalesi isteyin.",
+        "Arkadan sarkan kısmı temiz tutun, dışkıyla temasını azaltmak için diz boyunda kesin ama içeri kaçırmayın.",
+        "Rahim temizliği için temiz ılık su ve koruyucu hekim tavsiyelerine uyun."
+      ],
+      dontList: [
+        "ARKADAN SARKAN EŞE KESİNLİKLE ZORLA ASILIP ÇEKMEYİN! Karunkulları koparır ve ölümcül iç kanama yapar.",
+        "Ucuna tuğla, taş veya ağır şişe bağlamayın.",
+        "Bilinçsizce elinizi sokup içerideki dokuları kazımayın."
+      ]
+    },
+    {
+      id: "abortus_dusuk",
+      name: "Yavru Atma / Salgın Düşük (Abortus - Brusella Şüphesi)",
+      species: ["sigir", "koyun"],
+      category: "dogum_ishal",
+      urgency: "RED",
+      contagious: true,
+      symptoms: [
+        "Gebeliğin 5-8. aylarında ölü, tüysüz veya erken doğmuş buzağı/kuzu atıldı",
+        "Sürüde birden fazla gebe hayvanda peş peşe yavru atma vakaları görülüyor",
+        "Atık yavrunun eşi kalınlaşmış, sarımsı-kahverengi lekeli ve iltihaplı",
+        "İnsana bulaşan tehlikeli Brusella, IBR, BVD veya Klamidya şüphesi var"
+      ],
+      doList: [
+        "DÜŞÜK YAPAN HAYVANI DERHAL SÜRÜDEN AYIRIN (Karantinaya alın)!",
+        "İl/İlçe Tarım Müdürlüğüne ve Veteriner Hekime haber verin (İhbarı mecburidir).",
+        "Atık yavruyu ve eşini kalın plastik eldivenle tutun; sönmemiş kireçle gömün.",
+        "Düşüğün olduğu yeri çamaşır suyu veya dezenfektanla yıkayın, kireçleyin.",
+        "Teşhis için atık yavrudan ve ananın kanından veteriner hekime numune aldırın."
+      ],
+      dontList: [
+        "ATIK YAVRUYA VE SIVILARA ASLA ÇIPLAK ELLE DOKUNMAYIN! (Brusella insana geçer, dalgalı humma yapar).",
+        "Atık yavruyu köpeklere, kedilere veya çöpe atmayın (hastalığı yayar).",
+        "Düşük yapan hayvanın sütünü kaynatmadan asla içmeyin, çiğ sütle peynir yapmayın."
+      ]
+    },
+    {
+      id: "kistik_over_dol_tutmama",
+      name: "Döl Tutmama / Yumurtalık Kisti (Kistik Over & Anöstrus)",
+      species: ["sigir"],
+      category: "dogum_ishal",
+      urgency: "YELLOW",
+      contagious: false,
+      symptoms: [
+        "İnek 3 veya daha fazla kez tohumlandığı halde gebe kalmıyor (Döl Tutmama / Repeat Breeder)",
+        "Sürekli boğasak gibi bağırıyor, diğer ineklerin üstüne atlıyor (Folikül kisti / Nemfomani)",
+        "Veya tohumlandıktan sonra hiç kızgınlık göstermiyor ama gebe de değil (Luteal kist / Sessiz kızgınlık)",
+        "Vajinadan berrak olmayan, hafif bulanık akıntı geliyor"
+      ],
+      doList: [
+        "Veteriner hekime rektal ultrason ile yumurtalık muayenesi yaptırın (Kistin türü belirlenmelidir).",
+        "Hekim kontrolünde Hormon Tedavisi (GnRH ve Prostaglandin - Ovsynch protokolü) uygulayın.",
+        "Rasyondaki negatif enerji açığını (ketozis) ve A-D-E vitamini, fosfor, selenyum eksikliğini giderin.",
+        "Tohumlama hijyenine dikkat edin; spermanın çözülme sıcaklığını (+37°C) ve süresini (30 sn) kontrol edin."
+      ],
+      dontList: [
+        "Yumurtalık kistini rektal yoldan elle sıkarak patlatmaya çalışmayın (kanama ve kalıcı kısırlık yapar).",
+        "Kızgınlık göstermeyen ineğe muayene ettirmeden gelişi güzel tohum attırmayın.",
+        "Aşırı yağlı veya aşırı zayıf inekleri tohumlamayın."
+      ]
+    },
+    {
+      id: "metritis",
+      name: "Akut Rahim İltihabı & Lohusalık Humması (Metritis)",
+      species: ["sigir", "koyun"],
+      category: "dogum_ishal",
+      urgency: "RED",
+      contagious: false,
+      symptoms: [
+        "Doğumdan sonraki ilk 1-2 hafta içinde vajinadan gelen pis kokulu, sulu, kırmızımsı-kahverengi akıntı",
+        "Yüksek ateş (39.5°C - 41°C), kulaklar ve boyun sıcak, titreme",
+        "İştah tamamen kesilmiş, süt verimi aniden durmuş veya dibe vurmuş",
+        "Sırtı kamburlaştırma, sık sık acıyla kuyruk kaldırma ve ıkınma"
+      ],
+      doList: [
+        "ACİL VETERİNER HEKİM ÇAĞIRIN! Enfeksiyon kana karışırsa (septisemi) hayvanı 24 saatte öldürür.",
+        "Rektal ateşi düzenli takip edin; sistemik antibiyotik (seftiofur veya hekim reçetesi) uygulayın.",
+        "Rahim boşaltımı için veteriner hekim kontrolünde Prostaglandin (PGF2a) enjeksiyonu yaptırın.",
+        "Ateş ve ağrıyı kesmek, toksin şokunu önlemek için fluniksin meglumin veya meloksikam uygulayın.",
+        "Önüne bol ılık su, elektrolit ve temiz kuru yonca koyun."
+      ],
+      dontList: [
+        "Veteriner hekim tavsiyesi olmadan rahme tahriş edici dezenfektan veya köpük tabletleri bilinçsizce tıkmayın.",
+        "Yüksek ateşi olan hayvanı sağımhanede veya gübreli zeminde saatlerce bekletmeyin.",
+        "Hastalığı basit akıntı sanıp hekim müdahalesini ertelemeyin."
+      ]
     }
     ];
 
@@ -3789,7 +4031,7 @@
       { id: "genel", icon: SVG_ICONS.activity, title: "Genel Durum / Ateş / Yatma", desc: "Yem yemiyor, titriyor, ayağa kalkamıyor veya baygın" },
       { id: "agiz_deri", icon: SVG_ICONS.shieldAlert, title: "Ağızda Salya / Deride Yara", desc: "Salya akıyor, dilde/tırnakta yara, deride şişlikler" },
       { id: "solunum", icon: SVG_ICONS.wind, title: "Öksürük / Hızlı Soluma", desc: "Öksürüyor, körük gibi soluyor, burun akıntısı var" },
-      { id: "dogum_ishal", icon: SVG_ICONS.calendar, title: "İshal / Doğum / Yavru Atma", desc: "Buzağı/kuzu cıvık ishal, düşük yaptı veya doğum felci" },
+      { id: "dogum_ishal", icon: SVG_ICONS.calendar, title: "Doğum & Üreme Sağlığı / İshal", desc: "Rahim iltihabı, güç doğum, prolapsus, eş kalması, düşük veya ishal" },
       { id: "meme", icon: SVG_ICONS.droplets, title: "Meme Şişliği / Bozuk Süt", desc: "Süt pıhtılı/kanlı, meme taş gibi sert ve sıcak" },
       { id: "ayak_topallik", icon: SVG_ICONS.footprints, title: "Topallık / Ayak Yanması", desc: "Köz üstünde gibi basıyor, tırnak arası yaralı" },
       { id: "siskinlik_idrar", icon: SVG_ICONS.gauge, title: "Şişkinlik / Gaz / Sidik Zoru", desc: "Sol böğür davul gibi gaz şişti veya idrar yapamıyor" }
@@ -4897,13 +5139,7 @@
       if (tabName === "list") {
         renderKupeRecords();
       } else if (tabName === "repro") {
-        renderReproRecords();
-        if (!document.getElementById("reproEventDate").value) {
-          const today = new Date();
-          const todayStr = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
-          document.getElementById("reproEventDate").value = todayStr;
-          calculateReproTimeline();
-        }
+        // Üreme Sağlığı, Doğum Hastalıkları & İlk Yardım sekmesi aktif
       }
     }
 
@@ -5717,313 +5953,21 @@
     }
 
     // =========================================================================
-    // SÜRÜ SAĞLIĞI & GEBELİK / DOĞUM TAKVİMİ MOTORU
+    // ÜREME SAĞLIĞI & DOĞUM HASTALIKLARI TEŞHİS MOTORU
     // =========================================================================
-    let currentReproSpecies = 'inek'; // 'inek' (283 gün) veya 'koyun' (150 gün)
-    const REPRO_STORAGE_KEY = 'cobandoktor_repro_records';
-
-    function getReproRecords() {
-      try {
-        const data = localStorage.getItem(REPRO_STORAGE_KEY);
-        return data ? JSON.parse(data) : [];
-      } catch (err) {
-        return [];
-      }
-    }
-
-    function saveReproRecords(records) {
-      try {
-        localStorage.setItem(REPRO_STORAGE_KEY, JSON.stringify(records));
-      } catch (err) {}
-      renderReproRecords();
-    }
-
-    function selectReproSpecies(species) {
-      currentReproSpecies = species;
-      const btnInek = document.getElementById("btn-repro-inek");
-      const btnKoyun = document.getElementById("btn-repro-koyun");
-      const lblDate = document.getElementById("lbl-repro-date");
-
-      if (species === 'inek') {
-        if (btnInek) btnInek.classList.add("active");
-        if (btnKoyun) btnKoyun.classList.remove("active");
-        if (lblDate) lblDate.textContent = "📅 Tohumlama Tarihi (*):";
-      } else {
-        if (btnInek) btnInek.classList.remove("active");
-        if (btnKoyun) btnKoyun.classList.add("active");
-        if (lblDate) lblDate.textContent = "📅 Koç Katımı Tarihi (*):";
-      }
-      calculateReproTimeline();
-    }
-
-    function calculateReproTimeline() {
-      const dateVal = document.getElementById("reproEventDate")?.value;
-      const container = document.getElementById("repro-timeline-container");
-      if (!container) return;
-
-      if (!dateVal) {
-        container.style.display = "none";
-        return;
-      }
-
-      const eventDate = new Date(dateVal + "T00:00:00");
-      if (isNaN(eventDate.getTime())) {
-        container.style.display = "none";
-        return;
-      }
-
-      const now = new Date();
-      now.setHours(0, 0, 0, 0);
-
-      const isInek = currentReproSpecies === 'inek';
-      const gestationDays = isInek ? 283 : 150;
-      const dryDaysFromStart = isInek ? (283 - 60) : (150 - 60); // 223. gün / 90. gün
-      const vaccineDaysFromStart = isInek ? (283 - 30) : (150 - 30); // 253. gün / 120. gün
-
-      const dryDate = new Date(eventDate.getTime() + dryDaysFromStart * 86400000);
-      const vaccineDate = new Date(eventDate.getTime() + vaccineDaysFromStart * 86400000);
-      const birthDate = new Date(eventDate.getTime() + gestationDays * 86400000);
-
-      const diffDaysBirth = Math.round((birthDate.getTime() - now.getTime()) / 86400000);
-
-      const formatTurkishDate = (d) => {
-        return d.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' });
-      };
-
-      let countdownBadge = "";
-      if (diffDaysBirth > 0) {
-        countdownBadge = `<span class="timeline-badge badge-birth">⏳ Doğuma ${diffDaysBirth} Gün Kaldı</span>`;
-      } else if (diffDaysBirth === 0) {
-        countdownBadge = `<span class="timeline-badge badge-birth">🚨 BUGÜN BEKLENEN DOĞUM GÜNÜ!</span>`;
-      } else {
-        countdownBadge = `<span class="timeline-badge" style="background:#f1f5f9; color:#475569;">Günü ${Math.abs(diffDaysBirth)} Gün Geçti</span>`;
-      }
-
-      const dryTitle = isInek ? "Kuruya Çıkarma Zamanı (Doğuma 60 Gün Kala)" : "Sütten Kesme / Sağımı Durdurma (Doğuma 60 Gün Kala)";
-      const dryDesc = isInek 
-        ? "Sağımı derhal kesin ve meme içine kuru dönem antibiyotik tüpü uygulayın. İneğin memesi ve işkembesi dinlenmeye geçmelidir."
-        : "Süt sağılıyorsa sağımı kesin. Koyunu aşırı zengin rasyondan çıkarıp kaba ot ağırlıklı besleyin.";
-
-      const vaccineTitle = isInek
-        ? "Doğuma 1 Ay Kala Hazırlık: Karma Aşı & E-Vitamini/Selenyum"
-        : "Doğuma 1 Ay Kala: Çelerme (Enterotoksemi) Karma Aşısı & Selenyum";
-
-      const vaccineDesc = isInek
-        ? `${SVG_ICONS.activity} <strong>Karma Aşı:</strong> Buzağı ishalini önleyen kombine (E. coli, Rota, Corona) aşıyı vurun.<br>${SVG_ICONS.pill} <strong>E-Vit + Selenyum:</strong> Son ay buzağının beyaz kas hastalığına yakalanmasını ve sonun (eşin) atılamamasını önler.`
-        : `${SVG_ICONS.activity} <strong>Çelerme Aşısı:</strong> Doğacak kuzuyu yem çarpmasından koruyacak antikorlar ağız sütüne (kolostruma) geçer.<br>${SVG_ICONS.pill} <strong>E-Vit + Selenyum:</strong> Kuzularda beyaz kas hastalığını kesin olarak önler.`;
-
-      container.style.display = "flex";
-      container.innerHTML = `
-        <!-- 1. DOĞUM TARİHİ KARTI -->
-        <div class="timeline-item birth">
-          <div class="timeline-icon">${SVG_ICONS.calendar}</div>
-          <div class="timeline-content">
-            <div class="timeline-title">
-              <span style="display:inline-flex; align-items:center; gap:6px;">${isInek ? SVG_ICONS.bovine + ' Beklenen Buzağılama Tarihi' : SVG_ICONS.ovine + ' Beklenen Kuzulama Tarihi'} (+${gestationDays} Gün)</span>
-              ${countdownBadge}
-            </div>
-            <div class="timeline-date" style="color:#b91c1c;">${formatTurkishDate(birthDate)}</div>
-            <div class="timeline-desc">Doğum localarını hazırlayın, altlığı bol kuru sapla kaplayın ve acil doğum çantasını hazır tutun.</div>
-          </div>
-        </div>
-
-        <!-- 2. KURUYA ÇIKARMA KARTI -->
-        <div class="timeline-item dry">
-          <div class="timeline-icon">${SVG_ICONS.milk}</div>
-          <div class="timeline-content">
-            <div class="timeline-title">
-              <span>${dryTitle}</span>
-              <span class="timeline-badge badge-dry">${dryDaysFromStart}. Gün</span>
-            </div>
-            <div class="timeline-date" style="color:#854d0e;">${formatTurkishDate(dryDate)}</div>
-            <div class="timeline-desc">${dryDesc}</div>
-          </div>
-        </div>
-
-        <!-- 3. AŞI VE SELENYUM KARTI -->
-        <div class="timeline-item vaccine">
-          <div class="timeline-icon">${SVG_ICONS.activity}</div>
-          <div class="timeline-content">
-            <div class="timeline-title">
-              <span>${vaccineTitle}</span>
-              <span class="timeline-badge badge-vaccine">${vaccineDaysFromStart}. Gün</span>
-            </div>
-            <div class="timeline-date" style="color:#1d4ed8;">${formatTurkishDate(vaccineDate)}</div>
-            <div class="timeline-desc">${vaccineDesc}</div>
-          </div>
-        </div>
-      `;
-    }
-
-    function saveCurrentReproRecord() {
-      const dateVal = document.getElementById("reproEventDate")?.value;
-      if (!dateVal) {
-        alert("Lütfen tohumlama veya koç katımı tarihini seçiniz.");
-        return;
-      }
-      const tagVal = (document.getElementById("reproEarTag")?.value || "").trim().toUpperCase();
-      const isInek = currentReproSpecies === 'inek';
-      const gestationDays = isInek ? 283 : 150;
-
-      const eventDate = new Date(dateVal + "T00:00:00");
-      const birthDate = new Date(eventDate.getTime() + gestationDays * 86400000);
-      const dryDate = new Date(eventDate.getTime() + (gestationDays - 60) * 86400000);
-      const vaccineDate = new Date(eventDate.getTime() + (gestationDays - 30) * 86400000);
-
-      const record = {
-        id: "repro_" + Date.now(),
-        species: currentReproSpecies,
-        earTag: tagVal || "KÜPESİZ HAYVAN",
-        eventDateStr: dateVal,
-        birthDateMs: birthDate.getTime(),
-        dryDateMs: dryDate.getTime(),
-        vaccineDateMs: vaccineDate.getTime(),
-        createdAt: Date.now()
-      };
-
-      const records = getReproRecords();
-      records.unshift(record);
-      saveReproRecords(records);
-
-      alert("✅ Gebelik & Doğum Takvimi başarıyla kaydedildi!");
-    }
-
-    function deleteReproRecord(id) {
-      if (!confirm("Bu gebelik/doğum takvim kaydını silmek istediğinize emin misiniz?")) return;
-      let records = getReproRecords();
-      records = records.filter(r => r.id !== id);
-      saveReproRecords(records);
-    }
-
-    function shareCurrentReproDirect() {
-      const dateVal = document.getElementById("reproEventDate")?.value;
-      if (!dateVal) {
-        alert("Lütfen önce tohumlama veya koç katımı tarihini seçiniz.");
-        return;
-      }
-      const tagVal = (document.getElementById("reproEarTag")?.value || "").trim().toUpperCase() || "Belirtilmedi";
-      const isInek = currentReproSpecies === 'inek';
-      const spName = isInek ? "İnek (Sığır) [Gebelik: 283 Gün]" : "Koyun / Keçi [Gebelik: 150 Gün]";
-      const eventName = isInek ? "Tohumlama Tarihi" : "Koç Katımı Tarihi";
-
-      const eventDate = new Date(dateVal + "T00:00:00");
-      const gestationDays = isInek ? 283 : 150;
-      const dryDate = new Date(eventDate.getTime() + (gestationDays - 60) * 86400000);
-      const vaccineDate = new Date(eventDate.getTime() + (gestationDays - 30) * 86400000);
-      const birthDate = new Date(eventDate.getTime() + gestationDays * 86400000);
-
-      const fDate = (d) => d.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' });
-
-      const msg = `*Çoban Doktor - Gebelik & Doğum Takvimi Raporu*\n` +
-        `🐾 *Tür:* ${spName}\n` +
-        `🏷️ *Küpe No:* ${tagVal}\n` +
-        `📅 *${eventName}:* ${fDate(eventDate)}\n\n` +
-        `🎯 *Tahmini Doğum Tarihi:* ${fDate(birthDate)}\n` +
-        `🥛 *Kuruya Çıkarma (Doğuma 60 Gün):* ${fDate(dryDate)} (Sağımı kes, meme tüpü uygula)\n` +
-        `💉 *Doğuma 1 Ay Kala (Doğuma 30 Gün):* ${fDate(vaccineDate)}\n` +
-        `   └─ ${isInek ? 'Karma İshal Aşısı + E-Vit/Selenyum' : 'Çelerme (Enterotoksemi) Aşısı + E-Vit/Selenyum'}\n\n` +
-        `Bu takvim Çoban Doktor Sürü Sağlığı modülü tarafından hesaplanmıştır.`;
-
-      window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
-    }
-
-    function shareReproRecordDirect(id) {
-      const records = getReproRecords();
-      const rec = records.find(r => r.id === id);
-      if (!rec) return;
-
-      const isInek = rec.species === 'inek';
-      const spName = isInek ? "İnek (Sığır)" : "Koyun / Keçi";
-      const eventName = isInek ? "Tohumlama Tarihi" : "Koç Katımı Tarihi";
-      const eventDate = new Date(rec.eventDateStr + "T00:00:00");
-      const birthDate = new Date(rec.birthDateMs);
-      const dryDate = new Date(rec.dryDateMs);
-      const vaccineDate = new Date(rec.vaccineDateMs);
-
-      const fDate = (d) => d.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' });
-
-      const msg = `*Çoban Doktor - Gebelik & Doğum Takvimi Raporu*\n` +
-        `🐾 *Tür:* ${spName}\n` +
-        `🏷️ *Küpe No:* ${rec.earTag}\n` +
-        `📅 *${eventName}:* ${fDate(eventDate)}\n\n` +
-        `🎯 *Tahmini Doğum Tarihi:* ${fDate(birthDate)}\n` +
-        `🥛 *Kuruya Çıkarma:* ${fDate(dryDate)}\n` +
-        `💉 *Doğuma 1 Ay Kala Aşı & Selenyum:* ${fDate(vaccineDate)}\n\n` +
-        `Bu kayıt Çoban Doktor Sürü Sağlığı Takviminden paylaşılmıştır.`;
-
-      window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
-    }
-
-    function renderReproRecords() {
-      const container = document.getElementById("repro-records-container");
-      const countEl = document.getElementById("repro-total-count");
-      if (!container) return;
-
-      const records = getReproRecords();
-      if (countEl) countEl.textContent = `${records.length} Kayıt`;
-
-      if (records.length === 0) {
-        container.innerHTML = `
-          <div style="text-align:center; padding:20px 10px; color:#64748b; background:#f8fafc; border:1px dashed #cbd5e1; border-radius:10px;">
-            <div style="font-size:1.8rem; margin-bottom:4px;">🗓️</div>
-            <div style="font-weight:700; font-size:0.86rem; color:#334155;">Henüz kayıtlı gebelik takvimi yok</div>
-            <div style="font-size:0.75rem; color:#64748b;">Yukarıdan tohumlama veya koç katımı tarihini girip "Takvime Kaydet" butonuna basarak ekleyebilirsiniz.</div>
-          </div>
-        `;
-        return;
-      }
-
-      const now = new Date();
-      now.setHours(0, 0, 0, 0);
-
-      const fDate = (d) => d.toLocaleDateString('tr-TR', { day: 'numeric', month: 'numeric', year: 'numeric' });
-
-      container.innerHTML = records.map(rec => {
-        const isInek = rec.species === 'inek';
-        const cardClass = isInek ? "gebelik-saved-card cow" : "gebelik-saved-card sheep";
-        const spBadge = isInek ? `${SVG_ICONS.bovine} İnek (283 Gün)` : `${SVG_ICONS.ovine} Koyun (150 Gün)`;
-        const eventName = isInek ? "Tohumlama" : "Koç Katımı";
-
-        const birthDate = new Date(rec.birthDateMs);
-        const dryDate = new Date(rec.dryDateMs);
-        const vaccineDate = new Date(rec.vaccineDateMs);
-        const eventDate = new Date(rec.eventDateStr + "T00:00:00");
-
-        const daysLeft = Math.round((birthDate.getTime() - now.getTime()) / 86400000);
-        let statusBadge = "";
-        if (daysLeft > 0) {
-          statusBadge = `<span style="background:#fee2e2; color:#b91c1c; font-weight:800; font-size:0.75rem; padding:4px 8px; border-radius:6px; font-variant-numeric:tabular-nums;">Doğuma ${daysLeft} Gün</span>`;
-        } else if (daysLeft === 0) {
-          statusBadge = `<span style="background:#ef4444; color:#fff; font-weight:800; font-size:0.75rem; padding:4px 8px; border-radius:6px;">${SVG_ICONS.alertTriangle} BUGÜN DOĞUM!</span>`;
-        } else {
-          statusBadge = `<span style="background:#e2e8f0; color:#475569; font-weight:700; font-size:0.75rem; padding:4px 8px; border-radius:6px; font-variant-numeric:tabular-nums;">${Math.abs(daysLeft)} gün geçti</span>`;
-        }
-
-        return `
-          <div class="${cardClass}">
-            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:6px;">
-              <div style="display:inline-flex; align-items:center; gap:6px;">
-                <span style="color:#008069;">${SVG_ICONS.tag}</span>
-                <strong style="color:#0f172a; font-size:0.95rem; font-variant-numeric:tabular-nums;">${rec.earTag}</strong>
-                <span style="font-size:0.75rem; color:#475569; display:inline-flex; align-items:center; gap:4px;">(${spBadge})</span>
-              </div>
-              <div>${statusBadge}</div>
-            </div>
-
-            <div style="font-size:0.82rem; color:#334155; line-height:1.6; background:#f8fafc; padding:8px 10px; border-radius:8px; border:1px solid #f1f5f9; display:flex; flex-direction:column; gap:3px;">
-              <div style="display:flex; align-items:center; gap:6px;">${SVG_ICONS.calendar} <span><strong>${eventName}:</strong> <span style="font-variant-numeric:tabular-nums;">${fDate(eventDate)}</span></span></div>
-              <div style="display:flex; align-items:center; gap:6px;">${SVG_ICONS.calendar} <span><strong>Tahmini Doğum:</strong> <span style="font-weight:800; color:#b91c1c; font-variant-numeric:tabular-nums;">${fDate(birthDate)}</span></span></div>
-              <div style="display:flex; align-items:center; gap:6px;">${SVG_ICONS.milk} <span><strong>Kuruya Çıkarma:</strong> <span style="font-variant-numeric:tabular-nums;">${fDate(dryDate)}</span> (Doğuma 60 gün)</span></div>
-              <div style="display:flex; align-items:center; gap:6px;">${SVG_ICONS.activity} <span><strong>Aşı & Selenyum:</strong> <span style="font-variant-numeric:tabular-nums;">${fDate(vaccineDate)}</span> (Doğuma 1 ay)</span></div>
-            </div>
-
-            <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:8px;">
-              <button onclick="shareReproRecordDirect('${rec.id}')" class="kupe-btn-wa" style="min-height:48px; padding:8px 14px; font-size:0.85rem; display:inline-flex; align-items:center; gap:6px;">${SVG_ICONS.share} Paylaş</button>
-              <button onclick="deleteReproRecord('${rec.id}')" class="kupe-btn-del" style="min-height:48px; padding:8px 14px; font-size:0.85rem; display:inline-flex; align-items:center; gap:6px;">${SVG_ICONS.trash} Sil</button>
-            </div>
-          </div>
-        `;
-      }).join("");
+    function showReproDiseaseDirect(diseaseId) {
+      closeKupeDefteriModal();
+      const d = DISEASES.find(x => x.id === diseaseId);
+      if (!d) return;
+      state.species = (d.species && d.species[0]) || "sigir";
+      state.group = state.species === "sigir" ? "Ergin Sığır (İnek / Dana)" : "Koyun / Koç";
+      state.candidates = [d];
+      state.scores = { [d.id]: 100 };
+      state.currentDiseaseIndex = 0;
+      state.selectedSymptoms = d.symptoms ? d.symptoms.slice(0, 2) : [];
+      state.temperature = null;
+      addOutgoingMessage(`🩺 ${d.name} Acil Kılavuzu`);
+      showDiagnosisResult();
     }
     function updateNetworkStatus() {
       const statusEl = document.getElementById("wa-online-status");

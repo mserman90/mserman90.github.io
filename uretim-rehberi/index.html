@@ -1208,6 +1208,18 @@
           <li><strong>120. Gün (Doğuma 30 Gün):</strong> Çelerme (enterotoksemi) karma aşısı ve selenyum uygulanır (kolostruma antikor geçer).</li>
           <li><strong>150. Gün:</strong> Beklenen kuzulama zamanıdır.</li>
         </ul>
+
+        <div style="background:#fee2e2; border:1px solid #fecaca; border-radius:10px; padding:12px; margin-top:14px;">
+          <h4 style="color:#b91c1c; margin:0 0 6px 0; display:flex; align-items:center; gap:6px; font-size:0.9rem;">
+            <span>🚨</span> <span>Üreme Sağlığı, Doğum Hastalıkları & İlk Yardım</span>
+          </h4>
+          <p style="font-size:0.8rem; color:#7f1d1d; margin:0 0 8px 0; line-height:1.45;">
+            Doğumda <strong>güç doğum, rahim sarkması (prolapsus), sonun atılamaması (retensiyo), akut rahim iltihabı (metritis), doğum felci (hipokalsemi) veya salgın düşük (abortus)</strong> gibi klinik komplikasyonlarda veteriner hekim protokolleri ve acil ilk yardım için <strong>Çoban Doktor</strong> modülüne danışınız.
+          </p>
+          <a href="https://mserman90.github.io/coban-doktor/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; justify-content:center; gap:6px; background:#dc2626; color:#fff; font-size:0.82rem; font-weight:800; padding:8px 12px; border-radius:6px; text-decoration:none; width:100%;">
+            <span>🩺 Çoban Doktor: Üreme Sağlığı & Acil İlk Yardım Kılavuzunu Aç</span>
+          </a>
+        </div>
       </div>
       <div class="generic-modal-ftr">
         <button onclick="closeGuideModal()" class="btn-diag-act" style="background:#008069; color:#fff; width:100%;">Anladım, Kapat</button>
@@ -1233,8 +1245,40 @@
 
     function getReproRecords() {
       try {
-        const d = localStorage.getItem(STORAGE_KEY);
-        return d ? JSON.parse(d) : [];
+        let d = localStorage.getItem(STORAGE_KEY);
+        let list = d ? JSON.parse(d) : [];
+        // Çoban Doktor'daki eski tohumlama/gebelik kayıtlarını otomatik aktar ve birleştir
+        const legacy = localStorage.getItem('cobandoktor_repro_records');
+        if (legacy) {
+          try {
+            const legacyList = JSON.parse(legacy);
+            if (Array.isArray(legacyList) && legacyList.length > 0) {
+              const existingTags = new Set(list.map(r => (r.tag || r.earTag || '').toUpperCase()));
+              let addedCount = 0;
+              legacyList.forEach(rec => {
+                const tag = (rec.earTag || rec.tag || "KÜPESİZ").toUpperCase();
+                if (!existingTags.has(tag)) {
+                  list.unshift({
+                    id: rec.id || ("repro_" + Date.now() + "_" + Math.random().toString(36).substr(2, 4)),
+                    species: rec.species === 'inek' ? 'sigir' : 'koyun',
+                    tag: tag,
+                    type: rec.species === 'inek' ? 'Sağmal İnek' : 'Koyun',
+                    startDateStr: rec.eventDateStr || rec.startDateStr,
+                    birthDateMs: rec.birthDateMs,
+                    dryDateMs: rec.dryDateMs,
+                    vacDateMs: rec.vaccineDateMs || rec.vacDateMs
+                  });
+                  existingTags.add(tag);
+                  addedCount++;
+                }
+              });
+              if (addedCount > 0) {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+              }
+            }
+          } catch(err) {}
+        }
+        return list;
       } catch (e) {
         return [];
       }
@@ -1649,7 +1693,7 @@
             '<div class="timeline-content">' +
               '<div class="timeline-date-txt" style="color:#dc2626; font-size:1.1rem;">' + formatTrDate(dBirth) + '</div>' +
               '<div class="timeline-title-txt" style="color:#991b1b;">283. Gün: Beklenen Buzağılama Günü (+/- 5 Gün)</div>' +
-              '<div class="timeline-desc-txt">Doğum locasını bol kuru sapla kaplayın. Doğum anında anneye müdahale için acil doğum setini hazır tutun.</div>' +
+              '<div class="timeline-desc-txt">Doğum locasını bol kuru sapla kaplayın. Acil doğum setini hazır tutun. Güç doğum veya rahim sarkması şüphesinde Çoban Doktor Acil İlk Yardım kılavuzuna başvurun.</div>' +
             '</div>' +
           '</div>' +
         '</div>';
@@ -1789,7 +1833,7 @@
             '<div class="timeline-content">' +
               '<div class="timeline-date-txt" style="color:#dc2626; font-size:1.1rem;">' + formatTrDate(dBirth) + '</div>' +
               '<div class="timeline-title-txt" style="color:#991b1b;">150. Gün: Beklenen Kuzulama Günü (+/- 3 Gün)</div>' +
-              '<div class="timeline-desc-txt">Ağılda doğum localarını bol kuru samanla hazırlayın. Doğar doğmaz ilk 2 saatte ağız sütünü (kolostrum) içirin.</div>' +
+              '<div class="timeline-desc-txt">Ağılda doğum localarını bol kuru samanla hazırlayın. İlk 2 saatte kolostrum içirin. Güç doğum veya ikiz gebelik toksemisinde Çoban Doktor acil kılavuzuna başvurun.</div>' +
             '</div>' +
           '</div>' +
         '</div>';
