@@ -1757,7 +1757,61 @@
       line-height: 1;
     }
 
-    /* MOBİL VE DOKUNMATİK ENİYİLEME (TAM MOBİL UYUMLULUK) */
+    /* =========================================================================
+       RESPONSİF TASARIM SİSTEMİ (MOBİL, TABLET, MASAÜSTÜ & GENİŞ EKRANLAR)
+       ========================================================================= */
+
+    /* TABLET & MASAÜSTÜ GENİŞLİKLERİ (>= 601px) */
+    @media (min-width: 601px) {
+      .app-wrapper {
+        max-width: 680px;
+        height: 96vh;
+        height: 96dvh;
+        border-radius: 18px;
+        overflow: hidden;
+      }
+      .msg-row {
+        max-width: 82%;
+      }
+      .chat-container {
+        padding: 20px 18px 28px;
+      }
+      .kupe-modal-box,
+      .derece-modal-box,
+      .guide-modal-box {
+        max-width: 620px;
+      }
+      .kupe-stats-row {
+        gap: 12px;
+      }
+    }
+
+    /* GENİŞ MASAÜSTÜ EKRANLAR (>= 1024px) */
+    @media (min-width: 1024px) {
+      .app-wrapper {
+        max-width: 760px;
+        height: 94vh;
+        height: 94dvh;
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.22);
+      }
+      .msg-bubble {
+        font-size: 1rem;
+      }
+      .wa-choice-btn {
+        font-size: 1rem;
+        padding: 14px 18px;
+      }
+      .kupe-modal-box,
+      .derece-modal-box,
+      .guide-modal-box {
+        max-width: 680px;
+      }
+      .countdown-grid {
+        gap: 10px;
+      }
+    }
+
+    /* MOBİL VE DOKUNMATİK ENİYİLEME (<= 600px) */
     @media (max-width: 600px) {
       body {
         padding: 0;
@@ -1767,8 +1821,10 @@
       .app-wrapper {
         box-shadow: none;
         border-radius: 0;
-        height: 100dvh;
+        width: 100%;
         max-width: 100%;
+        height: 100vh;
+        height: 100dvh;
       }
       .wa-header {
         padding-left: 8px;
@@ -1778,35 +1834,49 @@
       .wa-avatar {
         width: 38px;
         height: 38px;
-        font-size: 1.3rem;
+      }
+      .wa-avatar .lucide-icon.icon-lg {
+        width: 20px;
+        height: 20px;
       }
       .wa-name {
-        font-size: 0.95rem;
+        font-size: 0.92rem;
+      }
+      .wa-status {
+        font-size: 0.7rem;
       }
       .wa-actions {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
-        max-width: 65%;
+        max-width: 68%;
         padding-bottom: 2px;
       }
       .wa-actions::-webkit-scrollbar {
         display: none;
       }
       .wa-hdr-btn {
-        padding: 8px 12px;
-        font-size: 0.8rem;
+        padding: 6px 10px;
+        font-size: 0.78rem;
         min-height: 48px;
         white-space: nowrap;
         flex-shrink: 0;
+        gap: 4px;
+      }
+      .kupe-modal-overlay,
+      .derece-modal-overlay,
+      .guide-modal-overlay {
+        padding: 0;
+        align-items: flex-end; /* Mobilde alt çekmece (bottom sheet) ergonomisi */
       }
       .kupe-modal-box,
       .derece-modal-box,
       .guide-modal-box {
+        width: 100%;
         max-width: 100%;
-        max-height: 96dvh;
-        border-radius: 14px;
-        margin: 4px;
+        max-height: 94dvh;
+        border-radius: 18px 18px 0 0;
+        margin: 0;
       }
       .kupe-tabs {
         overflow-x: auto;
@@ -1818,8 +1888,8 @@
       }
       .kupe-tab-btn {
         white-space: nowrap;
-        padding: 12px 14px;
-        font-size: 0.8rem;
+        padding: 10px 12px;
+        font-size: 0.78rem;
         min-height: 48px;
         display: inline-flex;
         align-items: center;
@@ -1828,12 +1898,56 @@
         flex-shrink: 0;
       }
       .msg-row {
-        max-width: 92%;
+        max-width: 94%;
       }
       .chat-options-grid {
         grid-template-columns: 1fr;
       }
       .countdown-grid {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+      .kupe-stats-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 4px;
+      }
+      .kupe-stat-card {
+        padding: 6px 4px;
+      }
+      .kupe-stat-val {
+        font-size: 1.1rem;
+      }
+      .kupe-stat-lbl {
+        font-size: 0.65rem;
+      }
+      .temp-input-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .temp-number-input {
+        width: 100%;
+      }
+    }
+
+    /* ÇOK KÜÇÜK VE DAR EKRANLAR (<= 360px) */
+    @media (max-width: 360px) {
+      .wa-name {
+        font-size: 0.84rem;
+      }
+      .wa-avatar {
+        width: 34px;
+        height: 34px;
+      }
+      .wa-hdr-btn {
+        padding: 6px 8px;
+        font-size: 0.72rem;
+      }
+      .wa-choice-btn {
+        padding: 11px 12px;
+        font-size: 0.88rem;
+      }
+      .gebelik-species-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -1845,6 +1959,11 @@
       }
       .chat-container {
         padding-bottom: max(24px, env(safe-area-inset-bottom));
+      }
+      .kupe-modal-box,
+      .derece-modal-box,
+      .guide-modal-box {
+        padding-bottom: max(10px, env(safe-area-inset-bottom));
       }
     }
   </style>
