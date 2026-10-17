@@ -1328,11 +1328,11 @@
       },
       {
         id: "piyeten",
-        name: "Bulaşıcı Piyeten (Tırnak Çürüğü)",
+        name: "Bulaşıcı Tırnak Çürüğü & Ayak Yanması (Piyeten)",
         groups: ["anac", "toklu", "koc"],
         category: "ayak_agiz",
         urgency: "YELLOW",
-        badge: "🟡 ŞİDDETLİ TOPALLIK",
+        badge: "🟡 AĞIR TOPALLIK / TIRNAK SIZISI",
         symptoms: [
           "Tırnak aralığında kötü kokulu akıntı, kabuklanma ve tırnak tabanında ayrılma",
           "Dizleri üstünde otlama, ayağını basamama ve sürü gerisinde kalma",
@@ -1376,11 +1376,11 @@
       },
       {
         id: "kuzu_ishali",
-        name: "Akut Kuzu İshali (Kripto / E. coli / Rotavirüs)",
+        name: "Şiddetli Kuzu İshali & Su Kaybı (Sarı/Beyaz İshal - Dehidrasyon)",
         groups: ["kuzu"],
         category: "sindirim",
         urgency: "RED",
-        badge: "🔴 ACİL DEHİDRASYON",
+        badge: "🔴 ACİL SU KAYBI (KURUMA)",
         symptoms: [
           "Kuzuda sarı, yeşil veya sulu beyaz köpüklü ishal",
           "Kuyruk altı ve bacakların dışkıya bulanması",
@@ -1401,11 +1401,11 @@
       },
       {
         id: "idrar_tasi",
-        name: "İdrar Yolu Taşı / Sidik Zoru (Ürolitiyazis)",
+        name: "Sidik Zoru & İdrar Taşı Tıkanması (Ürolitiyazis)",
         groups: ["toklu", "koc"],
         category: "idrar",
         urgency: "RED",
-        badge: "🔴 ACİL TIKANMA",
+        badge: "🔴 ACİL SİDİK TIKANMASI",
         symptoms: [
           "Besi toklusunda veya koçta sürekli ıkınma, kuyruk sallama ve karnına tekme atma",
           "İdrarın hiç gelmemesi ya da damla damla kanlı akması",
@@ -2010,14 +2010,14 @@
       } else if (t >= 37.0 && t < 39.0) {
         res.innerHTML = `
           <div style="background:#fffbeb; border:1.5px solid #fde68a; border-radius:8px; padding:10px; color:#92400e;">
-            <strong style="font-size:0.95rem;">🟡 HAFİF HİPOTERMİ / DONMA BAŞLANGICI (${t.toFixed(1)}°C)</strong>
-            <p style="margin:4px 0 0 0; font-size:0.82rem;">Kuzu üşümüş! Hemen kurulayın, ısıtıcı lamba altına alın ve anasından sağılmış 38°C ılık kolostrum içirin.</p>
+            <strong style="font-size:0.95rem;">🟡 HAFİF DONMA / ÜŞÜME TEHLİKESİ (Hipotermi ${t.toFixed(1)}°C)</strong>
+            <p style="margin:4px 0 0 0; font-size:0.82rem;">Kuzu üşümüş! Hemen kurutun, ısıtıcı lamba altına alın ve anasından sağılmış 38°C ılık ağız sütünü (kolostrum) içirin.</p>
           </div>
         `;
       } else if (t < 37.0) {
         res.innerHTML = `
           <div style="background:#fef2f2; border:2px solid #ef4444; border-radius:8px; padding:10px; color:#991b1b;">
-            <strong style="font-size:1rem;">🔴 AĞIR HİPOTERMİ / DONMA ŞOKU (${t.toFixed(1)}°C)!</strong>
+            <strong style="font-size:1rem;">🔴 AĞIR KUZU DONMASI & BUZ KESME (Hipotermi Şoku ${t.toFixed(1)}°C)!</strong>
             <p style="margin:6px 0; font-size:0.82rem; font-weight:700;">
               ⚠️ ASLA AĞIZDAN SÜT VERMEYİN! Yutkunamaz, süt ciğerine kaçar veya işkembede sindirilemeyip toksik şok yapar!
             </p>

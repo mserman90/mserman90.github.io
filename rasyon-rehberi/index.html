@@ -1302,19 +1302,19 @@
         <!-- Protokol Sekmeleri -->
         <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;">
           <button class="wa-choice-btn primary" id="protokolTabBtn1" onclick="switchProtokolTab('dcad')" style="padding:6px 10px; font-size:0.78rem;">
-            ⚡ Anyonik DCAD
+            ⚡ Doğum Felci (Süt Humması / Anyonik)
           </button>
           <button class="wa-choice-btn" id="protokolTabBtn2" onclick="switchProtokolTab('sara')" style="padding:6px 10px; font-size:0.78rem;">
-            🛡️ SARA & peNDF
+            🛡️ Gizli İşkembe Ekşimesi (SARA / Geviş Otu)
           </button>
           <button class="wa-choice-btn" id="protokolTabBtn3" onclick="switchProtokolTab('flushing')" style="padding:6px 10px; font-size:0.78rem;">
-            🐏 Flushing (İkizlik)
+            🐏 İkizlik Aşırtma (Flushing Yemi)
           </button>
           <button class="wa-choice-btn" id="protokolTabBtn4" onclick="switchProtokolTab('toksemi')" style="padding:6px 10px; font-size:0.78rem;">
-            🤰 Gebelik Toksemisi
+            🤰 İkiz Kuzu Koması (Gebelik Zehirlenmesi)
           </button>
           <button class="wa-choice-btn" id="protokolTabBtn5" onclick="switchProtokolTab('urolithiasis')" style="padding:6px 10px; font-size:0.78rem;">
-            💧 İdrar Taşı Kalkanı
+            💧 Sidik Zoru (İdrar Yolu Taşı)
           </button>
           <button class="wa-choice-btn" id="protokolTabBtn6" onclick="switchProtokolTab('calf')" style="padding:6px 10px; font-size:0.78rem;">
             🍼 Buzağı & Kuzu Büyütme
@@ -1324,38 +1324,38 @@
         <!-- 1. ANYONİK DCAD -->
         <div id="protokol-tab-dcad">
           <div style="background:#faf5ff; border:1.5px solid #d8b4fe; border-radius:8px; padding:12px; margin-bottom:12px;">
-            <h4 style="color:#6b21a8; font-weight:800; margin-bottom:6px;">⚡ Anyonik Kuru Dönem Rasyonu (DCAD - Süt Humması Kalkanı)</h4>
+            <h4 style="color:#6b21a8; font-weight:800; margin-bottom:6px;">⚡ Doğum Felci ve Süt Humması Kalkanı (Anyonik Kuru Dönem Yemi)</h4>
             <p style="color:#475569; margin-bottom:8px;">
-              Doğumdan önceki son 21 günde ineklerin kanındaki kalsiyum mekanizmasını harekete geçirmek ve doğum felcini (hipokalsemi), sonun atılamamasını (retensiyo) ve şirden dönmesini (abomazum deplasmanı) önleyen altın protokoldür.
+              Doğumdan önceki son 21 günde ineğin kemiklerindeki kalsiyumu kana çekmek; doğum felcini (yere yıkılıp kalkamama / hipokalsemi), sonun (eşin) atılamamasını ve şirden dönmesini (mide yer değiştirmesi) önleyen koruyucu yemleme kuralıdır.
             </p>
             <ul style="padding-left:18px; color:#334155; margin-bottom:10px;">
-              <li><strong>DCAD Dengesi:</strong> Rasyonda <code>(Na + K) - (Cl + S)</code> formülüyle anyonik tuzlar (magnezyum sülfat, amonyum klorür) verilerek negatif DCAD (-50 ila -100 mEq/kg KM) hedeflenir.</li>
-              <li><strong>Potasyum Yasağı:</strong> Son 21 günde yüksek potasyumlu yemler (bol yonca, melas, pancar posası) kısıtlanır, saman ve mısır silajı ağırlıklı verilir.</li>
-              <li><strong>İdrar pH Kontrolü:</strong> Anyonik rasyon alan inekte idrar pH'ı 6.0 - 6.8 arasına düşmelidir.</li>
-              <li><strong>Doğum Anı Takviyesi:</strong> Doğum yapar yapmaz ağızdan kalsiyum jeli / bolusu veya sıcak komposto verilmelidir.</li>
+              <li><strong>Doğum Felci Önleme (Anyonik Denge):</strong> Yeme sülfatlı ve klorlu özel anyonik tuzlar verilerek ineğin vücudu kalsiyum emmeye hazır hale getirilir.</li>
+              <li><strong>Potasyum Yasağı:</strong> Doğuma son 21 gün kala potasyumu çok yüksek yemler (taze yeşil ot, bol yonca, melas, pancar posası) kısıtlanır; saman ve mısır silajı ağırlıklı verilir.</li>
+              <li><strong>İdrar Kontrolü:</strong> Anyonik yem yiyen ineğin idrarı hafif asitli (pH 6.0 - 6.8) kokar, bu korumanın çalıştığını gösterir.</li>
+              <li><strong>Doğum Anı Takviyesi:</strong> İnek doğum yaptığı gibi ağzından kalsiyum jeli veya kovayla ılık pekmezli doğum suyu içirilmelidir.</li>
             </ul>
             <button class="btn-action-primary" onclick="startSpecificRation('dry_cow_dcad')" style="background:#7c3aed; width:100%;">
-              ⚡ Anyonik Doğuma Hazırlık Rasyonu Başlat
+              ⚡ Doğum Felci Korumalı Kuru Dönem Rasyonu Başlat
             </button>
           </div>
         </div>
 
-        <!-- 2. SARA & peNDF -->
+        <!-- 2. SARA & peNDF (GİZLİ İŞKEMBE EKŞİMESİ) -->
         <div id="protokol-tab-sara" style="display:none;">
           <div style="background:#f0fdf4; border:1.5px solid #86efac; border-radius:8px; padding:12px; margin-bottom:12px;">
-            <h4 style="color:#166534; font-weight:800; margin-bottom:6px;">🛡️ SARA & peNDF (Subakut Rumen Asidozu Önleme)</h4>
+            <h4 style="color:#166534; font-weight:800; margin-bottom:6px;">🛡️ Gizli İşkembe Ekşimesi & Geviş Otu (SARA / peNDF Önleme)</h4>
             <p style="color:#475569; margin-bottom:8px;">
-              Yüksek süt veya hızlı besi uğruna rasyona aşırı tahıl (mısır/arpa) yüklenip lif azaltıldığında işkembe pH'ı 5.6'nın altına düşer; geviş getirme durur, tırnak yangısı (laminitis) ve köpüklü ishal başlar.
+              Hayvan çok süt versin veya dana hızlı kilo alsın diye rasyona aşırı un, arpa ve fabrika yemi yüklenip kaba saman/ot azaltılırsa işkembe zehir gibi ekşir (veteriner dilinde <strong>Subakut Rumen Asidozu / SARA</strong> denir). Hayvan geviş getirmeyi bırakır, tezeği cıvık sarı köpük olur, tırnakları sızlar (ayak yanması başlar), süt yağı düşer.
             </p>
             <ul style="padding-left:18px; color:#334155; margin-bottom:10px;">
-              <li><strong>Nişasta Tavanı:</strong> Toplam rasyonda nişasta oranı <strong>asla %28'i geçmemelidir</strong>.</li>
-              <li><strong>peNDF (Fiziksel Etkili Lif):</strong> Toplam rasyonun <strong>en az %21'i</strong> 8 mm'den uzun lifli kaba yem (yonca/saman) olmalıdır. Bu lifler geviş getirmeyi tetikler.</li>
-              <li><strong>Tampon Soda (Sodyum Bikarbonat):</strong> Sağmal inek başına günlük <strong>150 - 250 gr</strong>, besi danası başına <strong>80 - 120 gr</strong> rasyona homojen karıştırılmalıdır.</li>
-              <li><strong>Canlı Maya (Saccharomyces cerevisiae):</strong> Laktik asit tüketen rumen bakterilerini uyararak asidoz dalgalanmalarını yumuşatır.</li>
-              <li><strong>Geviş Getirme Kuralı:</strong> Yatan hayvanların en az %60'ı geviş getiriyor olmalıdır (dakikada 50-60 çiğneme).</li>
+              <li><strong>Tahıl / Un Sınırı (Nişasta):</strong> Toplam rasyonda arpa, mısır, buğday unu oranı <strong>asla %28'i geçmemelidir</strong>. Fazlası işkembeyi yakar.</li>
+              <li><strong>Geviş Getirten Lifli Ot (peNDF):</strong> Yemin <strong>en az %21'i</strong> en az bir parmak (8 mm) boyunda kıyılmış kaliteli kuru yonca ve saman olmalıdır. Hayvan bu uzun otları geviş getirirken bol tükürük salgılar; tükürük işkembedeki ekşiyi doğal soda gibi söndürür.</li>
+              <li><strong>İşkembe Sodası (Yemek Sodası / Sodyum Bikarbonat):</strong> Sağmal inek başına günde <strong>150 - 250 gr</strong>, besi danası başına <strong>80 - 120 gr</strong> yeme homojen karıştırılmalıdır.</li>
+              <li><strong>Canlı İşkembe Mayası:</strong> İşkembedeki faydalı sindirim bakterilerini çoğaltarak asit dalgalanmasını ve ekşimeyi durdurur.</li>
+              <li><strong>Geviş Getirme Kuralı:</strong> Ahırda yatan ineklerin en az 10 tanesinden 6'sı geviş getiriyor olmalıdır (dakikada 50-60 çene hareketi). Geviş durmuşsa işkembe ekşimiştir!</li>
             </ul>
             <button class="btn-action-primary" onclick="startSpecificRation('sara_prevent')" style="background:#16a34a; width:100%;">
-              🛡️ SARA Korumalı Sağmal İnek Rasyonu Başlat
+              🛡️ Ekşime Korumalı Geviş Rasyonu Başlat
             </button>
           </div>
         </div>
@@ -1741,7 +1741,7 @@
               { icon: SVG_ICONS.sparkles, text: "650 kg İnek • 25 Litre Süt (%3.8 Yağ)", action: "selectYield(650, 25, '650 kg • 25 Litre Süt')", class: "primary" },
               { icon: SVG_ICONS.sparkles, text: "650 kg İnek • 30 Litre Süt (%3.8 Yağ)", action: "selectYield(650, 30, '650 kg • 30 Litre Süt')", class: "primary" },
               { icon: SVG_ICONS.sparkles, text: "680 kg İnek • 35 Litre Süt (Yüksek Verim)", action: "selectYield(680, 35, '680 kg • 35 Litre Süt')", class: "primary" },
-              { icon: SVG_ICONS.check, text: "🛡️ SARA & Asidoz Korumalı Rasyon (peNDF %22)", action: "startSpecificRation('sara_prevent')", class: "primary" },
+              { icon: SVG_ICONS.check, text: "🛡️ Gizli İşkembe Ekşimesi Korumalı (Gevişli Rasyon / SARA Kalkanı)", action: "startSpecificRation('sara_prevent')", class: "primary" },
               { icon: SVG_ICONS.sparkles, text: "🍼 Buzağı Başlangıç Yemi & Sütten Kesim", action: "startSpecificRation('calf_starter')", class: "primary" },
               { icon: SVG_ICONS.feed, text: "Özel Kilo ve Süt Verimi Yaz...", action: "promptCustomDairy()", class: "" }
             ]
@@ -1845,7 +1845,7 @@
           [
             { icon: SVG_ICONS.coin, text: "💰 En Düşük Maliyet (Cebi Koruyan En Ucuz Rasyon)", action: "selectPriority('lowest_cost', 'En Düşük Maliyetli Rasyon')", class: "primary" },
             { icon: SVG_ICONS.sparkles, text: "⚡ Maksimum Verim & Hızlı Kilo (Yüksek Enerji)", action: "selectPriority('max_yield', 'Maksimum Verim ve Enerji')", class: "primary" },
-            { icon: SVG_ICONS.check, text: "🛡️ Dengeli & Garantili İşkembe Sağlığı (Asidoz Korumalı)", action: "selectPriority('balanced', 'Dengeli & Asidoz Korumalı')", class: "primary" }
+            { icon: SVG_ICONS.check, text: "🛡️ Dengeli & Geviş Korumalı (İşkembe Ekşimesine Karşı / Asidoz Kalkanı)", action: "selectPriority('balanced', 'Dengeli & Geviş Korumalı')", class: "primary" }
           ]
         );
       }, 350);
@@ -2241,7 +2241,7 @@
               <div class="nutrient-lbl">Kaba / Kesif Yem:</div>
               <div class="nutrient-val">%${foragePct} Kaba : %${concentratePct} Kesif</div>
               <div class="nutrient-status ${foragePct >= 40 ? 'status-ok' : 'status-warn'}">
-                ${foragePct >= 40 ? '✓ Asidoz Riski Yok (Güvenli)' : '⚠ Asidoza Dikkat Edilmeli'}
+                ${foragePct >= 40 ? '✓ İşkembe Ekşimesi Riski Yok (Geviş Güvenli)' : '⚠️ İşkembe Ekşimesi Riski Var (Kaba Otu Artırın)'}
               </div>
             </div>
           </div>
@@ -2620,7 +2620,7 @@
           [
             { icon: SVG_ICONS.coin, text: "💰 En Düşük Maliyet (Cebi Koruyan En Ucuz Rasyon)", action: "selectPriority('lowest_cost', 'En Düşük Maliyetli Rasyon')", class: "primary" },
             { icon: SVG_ICONS.sparkles, text: "⚡ Maksimum Verim & Hızlı Kilo (Yüksek Enerji)", action: "selectPriority('max_yield', 'Maksimum Verim ve Enerji')", class: "primary" },
-            { icon: SVG_ICONS.check, text: "🛡️ Dengeli & Garantili İşkembe Sağlığı (Asidoz Korumalı)", action: "selectPriority('balanced', 'Dengeli & Asidoz Korumalı')", class: "primary" }
+            { icon: SVG_ICONS.check, text: "🛡️ Dengeli & Geviş Korumalı (İşkembe Ekşimesine Karşı / Asidoz Kalkanı)", action: "selectPriority('balanced', 'Dengeli & Geviş Korumalı')", class: "primary" }
           ]
         );
       }, 350);

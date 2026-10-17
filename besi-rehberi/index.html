@@ -1247,7 +1247,7 @@
       },
       {
         id: "asidoz_akut_besi",
-        name: "Akut / Subakut Rumen Asidozu (İşkembe Ekşimesi)",
+        name: "Arpa Vurması & Gizli İşkembe Ekşimesi (Akut / Subakut Asidoz)",
         category: "ayak_asidoz",
         urgency: "YELLOW",
         contagious: false,
@@ -1352,8 +1352,8 @@
       },
       {
         id: "ayak_asidoz",
-        title: "Ayak Yanması, Topallık & Asidoz",
-        desc: "Arpa vurması, tırnak çürüğü, geviş durması ve cıvık tezek",
+        title: "Ayak Yanması, Topallık & Arpa Vurması",
+        desc: "İşkembe ekşimesi (asidoz), tırnak sızısı, geviş durması ve cıvık sarı tezek",
         icon: SVG_ICONS.footprints
       },
       {
@@ -1715,7 +1715,7 @@
             `"${txt}" ile ilgili doğrudan bir teşhis eşleşmedi. İsterseniz aşağıdaki ana kategorilerden muayeneyi başlatalım:`,
             [
               { icon: SVG_ICONS.wind, text: "Akciğer / BRD Solunum", action: "selectCategory('solunum_brd', 'Solunum')", class: "primary" },
-              { icon: SVG_ICONS.footprints, text: "Ayak Yanması / Asidoz", action: "selectCategory('ayak_asidoz', 'Asidoz')", class: "warning" },
+              { icon: SVG_ICONS.footprints, text: "Ayak Yanması / Arpa Vurması (İşkembe Ekşimesi)", action: "selectCategory('ayak_asidoz', 'Ayak Yanması & Arpa Vurması')", class: "warning" },
               { icon: SVG_ICONS.refresh, text: "Sıfırdan Başla", action: "restartChat()", class: "" }
             ]
           );

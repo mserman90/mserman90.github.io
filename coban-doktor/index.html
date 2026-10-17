@@ -2598,7 +2598,7 @@
           <div class="presets-container">
             <button type="button" class="preset-pill" onclick="setDereceValue(36.8)">
               <svg class="lucide-icon icon-sm" style="color:#0284c7;" viewBox="0 0 24 24"><line x1="12" x2="12" y1="2" y2="22"/><line x1="20" x2="4" y1="7.34" y2="16.66"/><line x1="4" x2="20" y1="7.34" y2="16.66"/></svg>
-              <span>36.8°C (Hipotermi)</span>
+              <span>36.8°C (Vücut Donması / Hipotermi)</span>
             </button>
             <button type="button" class="preset-pill" onclick="setDereceValue(37.6)">
               <svg class="lucide-icon icon-sm" style="color:#d97706;" viewBox="0 0 24 24"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg>
@@ -2713,7 +2713,7 @@
           </label>
           <label class="dehid-card-choice danger">
             <input type="radio" name="siviDehydration" value="12" onchange="updateSiviCalc()">
-            <div><strong>%10 - 12 (Kritik Şok / Koma):</strong> Baygın, refleks yok, asidoz şoku (ACİL DAMAR SERUMU!).</div>
+            <div><strong>%10 - 12 (Kritik Kuruma & Baygınlık):</strong> Hayvan kendinden geçmiş, kalkamıyor, kan zehirlenmesi ve şok tablosu (ACİL DAMARDAN SERUM!).</div>
           </label>
         </div>
 
@@ -3470,32 +3470,32 @@
 
       if (t < ref.hypoThreshold) {
         status = "HYPOTHERMIA";
-        statusText = "❄️ HİPOTERMİ (DÜŞÜK ISI / ÇÖKÜŞ)";
+        statusText = "❄️ VÜCUT DONMASI (HİPOTERMİ / ÇÖKÜŞ)";
         badgeClass = "badge-danger";
-        desc = `Vücut ısısı normalin (${ref.normMin}°C) çok altında! Vücut direnci ve kan dolaşımı çökmüş, koma veya asidoz riski var.`;
+        desc = `Vücut ısısı normalin (${ref.normMin}°C) çok altında! Vücut direnci çökmüş, hayvan buz kesmiş ve donma/komaya girme tehlikesi var.`;
         likelyDiseases = [
-          "Süt Humması (Doğum Felci / Hipokalsemi - Kulaklar ve boynuz dipleri soğuktur)",
-          "Ağır Buzağı / Kuzu İshali (Aşırı sıvı-elektrolit kaybı, asidoz şoku)",
-          "İkiz Koması / Gebelik Toksemisi (Koma evresi)",
-          "Dolaşım Yetmezliği / Şok"
+          "Doğum Felci / Süt Humması (Hipokalsemi - Kulaklar ve boynuz dipleri buz gibidir)",
+          "Ağır Buzağı / Kuzu İshali (Aşırı su kaybı, kuruma ve kan zehirlenmesi)",
+          "İkiz Kuzu Koması / Şeker Çökmesi (Gebelik Zehirlenmesi / Ketozis)",
+          "Dolaşım Yetmezliği & Donma Şoku"
         ];
-        actionAdvice = "ACİL MÜDAHALE! Hayvanı derhal kuru, bol saplı sıcak bir yere alın, üzerini battaniyeyle örtün. Asla zorla şişeyle su içirmeyin. ACİL Veteriner Hekim çağırınız!";
+        actionAdvice = "ACİL MÜDAHALE! Hayvanı derhal kuru, bol samanlı sıcak bir yere alın, üzerini kuru battaniyeyle örtün. Asla zorla şişeyle su içirmeyin. ACİL Veteriner Hekim çağırınız!";
       } else if (t < ref.normMin) {
         status = "SUBNORMAL";
-        statusText = "🟡 SINIRDA DÜŞÜK ISI";
+        statusText = "🟡 SINIRDA DÜŞÜK ISI (ÜŞÜME)";
         badgeClass = "badge-warning";
         desc = `Vücut sıcaklığı normal aralığın hafifçe altında (${t.toFixed(1)}°C).`;
-        likelyDiseases = ["Hafif dolaşım yavaşlaması", "Süt humması başlangıcı", "Soğuk hava / ahır stresi"];
+        likelyDiseases = ["Hafif dolaşım yavaşlaması ve üşüme", "Doğum felci / süt humması başlangıcı", "Soğuk hava / ahır cereyanı"];
         actionAdvice = "Hayvanı cereyansız, kuru ve ılık altlıklı bölmeye alın, sıcak tutun.";
       } else if (t <= ref.normMax) {
         status = "NORMAL";
         statusText = "🟢 NORMAL ATEŞ";
         badgeClass = "badge-safe";
         likelyDiseases = [
-          "Arpa Vurması / Asidoz (Genellikle ateşsiz seyreder)",
-          "İşkembe Gaz Şişmesi (Sindirim gazı)",
-          "İdrar Yolu Tıkanması (Sidik Zoru)",
-          "Beyin Dönmesi / CCN (Erken evre)"
+          "Arpa Vurması & Gizli İşkembe Ekşimesi (Asidoz - Ateşsiz seyreder)",
+          "İşkembe Gazı / Şişme (Yem çarpması veya gaz)",
+          "Sidik Zoru & İdrar Taşı Tıkanması",
+          "Beyin Dönmesi / Delibaş benzeri B1 Vitamini Eksikliği (CCN)"
         ];
       } else if (t < ref.feverThreshold) {
         status = "MILD_FEVER";

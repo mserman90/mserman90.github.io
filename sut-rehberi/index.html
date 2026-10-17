@@ -928,7 +928,7 @@
         </div>
 
         <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;">
-          <button class="wa-choice-btn" onclick="setDerece(36.8)" style="font-size:0.75rem; min-height:36px; padding:4px 8px; color:#0284c7;">36.8°C (Hipotermi / Felç)</button>
+          <button class="wa-choice-btn" onclick="setDerece(36.8)" style="font-size:0.75rem; min-height:36px; padding:4px 8px; color:#0284c7;">36.8°C (Vücut Donması / Doğum Felci)</button>
           <button class="wa-choice-btn primary" onclick="setDerece(38.6)" style="font-size:0.75rem; min-height:36px; padding:4px 8px;">38.6°C (Normal)</button>
           <button class="wa-choice-btn warning" onclick="setDerece(39.7)" style="font-size:0.75rem; min-height:36px; padding:4px 8px;">39.7°C (Hafif Ateş)</button>
           <button class="wa-choice-btn danger" onclick="setDerece(40.5)" style="font-size:0.75rem; min-height:36px; padding:4px 8px;">40.5°C (Yüksek Ateş)</button>
@@ -1143,7 +1143,7 @@
       },
       {
         id: "asidoz_rumen",
-        name: "İşkembe Asidozu (Arpa Vurması / Ekşime & Geviş Durması)",
+        name: "İşkembe Ekşimesi & Arpa Vurması (Geviş Durması / Asidoz)",
         category: "asidoz_abomazum",
         urgency: "YELLOW",
         contagious: false,
@@ -1235,11 +1235,11 @@
 
     const CATEGORIES = [
       { id: "meme_mastitis", icon: SVG_ICONS.droplets, title: "Meme Sağlığı / Pıhtılı Süt (Mastitis)", desc: "Süt pıhtılı/kanlı, meme taş gibi sert, meme başında yara" },
-      { id: "dogum_felci_metabolizma", icon: SVG_ICONS.activity, title: "Süt Humması & Ketozis (Yatma / Felç)", desc: "Ayağa kalkamıyor, kulaklar soğuk, aseton kokusu, yem yememe" },
+      { id: "dogum_felci_metabolizma", icon: SVG_ICONS.activity, title: "Doğum Felci (Süt Humması) & Ketozis", desc: "Kalsiyum çökmesiyle ayağa kalkamama, kulaklar soğuk, tatlı nefes kokusu" },
       { id: "buzagi_ishal", icon: SVG_ICONS.shieldAlert, title: "Buzağı İshali & Sıvı Kaybı", desc: "Su gibi sarı/beyaz ishal, emmeme, gözler çökmüş, halsiz" },
       { id: "rahim_dogum", icon: SVG_ICONS.calendar, title: "Doğum Acilleri & Rahim İltihabı", desc: "Eş atamadı, kokulu akıntı, ıkınma, lohusa humması" },
       { id: "ayak_tirnak", icon: SVG_ICONS.footprints, title: "Topallık & Tırnak Çürüğü", desc: "Köz üstünde yürüme, tırnak arası yara, şiş ökçe" },
-      { id: "asidoz_abomazum", icon: SVG_ICONS.gauge, title: "İşkembe Asidozu & Mide Dönmesi", desc: "Geviş durdu, ekşi cıvık dışkı, sol böğürde gaz veya ping sesi" },
+      { id: "asidoz_abomazum", icon: SVG_ICONS.gauge, title: "İşkembe Ekşimesi & Şirden Dönmesi (Asidoz)", desc: "Geviş durdu, sarı ekşi cıvık dışkı, tırnak sızısı veya böğürde gaz" },
       { id: "solunum_ates", icon: SVG_ICONS.wind, title: "Öksürük / Akciğer İltihabı & Ateş", desc: "Hızlı körük gibi soluma, burun akıntısı, yüksek ateş" }
     ];
 
