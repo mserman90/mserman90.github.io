@@ -623,8 +623,8 @@
     }
 
     @media (max-width: 360px) {
-      .wa-hdr-btn span { display: none; }
-      .wa-hdr-btn { padding: 0 6px; width: 38px; justify-content: center; }
+      .wa-hdr-btn:not(.portal-home-btn) span { display: none; }
+      .wa-hdr-btn { padding: 0 6px; }
       .wa-name { font-size: 0.82rem; }
     }
 
@@ -686,7 +686,7 @@
       </div>
 
       <div class="wa-actions">
-        <a href="https://mserman90.github.io/" class="wa-hdr-btn" title="Ana Sayfa (Çiftlik Portalı)" style="background:#ffffff !important; color:#9a3412 !important; font-weight:800 !important; text-decoration:none !important;">
+        <a href="https://mserman90.github.io/" class="wa-hdr-btn portal-home-btn" title="Ana Sayfa (Çiftlik Portalı)" style="background:#ffffff !important; color:#9a3412 !important; font-weight:800 !important; text-decoration:none !important;">
           <svg class="lucide-icon" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           <span>Ana Sayfa</span>
         </a>
@@ -1072,8 +1072,12 @@
         • <strong>İlaçlı Danayı Kesime Göndermeyin:</strong> Et İKAS arınma süresi bitmeyen dananın eti imha edilir ve ağır para cezası uygulanır.<br>
         • <strong>Hızlı Soluyan Danayı Geciktirmeyin:</strong> Besi zatürresi (BRD) saatler içinde ciğerleri süngerleştirir; ateş 40°C'yi geçtiğinde hemen müdahale edin.</p>
       </div>
-      <div class="modal-ftr">
+      <div class="modal-ftr" style="display:flex; flex-direction:column; gap:8px;">
         <button class="btn-send-report" onclick="closeGuideModal()" style="width:100%;">Anladım, Sohbete Dön</button>
+        <a href="https://mserman90.github.io/" style="display:inline-flex; align-items:center; justify-content:center; gap:6px; width:100%; padding:10px; border-radius:8px; border:1px solid #cbd5e1; background:#f8fafc; color:#0f172a; font-weight:700; text-decoration:none; font-size:0.85rem;">
+          <svg class="lucide-icon" viewBox="0 0 24 24" style="width:16px;height:16px;"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Ana Portala Dön (mserman90.github.io)
+        </a>
       </div>
     </div>
   </div>
