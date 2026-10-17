@@ -593,11 +593,55 @@
     .dehid-choice-card input[type="radio"] { margin-top: 3px; accent-color: #ea580c; }
     .dehid-choice-card.danger { border-color: #fca5a5; background: #fff5f5; }
 
-    @media (max-width: 640px) {
+    /* =========================================================================
+       TAM RESPONSİF TASARIM (MOBİL, TABLET, KATLANABİLİR, GENİŞ EKRAN)
+       ========================================================================= */
+    @media (max-width: 768px) {
+      .app-wrapper {
+        max-width: 100%;
+        height: 100vh;
+        height: 100dvh;
+        box-shadow: none;
+      }
+      .wa-header {
+        padding: calc(6px + env(safe-area-inset-top, 0px)) 8px 6px 8px;
+        gap: 6px;
+      }
+      .wa-actions {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        max-width: 65%;
+        padding-bottom: 2px;
+      }
+      .wa-actions::-webkit-scrollbar { display: none; }
+      .wa-hdr-btn {
+        flex-shrink: 0;
+        white-space: nowrap;
+        padding: 0 8px;
+        font-size: 0.78rem;
+      }
+      .wa-name { font-size: 0.94rem; }
+      .wa-status { font-size: 0.7rem; }
       .modal-overlay { padding: 0; align-items: flex-end; }
-      .modal-box { max-width: 100%; max-height: 94dvh; border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+      .modal-box { max-width: 100%; max-height: 94dvh; border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-top-left-radius: 20px; border-top-right-radius: 20px; }
+      .msg-row { max-width: 95%; }
+    }
+
+    @media (max-width: 480px) {
+      .wa-avatar { width: 38px; height: 38px; }
+      .wa-name { font-size: 0.88rem; max-width: 90px; }
+      .wa-hdr-btn span { display: inline-block; font-size: 0.74rem; }
+      .wa-choice-btn { padding: 8px 12px; font-size: 0.86rem; }
+      .report-card { padding: 12px 10px; }
+      .report-title { font-size: 1.05rem; }
+      .chat-input { font-size: 0.88rem; }
+    }
+
+    @media (max-width: 360px) {
       .wa-hdr-btn span { display: none; }
-      .wa-hdr-btn { padding: 0 8px; }
+      .wa-hdr-btn { padding: 0 6px; width: 38px; justify-content: center; }
+      .wa-name { font-size: 0.82rem; }
     }
   </style>
 </head>

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'besisys-asistan-v29';
+const CACHE_NAME = 'besisys-asistan-v30';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
