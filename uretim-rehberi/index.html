@@ -1261,8 +1261,14 @@
     function openGuideModal() { openModal('guide-modal'); }
     function closeGuideModal() { closeModal('guide-modal'); }
 
-    function toggleContrast() { document.body.classList.toggle('high-contrast'); }
-    function toggleLargeText() { document.body.classList.toggle('large-text'); }
+    function toggleContrast() {
+      document.body.classList.toggle('high-contrast');
+      try { localStorage.setItem('uretim_highcontrast', document.body.classList.contains('high-contrast') ? '1' : '0'); } catch(e) {}
+    }
+    function toggleLargeText() {
+      document.body.classList.toggle('large-text');
+      try { localStorage.setItem('uretim_largetext', document.body.classList.contains('large-text') ? '1' : '0'); } catch(e) {}
+    }
 
     // =========================================================================
     // 1. SIĞIR 283 GÜN TOHUMLAMA HESAPLAMA MOTORU

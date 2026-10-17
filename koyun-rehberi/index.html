@@ -751,14 +751,18 @@
 
       <!-- YATAY KAYDIRILABİLİR BUTON BARI -->
       <nav class="wa-actions" aria-label="Hızlı Araçlar">
-        <a href="https://mserman90.github.io/" class="wa-hdr-btn" title="Ana Portala Dön">
+        <a href="https://mserman90.github.io/" class="wa-hdr-btn" title="Ana Portala Dön" style="background:#ffffff !important; color:#14532d !important; font-weight:800 !important; text-decoration:none !important;">
           <svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           <span>Ana Sayfa</span>
         </a>
-        <button onclick="openKocKatimiModal()" class="wa-hdr-btn" title="150 Günlük Koç Katımı & Gebelik Takvimi">
+        <a href="https://mserman90.github.io/coban-doktor/" class="wa-hdr-btn" title="Çoban Doktor - Sağlık & Teşhis" style="background:#075e54 !important; border-color:#25d366 !important; text-decoration:none !important; color:#fff !important;">
+          <svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg>
+          <span>Çoban Doktor</span>
+        </a>
+        <a href="https://mserman90.github.io/uretim-rehberi/" class="wa-hdr-btn" title="Üretim Rehberi - Koç Katımı & Doğum Çarkı" style="background:#008069 !important; border-color:#34d399 !important; text-decoration:none !important; color:#fff !important;">
           <svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-          <span>Koç Katımı</span>
-        </button>
+          <span>Üretim Rehberi</span>
+        </a>
         <button onclick="openKuzuModal()" class="wa-hdr-btn" title="Kuzu Donması & Sıvı Hesabı">
           <svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.82-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/></svg>
           <span>Kuzu Bakımı</span>
@@ -767,6 +771,11 @@
           <svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"/><circle cx="7" cy="7" r=".5" fill="currentColor"/></svg>
           <span>İKAS Defteri</span>
           <span id="header-defter-badge" class="defter-badge zero">0</span>
+        </button>
+        
+        <button onclick="openDereceModal()" class="wa-hdr-btn" title="Hızlı Rektal Ateş Kontrolü" style="background:#c2410c !important; border-color:#fb923c !important; color:#fff !important;">
+          <svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg>
+          <span>Derece</span>
         </button>
         <button onclick="openKiloModal()" class="wa-hdr-btn" title="Şerit Metreyle Canlı Kilo Ölçer">
           <svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
@@ -803,6 +812,45 @@
 
   <!-- 1. KOÇ KATIMI & 150 GÜNLÜK GEBELİK TAKVİMİ MODAL -->
   <!-- Üreme ve Doğum Çarkı Üretim Rehberi modülüne taşındı -->
+
+  <!-- HIZLI DERECE MODALI -->
+  <div class="generic-modal-overlay" id="derece-modal" onclick="closeGenericModalOnBackdrop(event, 'derece-modal')">
+    <div class="generic-modal-box">
+      <div class="generic-modal-hdr" style="background:#c2410c;">
+        <div class="generic-modal-title">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg>
+          <span>Hızlı Rektal Ateş Kontrolü</span>
+        </div>
+        <button class="generic-modal-close" onclick="closeDereceModal()" aria-label="Kapat">&times;</button>
+      </div>
+      <div class="generic-modal-body">
+        <p style="font-size:0.84rem; color:#475569; margin-bottom:10px;">
+          Ölçülen rektal dereceyi yazın veya seçin; koyun ve kuzu için fizyolojik değerlendirmeyi anında görün:
+        </p>
+
+        <div style="display:flex; gap:10px; align-items:center; background:#fff7ed; padding:12px; border-radius:10px; border:1.5px solid #fdba74; margin-bottom:12px;">
+          <input type="number" id="koyunDereceInput" value="39.2" step="0.1" min="30" max="44" style="width:100px; padding:8px 10px; font-size:1.4rem; font-weight:900; border:2px solid #ea580c; border-radius:8px; text-align:center;" oninput="runKoyunDereceCalc()">
+          <div style="font-size:0.84rem; color:#9a3412; font-weight:700;">
+            Santigrat (°C)<br>
+            <span style="font-size:0.75rem; color:#64748b;">(Koyun Normali: 38.5 - 40.0°C)</span>
+          </div>
+        </div>
+
+        <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;">
+          <button type="button" class="wa-choice-btn" onclick="setKoyunDerece(36.5)" style="font-size:0.75rem; min-height:36px; padding:4px 8px; color:#0284c7;">36.5°C (Hipotermi / Donma)</button>
+          <button type="button" class="wa-choice-btn primary" onclick="setKoyunDerece(39.2)" style="font-size:0.75rem; min-height:36px; padding:4px 8px;">39.2°C (Normal)</button>
+          <button type="button" class="wa-choice-btn warning" onclick="setKoyunDerece(40.3)" style="font-size:0.75rem; min-height:36px; padding:4px 8px;">40.3°C (Hafif Ateş)</button>
+          <button type="button" class="wa-choice-btn danger" onclick="setKoyunDerece(41.2)" style="font-size:0.75rem; min-height:36px; padding:4px 8px;">41.2°C (Yüksek Ateş / Enfeksiyon)</button>
+        </div>
+
+        <div id="koyun-derece-res" style="padding:12px; border-radius:8px; font-size:0.85rem; line-height:1.45;"></div>
+      </div>
+      <div class="generic-modal-ftr">
+        <button class="btn-diag-act" onclick="closeDereceModal()" style="background:#c2410c; color:#fff; width:100%;">Tamam, Kapat</button>
+      </div>
+    </div>
+  </div>
+
 <div class="generic-modal-overlay" id="kuzu-modal" onclick="closeGenericModalOnBackdrop(event, 'kuzu-modal')">
     <div class="generic-modal-box">
       <div class="generic-modal-hdr" style="background:#ea580c;">
@@ -1260,16 +1308,17 @@
       showTypingIndicator(() => {
         addIncomingMessage(
           `Merhaba! Ben <strong>Koyun Rehberi</strong>.<br><br>
-          Ağıl ve mera işletmeniz için <strong>150 günlük koç katımı & gebelik takvimi</strong>, <strong>kuzu donması / canlandırma & ishal sıvı hesabı</strong>, <strong>küçükbaş İKAS arınma defteri</strong> ve <strong>şerit metreyle canlı kilo ölçer</strong> araçlarını buradan yönetebilirsiniz.<br><br>
+          Ağıl ve mera işletmeniz için <strong>kuzu donması / canlandırma & ishal sıvı hesabı</strong>, <strong>küçükbaş İKAS arınma defteri</strong>, <strong>ateş/derece kontrolü</strong> ve <strong>şerit metreyle canlı kilo ölçer</strong> araçlarını buradan yönetebilirsiniz.<br><br><em>150 günlük koç katımı ve kuzulama çarkı Üretim Rehberi modülünde toplanmıştır.</em><br><br>
           <em>Hastalık ön teşhisi ve soru-cevaplı klinik karar ağacı Çoban Doktor modülünde toplanmıştır.</em><br><br>
           Hangi işlemi yapmak istersiniz?`,
           [
-            { icon: "📅", text: "Koç Katımı & Gebelik Takvimi (150 Gün)", action: "handleKoyunAction('koc')", class: "primary" },
             { icon: "🍼", text: "Kuzu Bakımı & Donma / İshal Sıvı Hesabı", action: "handleKoyunAction('kuzu')", class: "primary" },
             { icon: "🏷️", text: "Küçükbaş İKAS İlaç Arınma Defteri", action: "handleKoyunAction('ikas')", class: "primary" },
+            { icon: "🌡️", text: "Hızlı Rektal Derece / Ateş Kontrolü", action: "handleKoyunAction('derece')", class: "" },
             { icon: "🎙️", text: "Sesli İKAS (Ağıl & Mezbaha Kilit Denetimi)", action: "handleKoyunAction('sesli')", class: "" },
             { icon: "📏", text: "Şerit Metreyle Canlı Kilo Ölçer", action: "handleKoyunAction('kilo')", class: "" },
             { icon: "📋", text: "Altın Küçükbaş İlk Yardım Protokolleri", action: "handleKoyunAction('protokol')", class: "" },
+            { icon: "📅", text: "Koç Katımı & Doğum Çarkı (Üretim Rehberi)", action: "handleKoyunAction('koc')", class: "blue" },
             { icon: "🩺", text: "Hastalık Ön Teşhisi İçin Çoban Doktor'a Git", action: "handleKoyunAction('coban')", class: "blue" }
           ]
         );
@@ -1278,8 +1327,11 @@
 
     function handleKoyunAction(action) {
       if (action === 'koc') {
-        addOutgoingMessage("📅 Koç Katımı & Gebelik Takvimi (150 Gün)");
-        openKocKatimiModal();
+        addOutgoingMessage("📅 Koç Katımı & Doğum Çarkı (Üretim Rehberi)");
+        window.location.href = "https://mserman90.github.io/uretim-rehberi/";
+      } else if (action === 'derece') {
+        addOutgoingMessage("🌡️ Rektal Derece / Ateş Kontrolü");
+        openDereceModal();
       } else if (action === 'kuzu') {
         addOutgoingMessage("🍼 Kuzu Bakımı & Donma / Sıvı Hesabı");
         openKuzuModal();
@@ -1320,140 +1372,39 @@
     function openKocKatimiModal() {
       window.location.href = "https://mserman90.github.io/uretim-rehberi/";
     }
-    function _disabled_old_openKocKatimiModal() {
-      const m = document.getElementById("koc-modal");
-      if (m) {
-        m.classList.add("active");
-        renderKocSavedList();
-        const dateInp = document.getElementById("kocDateInput");
-        if (dateInp && !dateInp.value) {
-          dateInp.value = new Date().toISOString().split('T')[0];
-          calcKocTimeline();
-        }
-      }
+    // Koç katımı ve doğum çarkı Üretim Rehberi modülüne taşınmıştır.
+    function openDereceModal() {
+      document.getElementById("derece-modal")?.classList.add("active");
+      runKoyunDereceCalc();
     }
-    function closeKocKatimiModal() {
-      const m = document.getElementById("koc-modal");
-      if (m) m.classList.remove("active");
+    function closeDereceModal() {
+      document.getElementById("derece-modal")?.classList.remove("active");
     }
-
-    function calcKocTimeline() {
-      const dateVal = document.getElementById("kocDateInput")?.value;
-      const card = document.getElementById("koc-timeline-card");
-      if (!dateVal || !card) return;
-
-      const start = new Date(dateVal);
-      if (isNaN(start.getTime())) return;
-
-      const addDays = (d, n) => {
-        const res = new Date(d);
-        res.setDate(res.getDate() + n);
-        return res.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' });
-      };
-
-      const usDate = addDays(start, 40);
-      const flasDate = addDays(start, 105);
-      const asiDate = addDays(start, 120);
-      const dogumDate = addDays(start, 150);
-
-      card.style.display = "block";
-      card.innerHTML = `
-        <div style="font-weight:900; color:#14532d; font-size:0.95rem; margin-bottom:8px;">
-          📅 150 Günlük Küçükbaş Gebelik Zaman Çizelgesi
-        </div>
-        <div style="display:flex; flex-direction:column; gap:6px; font-size:0.82rem; color:#334155;">
-          <div>• <strong>Koç Katımı / Tohumlama:</strong> ${addDays(start, 0)}</div>
-          <div>• <strong>35 - 45. Gün (Ultrason):</strong> ${usDate} <span style="color:#0284c7;">(İkiz ve boş kontrolü)</span></div>
-          <div>• <strong>105. Gün (Doğuma 6 Hafta):</strong> ${flasDate} <span style="color:#d97706; font-weight:700;">(Flaşlama & İkiz Toksemi Önleme)</span></div>
-          <div>• <strong>120. Gün (Doğuma 4 Hafta):</strong> ${asiDate} <span style="color:#dc2626; font-weight:700;">(Çelerme Aşı Rapeli & Selenyum)</span></div>
-          <div style="background:#dcfce7; padding:6px; border-radius:6px; color:#14532d; font-weight:800; font-size:0.9rem;">
-            🍼 TAHMİNİ DOĞUM GÜNÜ: ${dogumDate} (150. Gün)
-          </div>
-        </div>
-      `;
+    function setKoyunDerece(val) {
+      const inp = document.getElementById("koyunDereceInput");
+      if (inp) inp.value = val;
+      runKoyunDereceCalc();
     }
+    function runKoyunDereceCalc() {
+      const val = parseFloat(document.getElementById("koyunDereceInput")?.value) || 39.2;
+      const box = document.getElementById("koyun-derece-res");
+      if (!box) return;
 
-    function saveKocRecord() {
-      const dateVal = document.getElementById("kocDateInput")?.value;
-      const tagVal = document.getElementById("kocTagInput")?.value.trim() || "Koyun";
-      if (!dateVal) {
-        alert("Lütfen koç katımı tarihini seçiniz.");
-        return;
-      }
-
-      const records = getKocRecords();
-      records.unshift({
-        id: Date.now().toString(),
-        tag: tagVal,
-        date: dateVal,
-        createdAt: new Date().toISOString()
-      });
-      localStorage.setItem('koyunrehberi_koc_records', JSON.stringify(records));
-      renderKocSavedList();
-      alert("Koç katımı takvime başarıyla kaydedildi.");
-    }
-
-    function getKocRecords() {
-      try {
-        const raw = localStorage.getItem('koyunrehberi_koc_records');
-        return raw ? JSON.parse(raw) : [];
-      } catch (e) { return []; }
-    }
-
-    function renderKocSavedList() {
-      const container = document.getElementById("koc-saved-list");
-      if (!container) return;
-      const records = getKocRecords();
-      if (records.length === 0) {
-        container.innerHTML = '<div style="font-size:0.78rem; color:#64748b;">Henüz kayıtlı gebe koyun yok.</div>';
-        return;
-      }
-
-      container.innerHTML = records.map(r => {
-        const start = new Date(r.date);
-        const dogum = new Date(start);
-        dogum.setDate(dogum.getDate() + 150);
-        const dogumStr = dogum.toLocaleDateString('tr-TR', { day: 'numeric', month: 'short' });
-
-        return `
-          <div style="display:flex; justify-content:space-between; align-items:center; background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:6px 10px; font-size:0.8rem;">
-            <div>
-              <strong>🏷️ ${r.tag}</strong>
-              <span style="color:#64748b; margin-left:6px;">Katım: ${r.date}</span>
-            </div>
-            <div style="display:flex; align-items:center; gap:6px;">
-              <span style="color:#15803d; font-weight:800;">Doğum: ${dogumStr}</span>
-              <button onclick="deleteKocRecord('${r.id}')" style="background:none; border:none; color:#dc2626; cursor:pointer;">&times;</button>
-            </div>
-          </div>
-        `;
-      }).join("");
-    }
-
-    function deleteKocRecord(id) {
-      let records = getKocRecords();
-      records = records.filter(r => r.id !== id);
-      localStorage.setItem('koyunrehberi_koc_records', JSON.stringify(records));
-      renderKocSavedList();
-    }
-
-    function shareKocReport() {
-      const dateVal = document.getElementById("kocDateInput")?.value;
-      const tagVal = document.getElementById("kocTagInput")?.value.trim() || "Koyun";
-      if (!dateVal) return;
-
-      const start = new Date(dateVal);
-      const dogum = new Date(start);
-      dogum.setDate(dogum.getDate() + 150);
-
-      const msg = `📅 KOYUN REHBERİ DOĞUM TAKVİMİ\nKüpe: ${tagVal}\nKoç Katımı: ${dateVal}\nTahmini Doğum: ${dogum.toLocaleDateString('tr-TR')}\nDoğuma 6 hafta kala ikiz flaşlama beslemesi yapılmalıdır.`;
-      if (navigator.share) {
-        navigator.share({ title: 'Gebelik Takvimi', text: msg }).catch(() => {});
+      if (val < 38.0) {
+        box.style.background = "#fee2e2";
+        box.style.color = "#991b1b";
+        box.innerHTML = '<strong>❄️ HİPOTERMİ / ÇÖKÜŞ (' + val.toFixed(1) + '°C):</strong> Vücut sıcaklığı kritik seviyede düşük! Kuzularda donma riski, anaçta gebelik toksemisi / koma. Hayvanı hemen ılık ortama alın, hekime danışın.';
+      } else if (val <= 40.0) {
+        box.style.background = "#dcfce7";
+        box.style.color = "#166534";
+        box.innerHTML = '<strong>🟢 NORMAL ATEŞ (' + val.toFixed(1) + '°C):</strong> Küçükbaş fizyolojik sınırları içerisinde (38.5 - 40.0°C). Normal vücut fonksiyonu.';
       } else {
-        navigator.clipboard.writeText(msg).then(() => alert("Takvim raporu panoya kopyalandı!"));
+        box.style.background = "#fee2e2";
+        box.style.color = "#991b1b";
+        box.innerHTML = '<strong>🔥 YÜKSEK ATEŞ (' + val.toFixed(1) + '°C):</strong> Enfeksiyon alarmı! Zatürre (akciğer yangısı), mastitis veya çelerme / listerioz riski. Veteriner hekim gözetiminde tedavi gerekir.';
       }
     }
-
+  
     // 2. KUZU BAKIMI
     function openKuzuModal() {
       const m = document.getElementById("kuzu-modal");
