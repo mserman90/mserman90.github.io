@@ -477,6 +477,153 @@
     body.large-text .msg-bubble { font-size: 1.15rem; }
     body.large-text .wa-choice-btn { font-size: 1.15rem; padding: 14px 16px; }
     body.large-text .report-title { font-size: 1.45rem; }
+
+    /* KULLANIM KILAVUZU MODAL */
+    .guide-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 14px;
+      backdrop-filter: blur(2px);
+    }
+    .guide-modal-overlay.active {
+      display: flex;
+    }
+    .guide-modal-box {
+      background: #ffffff;
+      color: #111b21;
+      width: 100%;
+      max-width: 520px;
+      max-height: 90vh;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+      animation: modalFadeIn 0.2s ease-out;
+    }
+    @keyframes modalFadeIn {
+      from { transform: scale(0.94); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .guide-modal-hdr {
+      background: #008069;
+      color: #ffffff;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .guide-modal-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .guide-modal-close {
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      font-size: 1.4rem;
+      font-weight: bold;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+    .guide-modal-body {
+      padding: 16px;
+      overflow-y: auto;
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+    .guide-step-card {
+      background: #f0f2f5;
+      border-left: 4px solid #008069;
+      padding: 10px 12px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+    .guide-step-num {
+      font-weight: 900;
+      color: #008069;
+      font-size: 0.95rem;
+      margin-bottom: 2px;
+    }
+    .guide-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+    .guide-table th, .guide-table td {
+      border: 1px solid #cbd5e1;
+      padding: 6px 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+    .guide-table th {
+      background: #e2e8f0;
+      font-weight: 800;
+    }
+    .guide-modal-ftr {
+      padding: 12px 16px;
+      border-top: 1px solid #e2e8f0;
+      background: #fafafa;
+    }
+    .guide-modal-ftr-btn {
+      background: #008069;
+      color: #ffffff;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 1rem;
+      cursor: pointer;
+      width: 100%;
+    }
+    body.high-contrast .guide-modal-box {
+      background: #000000;
+      color: #ffff00;
+      border: 2px solid #ffff00;
+    }
+    body.high-contrast .guide-modal-hdr {
+      background: #141414;
+      border-bottom: 2px solid #ffff00;
+      color: #ffff00;
+    }
+    body.high-contrast .guide-step-card {
+      background: #141414;
+      border-left-color: #ffff00;
+      color: #ffff00;
+    }
+    body.high-contrast .guide-step-num {
+      color: #ffff00;
+    }
+    body.high-contrast .guide-table th,
+    body.high-contrast .guide-table td {
+      border-color: #ffff00;
+      color: #ffff00;
+    }
+    body.high-contrast .guide-table th {
+      background: #222200;
+    }
+    body.high-contrast .guide-modal-ftr {
+      background: #141414;
+      border-top-color: #ffff00;
+    }
+    body.high-contrast .guide-modal-ftr-btn {
+      background: #ffff00;
+      color: #000000;
+    }
   </style>
 </head>
 <body>
@@ -493,6 +640,7 @@
         </div>
       </div>
       <div class="wa-actions">
+        <button onclick="openGuideModal()" class="wa-hdr-btn" title="Kullanım Kılavuzu">📖 Kılavuz</button>
         <button onclick="toggleLargeText()" class="wa-hdr-btn" title="Yazıyı Büyüt">A+</button>
         <button onclick="toggleContrast()" class="wa-hdr-btn" title="Güneş Işığı Modu">☀️ Mod</button>
         <button onclick="restartChat()" class="wa-hdr-btn" title="Baştan Başla">🔄 Sıfırla</button>
@@ -504,6 +652,95 @@
       <!-- Mesajlar JavaScript tarafından buraya yazılır -->
     </main>
 
+  </div>
+
+  <!-- KULLANIM KILAVUZU MODAL -->
+  <div class="guide-modal-overlay" id="guide-modal" onclick="closeGuideModalOnBackdrop(event)">
+    <div class="guide-modal-box">
+      <div class="guide-modal-hdr">
+        <div class="guide-modal-title">📖 Kolay Kullanım Kılavuzu</div>
+        <button class="guide-modal-close" onclick="closeGuideModal()" aria-label="Kapat">&times;</button>
+      </div>
+      <div class="guide-modal-body">
+        <p style="margin-top:0;"><strong>Çoban Doktor</strong>, internetin çekmediği ahırda ve dağda bile çalışan, cebindeki ücretsiz nöbetçi veteriner yardımcındır.</p>
+
+        <h4 style="margin:12px 0 8px 0; color:#008069;">📲 5 Basit Adımda Nasıl Kullanılır?</h4>
+
+        <div class="guide-step-card">
+          <div class="guide-step-num">1. Adım: Hayvanı Seç</div>
+          Ekranda çıkan büyük kutulardan hasta olan hayvanına dokun (Örn: Buzağı, İnek, Besi Danası, Kuzu, Koyun).
+        </div>
+
+        <div class="guide-step-card">
+          <div class="guide-step-num">2. Adım: Şikayeti Seç</div>
+          Hayvanda ilk gördüğün en belirgin derdi seç (Örn: Ateş/Yatma, Yara/Salya, Öksürük, İshal, Şişkinlik/Gaz, Topallık).
+        </div>
+
+        <div class="guide-step-card">
+          <div class="guide-step-num">3. Adım: Soruları Cevapla</div>
+          Doktorun sorduğu belirtilere bakıp şu 3 düğmeden birine bas:<br>
+          🟢 <strong>Evet, aynen var</strong> &nbsp;|&nbsp; 🟡 <strong>Bir kısmı var / Emin değilim</strong> &nbsp;|&nbsp; 🔴 <strong>Hayır, yok</strong>
+        </div>
+
+        <div class="guide-step-card">
+          <div class="guide-step-num">4. Adım: Raporu ve Reçeteyi Oku</div>
+          Doktor sana iki önemli liste verir:<br>
+          ✅ <strong>Hemen Ne Yapacaksın:</strong> Hekim gelene kadar can kurtaracak ilk yardım.<br>
+          ❌ <strong>Sakın Ne Yapma:</strong> Hayvana zarar verecek yanlış adetler (zorla su içirme, kesmeye kalkma).
+        </div>
+
+        <div class="guide-step-card">
+          <div class="guide-step-num">5. Adım: Veterinerine WhatsApp ile Yolla</div>
+          Varsa kulak küpe numarasını yaz, yeşil <strong>"WhatsApp ile Veterinerime İlet"</strong> düğmesine bas. Hazır rapor hekimin cebine gitsin!
+        </div>
+
+        <h4 style="margin:14px 0 8px 0; color:#008069;">☀️ Merada ve Güneşte Okuma</h4>
+        <p style="margin:0 0 10px 0;">Güneşten ekran parlıyorsa yukarıdaki <strong>☀️ Mod</strong> düğmesine bas (ekran kararır, yazılar sapsarı parlar). Yazıları büyütmek için <strong>A+</strong> düğmesine bas.</p>
+
+        <h4 style="margin:14px 0 8px 0; color:#b91c1c;">🚑 En Çok Karşılaşılan 5 Acil Durum</h4>
+        <table class="guide-table">
+          <thead>
+            <tr>
+              <th>Hastalık</th>
+              <th>Hemen Ne Yapacaksın?</th>
+              <th>Sakın Yapma!</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>İşkembe Gaz Şişmesi</strong></td>
+              <td>1-2 bardak sıvı yağ içir, ön ayakları tümseğe çıkar.</td>
+              <td>Sırtüstü yatırma, boğulur!</td>
+            </tr>
+            <tr>
+              <td><strong>Arpa Vurması</strong></td>
+              <td>Yemi kes, 150 gr karbonat içir, ayaklara soğuk su tut.</td>
+              <td>Tane yem vermeye devam etme!</td>
+            </tr>
+            <tr>
+              <td><strong>Buzağı İshali</strong></td>
+              <td>Ilık elektrolitli su içir, sıcak tut, kuru sap ser.</td>
+              <td>Sütü tamamen kesme!</td>
+            </tr>
+            <tr>
+              <td><strong>Süt Humması</strong></td>
+              <td>Göğsü üstünde dik tut, üstünü ört. Acil hekim çağır.</td>
+              <td>Ağzından zorla su içirme!</td>
+            </tr>
+            <tr>
+              <td><strong>Çelerme (Kuzu)</strong></td>
+              <td>Yemi/arpayı derhal kes, sadece kuru kaba ot ver.</td>
+              <td>Baygın hayvana sıvı içirme!</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p style="margin-top:12px; font-size:0.8rem; color:#64748b;">⚠️ <em>Hatırlatma: Çoban Doktor ilk müdahale ve vakit kazanmak içindir. İlaç ve kesin tedavi için diplomalı Veteriner Hekiminize başvurunuz.</em></p>
+      </div>
+      <div class="guide-modal-ftr">
+        <button class="guide-modal-ftr-btn" onclick="closeGuideModal()">✅ ANLADIM, SOHBETE DÖN</button>
+      </div>
+    </div>
   </div>
 
   <script>
@@ -850,6 +1087,22 @@
 
     function toggleLargeText() {
       document.body.classList.toggle("large-text");
+    }
+
+    function openGuideModal() {
+      const modal = document.getElementById("guide-modal");
+      if (modal) modal.classList.add("active");
+    }
+
+    function closeGuideModal() {
+      const modal = document.getElementById("guide-modal");
+      if (modal) modal.classList.remove("active");
+    }
+
+    function closeGuideModalOnBackdrop(e) {
+      if (e.target && e.target.id === "guide-modal") {
+        closeGuideModal();
+      }
     }
 
     // =========================================================================
