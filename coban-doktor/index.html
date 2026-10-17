@@ -1512,6 +1512,136 @@
       background: #ffff00;
       color: #000000;
     }
+
+    /* PWA YÜKLEME BANNERI */
+    .pwa-install-banner {
+      background: linear-gradient(135deg, #075e54, #008069);
+      color: #ffffff;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      z-index: 99;
+      animation: slideDown 0.3s ease-out;
+      border-bottom: 2px solid #25d366;
+    }
+    .pwa-install-text {
+      font-size: 0.8rem;
+      font-weight: 700;
+      line-height: 1.35;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .pwa-install-btn {
+      background: #25d366;
+      color: #064e3b;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-weight: 900;
+      font-size: 0.82rem;
+      cursor: pointer;
+      white-space: nowrap;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .pwa-install-close {
+      background: transparent;
+      border: none;
+      color: rgba(255,255,255,0.7);
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 0 4px;
+      line-height: 1;
+    }
+
+    /* MOBİL VE DOKUNMATİK ENİYİLEME (TAM MOBİL UYUMLULUK) */
+    @media (max-width: 600px) {
+      body {
+        padding: 0;
+        margin: 0;
+        background: var(--wa-bg);
+      }
+      .app-wrapper {
+        box-shadow: none;
+        border-radius: 0;
+        height: 100dvh;
+        max-width: 100%;
+      }
+      .wa-header {
+        padding-left: 8px;
+        padding-right: 8px;
+        gap: 6px;
+      }
+      .wa-avatar {
+        width: 38px;
+        height: 38px;
+        font-size: 1.3rem;
+      }
+      .wa-name {
+        font-size: 0.95rem;
+      }
+      .wa-actions {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        max-width: 65%;
+        padding-bottom: 2px;
+      }
+      .wa-actions::-webkit-scrollbar {
+        display: none;
+      }
+      .wa-hdr-btn {
+        padding: 5px 8px;
+        font-size: 0.74rem;
+        min-height: 32px;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      .kupe-modal-box,
+      .derece-modal-box,
+      .guide-modal-box {
+        max-width: 100%;
+        max-height: 96dvh;
+        border-radius: 14px;
+        margin: 4px;
+      }
+      .kupe-tabs {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .kupe-tabs::-webkit-scrollbar {
+        display: none;
+      }
+      .kupe-tab-btn {
+        white-space: nowrap;
+        padding: 8px 10px;
+        font-size: 0.74rem;
+        flex-shrink: 0;
+      }
+      .msg-row {
+        max-width: 92%;
+      }
+      .chat-options-grid {
+        grid-template-columns: 1fr;
+      }
+      .countdown-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* iOS ÇENTİK (SAFE AREA) & TOUCH GÜVENCESİ */
+    @supports (padding-top: env(safe-area-inset-top)) {
+      .wa-header {
+        padding-top: max(10px, env(safe-area-inset-top));
+      }
+      .chat-container {
+        padding-bottom: max(24px, env(safe-area-inset-bottom));
+      }
+    }
   </style>
 </head>
 <body>
@@ -1537,6 +1667,18 @@
         <button onclick="restartChat()" class="wa-hdr-btn" title="Baştan Başla">🔄 Sıfırla</button>
       </div>
     </header>
+
+    <!-- PWA YÜKLEME BANNERI (Telefona İndirme Bildirimi) -->
+    <div id="pwa-install-banner" class="pwa-install-banner" style="display:none;">
+      <div class="pwa-install-text">
+        <span>📲</span>
+        <span><strong>Çoban Doktor'u Yükle:</strong> İnternetsiz dağda/merada doğrudan çalışsın!</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:6px;">
+        <button id="pwa-install-btn" class="pwa-install-btn" onclick="triggerPwaInstall()">Yükle</button>
+        <button class="pwa-install-close" onclick="dismissPwaBanner()" aria-label="Kapat">&times;</button>
+      </div>
+    </div>
 
     <!-- MERA ÇEVRİMDIŞI BİLDİRİM ŞERİDİ -->
     <div id="mera-offline-bar" class="mera-offline-bar" style="display:none;">
@@ -3711,8 +3853,47 @@
     }, 30000);
 
     // =========================================================================
-    // PWA SERVICE WORKER
+    // PWA SERVICE WORKER & YÜKLEME (BEFOREINSTALLPROMPT)
     // =========================================================================
+    let deferredPwaPrompt = null;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      // Tarayıcının varsayılan yükleme çubuğunu engelle
+      e.preventDefault();
+      deferredPwaPrompt = e;
+      // Kullanıcı daha önce kapatmadıysa banner'ı göster
+      if (!sessionStorage.getItem('cobandoktor_pwa_dismissed')) {
+        const banner = document.getElementById('pwa-install-banner');
+        if (banner) banner.style.display = 'flex';
+      }
+    });
+
+    function triggerPwaInstall() {
+      const banner = document.getElementById('pwa-install-banner');
+      if (deferredPwaPrompt) {
+        deferredPwaPrompt.prompt();
+        deferredPwaPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            if (banner) banner.style.display = 'none';
+          }
+          deferredPwaPrompt = null;
+        });
+      } else {
+        alert("Çoban Doktor'u telefonuna yüklemek için tarayıcının menüsündeki (üç nokta) 'Ana Ekrana Ekle' veya 'Uygulamayı Yükle' seçeneğine basabilirsin.");
+      }
+    }
+
+    function dismissPwaBanner() {
+      const banner = document.getElementById('pwa-install-banner');
+      if (banner) banner.style.display = 'none';
+      sessionStorage.setItem('cobandoktor_pwa_dismissed', '1');
+    }
+
+    window.addEventListener('appinstalled', () => {
+      deferredPwaPrompt = null;
+      const banner = document.getElementById('pwa-install-banner');
+      if (banner) banner.style.display = 'none';
+    });
+
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('./sw.js').catch(() => {});
