@@ -1159,6 +1159,175 @@
       background: #ffff00;
       color: #000000;
     }
+
+    /* DERECE KONTROL BUTONU & MODAL STİLLERİ */
+    .derece-btn {
+      background: #c2410c !important;
+      border-color: #fb923c !important;
+      font-weight: 800 !important;
+    }
+
+    .derece-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.75);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1002;
+      padding: 10px;
+      backdrop-filter: blur(2px);
+    }
+    .derece-modal-overlay.active {
+      display: flex;
+    }
+    .derece-modal-box {
+      background: #ffffff;
+      color: #111b21;
+      width: 100%;
+      max-width: 500px;
+      max-height: 92vh;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+      animation: modalFadeIn 0.2s ease-out;
+    }
+    .derece-modal-hdr {
+      background: #c2410c;
+      color: #ffffff;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .derece-modal-title {
+      font-size: 1.05rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .derece-modal-body {
+      padding: 14px;
+      overflow-y: auto;
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    /* REFERANS TABLOSU & KONTROL */
+    .temp-input-box {
+      background: #fff7ed;
+      border: 1.5px solid #fed7aa;
+      border-radius: 12px;
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+    .temp-input-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+    }
+    .temp-number-input {
+      width: 110px;
+      font-size: 1.35rem;
+      font-weight: 900;
+      text-align: center;
+      padding: 7px;
+      border: 2px solid #ea580c;
+      border-radius: 8px;
+      outline: none;
+      color: #9a3412;
+      background: #ffffff;
+    }
+    .temp-eval-card {
+      border-radius: 10px;
+      padding: 12px;
+      margin-top: 10px;
+      font-size: 0.85rem;
+      border: 1.5px solid #cbd5e1;
+    }
+    .temp-eval-card.badge-danger {
+      background: #fef2f2;
+      border-color: #fca5a5;
+      color: #991b1b;
+    }
+    .temp-eval-card.badge-warning {
+      background: #fffbeb;
+      border-color: #fde68a;
+      color: #92400e;
+    }
+    .temp-eval-card.badge-safe {
+      background: #f0fdf4;
+      border-color: #86efac;
+      color: #166534;
+    }
+    .temp-status-title {
+      font-size: 1.02rem;
+      font-weight: 900;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* TEŞHİS RAPORUNDA ATEŞ KUTUSU */
+    .temp-report-badge {
+      background: #fff7ed;
+      border: 1.5px solid #fdba74;
+      padding: 8px 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      font-size: 0.84rem;
+    }
+
+    /* SOHBET İÇİ ATEŞ GİRİŞ FORMU */
+    .chat-temp-form {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 8px;
+      background: #ffffff;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1.5px solid #cbd5e1;
+    }
+
+    /* YÜKSEK KONTRAST */
+    body.high-contrast .derece-modal-box {
+      background: #000000;
+      color: #ffff00;
+      border: 2px solid #ffff00;
+    }
+    body.high-contrast .derece-modal-hdr {
+      background: #141414;
+      border-bottom: 2px solid #ffff00;
+      color: #ffff00;
+    }
+    body.high-contrast .temp-input-box {
+      background: #141414;
+      border-color: #ffff00;
+    }
+    body.high-contrast .temp-number-input {
+      background: #000000;
+      color: #ffff00;
+      border-color: #ffff00;
+    }
+    body.high-contrast .temp-eval-card {
+      background: #141414 !important;
+      border-color: #ffff00 !important;
+      color: #ffff00 !important;
+    }
+    body.high-contrast .temp-report-badge {
+      background: #141414;
+      border-color: #ffff00;
+      color: #ffff00;
+    }
   </style>
 </head>
 <body>
@@ -1176,6 +1345,7 @@
       </div>
       <div class="wa-actions">
         <button onclick="openKupeDefteriModal()" class="wa-hdr-btn defter-btn" id="hdr-defter-btn" title="Küpe Defteri & İlaç Arınma Takibi">📋 Defter <span class="defter-badge zero" id="defter-active-badge">0</span></button>
+        <button onclick="openDereceModal()" class="wa-hdr-btn derece-btn" id="hdr-derece-btn" title="Hızlı Derece / Ateş Kontrolü">🌡️ Derece</button>
         <button onclick="openGuideModal()" class="wa-hdr-btn" title="Kullanım Kılavuzu">📖 Kılavuz</button>
         <button onclick="toggleLargeText()" class="wa-hdr-btn" title="Yazıyı Büyüt">A+</button>
         <button onclick="toggleContrast()" class="wa-hdr-btn" title="Güneş Işığı Modu">☀️ Mod</button>
@@ -1416,6 +1586,91 @@
         <div class="info-guide-card" style="border-left-color:#10b981;">
           <div class="info-guide-title" style="color:#047857;">📶 %100 Çevrimdışı Mera Güvencesi</div>
           Bu defter telefonunuzun kendi güvenli hafızasında tutulur. Yaylada, merada ve internetin çekmediği ahırda dahi geri sayım durmaksızın devam eder.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DERECE KONTROL MODAL -->
+  <div class="derece-modal-overlay" id="derece-modal" onclick="closeDereceModalOnBackdrop(event)">
+    <div class="derece-modal-box">
+      <div class="derece-modal-hdr">
+        <div class="derece-modal-title">🌡️ Hızlı Derece & Ateş Kontrolü</div>
+        <button class="guide-modal-close" onclick="closeDereceModal()" aria-label="Kapat">&times;</button>
+      </div>
+
+      <div class="derece-modal-body">
+        <div style="font-size:0.84rem; color:#475569; margin-bottom:10px;">
+          Ölçtüğün rektal dereceyi gir; sığır, buzağı, koyun veya kuzu için normal mi, yüksek ateş mi, yoksa tehlikeli hipotermi mi anında gör:
+        </div>
+
+        <!-- HAYVAN TÜRÜ SEÇİMİ -->
+        <div class="kupe-form-group">
+          <label class="kupe-form-label" for="dereceSpeciesSelect">🐾 Kontrol Edilen Hayvan:</label>
+          <select id="dereceSpeciesSelect" class="kupe-form-select" onchange="runDereceEvaluation()">
+            <option value="Ergin Sığır (İnek / Dana)">🐄 Ergin Sığır (İnek / Dana) [Normal: 38.0 - 39.0°C]</option>
+            <option value="Buzağı">🍼 Buzağı [Normal: 38.5 - 39.5°C]</option>
+            <option value="Koyun / Koç">🐑 Ergin Koyun / Koç [Normal: 38.5 - 39.5°C]</option>
+            <option value="Kuzu">🍼 Kuzu [Normal: 39.0 - 40.0°C]</option>
+          </select>
+        </div>
+
+        <!-- DERECE GİRİŞ KUTUSU VE PRESETLER -->
+        <div class="temp-input-box">
+          <label class="kupe-form-label" for="dereceTempInput" style="color:#9a3412;">🌡️ Ölçülen Rektal Ateş (°C):</label>
+          <div class="temp-input-row">
+            <input type="number" id="dereceTempInput" class="temp-number-input" step="0.1" min="30" max="45" value="40.5" oninput="runDereceEvaluation()">
+            <div style="font-size:0.8rem; color:#78350f; font-weight:700;">
+              Santigrat (°C)<br>
+              <span style="font-size:0.72rem; color:#9a3412; font-weight:500;">(Termometreyi anüsten ölçünüz)</span>
+            </div>
+          </div>
+
+          <div style="font-size:0.75rem; color:#9a3412; margin-top:8px; font-weight:700;">Hızlı Ateş Seçimi:</div>
+          <div class="presets-container">
+            <button type="button" class="preset-pill" onclick="setDereceValue(36.8)">❄️ 36.8°C (Hipotermi)</button>
+            <button type="button" class="preset-pill" onclick="setDereceValue(37.6)">🟡 37.6°C (Düşük)</button>
+            <button type="button" class="preset-pill" onclick="setDereceValue(38.6)">🟢 38.6°C (Normal)</button>
+            <button type="button" class="preset-pill" onclick="setDereceValue(39.6)">🟡 39.6°C (Hafif)</button>
+            <button type="button" class="preset-pill" onclick="setDereceValue(40.5)">🔴 40.5°C (Yüksek)</button>
+            <button type="button" class="preset-pill" onclick="setDereceValue(41.4)">🔥 41.4°C (Kritik)</button>
+          </div>
+        </div>
+
+        <!-- CANLI ANALİZ KARTI -->
+        <div id="derece-result-card" class="temp-eval-card badge-danger">
+          <!-- Otomatik değerlendirme sonucu buraya basılır -->
+        </div>
+
+        <button onclick="startDiagnosisWithCurrentTemp()" class="btn-save-record" style="margin-top:12px; background:#c2410c;">
+          🩺 Bu Ateş Değeriyle Muayene Başlat
+        </button>
+
+        <!-- KISA REFERANS TABLOSU -->
+        <div style="margin-top:14px; font-size:0.78rem; color:#475569; background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:8px;">
+          <strong style="color:#0f172a;">📋 Bilimsel Referans Aralıkları:</strong>
+          <table style="width:100%; border-collapse:collapse; margin-top:4px; font-size:0.76rem;">
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:2px 0;">🐄 <strong>İnek/Dana:</strong></td>
+              <td>Normal: <strong>38.0 - 39.0°C</strong></td>
+              <td>Ateş: ≥ 40.0°C</td>
+            </tr>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:2px 0;">🍼 <strong>Buzağı:</strong></td>
+              <td>Normal: <strong>38.5 - 39.5°C</strong></td>
+              <td>Ateş: ≥ 40.2°C</td>
+            </tr>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:2px 0;">🐑 <strong>Koyun:</strong></td>
+              <td>Normal: <strong>38.5 - 39.5°C</strong></td>
+              <td>Ateş: ≥ 40.5°C</td>
+            </tr>
+            <tr>
+              <td style="padding:2px 0;">🍼 <strong>Kuzu:</strong></td>
+              <td>Normal: <strong>39.0 - 40.0°C</strong></td>
+              <td>Ateş: ≥ 40.6°C</td>
+            </tr>
+          </table>
         </div>
       </div>
     </div>
@@ -1759,6 +2014,8 @@
       species: null,
       group: null,
       category: null,
+      temperature: null,
+      preloadedTemp: null,
       candidates: [],
       currentDiseaseIndex: 0,
       scores: {},
@@ -1795,6 +2052,238 @@
       if (e.target && e.target.id === "guide-modal") {
         closeGuideModal();
       }
+    }
+
+    // =========================================================================
+    // DERECE & REKTAL ATEŞ KONTROL MOTORU (BİLİMSEL REFERANSLAR)
+    // =========================================================================
+    function getTempReference(speciesGroup) {
+      const g = (speciesGroup || "").toLowerCase();
+      if (g.includes("buzağı") || g.includes("buzagi")) {
+        return {
+          type: "Buzağı",
+          normMin: 38.5,
+          normMax: 39.5,
+          hypoThreshold: 38.0,
+          feverThreshold: 40.2,
+          dangerFever: 41.5
+        };
+      } else if (g.includes("kuzu")) {
+        return {
+          type: "Kuzu",
+          normMin: 39.0,
+          normMax: 40.0,
+          hypoThreshold: 38.5,
+          feverThreshold: 40.6,
+          dangerFever: 41.8
+        };
+      } else if (g.includes("koyun") || g.includes("koç") || g.includes("toklu")) {
+        return {
+          type: "Koyun / Koç",
+          normMin: 38.5,
+          normMax: 39.5,
+          hypoThreshold: 38.2,
+          feverThreshold: 40.5,
+          dangerFever: 41.8
+        };
+      } else {
+        // Ergin Sığır (İnek / Dana / Düve)
+        return {
+          type: "Ergin Sığır (İnek/Dana)",
+          normMin: 38.0,
+          normMax: 39.0,
+          hypoThreshold: 37.8,
+          feverThreshold: 40.0,
+          dangerFever: 41.5
+        };
+      }
+    }
+
+    function evaluateTemperature(tempVal, speciesGroup) {
+      const t = parseFloat(tempVal);
+      if (isNaN(t) || t < 30 || t > 45) {
+        return null;
+      }
+      const ref = getTempReference(speciesGroup);
+
+      let status = "NORMAL";
+      let statusText = "🟢 NORMAL ATEŞ";
+      let badgeClass = "badge-safe";
+      let desc = `Hayvanın rektal ateşi fizyolojik normal sınırlarda (${ref.normMin}°C - ${ref.normMax}°C).`;
+      let likelyDiseases = [];
+      let actionAdvice = "Ateş kaynaklı bir yangı veya şok tablosu görünmüyor. Diğer belirtilere odaklanınız.";
+
+      if (t < ref.hypoThreshold) {
+        status = "HYPOTHERMIA";
+        statusText = "❄️ HİPOTERMİ (DÜŞÜK ISI / ÇÖKÜŞ)";
+        badgeClass = "badge-danger";
+        desc = `Vücut ısısı normalin (${ref.normMin}°C) çok altında! Vücut direnci ve kan dolaşımı çökmüş, koma veya asidoz riski var.`;
+        likelyDiseases = [
+          "Süt Humması (Doğum Felci / Hipokalsemi - Kulaklar ve boynuz dipleri soğuktur)",
+          "Ağır Buzağı / Kuzu İshali (Aşırı sıvı-elektrolit kaybı, asidoz şoku)",
+          "İkiz Koması / Gebelik Toksemisi (Koma evresi)",
+          "Dolaşım Yetmezliği / Şok"
+        ];
+        actionAdvice = "ACİL MÜDAHALE! Hayvanı derhal kuru, bol saplı sıcak bir yere alın, üzerini battaniyeyle örtün. Asla zorla şişeyle su içirmeyin. ACİL Veteriner Hekim çağırınız!";
+      } else if (t < ref.normMin) {
+        status = "SUBNORMAL";
+        statusText = "🟡 SINIRDA DÜŞÜK ISI";
+        badgeClass = "badge-warning";
+        desc = `Vücut sıcaklığı normal aralığın hafifçe altında (${t.toFixed(1)}°C).`;
+        likelyDiseases = ["Hafif dolaşım yavaşlaması", "Süt humması başlangıcı", "Soğuk hava / ahır stresi"];
+        actionAdvice = "Hayvanı cereyansız, kuru ve ılık altlıklı bölmeye alın, sıcak tutun.";
+      } else if (t <= ref.normMax) {
+        status = "NORMAL";
+        statusText = "🟢 NORMAL ATEŞ";
+        badgeClass = "badge-safe";
+        likelyDiseases = [
+          "Arpa Vurması / Asidoz (Genellikle ateşsiz seyreder)",
+          "İşkembe Gaz Şişmesi (Sindirim gazı)",
+          "İdrar Yolu Tıkanması (Sidik Zoru)",
+          "Beyin Dönmesi / CCN (Erken evre)"
+        ];
+      } else if (t < ref.feverThreshold) {
+        status = "MILD_FEVER";
+        statusText = "🟡 HAFİF ATEŞ (SUBFEBRİL)";
+        badgeClass = "badge-warning";
+        desc = `Vücut sıcaklığı sınırın hafifçe üzerinde (${t.toFixed(1)}°C). Başlangıç evresinde bir enfeksiyon veya nakliye/sıcak stresi olabilir.`;
+        likelyDiseases = [
+          "Akciğer Enfeksiyonu / Zatürre Başlangıcı",
+          "Hafif / Kronik Mastitis (Meme Yangısı)",
+          "Yol Yorgunluğu / Sıcaklık Stresi"
+        ];
+        actionAdvice = "Gölge ve havadar yere alın, önüne temiz ılık su koyun. Belirtiler artarsa hekim desteği alınız.";
+      } else {
+        status = "HIGH_FEVER";
+        statusText = "🔴 YÜKSEK ATEŞ (FEBRİL / HİPERTERMİ)";
+        badgeClass = "badge-danger";
+        desc = `ŞİDDETLİ ATEŞ (${t.toFixed(1)}°C)! Vücutta aktif bir viral, bakteriyel veya septisemik enfeksiyon mevcuttur.`;
+        likelyDiseases = [
+          "Üç Gün Hastalığı (40.5 - 41.5°C Ani Ateş)",
+          "Akciğer Enfeksiyonu / Zatürre (BRD)",
+          "Çiçek / Yumru Deri Hastalığı (Nodüler Ekzantem)",
+          "Şap Hastalığı (Tabak)",
+          "Akut Toksik Mastitis (Meme İltihabı)",
+          "Şarbon / Septisemi"
+        ];
+        actionAdvice = "Hayvanı hemen gölge, havadar ve sakin bir bölmeye alın. Kafasına ve bacaklarına soğuk su tutun. ACİL Veteriner Hekim kontrolünde ateş düşürücü ve antibiyotik tedavisi başlatınız!";
+      }
+
+      return {
+        temp: t,
+        ref,
+        status,
+        statusText,
+        badgeClass,
+        desc,
+        likelyDiseases,
+        actionAdvice
+      };
+    }
+
+    function openDereceModal() {
+      const modal = document.getElementById("derece-modal");
+      if (!modal) return;
+      if (state.group) {
+        const sel = document.getElementById("dereceSpeciesSelect");
+        if (sel) {
+          if (state.group.includes("Buzağı")) sel.value = "Buzağı";
+          else if (state.group.includes("Kuzu")) sel.value = "Kuzu";
+          else if (state.group.includes("Koyun") || state.group.includes("Koç") || state.group.includes("Toklu")) sel.value = "Koyun / Koç";
+          else sel.value = "Ergin Sığır (İnek / Dana)";
+        }
+      }
+      runDereceEvaluation();
+      modal.classList.add("active");
+    }
+
+    function closeDereceModal() {
+      const modal = document.getElementById("derece-modal");
+      if (modal) modal.classList.remove("active");
+    }
+
+    function closeDereceModalOnBackdrop(e) {
+      if (e.target && e.target.id === "derece-modal") {
+        closeDereceModal();
+      }
+    }
+
+    function setDereceValue(val) {
+      const input = document.getElementById("dereceTempInput");
+      if (input) {
+        input.value = val;
+        runDereceEvaluation();
+      }
+    }
+
+    function runDereceEvaluation() {
+      const sel = document.getElementById("dereceSpeciesSelect")?.value || "Ergin Sığır (İnek / Dana)";
+      const tempInput = parseFloat(document.getElementById("dereceTempInput")?.value) || 38.5;
+      const card = document.getElementById("derece-result-card");
+      if (!card) return;
+
+      const res = evaluateTemperature(tempInput, sel);
+      if (!res) {
+        card.className = "temp-eval-card badge-warning";
+        card.innerHTML = "Lütfen geçerli bir ateş derecesi giriniz (30°C - 45°C).";
+        return;
+      }
+
+      card.className = `temp-eval-card ${res.badgeClass}`;
+      const diseasesList = res.likelyDiseases.map(d => `• <strong>${d}</strong>`).join("<br>");
+
+      card.innerHTML = `
+        <div class="temp-status-title">${res.statusText} (${res.temp.toFixed(1)}°C)</div>
+        <div style="font-size:0.78rem; opacity:0.9; margin-bottom:8px;">
+          ${res.ref.type} Normal Referans Aralığı: <strong>${res.ref.normMin}°C - ${res.ref.normMax}°C</strong>
+        </div>
+        <div style="margin-bottom:8px;">${res.desc}</div>
+        
+        <div style="background:rgba(255,255,255,0.7); padding:8px; border-radius:6px; margin-bottom:8px; border:1px solid rgba(0,0,0,0.08);">
+          <div style="font-weight:800; font-size:0.8rem; margin-bottom:4px; color:#0f172a;">⚡ Otomatik Puanlanan Olası Hastalıklar:</div>
+          <div style="font-size:0.8rem; line-height:1.4;">${diseasesList}</div>
+        </div>
+
+        <div style="font-size:0.8rem; font-weight:700;">
+          👉 <strong>İlk Yardım:</strong> ${res.actionAdvice}
+        </div>
+      `;
+    }
+
+    function startDiagnosisWithCurrentTemp() {
+      const speciesSelect = document.getElementById("dereceSpeciesSelect").value;
+      const tempInput = parseFloat(document.getElementById("dereceTempInput").value) || 38.5;
+
+      closeDereceModal();
+      restartChat();
+
+      let sp = "sigir";
+      let grp = "Sağmal İnek";
+      if (speciesSelect.includes("Buzağı")) {
+        sp = "sigir"; grp = "Buzağı";
+      } else if (speciesSelect.includes("Kuzu")) {
+        sp = "koyun"; grp = "Kuzu";
+      } else if (speciesSelect.includes("Koyun")) {
+        sp = "koyun"; grp = "Anaç Koyun";
+      }
+
+      state.species = sp;
+      state.group = grp;
+      state.preloadedTemp = tempInput;
+
+      showTypingIndicator(() => {
+        const catButtons = CATEGORIES.map(c => ({
+          icon: c.icon,
+          text: `<strong>${c.title}</strong><br><span style="font-size:0.78rem; font-weight:500; color:#57534e;">${c.desc}</span>`,
+          action: `handleSelectCategory('${c.id}', '${c.title}')`
+        }));
+
+        addIncomingMessage(
+          `Ustam, <strong>${grp}</strong> için rektal <strong>${tempInput.toFixed(1)}°C</strong> ateş ile muayeneye başladık.<br><br>
+          Hayvanda gözüne çarpan <strong>ilk ana şikayet</strong> nedir?`,
+          catButtons
+        );
+      }, 300);
     }
 
     // =========================================================================
@@ -1937,8 +2426,109 @@
       state.candidates.forEach(d => state.scores[d.id] = 0);
 
       showTypingIndicator(() => {
-        askDiseaseQuestion();
+        if (state.preloadedTemp !== null && state.preloadedTemp !== undefined) {
+          const pt = state.preloadedTemp;
+          state.preloadedTemp = null;
+          handleTempAnswer(pt, false);
+        } else {
+          askTemperatureStep();
+        }
       }, 400);
+    }
+
+    function askTemperatureStep() {
+      const ref = getTempReference(state.group);
+      const midNorm = ((ref.normMin + ref.normMax) / 2).toFixed(1);
+
+      addIncomingMessage(
+        `🌡️ <strong>Ateş / Derece Kontrolü:</strong><br><br>
+        Ustam, <strong>${state.group}</strong> için rektal dereceyle <strong>vücut ateşini</strong> ölçtün mü?<br>
+        <span style="font-size:0.78rem; color:#64748b;">(${ref.type} için normal ateş: <strong>${ref.normMin}°C - ${ref.normMax}°C</strong>)</span>`,
+        [
+          { icon: "🟢", text: `Normal Ateş (~${midNorm}°C)`, action: `handleTempAnswer(${midNorm})`, class: "primary" },
+          { icon: "🔴", text: "Yüksek Ateş (40.5°C)", action: "handleTempAnswer(40.5)", class: "danger" },
+          { icon: "🔥", text: "Çok Yüksek Ateş (41.5°C)", action: "handleTempAnswer(41.5)", class: "danger" },
+          { icon: "❄️", text: "Vücut/Kulaklar Soğuk (~37.2°C)", action: "handleTempAnswer(37.2)", class: "warning" },
+          { icon: "⌨️", text: "Özel Derece Yaz...", action: "promptCustomTemp()", class: "" },
+          { icon: "❓", text: "Ölçmedim / Derecem Yok", action: "handleTempAnswer(null)", class: "" }
+        ]
+      );
+    }
+
+    function promptCustomTemp() {
+      const val = prompt("Lütfen ölçtüğünüz rektal ateş derecesini yazınız (Örn: 40.2):", "40.0");
+      if (val && !isNaN(parseFloat(val))) {
+        handleTempAnswer(parseFloat(val));
+      } else {
+        handleTempAnswer(null);
+      }
+    }
+
+    function handleTempAnswer(tempVal, isInteractive = true) {
+      if (tempVal !== null && tempVal !== undefined) {
+        const evalRes = evaluateTemperature(tempVal, state.group);
+        state.temperature = evalRes;
+
+        if (isInteractive) {
+          addOutgoingMessage(`🌡️ Ateş: ${parseFloat(tempVal).toFixed(1)}°C (${evalRes.statusText})`);
+        }
+
+        // OTOMATİK PUANLAMA (AUTOMATIC SCORING)
+        if (evalRes.status === "HIGH_FEVER") {
+          const feverDiseases = ["uc_gun", "zaturre", "noduler", "sap", "sarbon", "mastitis"];
+          state.candidates.forEach(d => {
+            if (feverDiseases.includes(d.id)) {
+              state.scores[d.id] = (state.scores[d.id] || 0) + 60;
+            }
+            if (d.id === "sut_hummasi") {
+              state.scores[d.id] = (state.scores[d.id] || 0) - 80;
+            }
+          });
+        } else if (evalRes.status === "HYPOTHERMIA") {
+          state.candidates.forEach(d => {
+            if (d.id === "sut_hummasi") {
+              state.scores[d.id] = (state.scores[d.id] || 0) + 80;
+            }
+            if (d.id === "buzagi_ishal" || d.id === "ikiz_koması") {
+              state.scores[d.id] = (state.scores[d.id] || 0) + 50;
+            }
+            if (["uc_gun", "noduler", "sap", "sarbon"].includes(d.id)) {
+              state.scores[d.id] = (state.scores[d.id] || 0) - 60;
+            }
+          });
+        } else if (evalRes.status === "NORMAL") {
+          state.candidates.forEach(d => {
+            if (["arpa_vurmasi", "iskembe_gazi", "idrar_tasi"].includes(d.id)) {
+              state.scores[d.id] = (state.scores[d.id] || 0) + 40;
+            }
+          });
+        }
+
+        // Adayları puan sırasına göre sırala
+        state.candidates.sort((a, b) => (state.scores[b.id] || 0) - (state.scores[a.id] || 0));
+
+        showTypingIndicator(() => {
+          addIncomingMessage(
+            `🌡️ <strong>Ateş Analizi:</strong> ${evalRes.statusText} (${evalRes.temp.toFixed(1)}°C)<br>
+            ${evalRes.desc}<br><br>
+            <em>📋 Olası hastalıklar bu ateş değerine göre puanlandı ve sıralandı. Şimdi hayvandaki belirtileri kesinleştirelim:</em>`
+          );
+          setTimeout(() => {
+            showTypingIndicator(() => {
+              askDiseaseQuestion();
+            }, 300);
+          }, 350);
+        }, 400);
+
+      } else {
+        if (isInteractive) {
+          addOutgoingMessage("❓ Derece ölçmedim, belirtilerle devam edelim.");
+        }
+        state.temperature = null;
+        showTypingIndicator(() => {
+          askDiseaseQuestion();
+        }, 350);
+      }
     }
 
     function askDiseaseQuestion() {
@@ -2019,9 +2609,19 @@
       const doItems = bestMatch.doList.map(item => `<li><span>✔️</span><span>${item}</span></li>`).join("");
       const dontItems = bestMatch.dontList.map(item => `<li><span>⛔</span><span>${item}</span></li>`).join("");
 
+      const tempBadgeHtml = state.temperature ? `
+        <div class="temp-report-badge">
+          <strong>🌡️ Ölçülen Rektal Ateş:</strong> ${state.temperature.temp.toFixed(1)}°C — <strong>${state.temperature.statusText}</strong>
+          <div style="font-size:0.75rem; color:#64748b; margin-top:2px;">
+            ${state.temperature.ref.type} Normal Referansı: <strong>${state.temperature.ref.normMin}°C - ${state.temperature.ref.normMax}°C</strong>
+          </div>
+        </div>
+      ` : '';
+
       const cardHtml = `
         <div class="report-card">
           <div class="report-badge ${badgeClass}">${badgeText}</div>
+          ${tempBadgeHtml}
           <div style="font-size:0.75rem; color:#64748b; font-weight:800; text-transform:uppercase;">OLASI ÖN TEŞHİS:</div>
           <div class="report-title">${bestMatch.name}</div>
 
@@ -2077,9 +2677,14 @@
         ? "Hocam hayvanı sürüden ayırdım, ilk tedbirleri aldım. Teşhis ve tedavi için desteğinizi rica ederim."
         : "Hocam ilk acil tedbirleri aldım. Teşhis ve tedavi için desteğinizi rica ederim.";
 
+      const tempLine = state.temperature 
+        ? `🌡️ *Rektal Ateş:* ${state.temperature.temp.toFixed(1)}°C (${state.temperature.statusText} - Normal: ${state.temperature.ref.normMin}-${state.temperature.ref.normMax}°C)\n` 
+        : '';
+
       const message = `*Çoban Doktor Ön Bildirim Raporu*\n` +
         `🐾 *Tür / Grup:* ${spName} (${state.group})\n` +
         `🏷️ *Kulak Küpe No:* ${tag}\n` +
+        tempLine +
         `⚠️ *Ön Şüphe:* ${diseaseName} (${riskLabel})\n` +
         `📋 *Gözlenen Belirtiler:* ${symptomsText}\n\n` +
         `${noteText}`;
@@ -2094,6 +2699,8 @@
         species: null,
         group: null,
         category: null,
+        temperature: null,
+        preloadedTemp: null,
         candidates: [],
         currentDiseaseIndex: 0,
         scores: {},

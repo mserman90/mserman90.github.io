@@ -123,5 +123,29 @@ Hayvanına iğne, antibiyotik veya meme tüpü uyguladığında ilacın vücutta
 
 ---
 
+## 🌡️ 6. Hızlı Derece & Ateş Kontrolü Nasıl Kullanılır?
+
+Hayvanının kuyruğunu kaldırıp anüsten termometre ile ateşini ölçtüğünde, çıkan derecenin normal mi yoksa tehlikeli mi olduğunu tek tıkla öğrenirsin:
+
+### Normal Ateş Aralıkları Nelerdir?
+- 🐄 **İnek / Dana / Düve:** `38.0°C – 39.0°C` *(39.2°C sınır)*
+- 🍼 **Buzağı:** `38.5°C – 39.5°C`
+- 🐑 **Koyun / Koç:** `38.5°C – 39.5°C` *(40.0°C sınır)*
+- 🍼 **Kuzu:** `39.0°C – 40.0°C`
+
+### Çıkan Ateş Ne Anlama Gelir?
+- 🔴 **YÜKSEK ATEŞ (40.0°C – 41.5°C):** Vücutta şiddetli mikrop, iltihap veya kan paraziti vardır. *(Zatürre, Üç Gün, Şap, Çiçek, Ağır Mastitis)*. Çoban Doktor yüksek ateşli hastalıkları hemen öne çıkarır.
+- ❄️ **HİPOTERMİ / VÜCUT SOĞUMASI (37.5°C altı):** ÇOK TEHLİKELİDİR! Kan dolaşımı durmak üzeredir. Özellikle **Süt Hummasında (Doğum Felci)** ve **Ağır Buzağı İshalinde** hayvanın kulakları ve bacakları buz keser. Acil ısıtma ve serum gerekir!
+- 🟢 **NORMAL ATEŞ (38.0°C – 39.0°C):** Ateş normalse arpa vurması (asidoz), işkembe gaz şişmesi veya sidik zoru gibi besleme/mekanik dertler akla gelir.
+
+### Nasıl Kullanılır?
+1. Ekranın üstündeki **"🌡️ Derece"** düğmesine bas.
+2. Hayvanı seç (İnek, Buzağı, Koyun, Kuzu).
+3. Ölçtüğün dereceyi yaz (Örn: *40.5*).
+4. Çoban Doktor sana ateşin durumunu, olası hastalıkları ve ilk yardım tavsiyesini anında çıkarır.
+5. İstersen alttaki **"🩺 Bu Ateş Değeriyle Muayene Başlat"** düğmesine basarak doğrudan ateşe göre puanlanmış teşhise geçebilirsin.
+
+---
+
 ## 📞 Önemli Hatırlatma
 Çoban Doktor, veteriner hekimin ahıra ulaşana kadar **hayvanının canını kurtarmak ve vakit kazanmak** içindir. İğne, antibiyotik ve kesin tedavi için her zaman diplomalı **Veteriner Hekiminize** danışınız.
