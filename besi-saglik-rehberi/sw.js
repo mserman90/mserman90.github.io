@@ -1,4 +1,4 @@
-const CACHE_NAME = 'besisys-offline-v15';
+const CACHE_NAME = 'besisys-asistan-v26';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -10,7 +10,6 @@ const ASSETS_TO_CACHE = [
   './icon-192.png',
   './icon-512.png',
   './og-image.png',
-  './html5-qrcode.min.js',
   './robots.txt',
   './sitemap.xml',
   './KULLANIM_KILAVUZU.md'
@@ -19,7 +18,13 @@ const ASSETS_TO_CACHE = [
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(ASSETS_TO_CACHE);
+      return Promise.all(
+        ASSETS_TO_CACHE.map((url) => {
+          return fetch(url, { cache: 'reload' }).then((res) => {
+            if (res.ok) return cache.put(url, res);
+          }).catch(() => {});
+        })
+      );
     })
   );
   self.skipWaiting();
@@ -41,11 +46,10 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
+  if (event.request.method !== 'GET') return;
   event.respondWith(
     caches.match(event.request).then((response) => {
-      return response || fetch(event.request);
-    }).catch(() => {
-      return caches.match('./index.html');
+      return response || fetch(event.request).catch(() => caches.match('./index.html'));
     })
   );
 });

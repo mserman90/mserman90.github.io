@@ -1,13 +1,13 @@
 {
-  "name": "Besi Çiftliği Rehberi",
-  "short_name": "BesiÇiftliği",
-  "description": "Besi danacılığı ve besi çiftlikleri için %100 internetsiz çalışan 21 günlük dana karşılama, kantar ve CAAG kilo artışı, ilaçlı kesim yasağı kilitleri ve besi acil müdahale rehberi.",
+  "name": "Besi Sağlık Asistanı",
+  "short_name": "BesiSağlık",
+  "description": "Besi danacılığı ve besi çiftlikleri için %100 internetsiz çalışan etkileşimli sohbet tabanlı dana sağlık teşhisi, sesli kantar & mezbaha Et İKAS kontrolü, 21 gün karşılama ve acil ilk yardım asistanı.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "background_color": "#efeae2",
+  "theme_color": "#b45309",
   "categories": [
     "medical",
     "business",
@@ -45,10 +45,10 @@
   ],
   "shortcuts": [
     {
-      "name": "Acil İlk Yardım",
-      "short_name": "İlk Yardım",
-      "description": "Beyin dönmesi, idrar taşı, arpa vurması ve adrenalin doz hesabı",
-      "url": "./index.html#emergency",
+      "name": "Sesli Kantar & Mezbaha",
+      "short_name": "Kantar & Mezbaha",
+      "description": "Küpe bazlı sesli Et İKAS kilit kontrolü ve mezbaha randımanı",
+      "url": "./index.html#kantar",
       "icons": [
         {
           "src": "./icon-192.png",
@@ -57,22 +57,22 @@
       ]
     },
     {
-      "name": "Kilo & Karkas Ölçer",
+      "name": "21 Gün Karşılama",
+      "short_name": "21 Gün Karşılama",
+      "description": "Kamyondan yeni inen danalar için can suyu ve 21 günlük alıştırma",
+      "url": "./index.html#karsilama",
+      "icons": [
+        {
+          "src": "./icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Kilo & Randıman Ölçer",
       "short_name": "Kilo Ölçer",
-      "description": "Kantar ve şerit metre ile günlük kilo alımı ve karkas geliri",
+      "description": "Şerit metre / kantar ile canlı ağırlık ve %58 karkas hesabı",
       "url": "./index.html#weight",
-      "icons": [
-        {
-          "src": "./icon-192.png",
-          "sizes": "192x192"
-        }
-      ]
-    },
-    {
-      "name": "21 Gün Dana Giriş",
-      "short_name": "Dana Giriş",
-      "description": "Kamyondan yeni inen danalar için 21 günlük alıştırma protokolü",
-      "url": "./index.html#arrival",
       "icons": [
         {
           "src": "./icon-192.png",

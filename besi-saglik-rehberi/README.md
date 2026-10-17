@@ -1,10 +1,10 @@
-# Besi Çiftliği Rehberi (Offline-First & PWA)
+# Besi Sağlık Asistanı (Offline-First & PWA)
 
 **Canlı Yayın (Web & Mobil PWA):** [https://mserman90.github.io/besi-saglik-rehberi/](https://mserman90.github.io/besi-saglik-rehberi/)  
 **GitHub Deposu:** [https://github.com/mserman90/besi-saglik-rehberi](https://github.com/mserman90/besi-saglik-rehberi)  
 **Detaylı Kullanım Kılavuzu:** [KULLANIM_KILAVUZU.md](./KULLANIM_KILAVUZU.md)
 
-Bu uygulama, **en eski ve en basit akıllı telefonlardan masaüstü/dizüstü bilgisayarlara kadar** her cihazda **hiçbir internet bağlantısı veya sunucu kurulumu gerektirmeden** çalışan, Progressive Web App (PWA) mimarili çevrimdışı (%100 offline) bir **besi danacılığı, 21 günlük karşılama protokolü, CAAG günlük kilo artışı, Et İKAS mezbaha kilitleri ve acil müdahale asistanıdır**.
+Bu uygulama, **en eski ve en basit akıllı telefonlardan masaüstü/dizüstü bilgisayarlara kadar** her cihazda **hiçbir internet bağlantısı, sunucu veya harici API anahtarı gerektirmeden** çalışan, Progressive Web App (PWA) mimarili çevrimdışı (%100 offline) bir **besi danacılığı, adım adım etkileşimli sohbet tabanlı klinik sağlık teşhisi, sesli kantar & mezbaha Et İKAS kesim kilitleri, 21 gün dana karşılama ve CAAG karkas randıman asistanıdır**.
 
 ---
 
@@ -20,66 +20,39 @@ Bu uygulama, **en eski ve en basit akıllı telefonlardan masaüstü/dizüstü b
 
 ---
 
-## Saha Öncelikli Durum Merkezleri (Status Hubs)
-
-Besi ahırı şartlarındaki **acil müdahale önceliği** ve tek elle eldivenli kullanıma göre optimize edilmiştir. Sayfa altındaki gezinme ikonları yerine ana ekranda 4 büyük **Dana Durumu Ana Menüsü** merkezi yer alır:
-
-1. **HASTA / ACİL DANA:** İlk Yardım (CCN/Tiamin eksikliği, İdrar Taşı/Sidik zoru, Besi arpa vurması (tırnak iltihabı)i, İşkembe Gaz Şişmesi şişmesi, Adrenalin şok dozu), BRD Solunum Muayenesi & DART Triyajı, İlaç Yap & Kesim Kilitle (Et İKAS).
-2. **YENİ DANA GİRİŞ & 21 GÜN KARŞILAMA:** Kamyondan indirme ilk 24 saat altın kuralları, dinlenme can suyu, toplu koruyucu ciğer iğnesi ciğer kalkanı, iç-dış parazit ve kademeli 21 günlük rasyon tablosu.
-3. **KİLO, CAAG & MEZBAHA GELİRİ:** Kantar/baskül tartımı veya şerit metre ölçümü (Schaeffer formülü), Günlük Canlı Ağırlık Artışı (CAAG kg/gün), %58 Karkas Randımanı ve Mezbaha Satış Geliri simülatörü.
-4. **YEMLİK, ASİDOZ & MASRAF DEFTERİ:** Geviş getirme indeksi (%58-60 hedef), tezek skoru (1-5), tampon karbonat dozlayıcı (150-250 gr/dana), aşı takvimi ve fire/masraf defteri.
-
----
-
-## Gösterge Paneli & Küpe Numaralı Kritik Takip
-
-- **Anlık Sürü İstatistikleri:** Toplam Besi Mevcudu, Kesim Kilitli Danalar (Et İKAS), 21 Günlük Karşılamadaki Danalar ve Günü Gelen Aşılar tek bakışta görülür.
-- **Uyarılı Küpe Numaraları Çipleri:** Sayfa başındaki kritik takip listesinde kafa karıştırıcı sayılar yerine doğrudan danaların **Kulak Küpe Numaraları** listelenir.
-- **Dana Uyarı & Sağlık Kartı Modalı:** Herhangi bir küpeye dokunulduğunda dananın Et İKAS kesim kilidi, alıştırma günü, yaklaşan aşısı veya sağlık uyarısı tek ekranda açılır; ilgili butona dokunarak doğrudan eyleme geçilebilir.
-- **Kategori Filtreleme:** Uyarılı danaları *Tümü*, *Kesim Kilitli (Et İKAS)*, *Aşı & Parazit*, *Sağlık & Karantina* olarak tek dokunuşla süzebilirsiniz.
-
----
-
 ## Barındırdığı Temel Besi Danacılığı Modülleri
 
-0. **& Eller Serbest Sesli Küpe Sorgulama ve Barkod/QR Okuma:**
-   - **Sesli Küpe Sorgulama (Web Speech API):** Besi ahırında eller çamurlu veya yem tozuyken ekrana dokunmadan *"yüz kırk beş"* veya *"TR 16 00 12"* deyin. Sistem danayı anında bulur ve hoparlörden sesli olarak yanıtlar: *"Dikkat! 145 numaralı danada aktif kesim kilidi var. Mezbaha kısıtı: 18 gün"* veya *"145 temiz, kesime uygundur."*
-   - **Barkod & QR Kamera Okuma:** Dana arama, muayene, ilaç/Et İKAS, tartım ve yeni hayvan ekleme ekranlarında yerel kamera kütüphanesiyle küpeleri otomatik okur (%100 offline).
+1. **Adım Adım Etkileşimli Diyalog ve Klinik Sohbet:**
+   - Dana grubu seçimi (Besi Başlangıç 200-300 kg, Besi Büyütme 300-450 kg, Besi Bitirme / Mezbaha Adayı 450-650+ kg, Kamyondan Yeni İnen Dana).
+   - Rektal makat ateşi sorgusu (38.0–39.3°C fizyolojik aralık) ve otomatik puanlama.
+   - 10 kritik besi hastalığı ve acil müdahale algoritması (BRD Akciğer Yangısı / Nakliye Humması, Arpa Vurması / Laminitis, İdrar Taşı / Sidik Zoru, CCN / Beyin Dönmesi & B1 Tiamin eksikliği, İşkembe Gaz Şişmesi / Bloat, Çelerme / Enterotoksemi, Akut/Subakut Rumen Asidozu, Tırnak Çürüğü / Flegmon, Yemek Borusu Boğulması, Şap Hastalığı).
+   - Renk kodlu klinik ön teşhis kartı, acil ilk yardım yapılacaklar ve kesinlikle yapılmayacaklar listesi ile tek tıkla veteriner hekime iletilebilir hazır rapor çıktısı.
 
-1. **Acil İlk Yardım & Besi Hastalıkları (Merck Vet Entegreli):**
-   - **Besi Danası CCN / Polio:** Yüksek tahıl ve asidoz sonrası B1 Tiamin eksikliği, yıldız gözleme ilk yardımı.
-   - **İdrar Taşı & Sidik Zoru (Ürolitiyazis):** Peniste tuz kristalleri, amonyum klorür ve idrar kesesi patlamasını (su karnı) önleme.
-   - **Arpa Vurması / Ayak Yanması (Tırnak İltihabı):** Akut asidoz ve histamin felcinde yemliği boşaltma, karbonat içirme, yangı giderici ve soğuk su banyosu.
-   - **İşkembe Gazı ve Şişmesi:** Mide sondası salma, bitkisel sıvı yağ içirme ve trokarla şişleme.
-   - **Yemek Borusu Tıkanması:** Patates/pancar boğulmasında boğaz oluğu masajı.
-   - **Canlı Ağırlık Adrenalin Hesaplayıcı:** Aşı şoku durumunda anında mL dozu verir.
+2. **🎙️ Sesli Kantar & Mezbaha Kesim Yasağı Kontrolü (`Kantar` Modalı):**
+   - Kantarda tartılan dananın küpe numarasını girin veya mikrofona söyleyin (Web Speech API).
+   - Sistem danada aktif **Et İKAS mezbaha kesim yasağı kilidi** olup olmadığını denetler ve Türkçe sesli uyarır (*"Dikkat! 145 numaralı danada kesim kilidi var..."* veya *"Temiz, kesime uygundur"*).
+   - Aktif kesim kilitli danaların kalan günlerini canlı geri sayımla listeler.
 
-2. **Muayene & Nefes/Zatürre Kontrolü:**
-   - Makat ateşi ölçümü (38.0–39.3°C), nabız, solunum ve hastalık ve nefes puanıyla otomatik nakliye humması / zatürre derecelendirmesi.
+3. **🚚 21 Günlük Dana Karşılama & Can Suyu Protokolü (`21 Gün` Modalı):**
+   - Kamyondan inen yorgun danalar için ilk 24 saat altın kuralı.
+   - 100 Litrelik acil ahır tipi Can Suyu formülü (Kaya tuzu, yemek karbonatı, melas/pekmez).
+   - 21 günlük kademeli rasyon ve sağlık alıştırma tablosu.
 
-3. **Yeni Dana Giriş & 21 Günlük Karşılama Protokolü:**
-   - Kamyondan iner inmez ilk 24 saatte kesinlikle kesif yem verilmemesi, ılık can suyu (tuz + karbonat + pekmez), toplu koruyucu ciğer iğnesi ciğer kalkanı, iç-dış parazit ve kademeli 21 günlük rasyon tablosu.
+4. **⚖️ Kilo, CAAG & Karkas Randımanı Hesaplayıcı (`Randıman` Modalı):**
+   - **Schaeffer Şerit Metre Formülü:** Kantar olmayan ahırlarda göğüs çevresi ve vücut uzunluğuyla canlı ağırlık hesabı ($G^2 \times U / 108.38$).
+   - **CAAG ve Karkas Analizi:** İki tartım arası Günlük Canlı Ağırlık Artışı (kg/gün), %58 karkas randımanı ve tahmini mezbaha satış geliri simülatörü.
 
-4. **Canlı Ağırlık & CAAG (Günlük Kilo Artışı) Motoru:**
-   - Kantar/baskül tartımı veya mezurayla şerit metre ölçümü (Schaeffer formülü: $G^2 \times U / 108.38$).
-   - İki tartım arası Günlük Canlı Ağırlık Artışı (CAAG kg/gün).
-   - Canlı ağırlığa göre otomatik ilaç dozu ve kuru madde ihtiyacı.
-   - %58 Karkas Randımanı Simülatörü ve mezbaha satış geliri hesabı.
+5. **📋 Besi Defteri & Kesim Kilitleri (Et İKAS - `Kilit` Modalı):**
+   - Vurulan antibiyotik ve ilaçların et arınma sürelerini takip eder (Oksitetrasiklin 28g, Florfenikol 28g, Tilmikosin 42g, Tulitromisin 18g, Flunuksin 4g, İvermektin 28g).
+   - Kesim kilidi bitene kadar dananın kasaba sevk edilmesini engelleyen akıllı sayaç.
 
-5. **Et İKAS & Mezbaha / Kesim Kilitleri:**
-   - Vurulan antibiyotik ve ilaçların et arınma sürelerini takip eder. Kesim kilidi bitene kadar dananın kesime veya kasaba gönderilmesini engeller.
+6. **🌡️ Rektal Derece Skalası (`Derece` Modalı):**
+   - Normal, hipotermi/çöküş ve yüksek ateş sınırları için anında durum analizi.
 
-6. **Yemlik Yönetimi, Tezek Skoru & Tampon Dozlama:**
-   - Yatan danaların geviş getirme indeksi ($\ge \%58$ kuralı).
-   - 1–5 Tezek kıvamı ve bütün tahıl tanesi kaçağı denetimi.
-   - Bunk skoru (artık yem %3–5).
-   - Dana başına günlük 150–250 gr tampon karbonat (sodyum bikarbonat) dozlayıcı.
+---
 
-7. **Aşı & Parazit Takvimi:**
-   - Şap, LSD Çiçek, Çelerme / Yem Çarpması (Bağırsak Zehirlenmesi), BRD karma solunum aşısı ve İvermektin iç-dış parazit takvimi.
+## Güvenlik ve Uyumluluk
 
-8. **Besi Masraf & Fire Defteri:**
-   - Veteriner ve ilaç harcamalarıyla birlikte, hastalık yüzünden yaşanan canlı ağırlık kaybı / duraklama firesini hesaplayıp toplam ekonomik zararı kuruşu kuruşuna gösterir.
-
-9. **Güvenli JSON Yedekleme & Geri Yükleme:**
-   - Tüm besi danalarınızı, tartımlarınızı ve aşılarınızı tek tıkla cihazınıza JSON olarak indirin veya yeni telefona aktarın. %100 yerel ve güvenli.
+- **%100 Offline & Anahtarsız:** Hiçbir dış API anahtarına veya sunucuya bağımlı değildir.
+- **Ergonomi (WCAG 2.5.5):** Dokunmatik butonlar en az 48x48 px boyutundadır.
+- **Vektörel Standart:** SVG ikonlar doğrudan inline yerleştirilmiş olup harici font dosyası indirmez.
