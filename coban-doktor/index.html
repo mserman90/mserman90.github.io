@@ -217,6 +217,14 @@
       display: flex;
       align-items: center;
       gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      max-width: 78%;
+      flex-shrink: 1;
+    }
+    .wa-actions::-webkit-scrollbar {
+      display: none;
     }
     .wa-hdr-btn {
       font-family: inherit;
@@ -1713,6 +1721,100 @@
       color: #000000;
     }
 
+    /* GENEL SAĞLIK MODALLARI STİLLERİ (SIVI, KOLOSTRUM, İKAS, DOZAJ, PROTOKOL) */
+    .generic-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.75);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1003;
+      padding: 10px;
+      backdrop-filter: blur(2px);
+    }
+    .generic-modal-overlay.active { display: flex; }
+    .generic-modal-box {
+      background: #ffffff;
+      color: #111b21;
+      width: 100%;
+      max-width: 560px;
+      max-height: 94vh;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+      animation: modalFadeIn 0.2s ease-out;
+    }
+    .generic-modal-hdr {
+      color: #ffffff;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .generic-modal-title {
+      font-size: 1.05rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .generic-modal-body {
+      padding: 16px;
+      overflow-y: auto;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+    .generic-modal-ftr {
+      padding: 10px 16px;
+      background: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+    .dehid-card-choice {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 8px 10px;
+      background: #f8fafc;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.82rem;
+      margin-bottom: 6px;
+      transition: all 0.12s ease;
+    }
+    .dehid-card-choice input[type="radio"] { margin-top: 3px; accent-color: #ea580c; }
+    .dehid-card-choice:hover { background: #f1f5f9; border-color: #94a3b8; }
+    .dehid-card-choice.danger { border-color: #fca5a5; background: #fff5f5; }
+
+    body.high-contrast .generic-modal-box {
+      background: #000000;
+      color: #ffff00;
+      border: 2px solid #ffff00;
+    }
+    body.high-contrast .generic-modal-hdr {
+      background: #141414 !important;
+      border-bottom: 2px solid #ffff00;
+      color: #ffff00;
+    }
+    body.high-contrast .generic-modal-ftr {
+      background: #141414;
+      border-top-color: #ffff00;
+    }
+    body.high-contrast .dehid-card-choice {
+      background: #000000;
+      border-color: #ffff00;
+      color: #ffff00;
+    }
+
     /* PWA YÜKLEME BANNERI */
     .pwa-install-banner {
       background: linear-gradient(135deg, #075e54, #008069);
@@ -1865,13 +1967,15 @@
       }
       .kupe-modal-overlay,
       .derece-modal-overlay,
-      .guide-modal-overlay {
+      .guide-modal-overlay,
+      .generic-modal-overlay {
         padding: 0;
         align-items: flex-end; /* Mobilde alt çekmece (bottom sheet) ergonomisi */
       }
       .kupe-modal-box,
       .derece-modal-box,
-      .guide-modal-box {
+      .guide-modal-box,
+      .generic-modal-box {
         width: 100%;
         max-width: 100%;
         max-height: 94dvh;
@@ -1999,6 +2103,26 @@
         <button onclick="openDereceModal()" class="wa-hdr-btn derece-btn" id="hdr-derece-btn" title="Hızlı Derece / Ateş Kontrolü">
           <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg>
           <span>Derece</span>
+        </button>
+        <button onclick="openSiviModal()" class="wa-hdr-btn" title="Buzağı & Kuzu İshali Sıvı-Elektrolit Hesabı" style="background:#ea580c !important; border-color:#fb923c !important;">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m12 6 4 6H8l4-6z"/></svg>
+          <span>Sıvı/İshal</span>
+        </button>
+        <button onclick="openKolostrumModal()" class="wa-hdr-btn" title="Kolostrum Kalite & Refraktometre (Brix %)" style="background:#d97706 !important; border-color:#fcd34d !important;">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.82-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/></svg>
+          <span>Kolostrum</span>
+        </button>
+        <button onclick="openSesliIkasModal()" class="wa-hdr-btn" title="Sesli İKAS (Et & Süt Kesim/Sağım Kilit Denetimi)" style="background:#0284c7 !important; border-color:#38bdf8 !important;">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+          <span>Sesli İKAS</span>
+        </button>
+        <button onclick="openDozajModal()" class="wa-hdr-btn" title="Acil İlaç Dozaj & İlk Yardım Motoru" style="background:#dc2626 !important; border-color:#f87171 !important;">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
+          <span>Dozaj</span>
+        </button>
+        <button onclick="openSaglikProtokolModal()" class="wa-hdr-btn" title="Altın Veteriner Sağlık & Müdahale Protokolleri" style="background:#7c3aed !important; border-color:#a78bfa !important;">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          <span>Protokoller</span>
         </button>
         <button onclick="openGuideModal()" class="wa-hdr-btn" title="Kullanım Kılavuzu">
           <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
@@ -2535,6 +2659,338 @@
             </tr>
           </table>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUZAĞI & KUZU İSHALİ SIVI & ELEKTROLİT HESAPLAYICI MODAL -->
+  <div class="generic-modal-overlay" id="sivi-modal" onclick="closeGenericModalOnBackdrop(event, 'sivi-modal')">
+    <div class="generic-modal-box">
+      <div class="generic-modal-hdr" style="background:#ea580c;">
+        <div class="generic-modal-title">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m12 6 4 6H8l4-6z"/></svg>
+          <span>Buzağı & Kuzu İshali Sıvı & Elektrolit Hesabı</span>
+        </div>
+        <button class="guide-modal-close" onclick="closeSiviModal()" aria-label="Kapat">&times;</button>
+      </div>
+      <div class="generic-modal-body">
+        <p style="font-size:0.84rem; color:#475569; margin-bottom:12px;">
+          İshalli yavrularda ana ölüm sebebi mikrop değil, <strong>sıvı kaybı (dehidrasyon) ve kanın asitleşmesidir</strong>. Canlı ağırlık ve kuruma seviyesini seçerek 24 saatlik damardan/ağızdan sıvı miktarını hesaplayın:
+        </p>
+
+        <div style="display:flex; gap:6px; margin-bottom:12px;">
+          <button type="button" class="wa-choice-btn primary" id="siviAnimalCalfBtn" onclick="switchSiviAnimal('calf')" style="flex:1; justify-content:center; padding:8px;">
+            🍼 Buzağı
+          </button>
+          <button type="button" class="wa-choice-btn" id="siviAnimalLambBtn" onclick="switchSiviAnimal('lamb')" style="flex:1; justify-content:center; padding:8px;">
+            🐑 Kuzu / Oğlak
+          </button>
+        </div>
+
+        <div style="background:#fff7ed; border:1px solid #fed7aa; border-radius:8px; padding:10px; margin-bottom:12px;">
+          <label style="font-size:0.82rem; font-weight:800; color:#9a3412; display:flex; justify-content:space-between;">
+            <span id="siviWeightLabel">Hayvan Canlı Ağırlığı:</span>
+            <span id="siviWeightDisplay" style="font-size:1.05rem; color:#c2410c;">40 kg</span>
+          </label>
+          <input type="range" id="siviWeightInput" min="20" max="80" step="1" value="40" oninput="updateSiviCalc()" style="width:100%; accent-color:#ea580c; margin-top:6px;">
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <label style="font-size:0.82rem; font-weight:800; color:#0f172a; display:block; margin-bottom:6px;">
+            Sıvı Kaybı (Dehidrasyon) Belirtileri:
+          </label>
+          <label class="dehid-card-choice">
+            <input type="radio" name="siviDehydration" value="5" onchange="updateSiviCalc()" checked>
+            <div><strong>%5 - 6 (Hafif):</strong> İshal var, ayakta ve canlı, emme refleksi güçlü.</div>
+          </label>
+          <label class="dehid-card-choice">
+            <input type="radio" name="siviDehydration" value="8" onchange="updateSiviCalc()">
+            <div><strong>%7 - 8 (Orta):</strong> Gözler hafif çökük, emme zayıf, deri kıvrımı 2-4 saniyede düzeliyor.</div>
+          </label>
+          <label class="dehid-card-choice">
+            <input type="radio" name="siviDehydration" value="10" onchange="updateSiviCalc()">
+            <div><strong>%9 - 10 (Ağır):</strong> Gözler çukura kaçmış, yatar vaziyette, kulaklar soğuk, deri 5-7 saniyede düzeliyor.</div>
+          </label>
+          <label class="dehid-card-choice danger">
+            <input type="radio" name="siviDehydration" value="12" onchange="updateSiviCalc()">
+            <div><strong>%10 - 12 (Kritik Şok / Koma):</strong> Baygın, refleks yok, asidoz şoku (ACİL DAMAR SERUMU!).</div>
+          </label>
+        </div>
+
+        <div id="sivi-result-box" style="background:#fff7ed; border:2px solid #fdba74; border-radius:10px; padding:12px; margin-bottom:12px;">
+          <!-- Sonuç dinamik basılır -->
+        </div>
+
+        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:10px; font-size:0.78rem; line-height:1.45;">
+          <strong>🍼 Ahır Tipi Acil Elektrolit (Hazır Toz Yoksa):</strong><br>
+          • 2 Litre ılık temiz su + 1 tatlı kaşığı kaya tuzu + 1 yemek kaşığı yemek sodası + 2 yemek kaşığı bal/şeker.<br>
+          • <em>Ilık olarak içirin. Asla sütle karıştırmayın, süt öğünleri arasında verin!</em>
+        </div>
+      </div>
+      <div class="generic-modal-ftr">
+        <button class="guide-modal-ftr-btn" onclick="closeSiviModal()" style="background:#ea580c; width:100%;">Tamam, Kapat</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- KOLOSTRUM REFRAKTOMETRE (BRİX %) VE HAYATTA TUTMA MODAL -->
+  <div class="generic-modal-overlay" id="kolostrum-modal" onclick="closeGenericModalOnBackdrop(event, 'kolostrum-modal')">
+    <div class="generic-modal-box">
+      <div class="generic-modal-hdr" style="background:#d97706;">
+        <div class="generic-modal-title">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.82-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/></svg>
+          <span>Kolostrum Kalite & Brix Refraktometre</span>
+        </div>
+        <button class="guide-modal-close" onclick="closeKolostrumModal()" aria-label="Kapat">&times;</button>
+      </div>
+      <div class="generic-modal-body">
+        <p style="font-size:0.84rem; color:#475569; margin-bottom:12px;">
+          Yeni doğan yavrunun yaşamasını belirleyen en kritik faktör ilk ağız sütündeki antikor (IgG) yoğunluğudur. Refraktometre Brix değerini girip sütün koruyuculuğunu test edin:
+        </p>
+
+        <div style="background:#fef3c7; border:1px solid #fde68a; border-radius:8px; padding:10px; margin-bottom:12px;">
+          <label style="font-size:0.82rem; font-weight:800; color:#92400e; display:flex; justify-content:space-between;">
+            <span>Ölçülen Refraktometre Değeri:</span>
+            <span id="brixValDisplay" style="font-size:1.15rem; color:#b45309;">%24 Brix</span>
+          </label>
+          <input type="range" id="brixInput" min="10" max="35" step="1" value="24" oninput="updateKolostrumCalc()" style="width:100%; accent-color:#d97706; margin-top:6px;">
+        </div>
+
+        <div id="brix-result-box" style="padding:12px; border-radius:10px; margin-bottom:12px;">
+          <!-- Sonuç dinamik basılır -->
+        </div>
+
+        <div style="background:#f8fafc; border:1.5px solid #cbd5e1; border-radius:8px; padding:10px; font-size:0.8rem; line-height:1.45;">
+          <strong>⏱️ İlk 2 Saat Altın Kuralı:</strong><br>
+          • <strong>Zaman:</strong> Doğumdan sonraki ilk 2 saat içinde mutlaka verilmelidir. 6. saatten sonra bağırsak emilimi %50 düşer, 24. saatte tamamen sıfırlanır.<br>
+          • <strong>Miktar:</strong> Buzağıya ilk öğünde <strong>3.0 - 4.0 Litre</strong>, kuzuya <strong>300 - 400 mL</strong> ılık olarak içirilmelidir.<br>
+          • <strong>Saklama:</strong> Brix %22 üzeri kaliteli sütleri pet şişelere koyup derin dondurucuda (-20°C) 1 yıla kadar saklayabilirsiniz.
+        </div>
+      </div>
+      <div class="generic-modal-ftr">
+        <button class="guide-modal-ftr-btn" onclick="closeKolostrumModal()" style="background:#d97706; width:100%;">Tamam, Kapat</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SESLİ İKAS (ET & SÜT ARINMA KİLİT DENETİMİ) MODAL -->
+  <div class="generic-modal-overlay" id="ikas-modal" onclick="closeGenericModalOnBackdrop(event, 'ikas-modal')">
+    <div class="generic-modal-box">
+      <div class="generic-modal-hdr" style="background:#0284c7;">
+        <div class="generic-modal-title">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+          <span>Sesli İKAS (Et & Süt Kilit Denetimi)</span>
+        </div>
+        <button class="guide-modal-close" onclick="closeSesliIkasModal()" aria-label="Kapat">&times;</button>
+      </div>
+      <div class="generic-modal-body">
+        <p style="font-size:0.84rem; color:#475569; margin-bottom:10px;">
+          Mezbahaya veya süt tankına sevk etmeden önce küpe numarasını yazın veya mikrofona söyleyin. Sistem kayıtlı <strong>Et İKAS ve Süt İKAS</strong> arınma kilitlerini anında denetler ve Türkçe seslendirir:
+        </p>
+
+        <div style="display:flex; gap:8px; margin-bottom:10px;">
+          <input type="text" id="ikasTagInput" placeholder="Küpe No (Örn: 145 veya TR1600)" oninput="this.value = this.value.toUpperCase();" style="flex:1; padding:10px; font-size:1.05rem; font-weight:800; border:1.5px solid #94a3b8; border-radius:8px;">
+          <button onclick="checkIkasTagManual()" class="wa-choice-btn primary" style="min-height:46px; padding:0 16px;">
+            Sorgula
+          </button>
+          <button onclick="toggleVoiceIkas()" id="btnMicIkas" class="wa-choice-btn" style="min-height:46px; padding:0 14px; background:#0284c7; color:#fff;" title="Mikrofonla Küpe Söyle">
+            <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+          </button>
+        </div>
+
+        <div id="ikasVoiceStatus" style="display:none; font-size:0.8rem; color:#0284c7; font-weight:700; margin-bottom:10px; animation:pulse 1s infinite;">
+          🎙️ Dinleniyor... "yüz kırk beş" gibi küpe numarasını söyleyin...
+        </div>
+
+        <div style="display:flex; align-items:center; justify-content:space-between; background:#f1f5f9; padding:8px 12px; border-radius:8px; margin-bottom:12px; font-size:0.8rem;">
+          <div style="display:flex; align-items:center; gap:6px; font-weight:700; color:#0f172a;">
+            <svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+            <span>Sesli Türkçe Uyarı (TTS):</span>
+          </div>
+          <label style="display:flex; align-items:center; gap:6px; cursor:pointer;">
+            <input type="checkbox" id="ikasVoiceToggle" checked style="width:18px; height:18px;">
+            <span style="font-weight:700; color:#0284c7;">Açık</span>
+          </label>
+        </div>
+
+        <div id="ikas-result-card" style="display:none; padding:12px; border-radius:10px; margin-bottom:12px;">
+          <!-- Sonuç dinamik basılır -->
+        </div>
+
+        <div style="font-weight:800; font-size:0.84rem; color:#0f172a; margin-bottom:6px; display:flex; justify-content:space-between;">
+          <span>🛑 Aktif İlaç Kilidi Olan Hayvanlar:</span>
+          <span id="ikas-active-count" style="background:#fee2e2; color:#dc2626; padding:2px 8px; border-radius:12px; font-size:0.75rem;">0 Hayvan</span>
+        </div>
+        <div id="ikas-locked-list" style="display:flex; flex-direction:column; gap:6px; max-height:160px; overflow-y:auto;">
+          <!-- Kilitli hayvanlar listelenir -->
+        </div>
+      </div>
+      <div class="generic-modal-ftr">
+        <button class="guide-modal-ftr-btn" onclick="openKupeDefteriModal('new'); closeSesliIkasModal();" style="background:#008069; flex:1;">+ Yeni İlaç Kaydet</button>
+        <button class="guide-modal-ftr-btn" onclick="closeSesliIkasModal()" style="background:#64748b; flex:1;">Kapat</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACİL İLAÇ DOZAJ & İLK YARDIM MOTORU MODAL -->
+  <div class="generic-modal-overlay" id="dozaj-modal" onclick="closeGenericModalOnBackdrop(event, 'dozaj-modal')">
+    <div class="generic-modal-box">
+      <div class="generic-modal-hdr" style="background:#dc2626;">
+        <div class="generic-modal-title">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
+          <span>Acil İlaç Dozaj & İlk Yardım Motoru</span>
+        </div>
+        <button class="guide-modal-close" onclick="closeDozajModal()" aria-label="Kapat">&times;</button>
+      </div>
+      <div class="generic-modal-body">
+        <p style="font-size:0.84rem; color:#475569; margin-bottom:10px;">
+          Acil durumlarda hayvanın canlı ağırlığına göre veteriner ilaçlarının tam mL dozajını hesaplayın (Aşırı veya yetersiz doz ölümcül olabilir):
+        </p>
+
+        <div style="background:#fef2f2; border:1.5px solid #fecaca; border-radius:8px; padding:10px; margin-bottom:12px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+            <label style="font-size:0.82rem; font-weight:800; color:#991b1b;">Hayvan Canlı Ağırlığı:</label>
+            <span id="dozajWeightDisplay" style="font-size:1.15rem; font-weight:900; color:#dc2626;">400 kg</span>
+          </div>
+          <input type="range" id="dozajWeightInput" min="10" max="800" step="5" value="400" oninput="updateDozajCalc()" style="width:100%; accent-color:#dc2626;">
+          <div style="display:flex; gap:4px; flex-wrap:wrap; margin-top:8px;">
+            <button type="button" class="preset-pill" onclick="setDozajWeight(25)">25 kg Kuzu</button>
+            <button type="button" class="preset-pill" onclick="setDozajWeight(50)">50 kg Buzağı/Koyun</button>
+            <button type="button" class="preset-pill" onclick="setDozajWeight(250)">250 kg Düve</button>
+            <button type="button" class="preset-pill" onclick="setDozajWeight(450)">450 kg Besi Danası</button>
+            <button type="button" class="preset-pill" onclick="setDozajWeight(650)">650 kg Süt İneği</button>
+          </div>
+        </div>
+
+        <div id="dozaj-results-container" style="display:flex; flex-direction:column; gap:8px;">
+          <!-- Dozaj hesaplama kartları JS ile basılır -->
+        </div>
+
+        <div style="background:#fffbeb; border:1px solid #fde68a; border-radius:8px; padding:10px; margin-top:12px; font-size:0.75rem; color:#92400e; line-height:1.4;">
+          ⚠️ <strong>Yasal Uyarı:</strong> İlaç dozajları Merck Veterinary Manual ve veteriner prospektüs standartlarına göredir. Teşhis ve reçete mutlaka yetkili Veteriner Hekim kontrolünde yapılmalıdır.
+        </div>
+      </div>
+      <div class="generic-modal-ftr">
+        <button class="guide-modal-ftr-btn" onclick="closeDozajModal()" style="background:#dc2626; width:100%;">Tamam, Kapat</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ALTIN SAĞLIK & ACİL MÜDAHALE PROTOKOLLERİ MODAL -->
+  <div class="generic-modal-overlay" id="protokol-modal" onclick="closeGenericModalOnBackdrop(event, 'protokol-modal')">
+    <div class="generic-modal-box" style="max-width:620px;">
+      <div class="generic-modal-hdr" style="background:#7c3aed;">
+        <div class="generic-modal-title">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          <span>Altın Sağlık & Müdahale Protokolleri</span>
+        </div>
+        <button class="guide-modal-close" onclick="closeSaglikProtokolModal()" aria-label="Kapat">&times;</button>
+      </div>
+      <div class="generic-modal-body">
+        <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;">
+          <button class="wa-choice-btn primary" id="protBtn1" onclick="switchSaglikProtokolTab('cmt')" style="padding:6px 10px; font-size:0.78rem;">
+            🧪 CMT & Mastitis
+          </button>
+          <button class="wa-choice-btn" id="protBtn2" onclick="switchSaglikProtokolTab('humma')" style="padding:6px 10px; font-size:0.78rem;">
+            ⚡ Süt Humması (Felç)
+          </button>
+          <button class="wa-choice-btn" id="protBtn3" onclick="switchSaglikProtokolTab('sisme')" style="padding:6px 10px; font-size:0.78rem;">
+            🎈 Gazlı Şişme & Trokar
+          </button>
+          <button class="wa-choice-btn" id="protBtn4" onclick="switchSaglikProtokolTab('celerme')" style="padding:6px 10px; font-size:0.78rem;">
+            🩸 Çelerme & Ani Ölüm
+          </button>
+          <button class="wa-choice-btn" id="protBtn5" onclick="switchSaglikProtokolTab('piyeten')" style="padding:6px 10px; font-size:0.78rem;">
+            🩹 Piyeten & Tırnak
+          </button>
+        </div>
+
+        <!-- 1. CMT & MASTİTİS -->
+        <div id="saglik-tab-cmt">
+          <div style="background:#f5f3ff; border:1.5px solid #ddd6fe; border-radius:8px; padding:12px;">
+            <h4 style="color:#5b21b6; font-weight:800; margin-bottom:6px;">🧪 California Mastitis Testi (CMT) & Meme Sağlığı</h4>
+            <p style="color:#475569; margin-bottom:8px;">
+              Gözle görülmeyen gizli (subklinik) meme yangısını tespit etmenin en pratik ahır yöntemidir. Sütteki somatik hücre sayısı ve mikrobu saniyeler içinde jelleşme ile gösterir.
+            </p>
+            <ul style="padding-left:18px; color:#334155; margin-bottom:10px;">
+              <li><strong>İlk Sütü Dökün:</strong> Meme başındaki ilk 2-3 sıkım sütü CMT kabına değil, ayrı ön sağım kabına dökün.</li>
+              <li><strong>Eşit Miktar Kuralı:</strong> 4 meme lobundan gelen süte eşit miktarda (2 mL süt + 2 mL CMT ayıracı) ekleyin ve tabağı dairesel çevirin.</li>
+              <li><strong>Değerlendirme:</strong>
+                <br>• <strong>Sıvı kalırsa (-):</strong> Temiz ve sağlıklı meme.
+                <br>• <strong>Hafif sümüksü (+):</strong> Erken yangı başlangıcı, takip edilmeli.
+                <br>• <strong>Koyu jöle/jel (++, +++):</strong> Şiddetli mastitis! Hekim gözetiminde tedavi başlatılmalı, süt tanka verilmemelidir.
+              </li>
+              <li><strong>Sağım Hijyeni:</strong> Enfekte inekler her zaman en son sağılmalı, meme başları daldırma dezenfektanıyla mühürlenmelidir.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 2. SÜT HUMMASI & HİPOKALSEMİ -->
+        <div id="saglik-tab-humma" style="display:none;">
+          <div style="background:#fffbeb; border:1.5px solid #fde68a; border-radius:8px; padding:12px;">
+            <h4 style="color:#92400e; font-weight:800; margin-bottom:6px;">⚡ Süt Humması (Hipokalsemi / Doğum Felci) Protokolü</h4>
+            <p style="color:#475569; margin-bottom:8px;">
+              Doğumdan sonraki ilk 48 saatte kalsiyumun aniden süte geçmesiyle ineğin kan kalsiyumu çöker; bacaklar titrer, hayvan ayağa kalkamaz ve kafasını göğsüne dayayıp S-şeklinde yatar.
+            </p>
+            <ul style="padding-left:18px; color:#334155; margin-bottom:10px;">
+              <li><strong>Hayati Damar Kuralı:</strong> Damardan Kalsiyum Glukonat serumu <strong>ASLA HIZLI VERİLMEZ!</strong> Hızlı kalsiyum kalbi anında durdurur. 500 mL serum en az 15-20 dakikada damla damla gitmelidir.</li>
+              <li><strong>Kalp Dinleme:</strong> Serum akarken ineğin kalbi elle veya steteskopla dinlenir; tekleme veya aritmi başlarsa infüzyon hemen durdurulur.</li>
+              <li><strong>Dik Tutma:</strong> Hayvanı asla yan yatırmayın; göğsü üstünde dik tutun (yan yatarsa işkembe gazı akciğeri boğar).</li>
+              <li><strong>Ağızdan Sıvı Yasağı:</strong> Yatan ve bilinci bulanık hayvana ağızdan asla zorla su veya şişeyle ilaç içirmeyin (yutkunamaz, ciğere kaçar!).</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 3. GAZLI ŞİŞME & TROKAR -->
+        <div id="saglik-tab-sisme" style="display:none;">
+          <div style="background:#fef2f2; border:1.5px solid #fecaca; border-radius:8px; padding:12px;">
+            <h4 style="color:#991b1b; font-weight:800; margin-bottom:6px;">🎈 İşkembe Gazı, Timpani ve Trokar Tatbiki</h4>
+            <p style="color:#475569; margin-bottom:8px;">
+              Körpe yonca, kırağılı mera veya tahıl çarpması sonucu sol açlık çukuru davul gibi şişer. İşkembe diyaframa baskı yaparak hayvanın nefes almasını engeller; dilde morarma başlar.
+            </p>
+            <ul style="padding-left:18px; color:#334155; margin-bottom:10px;">
+              <li><strong>Ön Ayakları Yükseltin:</strong> Hayvanın ön ayaklarını tümsek veya rampaya çıkarın (işkembenin akciğere baskısını azaltır).</li>
+              <li><strong>Köpük Söndürücü:</strong> Ağızdan 250 - 500 mL sıvı bitkisel yağ (ayçiçek veya mısır özü yağı) içirin; köpük baloncuklarını söndürür.</li>
+              <li><strong>Ağza Sopa Bağlama:</strong> Ağza yanlamasına temiz bir sopa veya urgan bağlanarak geveleme ve gaz çıkarma refleksi uyarılır.</li>
+              <li><strong>Acil Trokar Noktası:</strong> Hayvan boğulmak üzereyse <strong>SOL BÖĞÜRDE</strong>, son kaburga ile kalça kemiği arasındaki çukurun tam ortasından, bel omurlarından 1 karış aşağıdan trokar veya kalın kanül batırılır. Gaz yavaşça boşaltılmalıdır.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 4. ÇELERME (ENTEROTOKSEMİ) -->
+        <div id="saglik-tab-celerme" style="display:none;">
+          <div style="background:#f0fdf4; border:1.5px solid #86efac; border-radius:8px; padding:12px;">
+            <h4 style="color:#166534; font-weight:800; margin-bottom:6px;">🩸 Çelerme (Enterotoksemi / Yumuşak Böbrek) Protokolü</h4>
+            <p style="color:#475569; margin-bottom:8px;">
+              Clostridium perfringens bakterisinin bağırsakta aşırı çoğalarak ürettiği öldürücü toksinlerdir. Genellikle sürünün en semiz ve hızlı kilo alan kuzu ve danalarını vurur; kasılma ve ani ölüm yapar.
+            </p>
+            <ul style="padding-left:18px; color:#334155; margin-bottom:10px;">
+              <li><strong>Kademeli Yem Geçişi:</strong> Ani yem değişiklikleri ve meradan kesif yeme ani geçiş çelermenin bir numaralı tetikleyicisidir.</li>
+              <li><strong>Karma Aşı Takvimi:</strong> Koyunlara koç katımından önce ve doğuma 4-6 hafta kala rapelli karma aşı yapılmalıdır (Ağız sütüyle yavruya geçer).</li>
+              <li><strong>Kuzu Aşısı:</strong> Kuzulara 3-4 haftalıkken ilk çelerme aşısı, 21 gün sonra ise mutlaka rapel (tekrar) dozu vurulmalıdır.</li>
+              <li><strong>Hastalık Anı:</strong> Belirti başladığında ölüm saatler içinde gerçekleşir; acil hekim gözetiminde yüksek doz penisilin ve antitoksin uygulanmalıdır.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 5. PİYETEN & AYAK BANYOSU -->
+        <div id="saglik-tab-piyeten" style="display:none;">
+          <div style="background:#f0f9ff; border:1.5px solid #bae6fd; border-radius:8px; padding:12px;">
+            <h4 style="color:#0369a1; font-weight:800; margin-bottom:6px;">🩹 Bulaşıcı Tırnak Çürüğü (Piyeten) & Ayak Banyosu</h4>
+            <p style="color:#475569; margin-bottom:8px;">
+              Dichelobacter nodosus mikrobu tırnak aralığından girerek tırnak tabanını çürütür; hayvan dizleri üstünde otlar ve şiddetli topallık nedeniyle kilo/süt kaybeder.
+            </p>
+            <ul style="padding-left:18px; color:#334155; margin-bottom:10px;">
+              <li><strong>Tırnak Kesimi:</strong> Çürük, ayrılmış ve içi pislik dolmuş tırnak kısımları kanatılmadan temizlenip havalandırılmalıdır.</li>
+              <li><strong>Ayak Banyosu (%5 Göztaşı / Bakır Sülfat):</strong> 100 Litre suya 5 kg Bakır Sülfat eritilir. Hayvanlar haftada 1-2 kez bu banyodan geçirilir (Tırnak içinde 2-3 dakika durmalıdır).</li>
+              <li><strong>Kuru Zemin Şartı:</strong> Banyodan çıkan hayvanlar en az 1 saat kuru ve temiz beton/taş zeminde bekletilmeli, hemen ıslak çamura sokulmamalıdır.</li>
+              <li><strong>İzolasyon:</strong> Topallayan hayvanlar sürüden ayrılıp ayrı bölmede tedavi edilmeli; ortak meraya sağlamlarla birlikte çıkarılmamalıdır.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="generic-modal-ftr">
+        <button class="guide-modal-ftr-btn" onclick="closeSaglikProtokolModal()" style="background:#7c3aed; width:100%;">Tamam, Kapat</button>
       </div>
     </div>
   </div>
@@ -4045,6 +4501,526 @@
           </div>
         `;
       }).join("");
+    }
+
+    // =========================================================================
+    // ÇOBAN DOKTOR: BİRLEŞİK SAĞLIK HESAPLAYICILARI & PROTOKOLLERİ
+    // =========================================================================
+
+    function closeGenericModalOnBackdrop(e, modalId) {
+      if (e.target && e.target.id === modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) modal.classList.remove("active");
+      }
+    }
+
+    // 1. BUZAĞI & KUZU İSHALİ SIVI & ELEKTROLİT HESAPLAYICI
+    let currentSiviAnimal = 'calf';
+
+    function openSiviModal() {
+      const modal = document.getElementById("sivi-modal");
+      if (modal) {
+        modal.classList.add("active");
+        updateSiviCalc();
+      }
+    }
+
+    function closeSiviModal() {
+      const modal = document.getElementById("sivi-modal");
+      if (modal) modal.classList.remove("active");
+    }
+
+    function switchSiviAnimal(animal) {
+      currentSiviAnimal = animal;
+      const btnCalf = document.getElementById("siviAnimalCalfBtn");
+      const btnLamb = document.getElementById("siviAnimalLambBtn");
+      const weightInput = document.getElementById("siviWeightInput");
+      const weightLabel = document.getElementById("siviWeightLabel");
+
+      if (animal === 'calf') {
+        if (btnCalf) btnCalf.classList.add("primary");
+        if (btnLamb) btnLamb.classList.remove("primary");
+        if (weightLabel) weightLabel.textContent = "Buzağı Canlı Ağırlığı:";
+        if (weightInput) {
+          weightInput.min = "25";
+          weightInput.max = "80";
+          weightInput.value = "40";
+        }
+      } else {
+        if (btnCalf) btnCalf.classList.remove("primary");
+        if (btnLamb) btnLamb.classList.add("primary");
+        if (weightLabel) weightLabel.textContent = "Kuzu / Oğlak Canlı Ağırlığı:";
+        if (weightInput) {
+          weightInput.min = "2";
+          weightInput.max = "25";
+          weightInput.value = "8";
+        }
+      }
+      updateSiviCalc();
+    }
+
+    function updateSiviCalc() {
+      const weightInput = document.getElementById("siviWeightInput");
+      const weightDisplay = document.getElementById("siviWeightDisplay");
+      const resultBox = document.getElementById("sivi-result-box");
+      if (!weightInput || !resultBox) return;
+
+      const weight = parseFloat(weightInput.value) || (currentSiviAnimal === 'calf' ? 40 : 8);
+      if (weightDisplay) weightDisplay.textContent = weight + " kg";
+
+      const selectedDehid = document.querySelector('input[name="siviDehydration"]:checked');
+      const dehidPct = selectedDehid ? parseFloat(selectedDehid.value) : 5;
+
+      const defisitLitre = (weight * (dehidPct / 100));
+      const idameLitre = (weight * 0.08);
+      const devamKayip = (currentSiviAnimal === 'calf' ? 1.0 : 0.2);
+      const toplam24Saat = (defisitLitre + idameLitre + devamKayip).toFixed(1);
+
+      let rotaText = "";
+      let alertStyle = "border-left:4px solid #ea580c;";
+      if (dehidPct <= 6) {
+        rotaText = `<strong>Uygulama Yolu:</strong> Ağızdan (Oral Elektrolit). Yavru ayakta ve emebiliyor; 24 saat içinde 3-4 eşit öğünde ılık içirilmelidir.`;
+      } else if (dehidPct <= 8) {
+        rotaText = `<strong>Uygulama Yolu:</strong> Ağızdan + Gerekirse Deri Altı / Hafif Damar İçi. Emme refleksi zayıfsa sonda (özofagus tüpü) veya damardan Ringer Laktat desteği gerekebilir.`;
+      } else {
+        alertStyle = "border-left:4px solid #dc2626; background:#fef2f2;";
+        rotaText = `<strong style="color:#b91c1c;">⚠️ ACİL DAMAR İÇİ (IV) SERUM ŞART!</strong> Emme refleksi kaybolmuş veya hayvan komadadır. Ağızdan verilirse akciğere kaçıp boğar. Veteriner hekim tarafından acil damar kanülü açılarak <strong>İzotonik Sodyum Bikarbonat veya Ringer Laktat</strong> verilmelidir.`;
+      }
+
+      resultBox.innerHTML = `
+        <div style="${alertStyle} padding-left:8px;">
+          <div style="font-weight:900; font-size:1.02rem; color:#0f172a; margin-bottom:4px;">
+            💧 24 Saatlik Toplam Sıvı İhtiyacı: <span style="color:#ea580c; font-size:1.25rem;">${toplam24Saat} Litre</span>
+          </div>
+          <div style="font-size:0.8rem; color:#475569; margin-bottom:6px;">
+            • Kayıp Telafisi (Defisit): <strong>${defisitLitre.toFixed(1)} L</strong> | Günlük Yaşam Payı: <strong>${idameLitre.toFixed(1)} L</strong> | İshal Kaybı: <strong>${devamKayip.toFixed(1)} L</strong>
+          </div>
+          <div style="font-size:0.82rem; color:#1e293b; line-height:1.4;">
+            ${rotaText}
+          </div>
+        </div>
+      `;
+    }
+
+    // 2. KOLOSTRUM BRIX REFRAKTOMETRE & İLK 2 SAAT KURALI
+    function openKolostrumModal() {
+      const modal = document.getElementById("kolostrum-modal");
+      if (modal) {
+        modal.classList.add("active");
+        updateKolostrumCalc();
+      }
+    }
+
+    function closeKolostrumModal() {
+      const modal = document.getElementById("kolostrum-modal");
+      if (modal) modal.classList.remove("active");
+    }
+
+    function updateKolostrumCalc() {
+      const brixInput = document.getElementById("brixInput");
+      const brixDisplay = document.getElementById("brixValDisplay");
+      const resultBox = document.getElementById("brix-result-box");
+      if (!brixInput || !resultBox) return;
+
+      const brix = parseInt(brixInput.value) || 24;
+      if (brixDisplay) brixDisplay.textContent = "%" + brix + " Brix";
+
+      if (brix >= 22) {
+        resultBox.style.background = "#f0fdf4";
+        resultBox.style.border = "1.5px solid #86efac";
+        resultBox.innerHTML = `
+          <div style="display:flex; align-items:center; gap:8px; font-weight:900; color:#166534; font-size:1rem; margin-bottom:4px;">
+            <span>🟢 MÜKEMMEL KALİTE (IgG > 50 g/L)</span>
+          </div>
+          <p style="margin:0; font-size:0.82rem; color:#14532d; line-height:1.45;">
+            Bu süt yeni doğan yavru için altın değerindedir. Yavruyu ölümcül buzağı/kuzu ishallerinden ve septisemiden tam korur.
+            <br>• Fazla kalanı pet şişelerde <strong>derin dondurucuya (-20°C)</strong> kaldırın!
+          </p>
+        `;
+      } else if (brix >= 18) {
+        resultBox.style.background = "#fffbeb";
+        resultBox.style.border = "1.5px solid #fde68a";
+        resultBox.innerHTML = `
+          <div style="display:flex; align-items:center; gap:8px; font-weight:900; color:#92400e; font-size:1rem; margin-bottom:4px;">
+            <span>🟡 ORTA KALİTE (IgG 30 - 50 g/L)</span>
+          </div>
+          <p style="margin:0; font-size:0.82rem; color:#78350f; line-height:1.45;">
+            Yavruyu kısmen korur ancak tek başına yetersiz kalabilir.
+            <br>• İmkan varsa dondurucudaki kaliteli kolostrumla takviye edin veya içirilen miktarı %25 artırın. Dondurucuya saklamak için uygun değildir.
+          </p>
+        `;
+      } else {
+        resultBox.style.background = "#fef2f2";
+        resultBox.style.border = "1.5px solid #fecaca";
+        resultBox.innerHTML = `
+          <div style="display:flex; align-items:center; gap:8px; font-weight:900; color:#991b1b; font-size:1rem; margin-bottom:4px;">
+            <span>🔴 YETERSİZ / ÇÖP KOLONİ (IgG < 30 g/L)</span>
+          </div>
+          <p style="margin:0; font-size:0.82rem; color:#7f1d1d; line-height:1.45;">
+            Bu sütte antikor neredeyse hiç yoktur! Sadece bu sütü içen yavrularda <strong>%80 ihtimalle ölümcül enfeksiyon</strong> gelişir.
+            <br>• <strong>Ne Yapmalı?</strong> Derhal dondurucudaki Brix > %22 saklanmış ağız sütünü 40°C benmari usulü eritip içirin veya ticari kolostrum tozu kullanın.
+          </p>
+        `;
+      }
+    }
+
+    // 3. SESLİ İKAS (ET & SÜT ÇİFT KİLİT DENETİMİ)
+    let ikasSpeechRec = null;
+    let isIkasListening = false;
+
+    function openSesliIkasModal() {
+      const modal = document.getElementById("ikas-modal");
+      if (modal) {
+        modal.classList.add("active");
+        renderIkasLockedList();
+        const tagInp = document.getElementById("ikasTagInput");
+        if (tagInp) {
+          tagInp.value = "";
+          setTimeout(() => tagInp.focus(), 150);
+        }
+        const resCard = document.getElementById("ikas-result-card");
+        if (resCard) resCard.style.display = "none";
+      }
+    }
+
+    function closeSesliIkasModal() {
+      const modal = document.getElementById("ikas-modal");
+      if (modal) modal.classList.remove("active");
+      if (isIkasListening && ikasSpeechRec) {
+        ikasSpeechRec.stop();
+        isIkasListening = false;
+        const statusEl = document.getElementById("ikasVoiceStatus");
+        if (statusEl) statusEl.style.display = "none";
+      }
+    }
+
+    function renderIkasLockedList() {
+      const listEl = document.getElementById("ikas-locked-list");
+      const countEl = document.getElementById("ikas-active-count");
+      if (!listEl) return;
+
+      const records = getKupeRecords();
+      const activeRecords = records.filter(r => {
+        const w = calculateWithdrawal(r.appDate, r.milkDays, r.meatDays);
+        return w.isMilkActive || w.isMeatActive;
+      });
+
+      if (countEl) countEl.textContent = activeRecords.length + " Hayvan";
+
+      if (activeRecords.length === 0) {
+        listEl.innerHTML = `
+          <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:6px; padding:10px; font-size:0.8rem; color:#166534; text-align:center;">
+            ✅ Harika! Şu anda çiftlikte süt veya kesim yasağı olan hiçbir hayvan yok.
+          </div>
+        `;
+        return;
+      }
+
+      listEl.innerHTML = activeRecords.map(r => {
+        const w = calculateWithdrawal(r.appDate, r.milkDays, r.meatDays);
+        let pills = "";
+        if (w.isMilkActive) pills += `<span style="background:#fee2e2; color:#dc2626; padding:2px 6px; border-radius:4px; font-size:0.7rem; font-weight:800;">🥛 SÜT: ${w.milkRemaining}</span> `;
+        if (w.isMeatActive) pills += `<span style="background:#fef2f2; color:#991b1b; padding:2px 6px; border-radius:4px; font-size:0.7rem; font-weight:800;">🥩 ET: ${w.meatRemaining}</span>`;
+
+        return `
+          <div style="display:flex; justify-content:space-between; align-items:center; background:#fff; border:1px solid #e2e8f0; border-radius:6px; padding:8px 10px; cursor:pointer;" onclick="document.getElementById('ikasTagInput').value='${r.earTag}'; checkIkasTagManual();">
+            <div>
+              <strong style="color:#0f172a; font-size:0.85rem;">🏷️ ${r.earTag}</strong>
+              <div style="font-size:0.75rem; color:#64748b;">${r.medicine} (${r.speciesGroup})</div>
+            </div>
+            <div>${pills}</div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function checkIkasTagManual() {
+      const tagInp = document.getElementById("ikasTagInput");
+      if (!tagInp || !tagInp.value.trim()) {
+        alert("Lütfen denetlemek için bir küpe numarası yazın veya sesle söyleyin.");
+        return;
+      }
+      checkIkasTagInternal(tagInp.value.trim());
+    }
+
+    function checkIkasTagInternal(rawTag) {
+      const records = getKupeRecords();
+      const cleanSearch = rawTag.toString().replace(/[^0-9A-Z]/gi, "").toUpperCase();
+      
+      const foundRecords = records.filter(r => {
+        const cleanTag = (r.earTag || "").replace(/[^0-9A-Z]/gi, "").toUpperCase();
+        return cleanTag.includes(cleanSearch) || cleanSearch.includes(cleanTag);
+      });
+
+      const resCard = document.getElementById("ikas-result-card");
+      if (!resCard) return;
+      resCard.style.display = "block";
+
+      if (foundRecords.length === 0) {
+        resCard.style.background = "#f0fdf4";
+        resCard.style.border = "2px solid #22c55e";
+        resCard.innerHTML = `
+          <div style="display:flex; align-items:center; gap:8px; font-weight:900; color:#15803d; font-size:1.05rem;">
+            <span>✅ TEMİZ / KAYIT BULUNAMADI</span>
+          </div>
+          <div style="font-size:0.84rem; color:#166534; margin-top:4px;">
+            <strong>${rawTag}</strong> küpeli hayvana ait aktif bir ilaç kısıtlaması defterde görünmüyor. Kesim ve süt için güvenli.
+          </div>
+        `;
+        speakIkasText(`Küpe numarası ${rawTag}. Aktif ilaç kilidi yok, temiz.`);
+        return;
+      }
+
+      let hasMilkLock = false;
+      let hasMeatLock = false;
+      let lockDetails = [];
+
+      foundRecords.forEach(r => {
+        const w = calculateWithdrawal(r.appDate, r.milkDays, r.meatDays);
+        if (w.isMilkActive) {
+          hasMilkLock = true;
+          lockDetails.push(`🥛 Süt Yasağı: ${r.medicine} ilacı nedeniyle ${w.milkRemaining} (${w.milkEndDateStr}'e kadar)`);
+        }
+        if (w.isMeatActive) {
+          hasMeatLock = true;
+          lockDetails.push(`🥩 Kesim Yasağı: ${r.medicine} ilacı nedeniyle ${w.meatRemaining} (${w.meatEndDateStr}'e kadar)`);
+        }
+      });
+
+      if (hasMilkLock || hasMeatLock) {
+        resCard.style.background = "#fef2f2";
+        resCard.style.border = "2px solid #dc2626";
+        resCard.innerHTML = `
+          <div style="display:flex; align-items:center; gap:8px; font-weight:900; color:#dc2626; font-size:1.1rem;">
+            <span>🛑 DİKKAT! İLAÇ KİLİDİ AKTİF!</span>
+          </div>
+          <div style="font-size:0.86rem; color:#991b1b; margin-top:6px; font-weight:700;">
+            Küpe No: ${foundRecords[0].earTag} (${foundRecords[0].speciesGroup})
+          </div>
+          <div style="margin-top:6px; font-size:0.82rem; color:#7f1d1d; line-height:1.45;">
+            ${lockDetails.map(d => `• ${d}`).join("<br>")}
+          </div>
+          <div style="background:#fee2e2; border-radius:6px; padding:6px; margin-top:8px; font-size:0.75rem; color:#991b1b; font-weight:800;">
+            ⚠️ BU HAYVANIN SÜTÜNÜ TANKA KATMAYIN, KESİME GÖNDERMEYİN!
+          </div>
+        `;
+
+        let voiceMsg = `Dikkat! ${foundRecords[0].earTag} numaralı hayvanda `;
+        if (hasMilkLock && hasMeatLock) voiceMsg += `hem süt hem kesim kilidi var!`;
+        else if (hasMilkLock) voiceMsg += `süt döküm kilidi var! Sütü tanka katmayın!`;
+        else voiceMsg += `kesim yasağı kilidi var! Kesime gönderilemez!`;
+        speakIkasText(voiceMsg);
+      } else {
+        resCard.style.background = "#f0fdf4";
+        resCard.style.border = "2px solid #22c55e";
+        resCard.innerHTML = `
+          <div style="display:flex; align-items:center; gap:8px; font-weight:900; color:#15803d; font-size:1.05rem;">
+            <span>✅ SÜRE DOLDU - ARINDI</span>
+          </div>
+          <div style="font-size:0.84rem; color:#166534; margin-top:4px;">
+            <strong>${foundRecords[0].earTag}</strong> için uygulanan tüm ilaçların arınma süresi tamamlanmıştır. Süt ve et için güvenlidir.
+          </div>
+        `;
+        speakIkasText(`Küpe numarası ${foundRecords[0].earTag}. İlaç arınma süresi tamamlandı, güvenli.`);
+      }
+    }
+
+    function speakIkasText(text) {
+      const toggle = document.getElementById("ikasVoiceToggle");
+      if (toggle && !toggle.checked) return;
+      if (!('speechSynthesis' in window)) return;
+
+      try {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = "tr-TR";
+        utterance.rate = 1.0;
+        window.speechSynthesis.speak(utterance);
+      } catch (err) {
+        console.warn("TTS error:", err);
+      }
+    }
+
+    function toggleVoiceIkas() {
+      const statusEl = document.getElementById("ikasVoiceStatus");
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRecognition) {
+        alert("Tarayıcınız ses tanıma (mikrofon) özelliğini desteklemiyor. Lütfen küpe numarasını yazarak aratın.");
+        return;
+      }
+
+      if (isIkasListening) {
+        if (ikasSpeechRec) ikasSpeechRec.stop();
+        isIkasListening = false;
+        if (statusEl) statusEl.style.display = "none";
+        return;
+      }
+
+      try {
+        ikasSpeechRec = new SpeechRecognition();
+        ikasSpeechRec.lang = "tr-TR";
+        ikasSpeechRec.continuous = false;
+        ikasSpeechRec.interimResults = false;
+
+        ikasSpeechRec.onstart = () => {
+          isIkasListening = true;
+          if (statusEl) {
+            statusEl.style.display = "block";
+            statusEl.textContent = "🎙️ Dinleniyor... Küpe numarasını söyleyin (Örn: '145' veya 'kırk iki')...";
+          }
+        };
+
+        ikasSpeechRec.onresult = (evt) => {
+          const transcript = evt.results[0][0].transcript;
+          if (statusEl) statusEl.textContent = `🗣️ Algılandı: "${transcript}"`;
+          
+          let cleanDigits = transcript.replace(/[^0-9]/g, "");
+          if (!cleanDigits) {
+            const words = transcript.toLowerCase();
+            if (words.includes("sıfır")) cleanDigits += "0";
+            if (words.includes("bir")) cleanDigits += "1";
+            if (words.includes("iki")) cleanDigits += "2";
+            if (words.includes("üç")) cleanDigits += "3";
+            if (words.includes("dört")) cleanDigits += "4";
+            if (words.includes("beş")) cleanDigits += "5";
+            if (words.includes("altı")) cleanDigits += "6";
+            if (words.includes("yedi")) cleanDigits += "7";
+            if (words.includes("sekiz")) cleanDigits += "8";
+            if (words.includes("dokuz")) cleanDigits += "9";
+          }
+
+          const finalTag = cleanDigits || transcript.trim();
+          const tagInp = document.getElementById("ikasTagInput");
+          if (tagInp) tagInp.value = finalTag;
+          checkIkasTagInternal(finalTag);
+        };
+
+        ikasSpeechRec.onerror = () => {
+          if (statusEl) statusEl.textContent = "❌ Ses anlaşılamadı veya mikrofon izni verilmedi.";
+          isIkasListening = false;
+        };
+
+        ikasSpeechRec.onend = () => {
+          isIkasListening = false;
+          setTimeout(() => {
+            if (!isIkasListening && statusEl) statusEl.style.display = "none";
+          }, 3000);
+        };
+
+        ikasSpeechRec.start();
+      } catch (err) {
+        alert("Mikrofon başlatılamadı: " + err.message);
+      }
+    }
+
+    // 4. ACİL VETERİNER İLAÇ DOZAJ MOTORU
+    function openDozajModal() {
+      const modal = document.getElementById("dozaj-modal");
+      if (modal) {
+        modal.classList.add("active");
+        updateDozajCalc();
+      }
+    }
+
+    function closeDozajModal() {
+      const modal = document.getElementById("dozaj-modal");
+      if (modal) modal.classList.remove("active");
+    }
+
+    function setDozajWeight(val) {
+      const inp = document.getElementById("dozajWeightInput");
+      if (inp) {
+        inp.value = val;
+        updateDozajCalc();
+      }
+    }
+
+    function updateDozajCalc() {
+      const inp = document.getElementById("dozajWeightInput");
+      const disp = document.getElementById("dozajWeightDisplay");
+      const container = document.getElementById("dozaj-results-container");
+      if (!inp || !container) return;
+
+      const weight = parseFloat(inp.value) || 400;
+      if (disp) disp.textContent = weight + " kg";
+
+      const adrDoz = (weight * 0.015).toFixed(2);
+      const meloxDoz = (weight * 0.025).toFixed(1);
+      const flunDoz = (weight * 0.044).toFixed(1);
+      const tulaDoz = (weight * 0.025).toFixed(1);
+
+      container.innerHTML = `
+        <div style="background:#fff; border:1px solid #fed7aa; border-left:4px solid #ea580c; border-radius:8px; padding:10px;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <strong style="color:#9a3412; font-size:0.88rem;">💉 Adrenalin 1:1000 (1 mg/mL)</strong>
+            <span style="font-size:1.1rem; font-weight:900; color:#c2410c;">${adrDoz} mL</span>
+          </div>
+          <div style="font-size:0.75rem; color:#475569; margin-top:2px;">
+            <strong>Kullanım:</strong> Anafilaktik şok, aşı/ilaç alerjisi, ani solunum durması.
+            <br><strong>Uygulama:</strong> Deri altı (SC) veya kas içi (IM). Hayati tehlikede damla damla çok yavaş IV.
+          </div>
+        </div>
+
+        <div style="background:#fff; border:1px solid #bfdbfe; border-left:4px solid #2563eb; border-radius:8px; padding:10px;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <strong style="color:#1e40af; font-size:0.88rem;">💉 Meloksikam %2 (20 mg/mL)</strong>
+            <span style="font-size:1.1rem; font-weight:900; color:#1d4ed8;">${meloxDoz} mL</span>
+          </div>
+          <div style="font-size:0.75rem; color:#475569; margin-top:2px;">
+            <strong>Kullanım:</strong> Mastitis, pnömoni, topallık, yüksek ateş ve doğum sonrası şiddetli ağrı.
+            <br><strong>Uygulama:</strong> Deri altı (SC) veya damar içi (IV). Tek doz (gerekirse 24-48 saat sonra).
+          </div>
+        </div>
+
+        <div style="background:#fff; border:1px solid #fecaca; border-left:4px solid #dc2626; border-radius:8px; padding:10px;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <strong style="color:#991b1b; font-size:0.88rem;">💉 Fluniksin Meglumin %5 (50 mg/mL)</strong>
+            <span style="font-size:1.1rem; font-weight:900; color:#b91c1c;">${flunDoz} mL</span>
+          </div>
+          <div style="font-size:0.75rem; color:#475569; margin-top:2px;">
+            <strong>Kullanım:</strong> Akut endotoksemi (zehirlenme şoku), kolik/sancı, akut mastitis ateşi.
+            <br><strong>Uygulama:</strong> Tercihen YAVAŞ DAMAR İÇİ (IV). Kas içine yapılırsa doku nekrozu yapabilir!
+          </div>
+        </div>
+
+        <div style="background:#fff; border:1px solid #ddd6fe; border-left:4px solid #7c3aed; border-radius:8px; padding:10px;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <strong style="color:#5b21b6; font-size:0.88rem;">💉 Tulatromisin (100 mg/mL - BRD / Solunum)</strong>
+            <span style="font-size:1.1rem; font-weight:900; color:#6d28d9;">${tulaDoz} mL</span>
+          </div>
+          <div style="font-size:0.75rem; color:#475569; margin-top:2px;">
+            <strong>Kullanım:</strong> Dana/buzağı/koyun solunum yolu enfeksiyonları (öksürük, hırıltı, zatürre).
+            <br><strong>Uygulama:</strong> Boyun bölgesine DERİ ALTI (SC). Tek enjeksiyon bölgesine 7.5 mL'den fazla vermeyin.
+          </div>
+        </div>
+      `;
+    }
+
+    // 5. ALTIN SAĞLIK PROTOKOLLERİ
+    function openSaglikProtokolModal(tab) {
+      const modal = document.getElementById("protokol-modal");
+      if (modal) {
+        modal.classList.add("active");
+        if (tab) switchSaglikProtokolTab(tab);
+      }
+    }
+
+    function closeSaglikProtokolModal() {
+      const modal = document.getElementById("protokol-modal");
+      if (modal) modal.classList.remove("active");
+    }
+
+    function switchSaglikProtokolTab(tab) {
+      const tabs = ['cmt', 'humma', 'sisme', 'celerme', 'piyeten'];
+      tabs.forEach((t, i) => {
+        const el = document.getElementById("saglik-tab-" + t);
+        const btn = document.getElementById("protBtn" + (i + 1));
+        if (el) el.style.display = (t === tab) ? "block" : "none";
+        if (btn) {
+          if (t === tab) btn.classList.add("primary");
+          else btn.classList.remove("primary");
+        }
+      });
     }
 
     // =========================================================================
