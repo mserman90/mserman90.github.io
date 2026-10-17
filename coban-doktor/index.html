@@ -11,10 +11,10 @@
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://mserman90.github.io/coban-doktor/">
 
-  <!-- Google Fonts: Inter & Roboto (International Typography) -->
+  <!-- Google Fonts: Plus Jakarta Sans & Inter (International Typography Standard) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Favicon & PWA Icons -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -80,14 +80,23 @@
       -webkit-tap-highlight-color: transparent;
     }
 
+    html {
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+      tab-size: 4;
+    }
+
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+      font-variant-numeric: tabular-nums;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       text-rendering: optimizeLegibility;
       background-color: #d1d7db;
       color: var(--wa-text);
       line-height: 1.5;
+      font-size: 1rem;
       height: 100vh;
       height: 100dvh;
       display: flex;
@@ -96,6 +105,48 @@
       overflow: hidden;
       user-select: none;
       -webkit-user-select: none;
+    }
+
+    /* WCAG 2.5.5 / APPLE HIG: TOUCH TARGET VE FOCUS-VISIBLE HALKASI */
+    button, input, select, textarea, a.btn-link {
+      touch-action: manipulation;
+    }
+    button:focus-visible, 
+    input:focus-visible, 
+    select:focus-visible, 
+    textarea:focus-visible {
+      outline: 3px solid #008069 !important;
+      outline-offset: 2px !important;
+    }
+    body.high-contrast button:focus-visible,
+    body.high-contrast input:focus-visible,
+    body.high-contrast select:focus-visible {
+      outline: 3px solid #ffff00 !important;
+      outline-offset: 3px !important;
+    }
+
+    /* DAHİLİ VEKTÖREL SVG İKON STANDARDI (ISO 7000 / LUCIDE STANDARDI: 24x24 / 20x20 / 16x16, 2px STROKE) */
+    .lucide-icon {
+      width: 20px;
+      height: 20px;
+      stroke-width: 2px;
+      stroke: currentColor;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      vertical-align: middle;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+    .lucide-icon.icon-lg {
+      width: 24px;
+      height: 24px;
+      stroke-width: 2.2px;
+    }
+    .lucide-icon.icon-sm {
+      width: 16px;
+      height: 16px;
+      stroke-width: 2px;
     }
 
     /* TELEFON KASASI / MERKEZİ EKRAN TAŞIYICI */
@@ -172,20 +223,21 @@
       background: rgba(255, 255, 255, 0.16);
       border: 1px solid rgba(255, 255, 255, 0.35);
       color: #ffffff;
-      padding: 6px 11px;
-      border-radius: 9px;
-      font-size: 0.8rem;
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-size: 0.82rem;
       font-weight: 700;
       letter-spacing: -0.01em;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 5px;
-      min-height: 36px;
+      gap: 6px;
+      min-height: 48px;
       touch-action: manipulation;
       transition: background-color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+      font-variant-numeric: tabular-nums;
     }
     .wa-hdr-btn:hover {
       background: rgba(255, 255, 255, 0.25);
@@ -301,6 +353,8 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
       transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
       touch-action: manipulation;
+      min-height: 48px;
+      font-variant-numeric: tabular-nums;
     }
     .wa-choice-btn:hover {
       border-color: #008069;
@@ -409,13 +463,16 @@
     }
     .ear-input {
       width: 100%;
-      padding: 10px 12px;
+      padding: 12px 14px;
       border: 2px solid #cbd5e1;
       border-radius: 8px;
       font-size: 1rem;
       font-weight: 800;
       text-transform: uppercase;
       outline: none;
+      min-height: 48px;
+      touch-action: manipulation;
+      font-variant-numeric: tabular-nums;
     }
     .ear-input:focus {
       border-color: #008069;
@@ -442,6 +499,7 @@
       box-shadow: 0 4px 14px rgba(22, 163, 74, 0.35);
       transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
       touch-action: manipulation;
+      min-height: 48px;
     }
     .btn-send-wa:hover {
       background: linear-gradient(135deg, #15803d, #166534);
@@ -570,12 +628,18 @@
       background: transparent;
       border: none;
       color: #ffffff;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       font-weight: bold;
       cursor: pointer;
       line-height: 1;
-      padding: 4px 8px;
-      border-radius: 6px;
+      padding: 8px;
+      border-radius: 8px;
+      min-width: 48px;
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      touch-action: manipulation;
     }
     .guide-modal-body {
       padding: 16px;
@@ -785,12 +849,18 @@
       background: transparent;
       border: none;
       color: #ffffff;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       font-weight: bold;
       cursor: pointer;
       line-height: 1;
-      padding: 4px 8px;
-      border-radius: 6px;
+      padding: 8px;
+      border-radius: 8px;
+      min-width: 48px;
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      touch-action: manipulation;
     }
 
     /* DEFTER ÖZET KARTLARI */
@@ -869,25 +939,36 @@
     .kupe-search-input {
       flex: 1;
       min-width: 130px;
-      padding: 8px 10px;
+      padding: 10px 14px;
       border: 1.5px solid #cbd5e1;
-      border-radius: 8px;
-      font-size: 0.85rem;
+      border-radius: 10px;
+      font-size: 0.95rem;
       outline: none;
       font-weight: 600;
+      font-family: inherit;
+      min-height: 48px;
+      touch-action: manipulation;
     }
     .kupe-search-input:focus {
       border-color: #008069;
     }
     .filter-pill {
+      font-family: inherit;
       background: #f1f5f9;
-      border: 1px solid #cbd5e1;
-      padding: 5px 9px;
-      border-radius: 20px;
-      font-size: 0.73rem;
-      font-weight: 800;
+      border: 1.5px solid #cbd5e1;
+      padding: 8px 14px;
+      border-radius: 24px;
+      font-size: 0.82rem;
+      font-weight: 700;
       cursor: pointer;
       color: #334155;
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      touch-action: manipulation;
+      transition: all 0.12s ease;
     }
     .filter-pill.active {
       background: #008069;
@@ -897,21 +978,31 @@
 
     /* TOPLU WHATSAPP BUTONU */
     .btn-batch-wa {
+      font-family: inherit;
       width: 100%;
-      background: #25d366;
+      background: #16a34a;
       color: #ffffff;
       border: none;
-      padding: 10px 14px;
-      border-radius: 8px;
-      font-size: 0.88rem;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 0.95rem;
       font-weight: 800;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
-      margin-bottom: 10px;
-      box-shadow: 0 2px 6px rgba(37, 211, 102, 0.3);
+      gap: 8px;
+      min-height: 48px;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+      touch-action: manipulation;
+      transition: all 0.15s ease;
+    }
+    .btn-batch-wa:hover {
+      background: #15803d;
+    }
+    .btn-batch-wa:active {
+      transform: scale(0.98);
     }
 
     /* HAYVAN DEFTER KARTI */
@@ -1004,24 +1095,26 @@
     .kupe-card-actions {
       display: flex;
       justify-content: flex-end;
-      gap: 6px;
-      margin-top: 8px;
+      gap: 8px;
+      margin-top: 10px;
       border-top: 1px dashed #e2e8f0;
-      padding-top: 6px;
+      padding-top: 8px;
     }
     .kupe-btn-wa {
       font-family: inherit;
       background: #16a34a;
       color: #ffffff;
       border: none;
-      padding: 6px 11px;
-      border-radius: 8px;
-      font-size: 0.76rem;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-size: 0.84rem;
       font-weight: 700;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 5px;
+      justify-content: center;
+      gap: 6px;
+      min-height: 48px;
       transition: all 0.12s ease;
       touch-action: manipulation;
     }
@@ -1036,14 +1129,16 @@
       background: #fee2e2;
       color: #b91c1c;
       border: 1px solid #fecaca;
-      padding: 6px 11px;
-      border-radius: 8px;
-      font-size: 0.76rem;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-size: 0.84rem;
       font-weight: 700;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 4px;
+      justify-content: center;
+      gap: 6px;
+      min-height: 48px;
       transition: all 0.12s ease;
       touch-action: manipulation;
     }
@@ -1056,24 +1151,32 @@
 
     /* FORM STİLLERİ */
     .kupe-form-group {
-      margin-bottom: 11px;
+      margin-bottom: 12px;
     }
     .kupe-form-label {
-      display: block;
-      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
       font-weight: 800;
       color: #334155;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
     .kupe-form-input, .kupe-form-select, .kupe-form-textarea {
       width: 100%;
-      padding: 9px;
+      padding: 12px;
       border: 1.5px solid #cbd5e1;
-      border-radius: 8px;
-      font-size: 0.9rem;
+      border-radius: 10px;
+      font-size: 1rem;
       outline: none;
       box-sizing: border-box;
       font-family: inherit;
+      min-height: 48px;
+      touch-action: manipulation;
+      font-variant-numeric: tabular-nums;
+    }
+    .kupe-form-textarea {
+      min-height: 72px;
     }
     .kupe-form-input:focus, .kupe-form-select:focus, .kupe-form-textarea:focus {
       border-color: #008069;
@@ -1081,19 +1184,27 @@
     .presets-container {
       display: flex;
       flex-wrap: wrap;
-      gap: 5px;
-      margin-top: 5px;
+      gap: 8px;
+      margin-top: 8px;
     }
     .preset-pill {
+      font-family: inherit;
       background: #f1f5f9;
-      border: 1px solid #cbd5e1;
-      padding: 4px 7px;
-      border-radius: 6px;
-      font-size: 0.72rem;
+      border: 1.5px solid #cbd5e1;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.8rem;
       font-weight: 700;
       cursor: pointer;
       color: #0f172a;
-      transition: all 0.1s;
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.12s ease;
+      touch-action: manipulation;
+      font-variant-numeric: tabular-nums;
     }
     .preset-pill:hover, .preset-pill:active {
       background: #e2e8f0;
@@ -1115,6 +1226,7 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
+      min-height: 48px;
       box-shadow: 0 4px 14px rgba(0, 128, 105, 0.35);
       margin-top: 12px;
       transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1313,16 +1425,19 @@
       margin-top: 6px;
     }
     .temp-number-input {
-      width: 110px;
-      font-size: 1.35rem;
+      width: 120px;
+      font-size: 1.4rem;
       font-weight: 900;
       text-align: center;
-      padding: 7px;
+      padding: 8px 10px;
       border: 2px solid #ea580c;
-      border-radius: 8px;
+      border-radius: 10px;
       outline: none;
       color: #9a3412;
       background: #ffffff;
+      min-height: 48px;
+      touch-action: manipulation;
+      font-variant-numeric: tabular-nums;
     }
     .temp-eval-card {
       border-radius: 10px;
@@ -1423,11 +1538,11 @@
       margin-bottom: 12px;
     }
     .gebelik-species-btn {
-      padding: 10px 8px;
+      padding: 12px 10px;
       border: 2px solid #cbd5e1;
       border-radius: 10px;
       background: #ffffff;
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       font-weight: 800;
       color: #334155;
       cursor: pointer;
@@ -1436,7 +1551,10 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 3px;
+      justify-content: center;
+      gap: 4px;
+      min-height: 56px;
+      touch-action: manipulation;
     }
     .gebelik-species-btn.active {
       border-color: #16a34a;
@@ -1457,14 +1575,17 @@
     }
     .gebelik-date-input {
       width: 100%;
-      padding: 10px 12px;
+      padding: 12px 14px;
       border: 1.5px solid #cbd5e1;
-      border-radius: 8px;
-      font-size: 0.95rem;
+      border-radius: 10px;
+      font-size: 1rem;
       font-weight: 700;
       color: #0f172a;
       background: #ffffff;
       box-sizing: border-box;
+      min-height: 48px;
+      touch-action: manipulation;
+      font-variant-numeric: tabular-nums;
     }
     .gebelik-timeline-card {
       background: #ffffff;
@@ -1673,9 +1794,9 @@
         display: none;
       }
       .wa-hdr-btn {
-        padding: 5px 8px;
-        font-size: 0.74rem;
-        min-height: 32px;
+        padding: 8px 12px;
+        font-size: 0.8rem;
+        min-height: 48px;
         white-space: nowrap;
         flex-shrink: 0;
       }
@@ -1697,8 +1818,13 @@
       }
       .kupe-tab-btn {
         white-space: nowrap;
-        padding: 8px 10px;
-        font-size: 0.74rem;
+        padding: 12px 14px;
+        font-size: 0.8rem;
+        min-height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
         flex-shrink: 0;
       }
       .msg-row {
@@ -1727,30 +1853,53 @@
 
   <div class="app-wrapper">
 
-    <!-- WHATSAPP ÜST BARI -->
+    <!-- ÜST BAŞLIK BARI -->
     <header class="wa-header">
       <div class="wa-profile" onclick="restartChat()" title="Sohbeti Baştan Başlat">
-        <div class="wa-avatar">🩺</div>
+        <div class="wa-avatar">
+          <svg class="lucide-icon icon-lg" viewBox="0 0 24 24" style="color:#008069;"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg>
+        </div>
         <div class="wa-info">
           <div class="wa-name">Çoban Doktor</div>
           <div class="wa-status" id="wa-online-status">çevrimiçi</div>
         </div>
       </div>
       <div class="wa-actions">
-        <button onclick="openKupeDefteriModal('repro')" class="wa-hdr-btn defter-btn" id="hdr-repro-btn" title="Sürü Sağlığı - Gebelik & Doğum Takvimi" style="background:#15803d !important; border-color:#86efac !important;">📅 Sürü Sağlığı</button>
-        <button onclick="openKupeDefteriModal('list')" class="wa-hdr-btn defter-btn" id="hdr-defter-btn" title="Küpe Defteri & İlaç Arınma Takibi">📋 Defter <span class="defter-badge zero" id="defter-active-badge">0</span></button>
-        <button onclick="openDereceModal()" class="wa-hdr-btn derece-btn" id="hdr-derece-btn" title="Hızlı Derece / Ateş Kontrolü">🌡️ Derece</button>
-        <button onclick="openGuideModal()" class="wa-hdr-btn" title="Kullanım Kılavuzu">📖 Kılavuz</button>
-        <button onclick="toggleLargeText()" class="wa-hdr-btn" title="Yazıyı Büyüt">A+</button>
-        <button onclick="toggleContrast()" class="wa-hdr-btn" title="Güneş Işığı Modu">☀️ Mod</button>
-        <button onclick="restartChat()" class="wa-hdr-btn" title="Baştan Başla">🔄 Sıfırla</button>
+        <button onclick="openKupeDefteriModal('repro')" class="wa-hdr-btn defter-btn" id="hdr-repro-btn" title="Sürü Sağlığı - Gebelik & Doğum Takvimi" style="background:#15803d !important; border-color:#86efac !important;">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          <span>Sürü Sağlığı</span>
+        </button>
+        <button onclick="openKupeDefteriModal('list')" class="wa-hdr-btn defter-btn" id="hdr-defter-btn" title="Küpe Defteri & İlaç Arınma Takibi">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4M12 16h4M8 11h.01M8 16h.01"/></svg>
+          <span>Defter</span> <span class="defter-badge zero" id="defter-active-badge">0</span>
+        </button>
+        <button onclick="openDereceModal()" class="wa-hdr-btn derece-btn" id="hdr-derece-btn" title="Hızlı Derece / Ateş Kontrolü">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg>
+          <span>Derece</span>
+        </button>
+        <button onclick="openGuideModal()" class="wa-hdr-btn" title="Kullanım Kılavuzu">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          <span>Kılavuz</span>
+        </button>
+        <button onclick="toggleLargeText()" class="wa-hdr-btn" title="Yazıyı Büyüt">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" x2="15" y1="20" y2="20"/><line x1="12" x2="12" y1="4" y2="20"/></svg>
+          <span>A+</span>
+        </button>
+        <button onclick="toggleContrast()" class="wa-hdr-btn" title="Güneş Işığı Modu">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <span>Mod</span>
+        </button>
+        <button onclick="restartChat()" class="wa-hdr-btn" title="Baştan Başla">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+          <span>Sıfırla</span>
+        </button>
       </div>
     </header>
 
     <!-- PWA YÜKLEME BANNERI (Telefona İndirme Bildirimi) -->
     <div id="pwa-install-banner" class="pwa-install-banner" style="display:none;">
       <div class="pwa-install-text">
-        <span>📲</span>
+        <svg class="lucide-icon icon-lg" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
         <span><strong>Çoban Doktor'u Yükle:</strong> İnternetsiz dağda/merada doğrudan çalışsın!</span>
       </div>
       <div style="display:flex; align-items:center; gap:6px;">
@@ -1761,7 +1910,8 @@
 
     <!-- MERA ÇEVRİMDIŞI BİLDİRİM ŞERİDİ -->
     <div id="mera-offline-bar" class="mera-offline-bar" style="display:none;">
-      📶 <span><strong>Mera Modu:</strong> %100 Çevrimdışı (İnternetsiz) Çalışıyor</span>
+      <svg class="lucide-icon" viewBox="0 0 24 24"><line x1="2" x2="22" y1="2" y2="22"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M2 8.82a15 15 0 0 1 4.17-2.65"/><path d="M10.66 5c4.01-.36 8.14.9 11.34 3.76"/><path d="M16.85 11.25a10 10 0 0 1 2.22 1.68"/><path d="M5 13a10 10 0 0 1 5.24-2.76"/><line x1="12" x2="12.01" y1="20" y2="20"/></svg>
+      <span><strong>Mera Modu:</strong> %100 Çevrimdışı (İnternetsiz) Çalışıyor</span>
     </div>
 
     <!-- SOHBET MESAJLARI AKIŞI -->
@@ -1775,13 +1925,19 @@
   <div class="guide-modal-overlay" id="guide-modal" onclick="closeGuideModalOnBackdrop(event)">
     <div class="guide-modal-box">
       <div class="guide-modal-hdr">
-        <div class="guide-modal-title">📖 Kolay Kullanım Kılavuzu</div>
+        <div class="guide-modal-title">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          <span>Kolay Kullanım Kılavuzu</span>
+        </div>
         <button class="guide-modal-close" onclick="closeGuideModal()" aria-label="Kapat">&times;</button>
       </div>
       <div class="guide-modal-body">
         <p style="margin-top:0;"><strong>Çoban Doktor</strong>, internetin çekmediği ahırda ve dağda bile çalışan, cebindeki ücretsiz nöbetçi veteriner yardımcındır.</p>
 
-        <h4 style="margin:12px 0 8px 0; color:#008069;">📲 5 Basit Adımda Nasıl Kullanılır?</h4>
+        <h4 style="margin:12px 0 8px 0; color:#008069; display:flex; align-items:center; gap:6px;">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>5 Basit Adımda Nasıl Kullanılır?</span>
+        </h4>
 
         <div class="guide-step-card">
           <div class="guide-step-num">1. Adım: Hayvanı Seç</div>
@@ -1796,14 +1952,16 @@
         <div class="guide-step-card">
           <div class="guide-step-num">3. Adım: Soruları Cevapla</div>
           Doktorun sorduğu belirtilere bakıp şu 3 düğmeden birine bas:<br>
-          🟢 <strong>Evet, aynen var</strong> &nbsp;|&nbsp; 🟡 <strong>Bir kısmı var / Emin değilim</strong> &nbsp;|&nbsp; 🔴 <strong>Hayır, yok</strong>
+          <span style="color:#16a34a; font-weight:700;">● Evet, aynen var</span> &nbsp;|&nbsp; 
+          <span style="color:#d97706; font-weight:700;">● Bir kısmı var / Emin değilim</span> &nbsp;|&nbsp; 
+          <span style="color:#dc2626; font-weight:700;">● Hayır, yok</span>
         </div>
 
         <div class="guide-step-card">
           <div class="guide-step-num">4. Adım: Raporu ve Reçeteyi Oku</div>
           Doktor sana iki önemli liste verir:<br>
-          ✅ <strong>Hemen Ne Yapacaksın:</strong> Hekim gelene kadar can kurtaracak ilk yardım.<br>
-          ❌ <strong>Sakın Ne Yapma:</strong> Hayvana zarar verecek yanlış adetler (zorla su içirme, kesmeye kalkma).
+          <strong>Hemen Ne Yapacaksın:</strong> Hekim gelene kadar can kurtaracak ilk yardım.<br>
+          <strong>Sakın Ne Yapma:</strong> Hayvana zarar verecek yanlış adetler (zorla su içirme, kesmeye kalkma).
         </div>
 
         <div class="guide-step-card">
@@ -1811,10 +1969,16 @@
           Varsa kulak küpe numarasını yaz, yeşil <strong>"Veterinerime Rapor İlet"</strong> düğmesine bas. Hazır raporu hekimine veya yetiştiriciye anında gönder!
         </div>
 
-        <h4 style="margin:14px 0 8px 0; color:#008069;">☀️ Merada ve Güneşte Okuma</h4>
-        <p style="margin:0 0 10px 0;">Güneşten ekran parlıyorsa yukarıdaki <strong>☀️ Mod</strong> düğmesine bas (ekran kararır, yazılar sapsarı parlar). Yazıları büyütmek için <strong>A+</strong> düğmesine bas.</p>
+        <h4 style="margin:14px 0 8px 0; color:#008069; display:flex; align-items:center; gap:6px;">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <span>Merada ve Güneşte Okuma</span>
+        </h4>
+        <p style="margin:0 0 10px 0;">Güneşten ekran parlıyorsa yukarıdaki <strong>Mod</strong> düğmesine bas (ekran kararır, yazılar sapsarı parlar). Yazıları büyütmek için <strong>A+</strong> düğmesine bas.</p>
 
-        <h4 style="margin:14px 0 8px 0; color:#b91c1c;">🚑 En Çok Karşılaşılan 5 Acil Durum</h4>
+        <h4 style="margin:14px 0 8px 0; color:#b91c1c; display:flex; align-items:center; gap:6px;">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
+          <span>En Çok Karşılaşılan 5 Acil Durum</span>
+        </h4>
         <table class="guide-table">
           <thead>
             <tr>
@@ -1852,10 +2016,13 @@
           </tbody>
         </table>
 
-        <p style="margin-top:12px; font-size:0.8rem; color:#64748b;">⚠️ <em>Hatırlatma: Çoban Doktor ilk müdahale ve vakit kazanmak içindir. İlaç ve kesin tedavi için diplomalı Veteriner Hekiminize başvurunuz.</em></p>
+        <p style="margin-top:12px; font-size:0.8rem; color:#64748b;"><em>Hatırlatma: Çoban Doktor ilk müdahale ve vakit kazanmak içindir. İlaç ve kesin tedavi için diplomalı Veteriner Hekiminize başvurunuz.</em></p>
       </div>
       <div class="guide-modal-ftr">
-        <button class="guide-modal-ftr-btn" onclick="closeGuideModal()">✅ ANLADIM, SOHBETE DÖN</button>
+        <button class="guide-modal-ftr-btn" onclick="closeGuideModal()" style="display:flex; align-items:center; justify-content:center; gap:8px;">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <span>ANLADIM, SOHBETE DÖN</span>
+        </button>
       </div>
     </div>
   </div>
@@ -1864,7 +2031,10 @@
   <div class="kupe-modal-overlay" id="kupe-modal" onclick="closeKupeModalOnBackdrop(event)">
     <div class="kupe-modal-box">
       <div class="kupe-modal-hdr">
-        <div class="kupe-modal-title">📋 Küpe Defteri & İlaç Arınma Takibi</div>
+        <div class="kupe-modal-title">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4M12 16h4M8 11h.01M8 16h.01"/></svg>
+          <span>Küpe Defteri & İlaç Arınma Takibi</span>
+        </div>
         <button class="kupe-modal-close" onclick="closeKupeDefteriModal()" aria-label="Kapat">&times;</button>
       </div>
 
@@ -1886,23 +2056,42 @@
 
       <!-- SEKMELER -->
       <div class="kupe-tabs">
-        <button class="kupe-tab-btn" id="tabbtn-repro" onclick="switchKupeTab('repro')">📅 Sürü Sağlığı (Doğum)</button>
-        <button class="kupe-tab-btn active" id="tabbtn-list" onclick="switchKupeTab('list')">📋 İlaç Listesi</button>
-        <button class="kupe-tab-btn" id="tabbtn-new" onclick="switchKupeTab('new')">➕ Yeni İlaç Kaydet</button>
-        <button class="kupe-tab-btn" id="tabbtn-info" onclick="switchKupeTab('info')">ℹ️ Rehber</button>
+        <button class="kupe-tab-btn" id="tabbtn-repro" onclick="switchKupeTab('repro')">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          <span>Sürü Sağlığı (Doğum)</span>
+        </button>
+        <button class="kupe-tab-btn active" id="tabbtn-list" onclick="switchKupeTab('list')">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4M12 16h4M8 11h.01M8 16h.01"/></svg>
+          <span>İlaç Listesi</span>
+        </button>
+        <button class="kupe-tab-btn" id="tabbtn-new" onclick="switchKupeTab('new')">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="16"/><line x1="8" x2="16" y1="12" y2="12"/></svg>
+          <span>Yeni İlaç Kaydet</span>
+        </button>
+        <button class="kupe-tab-btn" id="tabbtn-info" onclick="switchKupeTab('info')">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          <span>Rehber</span>
+        </button>
       </div>
 
       <!-- SEKME 1: HAYVAN LİSTESİ & GERİ SAYIM -->
       <div class="kupe-tab-content active" id="kupe-tab-list">
         <div class="kupe-filter-bar">
-          <input type="text" id="kupeSearchInput" class="kupe-search-input" placeholder="🔍 Küpe No veya İlaç Ara..." oninput="renderKupeRecords()">
+          <input type="text" id="kupeSearchInput" class="kupe-search-input" placeholder="Küpe No veya İlaç Ara..." oninput="renderKupeRecords()">
           <button class="filter-pill active" id="pill-all" onclick="setKupeFilter('all')">Tümü</button>
-          <button class="filter-pill" id="pill-active" onclick="setKupeFilter('active')">🔴 Yasaklılar</button>
-          <button class="filter-pill" id="pill-cleared" onclick="setKupeFilter('cleared')">🟢 Güvenliler</button>
+          <button class="filter-pill" id="pill-active" onclick="setKupeFilter('active')">
+            <svg class="lucide-icon icon-sm" style="color:#dc2626;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" x2="9" y1="9" y2="15"/><line x1="9" x2="15" y1="9" y2="15"/></svg>
+            <span>Yasaklılar</span>
+          </button>
+          <button class="filter-pill" id="pill-cleared" onclick="setKupeFilter('cleared')">
+            <svg class="lucide-icon icon-sm" style="color:#16a34a;" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span>Güvenliler</span>
+          </button>
         </div>
 
         <button onclick="shareAllActiveWhatsApp()" class="btn-batch-wa" id="btn-batch-share" style="display:none;">
-          📲 Aktif Arınma Listesini Paylaş / İlet
+          <svg class="lucide-icon" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>
+          <span>Aktif Arınma Listesini Paylaş / İlet</span>
         </button>
 
         <div id="kupe-records-container">
@@ -1914,84 +2103,120 @@
       <div class="kupe-tab-content" id="kupe-tab-new">
         <form id="kupe-add-form" onsubmit="saveNewKupeRecord(event)">
           <div class="kupe-form-group">
-            <label class="kupe-form-label" for="formKupeTag">🏷️ Hayvan Küpe Numarası (*):</label>
+            <label class="kupe-form-label" for="formKupeTag">
+              <svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"/><circle cx="7" cy="7" r=".5" fill="currentColor"/></svg>
+              <span>Hayvan Küpe Numarası (*):</span>
+            </label>
             <input type="text" id="formKupeTag" class="kupe-form-input" placeholder="Örn: TR 42 1234567" required autocomplete="off" oninput="this.value = this.value.toUpperCase()">
           </div>
 
           <div class="kupe-form-group">
-            <label class="kupe-form-label" for="formSpeciesGroup">🐾 Hayvan Grubu:</label>
+            <label class="kupe-form-label" for="formSpeciesGroup">
+              <svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><path d="M19 5c-1.5 0-3 1-4 2.5C13.5 6 12 5.5 10 5.5S6.5 6 5 7.5C4 6 2.5 5 1 5c0 3 2 5.5 3.5 6.5C4.5 13 5 15 6 17c1.5 3 4 4 6 4s4.5-1 6-4c1-2 1.5-4 1.5-5.5C21 10.5 23 8 23 5c-1.5 0-3 1-4 2.5z"/></svg>
+              <span>Hayvan Grubu:</span>
+            </label>
             <select id="formSpeciesGroup" class="kupe-form-select">
-              <option value="Sağmal İnek">🥛 Sağmal İnek</option>
-              <option value="Gebe / Düve">🤰 Gebe / Düve</option>
-              <option value="Besi Danası">🥩 Besi Danası</option>
-              <option value="Buzağı">🍼 Buzağı</option>
-              <option value="Anaç Koyun">🐑 Anaç Koyun</option>
-              <option value="Kuzu">🍼 Kuzu</option>
-              <option value="Koç / Toklu">🐏 Koç / Toklu</option>
+              <option value="Sağmal İnek">Sağmal İnek</option>
+              <option value="Gebe / Düve">Gebe / Düve</option>
+              <option value="Besi Danası">Besi Danası</option>
+              <option value="Buzağı">Buzağı</option>
+              <option value="Anaç Koyun">Anaç Koyun</option>
+              <option value="Kuzu">Kuzu</option>
+              <option value="Koç / Toklu">Koç / Toklu</option>
             </select>
           </div>
 
           <div class="kupe-form-group">
-            <label class="kupe-form-label" for="formMedicine">💊 Uygulanan İlaç / Teşhis (*):</label>
+            <label class="kupe-form-label" for="formMedicine">
+              <svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg>
+              <span>Uygulanan İlaç / Teşhis (*):</span>
+            </label>
             <input type="text" id="formMedicine" class="kupe-form-input" placeholder="Örn: Mastitis Meme İçi Tüpü" required>
             
-            <div style="font-size:0.75rem; color:#64748b; margin-top:6px; font-weight:700;">💡 Hızlı Hazır İlaç Şablonları (Tek tıkla süreleri doldur):</div>
+            <div style="font-size:0.75rem; color:#64748b; margin-top:6px; font-weight:700;">Hızlı Hazır İlaç Şablonları (Tek tıkla süreleri doldur):</div>
             <div class="presets-container">
-              <button type="button" class="preset-pill" onclick="applyPreset('Mastitis Meme İçi Tüpü', 3, 7)">🥛 Mastitis Tüp (Süt: 3g / Et: 7g)</button>
-              <button type="button" class="preset-pill" onclick="applyPreset('Penisilin-Streptomisin', 4, 14)">💉 Penisilin (Süt: 4g / Et: 14g)</button>
-              <button type="button" class="preset-pill" onclick="applyPreset('Oksitetrasiklin L.A.', 7, 28)">💉 Oksitetrasiklin (Süt: 7g / Et: 28g)</button>
-              <button type="button" class="preset-pill" onclick="applyPreset('Sefalosporin Tüp', 0, 4)">🥛 Sefalosporin (Süt: 0g / Et: 4g)</button>
-              <button type="button" class="preset-pill" onclick="applyPreset('Fluniksin Ağrı Kesici', 2, 5)">⚡ Fluniksin (Süt: 2g / Et: 5g)</button>
-              <button type="button" class="preset-pill" onclick="applyPreset('İvermektin Parazit İlacı', 0, 28)">🐛 İvermektin (Et: 28g)</button>
+              <button type="button" class="preset-pill" onclick="applyPreset('Mastitis Meme İçi Tüpü', 3, 7)">Mastitis Tüp (Süt: 3g / Et: 7g)</button>
+              <button type="button" class="preset-pill" onclick="applyPreset('Penisilin-Streptomisin', 4, 14)">Penisilin (Süt: 4g / Et: 14g)</button>
+              <button type="button" class="preset-pill" onclick="applyPreset('Oksitetrasiklin L.A.', 7, 28)">Oksitetrasiklin (Süt: 7g / Et: 28g)</button>
+              <button type="button" class="preset-pill" onclick="applyPreset('Sefalosporin Tüp', 0, 4)">Sefalosporin (Süt: 0g / Et: 4g)</button>
+              <button type="button" class="preset-pill" onclick="applyPreset('Fluniksin Ağrı Kesici', 2, 5)">Fluniksin (Süt: 2g / Et: 5g)</button>
+              <button type="button" class="preset-pill" onclick="applyPreset('İvermektin Parazit İlacı', 0, 28)">İvermektin (Et: 28g)</button>
             </div>
           </div>
 
           <div class="kupe-form-group">
-            <label class="kupe-form-label" for="formDate">📅 İlaç Uygulama Tarihi ve Saati:</label>
+            <label class="kupe-form-label" for="formDate">
+              <svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              <span>İlaç Uygulama Tarihi ve Saati:</span>
+            </label>
             <input type="datetime-local" id="formDate" class="kupe-form-input" required>
           </div>
 
           <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px;">
             <div class="kupe-form-group">
-              <label class="kupe-form-label" for="formMilkDays">🥛 Süt Arınma (Gün):</label>
+              <label class="kupe-form-label" for="formMilkDays">
+                <svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.82-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/></svg>
+                <span>Süt Arınma (Gün):</span>
+              </label>
               <input type="number" id="formMilkDays" class="kupe-form-input" min="0" max="60" value="3" required>
               <span style="font-size:0.68rem; color:#64748b;">(0 = Süt için bekleme yok)</span>
             </div>
             <div class="kupe-form-group">
-              <label class="kupe-form-label" for="formMeatDays">🥩 Et Arınma (Gün):</label>
+              <label class="kupe-form-label" for="formMeatDays">
+                <svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 14.14 14.14"/></svg>
+                <span>Et Arınma (Gün):</span>
+              </label>
               <input type="number" id="formMeatDays" class="kupe-form-input" min="0" max="120" value="14" required>
               <span style="font-size:0.68rem; color:#64748b;">(Kesime gönderilemez gün)</span>
             </div>
           </div>
 
           <div class="kupe-form-group">
-            <label class="kupe-form-label" for="formNotes">📝 Çiftlik Notu (Opsiyonel):</label>
+            <label class="kupe-form-label" for="formNotes">
+              <svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+              <span>Çiftlik Notu (Opsiyonel):</span>
+            </label>
             <textarea id="formNotes" class="kupe-form-textarea" rows="2" placeholder="Örn: Sol arka çeyrek, 2. doz yapıldı"></textarea>
           </div>
 
-          <button type="submit" class="btn-save-record">💾 KÜPE DEFTERİNE KAYDET</button>
+          <button type="submit" class="btn-save-record">
+            <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+            <span>KÜPE DEFTERİNE KAYDET</span>
+          </button>
         </form>
       </div>
 
       <!-- SEKME 3: İLAÇ ARINMA SÜRESİ REHBERİ -->
       <div class="kupe-tab-content" id="kupe-tab-info">
         <div class="info-guide-card">
-          <div class="info-guide-title">❓ İlaç Arınma Süresi (İKAS) Nedir?</div>
+          <div class="info-guide-title">
+            <svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
+            <span>İlaç Arınma Süresi (İKAS) Nedir?</span>
+          </div>
           Hayvana yapılan iğne, hap veya meme tüpünün etinden ve sütünden vücuttan tamamen atılana kadar geçmesi gereken yasal süredir. Bu süre dolmadan sütün tüketilmesi veya hayvanın kesilmesi yasaktır.
         </div>
 
         <div class="info-guide-card" style="border-left-color:#ef4444;">
-          <div class="info-guide-title" style="color:#b91c1c;">🥛 İlaçlı Süt Tanka Katılırsa Ne Olur?</div>
+          <div class="info-guide-title" style="color:#b91c1c;">
+            <svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.82-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/></svg>
+            <span>İlaçlı Süt Tanka Katılırsa Ne Olur?</span>
+          </div>
           1 tek ineğin antibiyotikli sütü, soğutma tankındaki tonlarca sütü bozar. Mandıranın fabrikasında yoğurt ve peynir mayalanmaz. Mandıra tankı döker ve tüm zararı yetiştiriciden keser.
         </div>
 
         <div class="info-guide-card" style="border-left-color:#f59e0b;">
-          <div class="info-guide-title" style="color:#b45309;">🥩 Kesim Öncesi Et Arınma Süresi</div>
+          <div class="info-guide-title" style="color:#b45309;">
+            <svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 14.14 14.14"/></svg>
+            <span>Kesim Öncesi Et Arınma Süresi</span>
+          </div>
           Hayvan kesime gitmeden önce ilacın et kalıntı süresinin (E.A.S) sıfırlanmış olması şarttır. Kesimhanede yapılan kalıntı analizinde antibiyotik çıkarsa karkas imha edilir ve cezai işlem uygulanır.
         </div>
 
         <div class="info-guide-card" style="border-left-color:#10b981;">
-          <div class="info-guide-title" style="color:#047857;">📶 %100 Çevrimdışı Mera Güvencesi</div>
+          <div class="info-guide-title" style="color:#047857;">
+            <svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><line x1="2" x2="22" y1="2" y2="22"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M2 8.82a15 15 0 0 1 4.17-2.65"/><path d="M10.66 5c4.01-.36 8.14.9 11.34 3.76"/><path d="M16.85 11.25a10 10 0 0 1 2.22 1.68"/><path d="M5 13a10 10 0 0 1 5.24-2.76"/><line x1="12" x2="12.01" y1="20" y2="20"/></svg>
+            <span>%100 Çevrimdışı Mera Güvencesi</span>
+          </div>
           Bu defter telefonunuzun kendi güvenli hafızasında tutulur. Yaylada, merada ve internetin çekmediği ahırda dahi geri sayım durmaksızın devam eder.
         </div>
       </div>
@@ -2000,7 +2225,8 @@
       <div class="kupe-tab-content" id="kupe-tab-repro">
         <div class="gebelik-box">
           <div style="font-weight:900; color:#14532d; font-size:0.95rem; margin-bottom:4px; display:flex; align-items:center; gap:6px;">
-            <span>🗓️ Gebelik & Doğum Takvimi Hesaplayıcı</span>
+            <svg class="lucide-icon" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            <span>Gebelik & Doğum Takvimi Hesaplayıcı</span>
           </div>
           <p style="margin:0 0 10px 0; font-size:0.78rem; color:#166534; line-height:1.4;">
             Tohumlama veya koç katımı tarihini seçin; <strong>tahmini doğum gününü</strong>, <strong>kuruya çıkarma zamanını</strong> ve <strong>doğuma 1 ay kala yapılacak aşı/vitamin tarihlerini</strong> anında hesaplayıp kaydedin.
@@ -2009,12 +2235,12 @@
           <!-- TÜR SEÇİMİ -->
           <div class="gebelik-species-grid">
             <button type="button" class="gebelik-species-btn active" id="btn-repro-inek" onclick="selectReproSpecies('inek')">
-              <span style="font-size:1.4rem;">🐄</span>
+              <svg class="lucide-icon icon-lg" viewBox="0 0 24 24"><path d="M19 5c-1.5 0-3 1-4 2.5C13.5 6 12 5.5 10 5.5S6.5 6 5 7.5C4 6 2.5 5 1 5c0 3 2 5.5 3.5 6.5C4.5 13 5 15 6 17c1.5 3 4 4 6 4s4.5-1 6-4c1-2 1.5-4 1.5-5.5C21 10.5 23 8 23 5c-1.5 0-3 1-4 2.5z"/></svg>
               <span>İnek (Sığır)</span>
               <span class="sub">Gebelik: 283 Gün</span>
             </button>
             <button type="button" class="gebelik-species-btn" id="btn-repro-koyun" onclick="selectReproSpecies('koyun')">
-              <span style="font-size:1.4rem;">🐑</span>
+              <svg class="lucide-icon icon-lg" viewBox="0 0 24 24"><path d="M9 12c-1.5-1-3-1-4.5 0s-1.5 3.5 0 5 4 1 5.5 0"/><path d="M15 12c1.5-1 3-1 4.5 0s1.5 3.5 0 5-4 1-5.5 0"/><path d="M8 8a4 4 0 0 1 8 0v7a4 4 0 0 1-8 0z"/></svg>
               <span>Koyun / Keçi</span>
               <span class="sub">Gebelik: 150 Gün</span>
             </button>
@@ -2022,13 +2248,19 @@
 
           <!-- KÜPE NO (OPSİYONEL) -->
           <div class="kupe-form-group" style="margin-bottom:8px;">
-            <label class="kupe-form-label" for="reproEarTag">🏷️ Hayvan Küpe Numarası (Opsiyonel):</label>
+            <label class="kupe-form-label" for="reproEarTag">
+              <svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"/><circle cx="7" cy="7" r=".5" fill="currentColor"/></svg>
+              <span>Hayvan Küpe Numarası (Opsiyonel):</span>
+            </label>
             <input type="text" id="reproEarTag" class="kupe-form-input" placeholder="Örn: TR16 88421" style="text-transform:uppercase;">
           </div>
 
           <!-- TOHUMLAMA / KOÇ KATIMI TARİHİ -->
           <div class="gebelik-date-input-group">
-            <label class="kupe-form-label" for="reproEventDate" id="lbl-repro-date">📅 Tohumlama Tarihi (*):</label>
+            <label class="kupe-form-label" for="reproEventDate" id="lbl-repro-date">
+              <svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              <span>Tohumlama Tarihi (*):</span>
+            </label>
             <input type="date" id="reproEventDate" class="gebelik-date-input" onchange="calculateReproTimeline()">
           </div>
 
@@ -2040,10 +2272,12 @@
           <!-- BUTONLAR -->
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:10px;">
             <button type="button" onclick="saveCurrentReproRecord()" class="btn-save-record" id="btn-save-repro" style="margin-top:0; background:#16a34a; font-size:0.86rem;">
-              💾 Takvime Kaydet
+              <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+              <span>Takvime Kaydet</span>
             </button>
             <button type="button" onclick="shareCurrentReproWhatsApp()" class="btn-save-record" id="btn-share-repro" style="margin-top:0; background:#0284c7; font-size:0.86rem;">
-              📲 Raporu İlet
+              <svg class="lucide-icon" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>
+              <span>Raporu İlet</span>
             </button>
           </div>
         </div>
@@ -2051,7 +2285,10 @@
         <!-- KAYITLI DOĞUM TAKVİMİ LİSTESİ -->
         <div class="gebelik-saved-list">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-            <strong style="color:#0f172a; font-size:0.88rem;">📋 Kayıtlı Gebelik & Doğum Takibi</strong>
+            <strong style="color:#0f172a; font-size:0.88rem; display:flex; align-items:center; gap:6px;">
+              <svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4M12 16h4M8 11h.01M8 16h.01"/></svg>
+              <span>Kayıtlı Gebelik & Doğum Takibi</span>
+            </strong>
             <span style="font-size:0.75rem; color:#64748b;" id="repro-total-count">0 Kayıt</span>
           </div>
           <div id="repro-records-container">
@@ -2066,7 +2303,10 @@
   <div class="derece-modal-overlay" id="derece-modal" onclick="closeDereceModalOnBackdrop(event)">
     <div class="derece-modal-box">
       <div class="derece-modal-hdr">
-        <div class="derece-modal-title">🌡️ Hızlı Derece & Ateş Kontrolü</div>
+        <div class="derece-modal-title">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg>
+          <span>Hızlı Derece & Ateş Kontrolü</span>
+        </div>
         <button class="guide-modal-close" onclick="closeDereceModal()" aria-label="Kapat">&times;</button>
       </div>
 
@@ -2077,18 +2317,24 @@
 
         <!-- HAYVAN TÜRÜ SEÇİMİ -->
         <div class="kupe-form-group">
-          <label class="kupe-form-label" for="dereceSpeciesSelect">🐾 Kontrol Edilen Hayvan:</label>
+          <label class="kupe-form-label" for="dereceSpeciesSelect">
+            <svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><path d="M19 5c-1.5 0-3 1-4 2.5C13.5 6 12 5.5 10 5.5S6.5 6 5 7.5C4 6 2.5 5 1 5c0 3 2 5.5 3.5 6.5C4.5 13 5 15 6 17c1.5 3 4 4 6 4s4.5-1 6-4c1-2 1.5-4 1.5-5.5C21 10.5 23 8 23 5c-1.5 0-3 1-4 2.5z"/></svg>
+            <span>Kontrol Edilen Hayvan:</span>
+          </label>
           <select id="dereceSpeciesSelect" class="kupe-form-select" onchange="runDereceEvaluation()">
-            <option value="Ergin Sığır (İnek / Dana)">🐄 Ergin Sığır (İnek / Dana) [Normal: 38.0 - 39.0°C]</option>
-            <option value="Buzağı">🍼 Buzağı [Normal: 38.5 - 39.5°C]</option>
-            <option value="Koyun / Koç">🐑 Ergin Koyun / Koç [Normal: 38.5 - 39.5°C]</option>
-            <option value="Kuzu">🍼 Kuzu [Normal: 39.0 - 40.0°C]</option>
+            <option value="Ergin Sığır (İnek / Dana)">Ergin Sığır (İnek / Dana) [Normal: 38.0 - 39.0°C]</option>
+            <option value="Buzağı">Buzağı [Normal: 38.5 - 39.5°C]</option>
+            <option value="Koyun / Koç">Ergin Koyun / Koç [Normal: 38.5 - 39.5°C]</option>
+            <option value="Kuzu">Kuzu [Normal: 39.0 - 40.0°C]</option>
           </select>
         </div>
 
         <!-- DERECE GİRİŞ KUTUSU VE PRESETLER -->
         <div class="temp-input-box">
-          <label class="kupe-form-label" for="dereceTempInput" style="color:#9a3412;">🌡️ Ölçülen Rektal Ateş (°C):</label>
+          <label class="kupe-form-label" for="dereceTempInput" style="color:#9a3412;">
+            <svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg>
+            <span>Ölçülen Rektal Ateş (°C):</span>
+          </label>
           <div class="temp-input-row">
             <input type="number" id="dereceTempInput" class="temp-number-input" step="0.1" min="30" max="45" value="40.5" oninput="runDereceEvaluation()">
             <div style="font-size:0.8rem; color:#78350f; font-weight:700;">
@@ -2099,12 +2345,30 @@
 
           <div style="font-size:0.75rem; color:#9a3412; margin-top:8px; font-weight:700;">Hızlı Ateş Seçimi:</div>
           <div class="presets-container">
-            <button type="button" class="preset-pill" onclick="setDereceValue(36.8)">❄️ 36.8°C (Hipotermi)</button>
-            <button type="button" class="preset-pill" onclick="setDereceValue(37.6)">🟡 37.6°C (Düşük)</button>
-            <button type="button" class="preset-pill" onclick="setDereceValue(38.6)">🟢 38.6°C (Normal)</button>
-            <button type="button" class="preset-pill" onclick="setDereceValue(39.6)">🟡 39.6°C (Hafif)</button>
-            <button type="button" class="preset-pill" onclick="setDereceValue(40.5)">🔴 40.5°C (Yüksek)</button>
-            <button type="button" class="preset-pill" onclick="setDereceValue(41.4)">🔥 41.4°C (Kritik)</button>
+            <button type="button" class="preset-pill" onclick="setDereceValue(36.8)">
+              <svg class="lucide-icon icon-sm" style="color:#0284c7;" viewBox="0 0 24 24"><line x1="12" x2="12" y1="2" y2="22"/><line x1="20" x2="4" y1="7.34" y2="16.66"/><line x1="4" x2="20" y1="7.34" y2="16.66"/></svg>
+              <span>36.8°C (Hipotermi)</span>
+            </button>
+            <button type="button" class="preset-pill" onclick="setDereceValue(37.6)">
+              <svg class="lucide-icon icon-sm" style="color:#d97706;" viewBox="0 0 24 24"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg>
+              <span>37.6°C (Düşük)</span>
+            </button>
+            <button type="button" class="preset-pill" onclick="setDereceValue(38.6)">
+              <svg class="lucide-icon icon-sm" style="color:#16a34a;" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span>38.6°C (Normal)</span>
+            </button>
+            <button type="button" class="preset-pill" onclick="setDereceValue(39.6)">
+              <svg class="lucide-icon icon-sm" style="color:#d97706;" viewBox="0 0 24 24"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg>
+              <span>39.6°C (Hafif)</span>
+            </button>
+            <button type="button" class="preset-pill" onclick="setDereceValue(40.5)">
+              <svg class="lucide-icon icon-sm" style="color:#dc2626;" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
+              <span>40.5°C (Yüksek)</span>
+            </button>
+            <button type="button" class="preset-pill" onclick="setDereceValue(41.4)">
+              <svg class="lucide-icon icon-sm" style="color:#dc2626;" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+              <span>41.4°C (Kritik)</span>
+            </button>
           </div>
         </div>
 
@@ -2114,7 +2378,8 @@
         </div>
 
         <button onclick="startDiagnosisWithCurrentTemp()" class="btn-save-record" style="margin-top:12px; background:#c2410c;">
-          🩺 Bu Ateş Değeriyle Muayene Başlat
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg>
+          <span>Bu Ateş Değeriyle Muayene Başlat</span>
         </button>
 
         <!-- KISA REFERANS TABLOSU -->
@@ -2148,6 +2413,42 @@
   </div>
 
   <script>
+    // =========================================================================
+    // DAHİLİ VEKTÖREL İKON SİSTEMİ (ISO 7000 / LUCIDE STANDARDI, 2px STROKE)
+    // =========================================================================
+    const SVG_ICONS = {
+      calendar: `<svg class="lucide-icon" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>`,
+      clipboard: `<svg class="lucide-icon" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4M12 16h4M8 11h.01M8 16h.01"/></svg>`,
+      thermometer: `<svg class="lucide-icon" viewBox="0 0 24 24"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg>`,
+      book: `<svg class="lucide-icon" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>`,
+      type: `<svg class="lucide-icon" viewBox="0 0 24 24"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" x2="15" y1="20" y2="20"/><line x1="12" x2="12" y1="4" y2="20"/></svg>`,
+      sun: `<svg class="lucide-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>`,
+      refresh: `<svg class="lucide-icon" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>`,
+      stethoscope: `<svg class="lucide-icon" viewBox="0 0 24 24"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg>`,
+      share: `<svg class="lucide-icon" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>`,
+      tag: `<svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"/><circle cx="7" cy="7" r=".5" fill="currentColor"/></svg>`,
+      pill: `<svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg>`,
+      plus: `<svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="16"/><line x1="8" x2="16" y1="12" y2="12"/></svg>`,
+      trash: `<svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>`,
+      checkCircle: `<svg class="lucide-icon" style="color:#16a34a;" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`,
+      helpCircle: `<svg class="lucide-icon" style="color:#d97706;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>`,
+      xCircle: `<svg class="lucide-icon" style="color:#dc2626;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" x2="9" y1="9" y2="15"/><line x1="9" x2="15" y1="9" y2="15"/></svg>`,
+      alertTriangle: `<svg class="lucide-icon" style="color:#dc2626;" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>`,
+      shieldAlert: `<svg class="lucide-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>`,
+      activity: `<svg class="lucide-icon" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`,
+      wind: `<svg class="lucide-icon" viewBox="0 0 24 24"><path d="M17.7 7.7A2.5 2.5 0 1 1 20 12H2"/><path d="M19.7 15.7A2.5 2.5 0 1 1 18 20H2"/><path d="M9 3a2.5 2.5 0 0 1 2.5 2.5H2"/></svg>`,
+      droplets: `<svg class="lucide-icon" viewBox="0 0 24 24"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.82-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/></svg>`,
+      footprints: `<svg class="lucide-icon" viewBox="0 0 24 24"><path d="M4 16v-2.38C4 11.5 2.97 9.8 3 7c.04-3.5 2.7-5.5 5.5-5.5 2.5 0 4.5 1.5 5 4 .4 2.2-.5 4.5-2 6.5L10 14"/><path d="M4 20h4"/></svg>`,
+      gauge: `<svg class="lucide-icon" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>`,
+      flame: `<svg class="lucide-icon" style="color:#dc2626;" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>`,
+      snowflake: `<svg class="lucide-icon" style="color:#0284c7;" viewBox="0 0 24 24"><line x1="12" x2="12" y1="2" y2="22"/><line x1="20" x2="4" y1="7.34" y2="16.66"/><line x1="4" x2="20" y1="7.34" y2="16.66"/></svg>`,
+      keyboard: `<svg class="lucide-icon" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="M6 8h.001M10 8h.001M14 8h.001M18 8h.001M8 12h.001M12 12h.001M16 12h.001M7 16h10"/></svg>`,
+      bovine: `<svg class="lucide-icon" viewBox="0 0 24 24"><path d="M19 5c-1.5 0-3 1-4 2.5C13.5 6 12 5.5 10 5.5S6.5 6 5 7.5C4 6 2.5 5 1 5c0 3 2 5.5 3.5 6.5C4.5 13 5 15 6 17c1.5 3 4 4 6 4s4.5-1 6-4c1-2 1.5-4 1.5-5.5C21 10.5 23 8 23 5c-1.5 0-3 1-4 2.5z"/></svg>`,
+      ovine: `<svg class="lucide-icon" viewBox="0 0 24 24"><path d="M9 12c-1.5-1-3-1-4.5 0s-1.5 3.5 0 5 4 1 5.5 0"/><path d="M15 12c1.5-1 3-1 4.5 0s1.5 3.5 0 5-4 1-5.5 0"/><path d="M8 8a4 4 0 0 1 8 0v7a4 4 0 0 1-8 0z"/></svg>`,
+      milk: `<svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.82-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/></svg>`,
+      meat: `<svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 14.14 14.14"/></svg>`
+    };
+
     // =========================================================================
     // HASTALIK VERİTABANI (SAHA KARAR AĞACI)
     // =========================================================================
@@ -2468,13 +2769,13 @@
     ];
 
     const CATEGORIES = [
-      { id: "genel", icon: "🌡️", title: "Genel Durum / Ateş / Yatma", desc: "Yem yemiyor, titriyor, ayağa kalkamıyor veya baygın" },
-      { id: "agiz_deri", icon: "👅", title: "Ağızda Salya / Deride Yara", desc: "Salya akıyor, dilde/tırnakta yara, deride şişlikler" },
-      { id: "solunum", icon: "🫁", title: "Öksürük / Hızlı Soluma", desc: "Öksürüyor, körük gibi soluyor, burun akıntısı var" },
-      { id: "dogum_ishal", icon: "🍼", title: "İshal / Doğum / Yavru Atma", desc: "Buzağı/kuzu cıvık ishal, düşük yaptı veya doğum felci" },
-      { id: "meme", icon: "🥛", title: "Meme Şişliği / Bozuk Süt", desc: "Süt pıhtılı/kanlı, meme taş gibi sert ve sıcak" },
-      { id: "ayak_topallik", icon: "🦶", title: "Topallık / Ayak Yanması", desc: "Köz üstünde gibi basıyor, tırnak arası yaralı" },
-      { id: "siskinlik_idrar", icon: "🎈", title: "Şişkinlik / Gaz / Sidik Zoru", desc: "Sol böğür davul gibi gaz şişti veya idrar yapamıyor" }
+      { id: "genel", icon: SVG_ICONS.activity, title: "Genel Durum / Ateş / Yatma", desc: "Yem yemiyor, titriyor, ayağa kalkamıyor veya baygın" },
+      { id: "agiz_deri", icon: SVG_ICONS.shieldAlert, title: "Ağızda Salya / Deride Yara", desc: "Salya akıyor, dilde/tırnakta yara, deride şişlikler" },
+      { id: "solunum", icon: SVG_ICONS.wind, title: "Öksürük / Hızlı Soluma", desc: "Öksürüyor, körük gibi soluyor, burun akıntısı var" },
+      { id: "dogum_ishal", icon: SVG_ICONS.calendar, title: "İshal / Doğum / Yavru Atma", desc: "Buzağı/kuzu cıvık ishal, düşük yaptı veya doğum felci" },
+      { id: "meme", icon: SVG_ICONS.droplets, title: "Meme Şişliği / Bozuk Süt", desc: "Süt pıhtılı/kanlı, meme taş gibi sert ve sıcak" },
+      { id: "ayak_topallik", icon: SVG_ICONS.footprints, title: "Topallık / Ayak Yanması", desc: "Köz üstünde gibi basıyor, tırnak arası yaralı" },
+      { id: "siskinlik_idrar", icon: SVG_ICONS.gauge, title: "Şişkinlik / Gaz / Sidik Zoru", desc: "Sol böğür davul gibi gaz şişti veya idrar yapamıyor" }
     ];
 
     // =========================================================================
@@ -2845,18 +3146,18 @@
 
       showTypingIndicator(() => {
         addIncomingMessage(
-          `Selamünaleyküm ustam! Ben <strong>Çoban Doktor</strong>. 🩺<br><br>
+          `Selamünaleyküm ustam! Ben <strong>Çoban Doktor</strong>.<br><br>
           Ahırda veya merada rahatsızlanan hayvanının durumunu adım adım kontrol edelim.<br><br>
           Önce söyle bakalım, <strong>hangi hayvanın rahatsız?</strong>`,
           [
-            { icon: "🍼", text: "Sığır: Buzağı", action: "handleSelectSpecies('sigir', 'Buzağı')", class: "primary" },
-            { icon: "🥛", text: "Sığır: Sağmal İnek", action: "handleSelectSpecies('sigir', 'Sağmal İnek')", class: "primary" },
-            { icon: "🤰", text: "Sığır: Gebe / Düve", action: "handleSelectSpecies('sigir', 'Gebe / Düve')", class: "primary" },
-            { icon: "🥩", text: "Sığır: Besi Danası", action: "handleSelectSpecies('sigir', 'Besi Danası')", class: "primary" },
-            { icon: "🍼", text: "Koyun: Kuzu", action: "handleSelectSpecies('koyun', 'Kuzu')", class: "warning" },
-            { icon: "🐑", text: "Koyun: Anaç Koyun", action: "handleSelectSpecies('koyun', 'Anaç Koyun')", class: "warning" },
-            { icon: "🐏", text: "Koyun: Koç / Toklu", action: "handleSelectSpecies('koyun', 'Koç / Toklu')", class: "warning" },
-            { icon: "🥩", text: "Koyun: Besi Kuzusu", action: "handleSelectSpecies('koyun', 'Besi Kuzusu')", class: "warning" }
+            { icon: SVG_ICONS.bovine, text: "Sığır: Buzağı", action: "handleSelectSpecies('sigir', 'Buzağı')", class: "primary" },
+            { icon: SVG_ICONS.bovine, text: "Sığır: Sağmal İnek", action: "handleSelectSpecies('sigir', 'Sağmal İnek')", class: "primary" },
+            { icon: SVG_ICONS.bovine, text: "Sığır: Gebe / Düve", action: "handleSelectSpecies('sigir', 'Gebe / Düve')", class: "primary" },
+            { icon: SVG_ICONS.bovine, text: "Sığır: Besi Danası", action: "handleSelectSpecies('sigir', 'Besi Danası')", class: "primary" },
+            { icon: SVG_ICONS.ovine, text: "Koyun: Kuzu", action: "handleSelectSpecies('koyun', 'Kuzu')", class: "warning" },
+            { icon: SVG_ICONS.ovine, text: "Koyun: Anaç Koyun", action: "handleSelectSpecies('koyun', 'Anaç Koyun')", class: "warning" },
+            { icon: SVG_ICONS.ovine, text: "Koyun: Koç / Toklu", action: "handleSelectSpecies('koyun', 'Koç / Toklu')", class: "warning" },
+            { icon: SVG_ICONS.ovine, text: "Koyun: Besi Kuzusu", action: "handleSelectSpecies('koyun', 'Besi Kuzusu')", class: "warning" }
           ]
         );
       }, 350);
@@ -2866,7 +3167,7 @@
       state.species = species;
       state.group = group;
 
-      addOutgoingMessage(`${species === 'sigir' ? '🐄 Sığır' : '🐑 Koyun'} • ${group}`);
+      addOutgoingMessage(`${species === 'sigir' ? 'Sığır' : 'Koyun'} • ${group}`);
 
       showTypingIndicator(() => {
         const catButtons = CATEGORIES.map(c => ({
@@ -2912,16 +3213,16 @@
       const midNorm = ((ref.normMin + ref.normMax) / 2).toFixed(1);
 
       addIncomingMessage(
-        `🌡️ <strong>Ateş / Derece Kontrolü:</strong><br><br>
+        `<strong>Ateş / Derece Kontrolü:</strong><br><br>
         Ustam, <strong>${state.group}</strong> için rektal dereceyle <strong>vücut ateşini</strong> ölçtün mü?<br>
         <span style="font-size:0.78rem; color:#64748b;">(${ref.type} için normal ateş: <strong>${ref.normMin}°C - ${ref.normMax}°C</strong>)</span>`,
         [
-          { icon: "🟢", text: `Normal Ateş (~${midNorm}°C)`, action: `handleTempAnswer(${midNorm})`, class: "primary" },
-          { icon: "🔴", text: "Yüksek Ateş (40.5°C)", action: "handleTempAnswer(40.5)", class: "danger" },
-          { icon: "🔥", text: "Çok Yüksek Ateş (41.5°C)", action: "handleTempAnswer(41.5)", class: "danger" },
-          { icon: "❄️", text: "Vücut/Kulaklar Soğuk (~37.2°C)", action: "handleTempAnswer(37.2)", class: "warning" },
-          { icon: "⌨️", text: "Özel Derece Yaz...", action: "promptCustomTemp()", class: "" },
-          { icon: "❓", text: "Ölçmedim / Derecem Yok", action: "handleTempAnswer(null)", class: "" }
+          { icon: SVG_ICONS.checkCircle, text: `Normal Ateş (~${midNorm}°C)`, action: `handleTempAnswer(${midNorm})`, class: "primary" },
+          { icon: SVG_ICONS.alertTriangle, text: "Yüksek Ateş (40.5°C)", action: "handleTempAnswer(40.5)", class: "danger" },
+          { icon: SVG_ICONS.flame, text: "Çok Yüksek Ateş (41.5°C)", action: "handleTempAnswer(41.5)", class: "danger" },
+          { icon: SVG_ICONS.snowflake, text: "Vücut/Kulaklar Soğuk (~37.2°C)", action: "handleTempAnswer(37.2)", class: "warning" },
+          { icon: SVG_ICONS.keyboard, text: "Özel Derece Yaz...", action: "promptCustomTemp()", class: "" },
+          { icon: SVG_ICONS.helpCircle, text: "Ölçmedim / Derecem Yok", action: "handleTempAnswer(null)", class: "" }
         ]
       );
     }
@@ -3011,9 +3312,9 @@
         Hayvanda şu belirtilerden hangilerini görüyorsun?<br><br>
         ${symptomList}`,
         [
-          { icon: "✅", text: "EVET, AYNEN BUNLAR VAR", action: "handleAnswer('YES')", class: "primary" },
-          { icon: "🤔", text: "BİR KISMI VAR / EMİN DEĞİLİM", action: "handleAnswer('PARTIAL')", class: "warning" },
-          { icon: "❌", text: "HAYIR, BUNLAR YOK", action: "handleAnswer('NO')", class: "danger" }
+          { icon: SVG_ICONS.checkCircle, text: "EVET, AYNEN BUNLAR VAR", action: "handleAnswer('YES')", class: "primary" },
+          { icon: SVG_ICONS.helpCircle, text: "BİR KISMI VAR / EMİN DEĞİLİM", action: "handleAnswer('PARTIAL')", class: "warning" },
+          { icon: SVG_ICONS.xCircle, text: "HAYIR, BUNLAR YOK", action: "handleAnswer('NO')", class: "danger" }
         ]
       );
     }
@@ -3021,7 +3322,7 @@
     function handleAnswer(answer) {
       const currentDisease = state.candidates[state.currentDiseaseIndex];
       if (answer === "YES") {
-        addOutgoingMessage("✅ Evet, aynen bu belirtiler var.");
+        addOutgoingMessage("Evet, aynen bu belirtiler var.");
         state.scores[currentDisease.id] += 100;
         state.selectedSymptoms.push(...currentDisease.symptoms);
         showTypingIndicator(() => {
@@ -3029,11 +3330,11 @@
         }, 500);
         return;
       } else if (answer === "PARTIAL") {
-        addOutgoingMessage("🤔 Bir kısmı var, emin değilim.");
+        addOutgoingMessage("Bir kısmı var, emin değilim.");
         state.scores[currentDisease.id] += 50;
         state.selectedSymptoms.push(currentDisease.symptoms[0]);
       } else {
-        addOutgoingMessage("❌ Hayır, bu belirtiler yok.");
+        addOutgoingMessage("Hayır, bu belirtiler yok.");
       }
 
       if (state.currentDiseaseIndex + 1 < state.candidates.length) {
@@ -3065,24 +3366,24 @@
       let badgeText = "";
       if (isRed) {
         if (isContagious) {
-          badgeText = "🔴 ACİL VE BULAŞICI RİSK! HEMEN AYIRIN!";
+          badgeText = "ACİL VE BULAŞICI RİSK! HEMEN AYIRIN!";
         } else {
-          badgeText = "🚨 ACİL MÜDAHALE GEREKLİ!";
+          badgeText = "ACİL MÜDAHALE GEREKLİ!";
         }
       } else {
         if (isContagious) {
-          badgeText = "🟡 VETERİNER HEKİM KONTROLÜ (BULAŞICI RİSK)";
+          badgeText = "VETERİNER HEKİM KONTROLÜ (BULAŞICI RİSK)";
         } else {
-          badgeText = "🟡 VETERİNER HEKİM KONTROLÜ GEREKLİ";
+          badgeText = "VETERİNER HEKİM KONTROLÜ GEREKLİ";
         }
       }
 
-      const doItems = bestMatch.doList.map(item => `<li><span>✔️</span><span>${item}</span></li>`).join("");
-      const dontItems = bestMatch.dontList.map(item => `<li><span>⛔</span><span>${item}</span></li>`).join("");
+      const doItems = bestMatch.doList.map(item => `<li>${SVG_ICONS.checkCircle}<span>${item}</span></li>`).join("");
+      const dontItems = bestMatch.dontList.map(item => `<li>${SVG_ICONS.xCircle}<span>${item}</span></li>`).join("");
 
       const tempBadgeHtml = state.temperature ? `
         <div class="temp-report-badge">
-          <strong>🌡️ Ölçülen Rektal Ateş:</strong> ${state.temperature.temp.toFixed(1)}°C — <strong>${state.temperature.statusText}</strong>
+          <strong>Ölçülen Rektal Ateş:</strong> ${state.temperature.temp.toFixed(1)}°C — <strong>${state.temperature.statusText}</strong>
           <div style="font-size:0.75rem; color:#64748b; margin-top:2px;">
             ${state.temperature.ref.type} Normal Referansı: <strong>${state.temperature.ref.normMin}°C - ${state.temperature.ref.normMax}°C</strong>
           </div>
@@ -3091,36 +3392,44 @@
 
       const cardHtml = `
         <div class="report-card">
-          <div class="report-badge ${badgeClass}">${badgeText}</div>
+          <div class="report-badge ${badgeClass}" style="display:flex; align-items:center; justify-content:center; gap:6px;">
+            ${isRed ? SVG_ICONS.alertTriangle : SVG_ICONS.helpCircle}
+            <span>${badgeText}</span>
+          </div>
           ${tempBadgeHtml}
           <div style="font-size:0.75rem; color:#64748b; font-weight:800; text-transform:uppercase;">OLASI ÖN TEŞHİS:</div>
           <div class="report-title">${bestMatch.name}</div>
 
           <div class="action-header do-header">
-            <span>✅</span><span>HEMEN YAPILACAKLAR (İLK YARDIM):</span>
+            ${SVG_ICONS.checkCircle}<span>HEMEN YAPILACAKLAR (İLK YARDIM):</span>
           </div>
           <ul class="action-list">
             ${doItems}
           </ul>
 
           <div class="action-header dont-header">
-            <span>❌</span><span>KESİNLİKLE YAPMAYIN:</span>
+            ${SVG_ICONS.xCircle}<span>KESİNLİKLE YAPMAYIN:</span>
           </div>
           <ul class="action-list">
             ${dontItems}
           </ul>
 
           <div class="ear-input-box">
-            <label for="chatEarTag">🏷️ Hayvanın Kulak Küpe Numarası (Varsa yazın):</label>
+            <label for="chatEarTag" style="display:flex; align-items:center; gap:6px;">
+              ${SVG_ICONS.tag}
+              <span>Hayvanın Kulak Küpe Numarası (Varsa yazın):</span>
+            </label>
             <input id="chatEarTag" class="ear-input" type="text" placeholder="Örn: TR 42 1234567" autocomplete="off" oninput="this.value = this.value.toUpperCase()">
           </div>
 
           <button onclick="sendReportToWhatsApp('${bestMatch.name}', '${bestMatch.urgency}', ${isContagious})" class="btn-send-wa">
-            📲 Veterinerime Rapor İlet
+            ${SVG_ICONS.share}
+            <span>Veterinerime Rapor İlet</span>
           </button>
 
           <button onclick="addCurrentDiagnosisToDefter('${bestMatch.name.replace(/'/g, "\\'")}')" class="btn-send-defter">
-            📋 Bu Hayvanı Küpe Defterine & İlaç Takibine Ekle
+            ${SVG_ICONS.clipboard}
+            <span>Bu Hayvanı Küpe Defterine & İlaç Takibine Ekle</span>
           </button>
         </div>
       `;
@@ -3128,7 +3437,7 @@
       addIncomingMessage(
         `Ustam incelemeyi tamamladım. Hayvanındaki belirtiler ışığında teşhis ve acil hareket planı aşağıdadır:<br>${cardHtml}`,
         [
-          { icon: "🔄", text: "Başka Hayvan Muayene Et", action: "restartChat()", class: "primary" }
+          { icon: SVG_ICONS.refresh, text: "Başka Hayvan Muayene Et", action: "restartChat()", class: "primary" }
         ]
       );
     }
@@ -3501,7 +3810,7 @@
       if (filtered.length === 0) {
         container.innerHTML = `
           <div style="text-align:center; padding:30px 10px; color:#64748b;">
-            <div style="font-size:2.4rem; margin-bottom:8px;">📋</div>
+            <div style="margin-bottom:8px;">${SVG_ICONS.clipboard}</div>
             <div style="font-weight:800; font-size:1rem; margin-bottom:4px;">Kayıt Bulunamadı</div>
             <div style="font-size:0.82rem;">${searchVal || kupeCurrentFilter !== 'all' ? 'Arama kriterinize uygun hayvan yok.' : 'Henüz ilaç yapılmış hayvan kaydetmediniz. Yukarıdaki "Yeni İlaç Kaydet" sekmesinden ekleyebilirsiniz.'}</div>
           </div>
@@ -3519,16 +3828,16 @@
           if (w.isMilkActive) {
             milkBoxHtml = `
               <div class="cd-box cd-danger">
-                <div class="cd-title">🥛 SÜT: DÖKÜLECEK!</div>
-                <div class="cd-rem">🔴 ${w.milkRemaining}</div>
+                <div class="cd-title" style="display:flex; align-items:center; gap:4px;">${SVG_ICONS.milk}<span>SÜT: DÖKÜLECEK!</span></div>
+                <div class="cd-rem" style="font-variant-numeric:tabular-nums;">${w.milkRemaining}</div>
                 <div class="cd-sub">Bitiş: ${w.milkEndDateStr}'e kadar tanka dökülemez</div>
               </div>
             `;
           } else {
             milkBoxHtml = `
               <div class="cd-box cd-safe">
-                <div class="cd-title">🥛 SÜT: GÜVENLİ</div>
-                <div class="cd-rem">🟢 Arındı / Temiz</div>
+                <div class="cd-title" style="display:flex; align-items:center; gap:4px;">${SVG_ICONS.milk}<span>SÜT: GÜVENLİ</span></div>
+                <div class="cd-rem" style="font-variant-numeric:tabular-nums;">Arındı / Temiz</div>
                 <div class="cd-sub">Bitiş: ${w.milkEndDateStr}</div>
               </div>
             `;
@@ -3536,8 +3845,8 @@
         } else {
           milkBoxHtml = `
             <div class="cd-box" style="background:#f1f5f9; color:#475569; border:1px solid #cbd5e1;">
-              <div class="cd-title">🥛 SÜT: SÜRESİZ</div>
-              <div class="cd-rem" style="font-size:0.75rem;">Bekleme Yok / Sütsüz</div>
+              <div class="cd-title" style="display:flex; align-items:center; gap:4px;">${SVG_ICONS.milk}<span>SÜT: SÜRESİZ</span></div>
+              <div class="cd-rem" style="font-size:0.75rem; font-variant-numeric:tabular-nums;">Bekleme Yok / Sütsüz</div>
             </div>
           `;
         }
@@ -3548,16 +3857,16 @@
           if (w.isMeatActive) {
             meatBoxHtml = `
               <div class="cd-box cd-danger">
-                <div class="cd-title">🥩 ET: KESİM YASAK!</div>
-                <div class="cd-rem">🔴 ${w.meatRemaining}</div>
+                <div class="cd-title" style="display:flex; align-items:center; gap:4px;">${SVG_ICONS.meat}<span>ET: KESİM YASAK!</span></div>
+                <div class="cd-rem" style="font-variant-numeric:tabular-nums;">${w.meatRemaining}</div>
                 <div class="cd-sub">Bitiş: ${w.meatEndDateStr}'e kadar kesilemez</div>
               </div>
             `;
           } else {
             meatBoxHtml = `
               <div class="cd-box cd-safe">
-                <div class="cd-title">🥩 ET: GÜVENLİ</div>
-                <div class="cd-rem">🟢 Arındı / Kesilebilir</div>
+                <div class="cd-title" style="display:flex; align-items:center; gap:4px;">${SVG_ICONS.meat}<span>ET: GÜVENLİ</span></div>
+                <div class="cd-rem" style="font-variant-numeric:tabular-nums;">Arındı / Kesilebilir</div>
                 <div class="cd-sub">Bitiş: ${w.meatEndDateStr}</div>
               </div>
             `;
@@ -3565,8 +3874,8 @@
         } else {
           meatBoxHtml = `
             <div class="cd-box" style="background:#f1f5f9; color:#475569; border:1px solid #cbd5e1;">
-              <div class="cd-title">🥩 ET: SÜRESİZ</div>
-              <div class="cd-rem" style="font-size:0.75rem;">Bekleme Yok</div>
+              <div class="cd-title" style="display:flex; align-items:center; gap:4px;">${SVG_ICONS.meat}<span>ET: SÜRESİZ</span></div>
+              <div class="cd-rem" style="font-size:0.75rem; font-variant-numeric:tabular-nums;">Bekleme Yok</div>
             </div>
           `;
         }
@@ -3574,22 +3883,37 @@
         return `
           <div class="${cardClass}">
             <div class="kupe-card-hdr">
-              <div class="kupe-tag-title">🏷️ ${rec.earTag}</div>
+              <div class="kupe-tag-title" style="display:flex; align-items:center; gap:6px;">
+                ${SVG_ICONS.tag}
+                <span style="font-variant-numeric:tabular-nums;">${rec.earTag}</span>
+              </div>
               <span class="kupe-species-pill">${rec.speciesGroup}</span>
             </div>
-            <div class="kupe-med-title">💊 ${rec.medicine}</div>
-            <div class="kupe-date-lbl">📅 Uygulama: ${w.appDateStr}</div>
+            <div class="kupe-med-title" style="display:flex; align-items:center; gap:6px;">
+              ${SVG_ICONS.pill}
+              <span>${rec.medicine}</span>
+            </div>
+            <div class="kupe-date-lbl" style="display:flex; align-items:center; gap:6px;">
+              ${SVG_ICONS.calendar}
+              <span style="font-variant-numeric:tabular-nums;">Uygulama: ${w.appDateStr}</span>
+            </div>
 
             <div class="countdown-grid">
               ${milkBoxHtml}
               ${meatBoxHtml}
             </div>
 
-            ${rec.notes ? `<div style="font-size:0.74rem; color:#475569; background:#f8fafc; padding:4px 8px; border-radius:4px; margin-top:4px;">📝 ${rec.notes}</div>` : ''}
+            ${rec.notes ? `<div style="font-size:0.74rem; color:#475569; background:#f8fafc; padding:6px 8px; border-radius:6px; margin-top:6px; display:flex; align-items:center; gap:6px;">${SVG_ICONS.book}<span>${rec.notes}</span></div>` : ''}
 
             <div class="kupe-card-actions">
-              <button onclick="shareKupeRecordWhatsApp('${rec.id}')" class="kupe-btn-wa">📲 Paylaş</button>
-              <button onclick="deleteKupeRecord('${rec.id}')" class="kupe-btn-del">🗑️ Sil</button>
+              <button onclick="shareKupeRecordWhatsApp('${rec.id}')" class="kupe-btn-wa">
+                ${SVG_ICONS.share}
+                <span>Paylaş</span>
+              </button>
+              <button onclick="deleteKupeRecord('${rec.id}')" class="kupe-btn-del">
+                ${SVG_ICONS.trash}
+                <span>Sil</span>
+              </button>
             </div>
           </div>
         `;
@@ -3689,17 +4013,17 @@
         : "Doğuma 1 Ay Kala: Çelerme (Enterotoksemi) Karma Aşısı & Selenyum";
 
       const vaccineDesc = isInek
-        ? "💉 <strong>Karma Aşı:</strong> Buzağı ishalini önleyen kombine (E. coli, Rota, Corona) aşıyı vurun.<br>💊 <strong>E-Vit + Selenyum:</strong> Son ay buzağının beyaz kas hastalığına yakalanmasını ve sonun (eşin) atılamamasını önler."
-        : "💉 <strong>Çelerme Aşısı:</strong> Doğacak kuzuyu yem çarpmasından koruyacak antikorlar ağız sütüne (kolostruma) geçer.<br>💊 <strong>E-Vit + Selenyum:</strong> Kuzularda beyaz kas hastalığını kesin olarak önler.";
+        ? `${SVG_ICONS.activity} <strong>Karma Aşı:</strong> Buzağı ishalini önleyen kombine (E. coli, Rota, Corona) aşıyı vurun.<br>${SVG_ICONS.pill} <strong>E-Vit + Selenyum:</strong> Son ay buzağının beyaz kas hastalığına yakalanmasını ve sonun (eşin) atılamamasını önler.`
+        : `${SVG_ICONS.activity} <strong>Çelerme Aşısı:</strong> Doğacak kuzuyu yem çarpmasından koruyacak antikorlar ağız sütüne (kolostruma) geçer.<br>${SVG_ICONS.pill} <strong>E-Vit + Selenyum:</strong> Kuzularda beyaz kas hastalığını kesin olarak önler.`;
 
       container.style.display = "flex";
       container.innerHTML = `
         <!-- 1. DOĞUM TARİHİ KARTI -->
         <div class="timeline-item birth">
-          <div class="timeline-icon">🎯</div>
+          <div class="timeline-icon">${SVG_ICONS.calendar}</div>
           <div class="timeline-content">
             <div class="timeline-title">
-              <span>${isInek ? '🐄 Beklenen Buzağılama Tarihi' : '🐑 Beklenen Kuzulama Tarihi'} (+${gestationDays} Gün)</span>
+              <span style="display:inline-flex; align-items:center; gap:6px;">${isInek ? SVG_ICONS.bovine + ' Beklenen Buzağılama Tarihi' : SVG_ICONS.ovine + ' Beklenen Kuzulama Tarihi'} (+${gestationDays} Gün)</span>
               ${countdownBadge}
             </div>
             <div class="timeline-date" style="color:#b91c1c;">${formatTurkishDate(birthDate)}</div>
@@ -3709,7 +4033,7 @@
 
         <!-- 2. KURUYA ÇIKARMA KARTI -->
         <div class="timeline-item dry">
-          <div class="timeline-icon">🥛</div>
+          <div class="timeline-icon">${SVG_ICONS.milk}</div>
           <div class="timeline-content">
             <div class="timeline-title">
               <span>${dryTitle}</span>
@@ -3722,7 +4046,7 @@
 
         <!-- 3. AŞI VE SELENYUM KARTI -->
         <div class="timeline-item vaccine">
-          <div class="timeline-icon">💉</div>
+          <div class="timeline-icon">${SVG_ICONS.activity}</div>
           <div class="timeline-content">
             <div class="timeline-title">
               <span>${vaccineTitle}</span>
@@ -3861,7 +4185,7 @@
       container.innerHTML = records.map(rec => {
         const isInek = rec.species === 'inek';
         const cardClass = isInek ? "gebelik-saved-card cow" : "gebelik-saved-card sheep";
-        const spBadge = isInek ? "🐄 İnek (283 Gün)" : "🐑 Koyun (150 Gün)";
+        const spBadge = isInek ? `${SVG_ICONS.bovine} İnek (283 Gün)` : `${SVG_ICONS.ovine} Koyun (150 Gün)`;
         const eventName = isInek ? "Tohumlama" : "Koç Katımı";
 
         const birthDate = new Date(rec.birthDateMs);
@@ -3872,33 +4196,34 @@
         const daysLeft = Math.round((birthDate.getTime() - now.getTime()) / 86400000);
         let statusBadge = "";
         if (daysLeft > 0) {
-          statusBadge = `<span style="background:#fee2e2; color:#b91c1c; font-weight:800; font-size:0.72rem; padding:2px 6px; border-radius:6px;">Doğuma ${daysLeft} Gün</span>`;
+          statusBadge = `<span style="background:#fee2e2; color:#b91c1c; font-weight:800; font-size:0.75rem; padding:4px 8px; border-radius:6px; font-variant-numeric:tabular-nums;">Doğuma ${daysLeft} Gün</span>`;
         } else if (daysLeft === 0) {
-          statusBadge = `<span style="background:#ef4444; color:#fff; font-weight:800; font-size:0.72rem; padding:2px 6px; border-radius:6px;">🚨 BUGÜN DOĞUM!</span>`;
+          statusBadge = `<span style="background:#ef4444; color:#fff; font-weight:800; font-size:0.75rem; padding:4px 8px; border-radius:6px;">${SVG_ICONS.alertTriangle} BUGÜN DOĞUM!</span>`;
         } else {
-          statusBadge = `<span style="background:#e2e8f0; color:#475569; font-weight:700; font-size:0.72rem; padding:2px 6px; border-radius:6px;">${Math.abs(daysLeft)} gün geçti</span>`;
+          statusBadge = `<span style="background:#e2e8f0; color:#475569; font-weight:700; font-size:0.75rem; padding:4px 8px; border-radius:6px; font-variant-numeric:tabular-nums;">${Math.abs(daysLeft)} gün geçti</span>`;
         }
 
         return `
           <div class="${cardClass}">
-            <div style="display:flex; justify-content:space-between; align-items:flex-start;">
-              <div>
-                <strong style="color:#0f172a; font-size:0.92rem;">🏷️ ${rec.earTag}</strong>
-                <span style="font-size:0.75rem; color:#475569; margin-left:6px;">(${spBadge})</span>
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:6px;">
+              <div style="display:inline-flex; align-items:center; gap:6px;">
+                <span style="color:#008069;">${SVG_ICONS.tag}</span>
+                <strong style="color:#0f172a; font-size:0.95rem; font-variant-numeric:tabular-nums;">${rec.earTag}</strong>
+                <span style="font-size:0.75rem; color:#475569; display:inline-flex; align-items:center; gap:4px;">(${spBadge})</span>
               </div>
               <div>${statusBadge}</div>
             </div>
 
-            <div style="font-size:0.78rem; color:#334155; line-height:1.5; background:#f8fafc; padding:6px 8px; border-radius:6px; border:1px solid #f1f5f9;">
-              <div>📅 <strong>${eventName}:</strong> ${fDate(eventDate)}</div>
-              <div>🎯 <strong>Tahmini Doğum:</strong> <span style="font-weight:800; color:#b91c1c;">${fDate(birthDate)}</span></div>
-              <div>🥛 <strong>Kuruya Çıkarma:</strong> ${fDate(dryDate)} (Doğuma 60 gün)</div>
-              <div>💉 <strong>Aşı & Selenyum:</strong> ${fDate(vaccineDate)} (Doğuma 1 ay)</div>
+            <div style="font-size:0.82rem; color:#334155; line-height:1.6; background:#f8fafc; padding:8px 10px; border-radius:8px; border:1px solid #f1f5f9; display:flex; flex-direction:column; gap:3px;">
+              <div style="display:flex; align-items:center; gap:6px;">${SVG_ICONS.calendar} <span><strong>${eventName}:</strong> <span style="font-variant-numeric:tabular-nums;">${fDate(eventDate)}</span></span></div>
+              <div style="display:flex; align-items:center; gap:6px;">${SVG_ICONS.calendar} <span><strong>Tahmini Doğum:</strong> <span style="font-weight:800; color:#b91c1c; font-variant-numeric:tabular-nums;">${fDate(birthDate)}</span></span></div>
+              <div style="display:flex; align-items:center; gap:6px;">${SVG_ICONS.milk} <span><strong>Kuruya Çıkarma:</strong> <span style="font-variant-numeric:tabular-nums;">${fDate(dryDate)}</span> (Doğuma 60 gün)</span></div>
+              <div style="display:flex; align-items:center; gap:6px;">${SVG_ICONS.activity} <span><strong>Aşı & Selenyum:</strong> <span style="font-variant-numeric:tabular-nums;">${fDate(vaccineDate)}</span> (Doğuma 1 ay)</span></div>
             </div>
 
-            <div style="display:flex; justify-content:flex-end; gap:6px; margin-top:4px;">
-              <button onclick="shareReproRecordWhatsApp('${rec.id}')" class="kupe-btn-wa" style="padding:4px 8px; font-size:0.74rem;">📲 Paylaş</button>
-              <button onclick="deleteReproRecord('${rec.id}')" class="kupe-btn-del" style="padding:4px 8px; font-size:0.74rem;">🗑️ Sil</button>
+            <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:8px;">
+              <button onclick="shareReproRecordWhatsApp('${rec.id}')" class="kupe-btn-wa" style="min-height:48px; padding:8px 14px; font-size:0.85rem; display:inline-flex; align-items:center; gap:6px;">${SVG_ICONS.share} Paylaş</button>
+              <button onclick="deleteReproRecord('${rec.id}')" class="kupe-btn-del" style="min-height:48px; padding:8px 14px; font-size:0.85rem; display:inline-flex; align-items:center; gap:6px;">${SVG_ICONS.trash} Sil</button>
             </div>
           </div>
         `;
