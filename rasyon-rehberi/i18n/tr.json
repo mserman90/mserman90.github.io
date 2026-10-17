@@ -1,0 +1,230 @@
+{
+  "app": {
+    "title": "Rasyon Ustası — Besi Rehberim",
+    "subtitle": "5 dakikada hayvanına özel, bilimsel ve ekonomik yem tarifini hazırlıyorum.",
+    "start_button": "Hadi Başlayalım",
+    "resume_title": "Yarıda Bıraktığın Bir Yem Tarifi Var!",
+    "resume_button": "Kaldığın Yerden Devam Et",
+    "restart_button": "Sıfırdan Başla",
+    "back_button": "← Geri Dön",
+    "next_button": "Devam Et →",
+    "calculate_button": "🎉 Yem Tarifimi Hazırla",
+    "loading_title": "Yem karıştırılıyor... 🌾",
+    "loading_subtitle": "Hayvanına özel yem tarifin hazırlanıyor..."
+  },
+  "guides": {
+    "step0": "Merhaba bereketli olsun! Ben Zooteknist Serdar. Hiçbir karmaşık hesapla uğraşmadan, sana soracağım birkaç basit soruyla dananın en hızlı ve en ucuza nasıl kilo alacağını birlikte bulacağız.",
+    "step1": "Dananın kilosunu göz kararı da olsa seçebilirsin. Kaydırıcıyı sağa sola çekmen veya + / - tuşlarına dokunman yeterli.",
+    "step2": "Genç danalar boy ve kemik uzatmak için daha çok proteine ihtiyaç duyar; iri danalar ise et doldurmak için enerji ister.",
+    "step3": "Çoğu besicimiz günlük 1,2 kilo artışı seçiyor; hem işkembeyi yormaz hem de cebini korur.",
+    "step4": "Erkek danalar ve tosunlar yemi kasa daha hızlı çevirir, düveler ise biraz daha erken yağlanır.",
+    "step5": "Kaba yem (ot, saman, silaj) hayvanın geviş getirmesini sağlar ve işkembe ekşimesini önler. Ahırında hangileri varsa işaretle.",
+    "step6": "Kesif yemler (arpa, mısır, küspe, fabrika yemi) hayvana asıl kiloyu aldıran güç kaynaklarıdır.",
+    "step7": "Yem fiyatlarını biliyorsan + / - tuşlarıyla düzeltebilirsin. Bilmiyorsan hiç dert etme, güncel piyasa ortalamasını kullanırım.",
+    "step8": "Önünde sürekli yem duran hayvanlar gün boyu azar azar yer, işkembesi daha rahat çalışır.",
+    "step9": "İshal, topallık veya ateş varsa önce tedavi gerekir; yüksek enerjili besi yemi hasta hayvanı yorabilir.",
+    "step10": "Açıkta veya soğuk sundurmada kalan hayvanlar vücutlarını ısıtmak için biraz daha fazla enerji harcar."
+  },
+  "did_you_know": {
+    "fact1": "💡 Biliyor muydun? Sığırlar günde yaklaşık 8 saat geviş getirir ve işkembeyi asitten koruyan 150 litre doğal karbonatlı tükürük üretir!",
+    "fact2": "💡 Biliyor muydun? Arpayı bütün vermek yerine ezme veya kırma olarak vermek sindirimi %15 artırır; ama un gibi toz yaparsan işkembeyi ekşitir!",
+    "fact3": "💡 Biliyor muydun? Suyu eksik içen bir besi danası yem yemeyi hemen azaltır; 1 kilo kuru yem için hayvanın 4-5 litre temiz suya ihtiyacı vardır!"
+  },
+  "terms": {
+    "kuru_madde": "Kuru Madde (yemdeki suyu çıkardığımızda kalan kısım)",
+    "enerji": "Besi Enerjisi (hayvanın kilo almasını ve ısınmasını sağlayan güç)",
+    "protein": "Protein (et, kas ve kemik çatısını büyüten besin)",
+    "lif": "Lif / Kaba Yem (geviş getirmeyi sağlayan ve işkembe ekşimesini önleyen kalkan)",
+    "kalsiyum_fosfor": "Kalsiyum ve Fosfor (kemikleri güçlendiren ve erkek danada idrar taşını önleyen mineral dengesi)"
+  },
+  "warnings": {
+    "gradual_transition": "⚠️ Yemi bir günde değiştirme! Yeni tarife 7 günde alıştır: ilk gün %20 yeni, son gün %100 yeni.",
+    "sick_animal": "⚠️ Önce veterinere danışmanı öneririm, bu tarif hasta hayvanlar için değil.",
+    "empty_feed": "Henüz yem seçmedin. Endişelenme, ahırında ne varsa onu seç, gerisini ben hallederim. 👇",
+    "poster_reminders": [
+      "1. Temiz ve serin su her zaman hayvanın önünde bulunsun.",
+      "2. Yemi aniden değiştirme; yeni tarife 7 günde azar azar alıştır.",
+      "3. Kaya tuzu, mermer tozu ve vitamin-mineral premiksini asla ihmal etme."
+    ]
+  },
+  "sut_ustasi": {
+    "app": {
+      "title": "Süt Ustası — Sağmal Rehberim",
+      "subtitle": "İneğinin sütüne göre yem tarifini 5 dakikada hazırlıyorum.",
+      "start_button": "Hadi Başlayalım",
+      "resume_title": "Yarıda Bıraktığın Bir Süt Tarifi Var!",
+      "resume_button": "Kaldığın Yerden Devam Et",
+      "restart_button": "Sıfırdan Başla",
+      "loading_title": "Süt sağılıyor... 🥛",
+      "loading_subtitle": "İneğinin yem tarifi hazırlanıyor...",
+      "loading_micro": [
+        "Enerji hesaplanıyor...",
+        "Protein dengeleniyor...",
+        "Süt yağı kontrol ediliyor..."
+      ],
+      "price_date_note": "Fiyatlar 12.10.2026 tarihine aittir."
+    },
+    "guides": {
+      "step0": "Merhaba bereketli olsun! Ben Zooteknist Serdar. İneğin günde kaç litre süt veriyorsa ve hangi dönemdeyse, süt yağını düşürmeden ve hayvanı hasta etmeden en kârlı yem tarifini birlikte hazırlayacağız.",
+      "donem": "İneğin şu an hangi dönemde? Doğum öncesi kuru dönem ile yeni doğum ve sağım dönemlerinin yemleri birbirinden tamamen farklıdır.",
+      "kuru_gun": "Doğuma ne kadar kaldığı çok önemli. Son 3 haftada (yakın kuru dönem) doğum felcini önlemek için özel hazırlık yaparız.",
+      "sut_hummasi_gecmis": "İnek daha önceki doğumlarında yatakta kaldıysa (süt humması geçirdiyse), kalsiyumu kısıp koruyucu acı tuz (anyonik tuz) öneririz.",
+      "sut_litre": "İneğin günde kaç litre süt veriyor? Emin değilsen akşam sağımını 2 ile çarp, yaklaşık çıkar.",
+      "sut_yag": "Süt yağı, hayvanın enerji ve lif durumunu gösterir. Düşerse işkembe asitleniyor veya enerji yetmiyor demektir.",
+      "sut_protein": "Sütün protein oranını biliyorsan seçebilirsin; bilmiyorsan hiç dert etme, ortalamayı kullanırım.",
+      "buzagi_sayisi": "İlk buzağısını doğuran genç inekler hem süt verir hem de kendi boyunu büyütmeye devam eder; onlara ekstra enerji veririz.",
+      "kilo": "İneğin canlı kilosunu kaydırıcıyla veya + / - tuşlarıyla seç. Emin değilsen ırkına göre tahmin girebilirsin.",
+      "irk": "Holstein inekler bol süt verir, Simmental ve Montofonların sütü daha yağlıdır, Yerli ve Melez ırklar ise daha dayanıklıdır.",
+      "vks": "İneğin bel ve sağrı kemiklerine bakarak vücut durumunu seç. Çok zayıf inek döl tutmaz, çok yağlı inek ise doğumda zorlanır.",
+      "kaba_yem": "Kaba yem (silaj, yonca, kuru ot, saman) süt yağını koruyan ana kalkandır. Ahırında hangileri varsa işaretle.",
+      "kesif_yem": "Kesif yemler (arpa, mısır, küspe, fabrika süt yemi) süt litresini artıran enerji ve protein kaynaklarıdır.",
+      "katki": "Karbonat (yemek sodası) süt yağının düşmesini önler, vitamin-mineral ve tuz ise döl tutmayı ve ayak sağlığını korur.",
+      "fiyat": "Yem fiyatlarını biliyorsan + / - tuşlarıyla ayarlayabilirsin. Bilmiyorsan güncel piyasa ortalamasını kullanırım.",
+      "serbest": "Önünde sürekli karışım yem (TMR) duran inekler gün boyu azar azar yer, işkembesi ekşimez ve sütü artar.",
+      "saglik": "İnekte şu an topallık, meme iltihabı (mastitis) veya iştahsızlık (ketozis) varsa işaretle; yemini ona göre koruyucu ayarlayalım.",
+      "barinma_sagim": "Açık ahırda soğukta kalan inekler ısınmak için daha çok yer; günde 3 sağım yapılan inekler ise %5-10 daha fazla süt verir."
+    },
+    "did_you_know": {
+      "fact1": "💡 Biliyor muydun? Sağmal bir inek günde 100 litreye kadar temiz su içebilir! Sütün %87'si sudur; su azalırsa süt hemen düşer.",
+      "fact2": "💡 Biliyor muydun? Süt yağının düşmesinin 1 numaralı sebebi kaba otun az, arpa/tahılın fazla olmasıdır. İnek günde en az 8 saat geviş getirmelidir!",
+      "fact3": "💡 Biliyor muydun? Doğuma 3 hafta kala ineğe fazla yonca ve kalsiyum verirsen vücut tembelleşir ve doğumda süt humması (doğum felci) olur!",
+      "fact4": "💡 Biliyor muydun? Günde 150 gram yemek sodası (sodyum bikarbonat) işkembe asidini dengeler ve süt yağını korur!"
+    },
+    "terms": {
+      "kuru_donem": "Kuru Dönem (doğumdan önceki 2 ay, inek sağılmaz, dinlenir ve buzağı büyütür)",
+      "kuru_madde": "Kuru Madde (yemdeki suyu çıkardığımızda kalan net besin kısmı)",
+      "nel": "Süt Enerjisi - NEL (ineğin hem yaşaması hem de süt üretmesi için gereken net enerji)",
+      "mp_hp": "Protein - HP / MP (sütün içindeki proteini ve memeyi besleyen yapı taşı)",
+      "ndf": "Geviş Lifi - NDF (ineğin geviş getirmesini sağlayan, işkembe ekşimesini ve süt yağı düşmesini önleyen lif)",
+      "dcad": "Anyonik Tuz Dengesi - DCAD (doğum öncesi kanda kalsiyum emilimini hazırlayarak süt humması / doğum felcini önleyen mineral dengesi)",
+      "rup": "Korunmuş Protein - RUP (işkembede bozulmadan doğrudan bağırsağa ve süte geçen kaliteli protein)"
+    },
+    "poster_reminders": [
+      "Su her zaman önünde olsun, günde 100 L içebilir.",
+      "Yemi 7 günde alıştır, ani değiştirme.",
+      "Süt yağı düşerse ilk iş silajı azalt, yoncayı artır.",
+      "Kuru dönemde tuz ve minerali aksatma.",
+      "Doğum sonrası ilk 2 hafta ketozis belirtilerini izle."
+    ]
+  },
+  "kuzu_ustasi": {
+    "app": {
+      "title": "Kuzu Ustası — Sürü Rehberim",
+      "subtitle": "Kuzularının yem tarifini 4 dakikada hazırlıyorum.",
+      "start_button": "Hadi Başlayalım",
+      "resume_title": "Yarıda Bıraktığın Bir Kuzu/Koyun Tarifi Var!",
+      "resume_button": "Kaldığın Yerden Devam Et",
+      "restart_button": "Sıfırdan Başla",
+      "loading_title": "Kuzular yem yiyor... 🐑🌾",
+      "loading_subtitle": "Kuzularının yem tarifi hazırlanıyor...",
+      "loading_micro": [
+        "Enerji hesaplanıyor...",
+        "Protein dengeleniyor...",
+        "Bakır kontrol ediliyor..."
+      ],
+      "price_date_note": "Fiyatlar 12.10.2026 tarihine aittir."
+    },
+    "guides": {
+      "welcome": "Merhaba bereketli olsun! Ben Çoban Ercan. Kuzularını idrar taşı ve bakır zehirlenmesinden koruyarak, en hızlı ve en ucuza nasıl besiye alacağını birlikte hazırlayacağız.",
+      "tip": "Hangi hayvanları besiye alacaksın? Kuzuda protein yüksek, tokluda dengeli, şişekte daha ekonomik yem kullanılır.",
+      "anac_donem": "Anaç koyunlarda gebeliğin son 2 ayı ve emzirme dönemi çok kritiktir; kuzular içeride hızla büyürken koyunu aç bırakmamalıyız.",
+      "anac_kuzu_sayisi": "İkiz veya üçüz kuzu bekleyen ya da emziren koyunların enerji ve protein ihtiyacı tek kuzuluya göre çok daha yüksektir.",
+      "kilo": "Kuzuların ortalama kilosunu kaydırıcıyla seç. Hepsi aynı boyda değilse sürü ortalamasını girmen yeterli.",
+      "cinsiyet_yas": "Erkek kuzularda kesif yem ağırlıklı beslemede idrar taşı riski yüksektir; motorumuz erkek kuzular için tuzu, kalsiyumu ve koruyucu amonyum klorürü otomatik ayarlar.",
+      "suru_sayisi": "Sürüde kaç kuzu varsa gir; yem tablosunu 1 kuzu için verirken maliyeti ve kazancı tüm sürü için de hesaplayacağım.",
+      "hedef_sure": "Kuzular kaç günde satışa hazır olsun? 90 günlük normal besi hem işkembeyi yormaz hem de en dengeli kazancı sağlar.",
+      "hedef_kilo": "Satışta kaç kilo olmasını istiyorsun? Seçtiğin kiloya göre günlük kaç gram alması gerektiğini hemen altında gösteriyorum.",
+      "kaba_yem": "Ağılda hangi kaba yemler (yonca, saman, kuru ot, silaj) varsa seç. Kaba yem kuzunun geviş getirmesini sağlar.",
+      "kesif_yem": "Arpa, mısır, küspe veya fabrika kuzu yemi kuzulara asıl kiloyu aldıran yemlerdir. Pamuk küspesini kuzularda sınırlı kullanırız.",
+      "katki": "DİKKAT: Koyunlarda asla sığır premiksi kullanılmaz (bakır zehirler)! Erkek kuzularda Tuz ve Amonyum Klorür idrar taşını önler.",
+      "fiyat_serbest": "Yem fiyatlarını biliyorsan düzeltebilirsin. Kuzular sığır gibi tek seferde büyük öğün yiyemez, yemliğin dolu olması (serbest yemleme) çok faydalıdır.",
+      "saglik_ortam_asi": "Kuzularda idrar yapamama, ishal veya öksürük varsa işaretle. Ayrıca enterotoksemi (çelerme) aşısı yapılmadıysa ani ölüm riskine karşı uyarı ekleyeceğim."
+    },
+    "did_you_know": {
+      "fact1": "💡 Biliyor muydun? Koyunlar günde 8 saat geviş getirir, bu onların en sevdiği iştir! Geviş durursa işkembe asitlenmiş demektir.",
+      "fact2": "💡 Biliyor muydun? Koyunlar bakır mineraline sığırlardan 10 kat daha duyarlıdır. Sığır premiksi koyunu 2 haftada zehirleyebilir!",
+      "fact3": "💡 Biliyor muydun? Erkek kuzularda kaya tuzu ve temiz su eksik olursa idrar yolunda taş oluşur; bol su ve tuz kuzunun hayatını kurtarır!",
+      "fact4": "💡 Biliyor muydun? Hızlı büyüyen besi kuzularında aşırı tahıl (arpa/mısır) çelerme (enterotoksemi) hastalığını tetikler; karma aşı şarttır!"
+    },
+    "terms": {
+      "kuzu": "Kuzu (0–6 aylık, en hızlı büyüyen ve en hassas genç koyun)",
+      "toklu": "Toklu (6–12 aylık genç besi koyunu)",
+      "sisek": "Şişek (1–2 yaşındaki genç koyun)",
+      "kuru_madde": "Kuru Madde (yemdeki suyu çıkardığımızda kalan net besin kısmı; kuzu canlı ağırlığının ~%4'ü kadar yer)",
+      "me": "Besi Enerjisi - ME (kuzunun günlük gram almasını ve ısınmasını sağlayan güç)",
+      "hp": "Ham Protein - HP (kuzunun kas, et ve kemik çatısını büyüten besin)",
+      "ndf": "Geviş Lifi - NDF (kuzunun geviş getirmesini sağlayan, işkembe ekşimesini önleyen lif)",
+      "ca_p": "Kalsiyum / Fosfor Dengesi (erkek kuzularda idrar taşı oluşmaması için en az 2:1 olması gereken mineral oranı)",
+      "bakir": "Bakır Güvenliği - Cu (koyunlarda 15 mg/kg KM sınırını asla geçmemesi gereken iz mineral)"
+    },
+    "poster_reminders": [
+      "Su her zaman önünde olsun, kuzu günde 5 litre içer.",
+      "Tuzu ve minerali aksatma — idrar taşı ve hastalık önler.",
+      "Sığır premiksi KULLANMA — koyunu zehirler.",
+      "Yemi 7–10 günde alıştır, ani değiştirme.",
+      "Erkek kuzularda idrar yapıp yapmadığını her gün kontrol et.",
+      "Enterotoksemi aşısı yaptır, ani ölümleri engeller."
+    ]
+  },
+  "sagmal_koyun_ustasi": {
+    "app": {
+      "title": "Sağmal Koyun Ustası — Süt Koyunu Rehberim",
+      "subtitle": "Sağmal koyunlarının yem tarifini 5 dakikada hazırlıyorum.",
+      "start_button": "Hadi Başlayalım",
+      "resume_title": "Yarıda Bıraktığın Bir Sağmal Koyun Tarifi Var!",
+      "resume_button": "Kaldığın Yerden Devam Et",
+      "restart_button": "Sıfırdan Başla",
+      "loading_title": "Koyunlar sağılıyor... 🐑🥛",
+      "loading_subtitle": "Koyunlarının yem tarifi hazırlanıyor...",
+      "loading_micro": [
+        "Enerji hesaplanıyor...",
+        "Süt proteini dengeleniyor...",
+        "Gebelik toksemisi kontrol ediliyor...",
+        "Bakır kontrol ediliyor..."
+      ],
+      "price_date_note": "Fiyatlar 12.10.2026 tarihine aittir."
+    },
+    "guides": {
+      "welcome": "Merhaba bereketli olsun! Ben Çoban Ercan, yanımda da Zooteknist Serdar var. Koyunun günde kaç litre süt veriyorsa, süt yağını ve peynir randımanını düşürmeden, gebelik toksemisi ve bakır zehirlenmesinden koruyarak en kârlı yem tarifini birlikte hazırlayacağız.",
+      "donem": "Koyunun şu an hangi dönemde? Süt koyununda kuru dönem, yeni doğum ve sağım dönemlerinin yemleri birbirinden tamamen farklıdır.",
+      "kuru_detay": "Doğuma son 6 hafta kala kuzular anne karnında çok hızlı büyür. İkiz veya üçüz kuzu bekleyen koyunlarda 'Gebelik Toksemisi' (ikiz kuzu hastalığı) ve doğum sonrası 'Süt Ateşi' riskini önlemek için özel enerji ve mineral dengesi kuracağız.",
+      "yeni_dogum_detay": "Doğum sonrası ilk 14 gün çok kritiktir! Koyun yem yemiyorsa Gebelik Toksemisi, ayağa kalkamıyorsa Süt Ateşi (hipokalsemi) acil müdahale gerektirir.",
+      "sut_verimi": "Koyunun günde kaç litre süt veriyor? Koyun sütü inek sütünden 2 kat yağlı ve 2 kat proteinlidir; bu yüzden her litre süt için güçlü enerji ve protein gerekir.",
+      "emzirme_durumu": "Koyun hem sağılıp hem kuzu emziriyorsa, kuzunun içtiği süt için de anne koyuna ekstra enerji ve protein ekleriz.",
+      "sut_yag_protein": "Koyun sütünün yağ ve protein oranını biliyorsan seç; bilmiyorsan ırkına göre ortalamayı (%6,5 yağ, %5,5 protein) otomatik kullanırım.",
+      "dogum_sayisi": "İlk doğumunu yapan genç koyunlar (şişekler) hem süt verir hem de kendi kemik ve kaslarını büyütmeye devam eder; onlara +%15 büyüme payı ekleriz.",
+      "kilo_irk_vks": "Koyunun ortalama kilosunu, ırkını ve bel kemiği dolgunluğunu (VKS) seç. Gebelik sonunda çok yağlı (VKS > 3,75) koyunlarda gebelik toksemisi riski çok yüksektir!",
+      "suru_sayisi": "Sürüde kaç sağmal koyun varsa gir; yem tablosunu 1 koyun için verirken günlük toplam yem, süt geliri ve peynir hesabını tüm sürü için de çıkaracağım.",
+      "kaba_yem": "Kaba yem (yonca, kuru ot, saman, silaj) koyunun geviş getirmesini sağlar ve sütün yağını, peynir randımanını korur.",
+      "kesif_yem": "Arpa, mısır, küspe ve fabrika koyun süt yemi süt litresini artıran güç kaynaklarıdır. DİKKAT: Sığır süt yemi yüksek bakır içerdiği için koyuna verilmez!",
+      "katki": "Koyunlarda ASLA sığır premiksi kullanılmaz (bakır zehirler)! Gebelik toksemisi ve süt ateşini önlemek için Magnezyum Oksit, yüksek sütte ise Karbonat ve Korunmuş Yağ çok faydalıdır.",
+      "fiyat_serbest": "Yem fiyatlarını biliyorsan + / - tuşlarıyla düzeltebilirsin. Koyunlar günde 3 öğün veya serbest yemlendiğinde işkembesi ekşimez ve sütü artar.",
+      "saglik_ortam_sagim": "Koyunlarda meme şişliği (mastitis), doğum sonrası yatma (süt ateşi), iştahsızlık (toksemi) veya topallık varsa işaretle; merada otlayan koyunlar için yürüme enerjisini de hesaba katalım."
+    },
+    "did_you_know": {
+      "fact1": "💡 Biliyor muydun? Koyun sütü inek sütünden 2 kat daha yağlıdır (%6-8 yağ) ve 2 kat daha proteinlidir (%5,5 protein)! Bu yüzden 1 litre koyun sütünden 180-200 gram peynir çıkar!",
+      "fact2": "💡 Biliyor muydun? 5 litre koyun sütünden 1 kilo beyaz peynir çıkarken, 1 kilo peynir için 7-8 litre inek sütü gerekir! Koyun sütünün litresini koruyan en önemli şey kaliteli yonca ve dengeli enerjidir.",
+      "fact3": "💡 Biliyor muydun? Koyunlar bakıra sığırdan 10 kat daha hassastır. Sığır süt yemi veya sığır premiksi koyunu 2 hafta içinde zehirleyebilir!",
+      "fact4": "💡 Biliyor muydun? İkiz kuzu bekleyen koyunlarda doğuma son 6 hafta kala enerji eksik kalırsa 'Gebelik Toksemisi' (ikiz kuzu hastalığı) olur; bu dönemde öğün aksatılmaz!"
+    },
+    "terms": {
+      "sagmal_koyun": "Sağmal Koyun (doğum yapmış ve sütü sağılan anaç koyun)",
+      "laktasyon": "Laktasyon / Sağım Dönemi (koyunun doğumdan kuruya çıkana kadar süt verdiği 5-7 aylık süre)",
+      "kuru_donem": "Kuru Dönem (doğumdan önceki son 6-8 hafta; koyun sağılmaz, memesi dinlenir ve karnındaki kuzuları büyütür)",
+      "gebelik_toksemisi": "Gebelik Toksemisi / İkiz Kuzu Hastalığı (doğuma yakın dönemde ikiz/üçüz bekleyen koyunun enerjisiz kalarak yatması)",
+      "sut_atesi": "Süt Ateşi / Hipokalsemi (doğum öncesi veya hemen sonrasında kalsiyum çekilmesine bağlı koyunun ayağa kalkamaması)",
+      "peynir_randimani": "Peynir Randımanı (1 litre sütten elde edilen peynir miktarı; koyun sütünde yağ ve protein yüksek olduğu için %18-20'dir)",
+      "bakir": "Bakır Güvenliği - Cu (koyunlarda 15 mg/kg KM sınırını asla geçmemesi gereken, sığır yemlerinde yüksek olan mineral)"
+    },
+    "poster_reminders": [
+      "Su her zaman önünde olsun, sağmal koyun günde 8–10 litre içer.",
+      "Sığır premiksi ve sığır süt yemi KULLANMA — koyunu zehirler.",
+      "Yemi 7–10 günde alıştır, ani değiştirme.",
+      "Son 6 hafta gebelikte enerjiyi artır — gebelik toksemisi önler.",
+      "Doğum sonrası ilk 2 hafta koyunu her gün gözlemle (iştah, ayağa kalkma).",
+      "Sağım hijyenine dikkat et — mastitis süt verimini yarıya düşürür.",
+      "Süt yağı düşerse kaba yemi (yonca) artır, tahılı azalt.",
+      "Enterotoksemi aşısını doğuma 4 hafta kala yaptır — hem koyunu hem kuzuyu korur."
+    ]
+  }
+}

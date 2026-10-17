@@ -1,0 +1,175 @@
+{
+  "meta": {
+    "standard": "NRC 2007 (Nutrient Requirements of Small Ruminants: Sheep, Goats, Cervids) + INRA 2018 + AFRC 1993 + CSIRO 2007",
+    "version": "1.0.0",
+    "price_reference_date": "12.10.2026"
+  },
+  "nrc_2007_sheep": {
+    "maintenance": {
+      "ME_Mcal": {
+        "coeff": 0.056,
+        "exponent": 0.75,
+        "basis": "SBW",
+        "sbw_factor": 0.96,
+        "activity_wool_allowance_mcal_per_kg_metabolic": 0.048,
+        "cold_stress_multiplier": 1.12,
+        "pasture_mera_activity_multiplier": 1.15
+      },
+      "MP_g": {
+        "coeff": 2.55,
+        "exponent": 0.75
+      }
+    },
+    "growth": {
+      "ME_Mcal_tables": [
+        { "cw_kg": 15, "adg_100": 1.45, "adg_150": 1.72, "adg_200": 2.02, "adg_250": 2.32, "adg_300": 2.65, "adg_350": 2.98 },
+        { "cw_kg": 20, "adg_100": 1.72, "adg_150": 2.04, "adg_200": 2.36, "adg_250": 2.70, "adg_300": 3.04, "adg_350": 3.38 },
+        { "cw_kg": 25, "adg_100": 1.98, "adg_150": 2.32, "adg_200": 2.68, "adg_250": 3.02, "adg_300": 3.38, "adg_350": 3.74 },
+        { "cw_kg": 30, "adg_100": 2.24, "adg_150": 2.60, "adg_200": 2.98, "adg_250": 3.35, "adg_300": 3.72, "adg_350": 4.10 },
+        { "cw_kg": 35, "adg_100": 2.48, "adg_150": 2.86, "adg_200": 3.26, "adg_250": 3.65, "adg_300": 4.05, "adg_350": 4.45 },
+        { "cw_kg": 40, "adg_100": 2.72, "adg_150": 3.12, "adg_200": 3.54, "adg_250": 3.95, "adg_300": 4.38, "adg_350": 4.80 },
+        { "cw_kg": 45, "adg_100": 2.95, "adg_150": 3.38, "adg_200": 3.80, "adg_250": 4.24, "adg_300": 4.68, "adg_350": 5.12 },
+        { "cw_kg": 50, "adg_100": 3.18, "adg_150": 3.62, "adg_200": 4.06, "adg_250": 4.52, "adg_300": 4.98, "adg_350": 5.44 },
+        { "cw_kg": 60, "adg_100": 3.60, "adg_150": 4.05, "adg_200": 4.50, "adg_250": 4.98, "adg_300": 5.45, "adg_350": 5.92 },
+        { "cw_kg": 70, "adg_100": 3.98, "adg_150": 4.45, "adg_200": 4.92, "adg_250": 5.40, "adg_300": 5.88, "adg_350": 6.36 }
+      ],
+      "MP_g_tables": [
+        { "cw_kg": 15, "adg_100": 62,  "adg_150": 78,  "adg_200": 95,  "adg_250": 112, "adg_300": 128, "adg_350": 144 },
+        { "cw_kg": 20, "adg_100": 68,  "adg_150": 84,  "adg_200": 101, "adg_250": 118, "adg_300": 135, "adg_350": 152 },
+        { "cw_kg": 25, "adg_100": 74,  "adg_150": 90,  "adg_200": 108, "adg_250": 125, "adg_300": 142, "adg_350": 158 },
+        { "cw_kg": 30, "adg_100": 80,  "adg_150": 96,  "adg_200": 114, "adg_250": 131, "adg_300": 148, "adg_350": 165 },
+        { "cw_kg": 35, "adg_100": 85,  "adg_150": 102, "adg_200": 119, "adg_250": 136, "adg_300": 153, "adg_350": 170 },
+        { "cw_kg": 40, "adg_100": 90,  "adg_150": 107, "adg_200": 124, "adg_250": 141, "adg_300": 158, "adg_350": 175 },
+        { "cw_kg": 45, "adg_100": 95,  "adg_150": 112, "adg_200": 129, "adg_250": 146, "adg_300": 162, "adg_350": 179 },
+        { "cw_kg": 50, "adg_100": 100, "adg_150": 117, "adg_200": 134, "adg_250": 150, "adg_300": 166, "adg_350": 182 },
+        { "cw_kg": 60, "adg_100": 108, "adg_150": 125, "adg_200": 142, "adg_250": 158, "adg_300": 174, "adg_350": 190 },
+        { "cw_kg": 70, "adg_100": 116, "adg_150": 132, "adg_200": 149, "adg_250": 165, "adg_300": 181, "adg_350": 196 }
+      ],
+      "dmi_tables_kg": [
+        { "cw_kg": 15, "adg_100": 0.62, "adg_150": 0.68, "adg_200": 0.74, "adg_250": 0.80, "adg_300": 0.86, "adg_350": 0.92 },
+        { "cw_kg": 20, "adg_100": 0.78, "adg_150": 0.85, "adg_200": 0.92, "adg_250": 0.98, "adg_300": 1.04, "adg_350": 1.10 },
+        { "cw_kg": 25, "adg_100": 0.90, "adg_150": 0.97, "adg_200": 1.04, "adg_250": 1.10, "adg_300": 1.17, "adg_350": 1.24 },
+        { "cw_kg": 30, "adg_100": 1.04, "adg_150": 1.12, "adg_200": 1.20, "adg_250": 1.27, "adg_300": 1.34, "adg_350": 1.42 },
+        { "cw_kg": 35, "adg_100": 1.16, "adg_150": 1.25, "adg_200": 1.33, "adg_250": 1.41, "adg_300": 1.48, "adg_350": 1.56 },
+        { "cw_kg": 40, "adg_100": 1.28, "adg_150": 1.37, "adg_200": 1.46, "adg_250": 1.54, "adg_300": 1.62, "adg_350": 1.70 },
+        { "cw_kg": 45, "adg_100": 1.38, "adg_150": 1.48, "adg_200": 1.57, "adg_250": 1.66, "adg_300": 1.74, "adg_350": 1.82 },
+        { "cw_kg": 50, "adg_100": 1.48, "adg_150": 1.58, "adg_200": 1.68, "adg_250": 1.77, "adg_300": 1.86, "adg_350": 1.95 },
+        { "cw_kg": 60, "adg_100": 1.65, "adg_150": 1.76, "adg_200": 1.86, "adg_250": 1.96, "adg_300": 2.06, "adg_350": 2.16 },
+        { "cw_kg": 70, "adg_100": 1.82, "adg_150": 1.93, "adg_200": 2.04, "adg_250": 2.15, "adg_300": 2.25, "adg_350": 2.35 }
+      ]
+    },
+    "pregnancy": {
+      "ME_Mcal": {
+        "coeff_by_week": [1.05, 1.10, 1.15, 1.25, 1.30, 1.40, 1.50],
+        "early_pregnancy_me_boost_pct": 12,
+        "late_pregnancy_single_me_boost_pct": 30,
+        "late_pregnancy_twin_me_boost_pct": 45,
+        "late_pregnancy_triplet_me_boost_pct": 58,
+        "late_pregnancy_cp_boost_pct": 40
+      }
+    },
+    "lactation": {
+      "ME_Mcal": {
+        "per_kg_milk": 1.35,
+        "note": "1.35 Mcal/kg (koyun sütü, %6.5 yağ)"
+      },
+      "milk_yield_by_lambs_kg": {
+        "emziren_0_6": { "1": 1.5, "2": 2.3, "3": 2.9 },
+        "emziren_6plus": { "1": 1.0, "2": 1.5, "3": 1.9 }
+      }
+    },
+    "copper_tolerance": {
+      "max_mg_per_kg_dm": 15,
+      "toxic_above_mg_per_kg_dm": 25,
+      "min_mo_mg_per_kg_dm": 0.5,
+      "note": "Koyunlar sığırdan 10 kat daha hassas"
+    },
+    "urinary_calculi": {
+      "ca_p_ratio_min": 2.0,
+      "ca_p_ratio_max": 3.0,
+      "salt_pct_min": 0.5,
+      "target_salt_pct_male": 0.8,
+      "ammonium_chloride_pct": 0.5,
+      "p_pct_max": 0.40,
+      "mg_pct_min": 0.20,
+      "condition": "sadece erkek ve karışık kuzularda zorunlu"
+    },
+    "animal_type_targets": {
+      "kuzu": {
+        "label": "Kuzu (0–6 ay)",
+        "normal_adg_min_g": 200,
+        "normal_adg_max_g": 350,
+        "target_hp_pct": 16.5,
+        "hp_min_pct": 15.0,
+        "hp_max_pct": 18.0,
+        "target_me_density": 2.75,
+        "me_min_density": 2.60,
+        "me_max_density": 2.90,
+        "target_forage_pct": 38,
+        "min_forage_pct": 30
+      },
+      "toklu": {
+        "label": "Toklu (6–12 ay)",
+        "normal_adg_min_g": 150,
+        "normal_adg_max_g": 250,
+        "target_hp_pct": 14.2,
+        "hp_min_pct": 13.0,
+        "hp_max_pct": 15.8,
+        "target_me_density": 2.55,
+        "me_min_density": 2.40,
+        "me_max_density": 2.75,
+        "target_forage_pct": 52,
+        "min_forage_pct": 35
+      },
+      "sisek": {
+        "label": "Şişek (1–2 yaş)",
+        "normal_adg_min_g": 100,
+        "normal_adg_max_g": 180,
+        "target_hp_pct": 12.8,
+        "hp_min_pct": 11.5,
+        "hp_max_pct": 14.2,
+        "target_me_density": 2.38,
+        "me_min_density": 2.25,
+        "me_max_density": 2.60,
+        "target_forage_pct": 58,
+        "min_forage_pct": 40
+      },
+      "koyun": {
+        "label": "Koyun (2 yaş üstü)",
+        "normal_adg_min_g": 100,
+        "normal_adg_max_g": 200,
+        "target_hp_pct": 12.2,
+        "hp_min_pct": 11.0,
+        "hp_max_pct": 14.0,
+        "target_me_density": 2.35,
+        "me_min_density": 2.20,
+        "me_max_density": 2.55,
+        "target_forage_pct": 60,
+        "min_forage_pct": 40
+      }
+    },
+    "hard_constraints": {
+      "ndf_min_pct_dm": 25.0,
+      "ndf_max_pct_dm": 45.0,
+      "forage_min_pct_dm": 30.0,
+      "max_grain_in_concentrate_pct": 60.0,
+      "max_cottonseed_meal_pct_dm": 10.0,
+      "max_urea_pct_dm": 1.0,
+      "max_copper_mg_kg_dm": 15.0,
+      "min_molybdenum_mg_kg_dm": 0.5,
+      "ca_p_min": 2.0,
+      "ca_p_max": 3.2
+    },
+    "reference_validation_25kg_250g_male_lamb": {
+      "cw_kg": 25,
+      "adg_g": 250,
+      "cinsiyet": "erkek",
+      "expected_dmi_kg": 1.10,
+      "expected_me_total_mcal": 3.02,
+      "expected_me_density_mcal_kg_dm": 2.75,
+      "expected_hp_pct_dm": 16.5,
+      "expected_mp_g": 125,
+      "tolerance_pct": 5.0
+    }
+  }
+}

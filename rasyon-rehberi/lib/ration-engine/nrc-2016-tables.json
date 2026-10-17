@@ -1,0 +1,84 @@
+{
+  "meta": {
+    "standard": "NRC 2016 (Nutrient Requirements of Beef Cattle, 8th Revised Edition) & INRA 2018 Cross-Checked",
+    "updated_at": "12.10.2026",
+    "notes": "Tablo değerleri canlı ağırlık (CA kg) ve hedef günlük canlı ağırlık artışına (ADG kg/gün) göre doğrusal interpolasyonla hesaplanır."
+  },
+  "maintenance": {
+    "NEm_Mcal_coeff": 0.077,
+    "exponent": 0.75,
+    "basis": "SBW",
+    "sbw_factor": 0.96,
+    "open_barn_cold_stress_multiplier": 1.12
+  },
+  "growth_grid": [
+    {
+      "cw_kg": 150,
+      "dmi_base_kg": 4.2,
+      "targets": {
+        "0.8": { "dmi_kg": 4.1, "me_mcal_day": 9.8,  "nem_mcal_day": 3.16, "neg_mcal_day": 1.65, "mp_g_day": 430, "hp_pct_dm": 14.8, "ca_g_day": 28, "p_g_day": 15 },
+        "1.2": { "dmi_kg": 4.4, "me_mcal_day": 11.4, "nem_mcal_day": 3.16, "neg_mcal_day": 2.58, "mp_g_day": 545, "hp_pct_dm": 16.0, "ca_g_day": 38, "p_g_day": 19 },
+        "1.6": { "dmi_kg": 4.6, "me_mcal_day": 13.0, "nem_mcal_day": 3.16, "neg_mcal_day": 3.55, "mp_g_day": 650, "hp_pct_dm": 17.0, "ca_g_day": 47, "p_g_day": 23 }
+      }
+    },
+    {
+      "cw_kg": 250,
+      "dmi_base_kg": 6.2,
+      "targets": {
+        "0.8": { "dmi_kg": 6.0, "me_mcal_day": 13.8, "nem_mcal_day": 4.63, "neg_mcal_day": 2.42, "mp_g_day": 520, "hp_pct_dm": 13.2, "ca_g_day": 31, "p_g_day": 17 },
+        "1.2": { "dmi_kg": 6.4, "me_mcal_day": 15.8, "nem_mcal_day": 4.63, "neg_mcal_day": 3.78, "mp_g_day": 640, "hp_pct_dm": 14.2, "ca_g_day": 40, "p_g_day": 21 },
+        "1.6": { "dmi_kg": 6.7, "me_mcal_day": 18.1, "nem_mcal_day": 4.63, "neg_mcal_day": 5.20, "mp_g_day": 755, "hp_pct_dm": 15.2, "ca_g_day": 49, "p_g_day": 25 }
+      }
+    },
+    {
+      "cw_kg": 350,
+      "dmi_base_kg": 8.2,
+      "targets": {
+        "0.8": { "dmi_kg": 7.9, "me_mcal_day": 17.6, "nem_mcal_day": 5.96, "neg_mcal_day": 3.12, "mp_g_day": 595, "hp_pct_dm": 12.2, "ca_g_day": 33, "p_g_day": 19 },
+        "1.2": { "dmi_kg": 8.4, "me_mcal_day": 20.4, "nem_mcal_day": 5.96, "neg_mcal_day": 4.88, "mp_g_day": 710, "hp_pct_dm": 13.2, "ca_g_day": 41, "p_g_day": 22 },
+        "1.6": { "dmi_kg": 8.8, "me_mcal_day": 23.3, "nem_mcal_day": 5.96, "neg_mcal_day": 6.70, "mp_g_day": 820, "hp_pct_dm": 14.0, "ca_g_day": 50, "p_g_day": 26 }
+      }
+    },
+    {
+      "cw_kg": 450,
+      "dmi_base_kg": 10.0,
+      "targets": {
+        "0.8": { "dmi_kg": 9.6,  "me_mcal_day": 21.2, "nem_mcal_day": 7.20, "neg_mcal_day": 3.78, "mp_g_day": 660, "hp_pct_dm": 11.6, "ca_g_day": 35, "p_g_day": 20 },
+        "1.2": { "dmi_kg": 10.2, "me_mcal_day": 24.8, "nem_mcal_day": 7.20, "neg_mcal_day": 5.90, "mp_g_day": 775, "hp_pct_dm": 12.6, "ca_g_day": 42, "p_g_day": 23 },
+        "1.6": { "dmi_kg": 10.6, "me_mcal_day": 28.2, "nem_mcal_day": 7.20, "neg_mcal_day": 8.10, "mp_g_day": 885, "hp_pct_dm": 13.4, "ca_g_day": 51, "p_g_day": 27 }
+      }
+    },
+    {
+      "cw_kg": 550,
+      "dmi_base_kg": 11.6,
+      "targets": {
+        "0.8": { "dmi_kg": 11.1, "me_mcal_day": 24.5, "nem_mcal_day": 8.37, "neg_mcal_day": 4.38, "mp_g_day": 720, "hp_pct_dm": 11.2, "ca_g_day": 36, "p_g_day": 21 },
+        "1.2": { "dmi_kg": 11.8, "me_mcal_day": 28.6, "nem_mcal_day": 8.37, "neg_mcal_day": 6.85, "mp_g_day": 830, "hp_pct_dm": 12.1, "ca_g_day": 43, "p_g_day": 24 },
+        "1.6": { "dmi_kg": 12.3, "me_mcal_day": 32.6, "nem_mcal_day": 8.37, "neg_mcal_day": 9.40, "mp_g_day": 935, "hp_pct_dm": 12.8, "ca_g_day": 52, "p_g_day": 28 }
+      }
+    },
+    {
+      "cw_kg": 700,
+      "dmi_base_kg": 13.6,
+      "targets": {
+        "0.8": { "dmi_kg": 13.0, "me_mcal_day": 28.8, "nem_mcal_day": 10.03, "neg_mcal_day": 5.25, "mp_g_day": 790, "hp_pct_dm": 10.8, "ca_g_day": 38, "p_g_day": 22 },
+        "1.2": { "dmi_kg": 13.8, "me_mcal_day": 33.6, "nem_mcal_day": 10.03, "neg_mcal_day": 8.20, "mp_g_day": 895, "hp_pct_dm": 11.6, "ca_g_day": 45, "p_g_day": 25 },
+        "1.6": { "dmi_kg": 14.4, "me_mcal_day": 38.2, "nem_mcal_day": 10.03, "neg_mcal_day": 11.25, "mp_g_day": 995, "hp_pct_dm": 12.3, "ca_g_day": 54, "p_g_day": 29 }
+      }
+    }
+  ],
+  "forage_concentrate_ratios": {
+    "0.8": [70, 30],
+    "1.2": [55, 45],
+    "1.6": [40, 60]
+  },
+  "hard_constraints": {
+    "min_ndf_pct_dm": 25.0,
+    "min_forage_pct_dm": 30.0,
+    "max_barley_pct_in_concentrate": 50.0,
+    "max_urea_pct_dm": 1.0,
+    "ca_p_min_ratio": 1.0,
+    "ca_p_max_ratio": 2.5,
+    "salt_pct_dm": 0.3
+  }
+}

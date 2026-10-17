@@ -1,0 +1,84 @@
+{
+  "name": "Koyun Çiftliği Rehberi",
+  "short_name": "KoyunÇiftliği",
+  "description": "Ağıl ve çiftlikler için %100 internetsiz çalışan koyun ve kuzu sağlık teşhisi, acil ilk yardım, aşı takvimi, ilaçlı süt arınma süresi ve sürü yönetim rehberi.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "categories": [
+    "medical",
+    "business",
+    "utilities",
+    "productivity"
+  ],
+  "icons": [
+    {
+      "src": "./favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "./favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "./apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Küçükbaş İlk Yardım",
+      "short_name": "İlk Yardım",
+      "description": "Gebelik zehirlenmesi, çelerme ve donma müdahaleleri",
+      "url": "./index.html#emergency",
+      "icons": [
+        {
+          "src": "./icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Kuzu Bakımı & Kolostrum",
+      "short_name": "Kuzu Bakımı",
+      "description": "Kuzu ağız sütü ve ishal serum hesabı",
+      "url": "./index.html#calf",
+      "icons": [
+        {
+          "src": "./icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Koç Katımı Çarkı",
+      "short_name": "Koç Katımı",
+      "description": "150 günlük gebelik ve kuzulama takvimi",
+      "url": "./index.html#repro",
+      "icons": [
+        {
+          "src": "./icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,203 @@
+{
+  "meta": {
+    "standard": "NRC 2007 (Nutrient Requirements of Small Ruminants) + INRA 2018 (Feeding of Sheep) + AFRC 1993 + CSIRO 2007 + ICARDA",
+    "version": "1.0.0",
+    "price_reference_date": "12.10.2026"
+  },
+  "nrc_2007_dairy_sheep": {
+    "maintenance": {
+      "ME_Mcal": {
+        "coeff": 0.056,
+        "exponent": 0.75,
+        "basis": "SBW",
+        "sbw_factor": 0.96,
+        "activity_wool_allowance_mcal_per_kg_metabolic": 0.032,
+        "cold_stress_multiplier": 1.12,
+        "pasture_mera_activity_multiplier": 1.15
+      },
+      "MP_g": {
+        "coeff": 2.55,
+        "exponent": 0.75
+      }
+    },
+    "lactation": {
+      "ME_Mcal": {
+        "per_kg_milk": {
+          "fat_5_5_pct": 1.22,
+          "fat_6_5_pct": 1.32,
+          "fat_7_5_pct": 1.42,
+          "fat_8_5_pct": 1.52,
+          "note": "Koyun sütü sığır sütünden 2 kat enerjilidir"
+        }
+      },
+      "MP_g": {
+        "per_kg_milk": {
+          "protein_4_8_pct": 48,
+          "protein_5_5_pct": 55,
+          "protein_6_5_pct": 65
+        }
+      },
+      "suckling_lamb_extra_milk_l": {
+        "sadece_sagim": 0.0,
+        "sagim_arti_1_kuzu": 0.85,
+        "sagim_arti_2_kuzu": 1.55,
+        "sadece_emzirme": 1.80
+      },
+      "cheese_yield_g_per_liter": {
+        "base_at_6_5_fat_5_5_prot": 185,
+        "fat_factor": 14,
+        "protein_factor": 16
+      }
+    },
+    "pregnancy": {
+      "ME_Mcal": {
+        "coeff_by_week": [1.05, 1.10, 1.15, 1.25, 1.35, 1.45, 1.60],
+        "twin_multiplier": 1.35,
+        "triplet_multiplier": 1.55
+      },
+      "MP_g": {
+        "single_extra_g": 28,
+        "twin_extra_g": 48,
+        "triplet_extra_g": 68
+      }
+    },
+    "growth_first_lactation": {
+      "ME_Mcal_extra": 0.8,
+      "MP_g_extra": 24,
+      "growth_boost_pct": 15
+    },
+    "copper_tolerance": {
+      "max_mg_per_kg_dm": 15,
+      "toxic_above_mg_per_kg_dm": 25,
+      "min_mo_mg_per_kg_dm": 0.5
+    },
+    "pregnancy_toxemia": {
+      "risk_weeks": "son 6 hafta gebelik ve ilk 6 hafta laktasyon",
+      "vks_max_safe": 3.75,
+      "vks_min_safe": 2.25,
+      "min_me_density_mcal_kg_dm": 2.5
+    },
+    "milk_fever": {
+      "lactation_ca_p_ratio_min": 2.0,
+      "lactation_ca_p_ratio_max": 2.5,
+      "dry_period_ca_max_pct_dm": 0.45,
+      "mg_min_pct_dm": 0.25
+    },
+    "stage_targets": {
+      "kuru_uzak": {
+        "label": "Kuru Dönem – Uzak (Doğuma 2 ay var)",
+        "dmi_pct_bw": 2.5,
+        "target_forage_pct": 80,
+        "min_forage_pct": 70,
+        "target_hp_pct": 11.2,
+        "hp_min_pct": 10.5,
+        "hp_max_pct": 13.0,
+        "target_me_density": 2.10,
+        "me_min_density": 1.95,
+        "me_max_density": 2.35
+      },
+      "kuru_yakin": {
+        "label": "Kuru Dönem – Yakın (Doğuma 6 hafta kaldı)",
+        "dmi_pct_bw": 2.7,
+        "target_forage_pct": 72,
+        "min_forage_pct": 70,
+        "target_hp_pct": 13.5,
+        "hp_min_pct": 12.5,
+        "hp_max_pct": 15.0,
+        "target_me_density": 2.45,
+        "me_min_density": 2.35,
+        "me_max_density": 2.65
+      },
+      "yeni_dogum": {
+        "label": "Yeni Doğum (0–2 hafta)",
+        "dmi_pct_bw": 3.5,
+        "target_forage_pct": 52,
+        "min_forage_pct": 45,
+        "target_hp_pct": 16.8,
+        "hp_min_pct": 15.8,
+        "hp_max_pct": 18.2,
+        "target_me_density": 2.68,
+        "me_min_density": 2.55,
+        "me_max_density": 2.85
+      },
+      "erken": {
+        "label": "Erken Laktasyon (2 hafta – 8 hafta)",
+        "dmi_pct_bw": 4.2,
+        "target_forage_pct": 48,
+        "min_forage_pct": 40,
+        "target_hp_pct": 16.5,
+        "hp_min_pct": 15.5,
+        "hp_max_pct": 18.2,
+        "target_me_density": 2.65,
+        "me_min_density": 2.50,
+        "me_max_density": 2.85
+      },
+      "orta": {
+        "label": "Orta Laktasyon (8 hafta – 5 ay)",
+        "dmi_pct_bw": 4.1,
+        "target_forage_pct": 54,
+        "min_forage_pct": 42,
+        "target_hp_pct": 15.2,
+        "hp_min_pct": 14.2,
+        "hp_max_pct": 16.8,
+        "target_me_density": 2.51,
+        "me_min_density": 2.38,
+        "me_max_density": 2.70
+      },
+      "gec": {
+        "label": "Geç Laktasyon (5 ay+)",
+        "dmi_pct_bw": 3.5,
+        "target_forage_pct": 62,
+        "min_forage_pct": 48,
+        "target_hp_pct": 13.8,
+        "hp_min_pct": 12.8,
+        "hp_max_pct": 15.2,
+        "target_me_density": 2.35,
+        "me_min_density": 2.22,
+        "me_max_density": 2.55
+      },
+      "ilk_dogum": {
+        "label": "Düve / İlk Doğum (Şişek)",
+        "dmi_pct_bw": 4.0,
+        "target_forage_pct": 50,
+        "min_forage_pct": 40,
+        "target_hp_pct": 16.5,
+        "hp_min_pct": 15.5,
+        "hp_max_pct": 18.0,
+        "target_me_density": 2.62,
+        "me_min_density": 2.50,
+        "me_max_density": 2.80
+      }
+    },
+    "hard_constraints": {
+      "ndf_min_pct_dm": 30.0,
+      "ndf_max_pct_dm": 42.0,
+      "forage_min_pct_dm": 40.0,
+      "forage_min_dry_period_pct_dm": 70.0,
+      "max_grain_in_concentrate_pct": 50.0,
+      "max_cottonseed_meal_pct_dm": 10.0,
+      "max_protected_fat_pct_dm": 5.0,
+      "max_urea_pct_dm": 0.8,
+      "max_copper_mg_kg_dm": 15.0,
+      "min_molybdenum_mg_kg_dm": 0.5,
+      "min_magnesium_pct_dm": 0.25,
+      "min_salt_pct_dm": 0.4,
+      "lactation_ca_p_min": 2.0,
+      "lactation_ca_p_max": 2.5
+    },
+    "reference_validation_55kg_ivesi_1_5L": {
+      "cw_kg": 55,
+      "irk": "ivesi",
+      "sut_verimi_l": 1.5,
+      "sut_yag_pct": 6.5,
+      "sut_protein_pct": 5.5,
+      "donem": "orta",
+      "expected_dmi_kg": 2.25,
+      "expected_me_total_mcal": 5.65,
+      "expected_me_density_mcal_kg_dm": 2.51,
+      "expected_hp_pct_dm": 15.2,
+      "expected_mp_g": 160,
+      "tolerance_pct": 5.0
+    }
+  }
+}

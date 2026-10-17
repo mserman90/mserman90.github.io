@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mserman90.github.io/koyun-saglik-rehberi/sitemap.xml

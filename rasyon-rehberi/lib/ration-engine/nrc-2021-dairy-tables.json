@@ -1,0 +1,182 @@
+{
+  "meta": {
+    "standard": "NRC 2021 (NASEM 8th Revised Ed.) + INRA 2018 + CNCPS v6.5 + DCAD",
+    "updated_at": "12.10.2026",
+    "description": "Süt Ustası — Sağmal ve Kuru Dönem İnek Rasyonu Hesaplama Tabloları ve Katsayıları"
+  },
+  "nrc_2021": {
+    "maintenance": {
+      "NEL_Mcal": { "coeff": 0.080, "exponent": 0.75, "basis": "SBW" },
+      "MP_g": { "coeff": 3.8, "exponent": 0.75, "basis": "SBW" }
+    },
+    "milk": {
+      "NEL_per_kg_milk": {
+        "fat_pct": "değişken",
+        "formula": "0.0929*F + 0.0547*P + 0.192",
+        "coeff_fat": 0.0929,
+        "coeff_protein": 0.0547,
+        "intercept": 0.192
+      },
+      "MP_per_kg_milk": {
+        "formula": "true_protein_g / 0.67",
+        "efficiency": 0.67
+      }
+    },
+    "pregnancy_last_60d": {
+      "kuru_uzak": { "nel_mcal_day": 2.8, "mp_g_day": 220 },
+      "kuru_yakin": { "nel_mcal_day": 3.6, "mp_g_day": 290 }
+    },
+    "growth_parity": {
+      "1": { "nel_mcal_day": 1.45, "hp_pct_bonus": 0.6, "note": "1. buzağılı genç inek büyüme payı" },
+      "2": { "nel_mcal_day": 0.65, "hp_pct_bonus": 0.2, "note": "2. buzağılı inek büyüme payı" },
+      "3": { "nel_mcal_day": 0.0,  "hp_pct_bonus": 0.0, "note": "Ergin inek (3+ buzağı)" }
+    },
+    "body_condition": {
+      "VKS_2_5_to_3_0_gain": "1 kg canlı ağırlık = 5,5 Mcal NEL",
+      "adjustments_mcal_day": {
+        "2.0": 1.35,
+        "2.5": 0.75,
+        "3.0": 0.0,
+        "3.5": -0.35,
+        "4.0": -0.75,
+        "4.5": -1.10
+      }
+    },
+    "lactation_stage_targets": {
+      "kuru_uzak": {
+        "label": "Uzak Kuru Dönem (Doğuma 60-22 Gün)",
+        "dmi_bw_pct": 1.95,
+        "target_nel_density": 1.32,
+        "target_hp_pct": 12.8,
+        "min_forage_pct": 75,
+        "target_forage_pct": 78,
+        "min_ndf_pct": 40,
+        "max_ndf_pct": 58,
+        "target_dcad_min": 0,
+        "target_dcad_max": 200
+      },
+      "kuru_yakin": {
+        "label": "Yakın Kuru Dönem (Doğuma Son 21 Gün)",
+        "dmi_bw_pct": 1.80,
+        "target_nel_density": 1.42,
+        "target_hp_pct": 13.8,
+        "min_forage_pct": 70,
+        "target_forage_pct": 72,
+        "min_ndf_pct": 36,
+        "max_ndf_pct": 52,
+        "target_dcad_min": -100,
+        "target_dcad_max": 120
+      },
+      "yeni_dogum": {
+        "label": "Yeni Doğum / Loğusa (0–21 Gün)",
+        "dmi_factor": 0.86,
+        "target_nel_density": 1.66,
+        "target_hp_pct": 17.2,
+        "min_forage_pct": 48,
+        "target_forage_pct": 52,
+        "min_ndf_pct": 30,
+        "max_ndf_pct": 38
+      },
+      "erken_laktasyon": {
+        "label": "Erken Laktasyon (1–3 Ay / Pik Dönemi)",
+        "dmi_factor": 0.95,
+        "target_nel_density": 1.72,
+        "target_hp_pct": 17.5,
+        "min_forage_pct": 42,
+        "target_forage_pct": 48,
+        "min_ndf_pct": 28,
+        "max_ndf_pct": 36
+      },
+      "orta_laktasyon": {
+        "label": "Orta Laktasyon (3–6 Ay)",
+        "dmi_factor": 1.00,
+        "target_nel_density": 1.66,
+        "target_hp_pct": 16.5,
+        "min_forage_pct": 45,
+        "target_forage_pct": 50,
+        "min_ndf_pct": 28,
+        "max_ndf_pct": 38
+      },
+      "gec_laktasyon": {
+        "label": "Geç Laktasyon (6+ Ay / Kurumaya Hazırlık)",
+        "dmi_factor": 0.98,
+        "target_nel_density": 1.56,
+        "target_hp_pct": 15.2,
+        "min_forage_pct": 52,
+        "target_forage_pct": 58,
+        "min_ndf_pct": 30,
+        "max_ndf_pct": 40
+      },
+      "duve": {
+        "label": "Gebe / Büyüyen Düve (Hiç Doğum Yapmadı)",
+        "dmi_bw_pct": 2.25,
+        "target_nel_density": 1.48,
+        "target_hp_pct": 14.8,
+        "min_forage_pct": 60,
+        "target_forage_pct": 65,
+        "min_ndf_pct": 33,
+        "max_ndf_pct": 46
+      }
+    },
+    "reference_validation_grid": [
+      {
+        "bw_kg": 600,
+        "milk_l": 25,
+        "fat_pct": 3.7,
+        "protein_pct": 3.2,
+        "stage": "orta_laktasyon",
+        "dmi_kg": 20.6,
+        "nel_maint_mcal": 9.70,
+        "nel_milk_mcal": 17.77,
+        "nel_total_mcal": 27.47,
+        "hp_pct_dm": 16.5,
+        "mp_g_day": 2180,
+        "ca_g_day": 135,
+        "p_g_day": 82
+      },
+      {
+        "bw_kg": 650,
+        "milk_l": 35,
+        "fat_pct": 3.6,
+        "protein_pct": 3.1,
+        "stage": "erken_laktasyon",
+        "dmi_kg": 23.4,
+        "nel_maint_mcal": 10.30,
+        "nel_milk_mcal": 24.36,
+        "nel_total_mcal": 34.66,
+        "hp_pct_dm": 17.6,
+        "mp_g_day": 2790,
+        "ca_g_day": 168,
+        "p_g_day": 102
+      },
+      {
+        "bw_kg": 550,
+        "milk_l": 18,
+        "fat_pct": 4.0,
+        "protein_pct": 3.4,
+        "stage": "orta_laktasyon",
+        "dmi_kg": 17.8,
+        "nel_maint_mcal": 9.09,
+        "nel_milk_mcal": 13.50,
+        "nel_total_mcal": 22.59,
+        "hp_pct_dm": 15.8,
+        "mp_g_day": 1820,
+        "ca_g_day": 110,
+        "p_g_day": 68
+      }
+    ],
+    "hard_constraints": {
+      "min_ndf_pct_dm": 28.0,
+      "max_ndf_pct_dm_lactating": 40.0,
+      "min_forage_pct_dm": 40.0,
+      "max_grain_pct_in_concentrate": 45.0,
+      "max_bypass_fat_pct_dm": 5.0,
+      "max_urea_pct_dm": 0.5,
+      "min_ca_p_ratio": 1.5,
+      "max_ca_p_ratio": 2.5,
+      "salt_pct_dm": 0.5,
+      "dry_dcad_min_meq_kg": -100,
+      "dry_dcad_max_meq_kg": 200
+    }
+  }
+}

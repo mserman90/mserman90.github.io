@@ -1,0 +1,96 @@
+{
+  "name": "Yem & Rasyon Hazırlama Rehberi - Süt, Besi ve Koyun Rasyon Motoru",
+  "short_name": "RasyonRehberi",
+  "description": "Süt sığırı, besi danası ve koyunlar için uluslararası standartlarda (NASEM/NRC/CNCPS) yetiştirici diliyle yem ve rasyon hazırlama, TMR yem karma vagonu hesabı ve en ucuz rasyon optimizasyon sistemi.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "categories": [
+    "business",
+    "utilities",
+    "productivity",
+    "education"
+  ],
+  "icons": [
+    {
+      "src": "./favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "./favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "./apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Süt İneği Rasyonu",
+      "short_name": "Süt Rasyonu",
+      "description": "Sağmal ve kuru inekler için süt verimine göre rasyon hazırla",
+      "url": "./index.html#dairy",
+      "icons": [
+        {
+          "src": "./icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Besi Danası Rasyonu",
+      "short_name": "Besi Rasyonu",
+      "description": "Besi danaları için günlük kilo alımına göre rasyon hazırla",
+      "url": "./index.html#beef",
+      "icons": [
+        {
+          "src": "./icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Koyun & Kuzu Rasyonu",
+      "short_name": "Koyun Rasyonu",
+      "description": "Gebe, sağmal koyun ve besi kuzusu için rasyon hazırla",
+      "url": "./index.html#sheep",
+      "icons": [
+        {
+          "src": "./icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Yem Karma Vagonu (TMR)",
+      "short_name": "TMR Vagon",
+      "description": "Sürü büyüklüğüne göre yem karma makinesine atılacak kilo listesi",
+      "url": "./index.html#tmr",
+      "icons": [
+        {
+          "src": "./icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
+}
