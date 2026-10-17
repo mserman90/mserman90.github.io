@@ -670,10 +670,6 @@
           <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg>
           <span>Çoban Doktor</span>
         </a>
-        <button onclick="openMilkerScannerModal()" class="wa-hdr-btn" title="Sesli Sağımcı & Tanka Süt Onayı" style="background:#0284c7 !important; border-color:#38bdf8 !important;">
-          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.82-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/></svg>
-          <span>Sağımcı</span>
-        </button>
         <button onclick="openCalfModal()" class="wa-hdr-btn" title="İshalli Buzağı Sıvı / Elektrolit Hesabı" style="background:#ea580c !important; border-color:#fb923c !important;">
           <svg class="lucide-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m12 6 4 6H8l4-6z"/></svg>
           <span>Buzağı</span>
@@ -716,119 +712,6 @@
       <!-- JavaScript tarafından doldurulur -->
     </main>
 
-  </div>
-
-  <!-- SAĞIMCI KONTROLÜ (SESLİ ASİSTAN) MODALI -->
-  <div class="modal-overlay" id="milker-modal" onclick="closeModalOnBackdrop(event, 'milker-modal')">
-    <div class="modal-box">
-      <div class="modal-hdr" style="background:#0284c7;">
-        <div class="modal-title">
-          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.82-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/></svg>
-          <span>Sağımcı Kontrolü (Süt Tanka Uygun mu?)</span>
-        </div>
-        <button class="modal-close" onclick="closeMilkerModal()" aria-label="Kapat">&times;</button>
-      </div>
-      <div class="modal-body">
-        <p style="font-size:0.84rem; color:#475569; margin-bottom:10px;">
-          Sağımhanede sağım başlığını takmadan önce ineğin küpe numarasını yazın veya listeden seçin. Sistem ilaçlı süt arınma kilidini anında sesli ve görsel olarak bildirir:
-        </p>
-
-        <div style="display:flex; gap:8px; margin-bottom:10px;">
-          <input type="text" id="milkerTagInput" placeholder="Küpe No (Örn: TR 42 12345)" oninput="this.value = this.value.toUpperCase(); evaluateMilkerTagLive(this.value);" style="flex:1; padding:10px; font-size:1.1rem; font-weight:800; border:1.5px solid #94a3b8; border-radius:8px;">
-          <button onclick="checkMilkerTagNow()" class="wa-choice-btn primary" style="min-height:48px; padding:0 16px;">
-            Sorgula
-          </button>
-        </div>
-
-        <div style="display:flex; align-items:center; justify-content:space-between; background:#f1f5f9; padding:8px 12px; border-radius:8px; margin-bottom:12px; font-size:0.8rem;">
-          <div style="display:flex; align-items:center; gap:6px; font-weight:700; color:#0f172a;">
-            <svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
-            <span>Sesli Uyarı (Türkçe Konuşma):</span>
-          </div>
-          <label style="display:flex; align-items:center; gap:6px; cursor:pointer;">
-            <input type="checkbox" id="milkerVoiceToggle" checked style="width:18px; height:18px; min-height:18px;">
-            <span style="font-weight:700; color:#0284c7;">Açık</span>
-          </label>
-        </div>
-
-        <div id="milker-alert-card" style="padding:14px; border-radius:12px; border:2px dashed #cbd5e1; text-align:center; background:#f8fafc; margin-bottom:14px;">
-          <div style="font-size:0.88rem; color:#64748b; font-weight:600;">Kontrol etmek için küpe no giriniz veya aşağıdaki listeden dokununuz.</div>
-        </div>
-
-        <div style="font-weight:800; font-size:0.85rem; color:#0f172a; margin-bottom:8px; display:flex; align-items:center; justify-content:space-between;">
-          <span>🛑 Tanka Sağılması Yasak İnekler:</span>
-          <span id="milker-locked-count" style="background:#fee2e2; color:#dc2626; padding:2px 8px; border-radius:12px; font-size:0.75rem; font-weight:700;">0 İnek</span>
-        </div>
-        <div id="milker-locked-list" style="display:flex; flex-direction:column; gap:6px; max-height:160px; overflow-y:auto;">
-          <!-- Yasaklı inekler dinamik yüklenir -->
-        </div>
-      </div>
-      <div class="modal-ftr">
-        <button class="btn-send-report" onclick="openKupeModal('new')" style="background:#008069; flex:1;">+ Yeni İlaç / Süt Kilidi Ekle</button>
-        <button class="btn-add-defter" onclick="closeMilkerModal()" style="flex:1;">Kapat</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- BUZAĞI İSHALİ & SIVI ELEKTROLİT HESAPLAYICI MODALI -->
-  <div class="modal-overlay" id="calf-modal" onclick="closeModalOnBackdrop(event, 'calf-modal')">
-    <div class="modal-box">
-      <div class="modal-hdr" style="background:#ea580c;">
-        <div class="modal-title">
-          <svg class="lucide-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m12 6 4 6H8l4-6z"/></svg>
-          <span>Buzağı İshali Sıvı & Elektrolit Hesabı</span>
-        </div>
-        <button class="modal-close" onclick="closeCalfModal()" aria-label="Kapat">&times;</button>
-      </div>
-      <div class="modal-body">
-        <p style="font-size:0.84rem; color:#475569; margin-bottom:12px;">
-          İshalli buzağılarda ana ölüm sebebi mikrop değil, <strong>sıvı kaybı (dehidrasyon) ve kanın asitleşmesidir</strong>. Canlı ağırlık ve dehidrasyonu seçip 24 saatlik damardan/ağızdan sıvı miktarını hesaplayın:
-        </p>
-
-        <div style="background:#fff7ed; border:1px solid #fed7aa; border-radius:8px; padding:10px; margin-bottom:12px;">
-          <label style="font-size:0.82rem; font-weight:800; color:#9a3412; display:flex; justify-content:space-between;">
-            <span>Buzağı Canlı Ağırlığı:</span>
-            <span id="calfWeightDisplay" style="font-size:1.05rem; color:#c2410c;">40 kg</span>
-          </label>
-          <input type="range" id="calfWeightInput" min="25" max="80" step="5" value="40" oninput="updateCalfCalc()" style="width:100%; accent-color:#ea580c; margin-top:6px;">
-        </div>
-
-        <div style="margin-bottom:12px;">
-          <label style="font-size:0.82rem; font-weight:800; color:#0f172a; display:block; margin-bottom:6px;">
-            Sıvı Kaybı (Dehidrasyon) Belirtileri:
-          </label>
-          <label class="dehid-choice-card">
-            <input type="radio" name="calfDehydration" value="5" onchange="updateCalfCalc()" checked>
-            <div><strong>%5 - 6 (Hafif):</strong> İshal var, buzağı canlı ve ayakta, emme refleksi güçlü.</div>
-          </label>
-          <label class="dehid-choice-card">
-            <input type="radio" name="calfDehydration" value="8" onchange="updateCalfCalc()">
-            <div><strong>%7 - 8 (Orta):</strong> Gözler hafif çökük, emme zayıf, deri 2-4 saniyede düzeliyor.</div>
-          </label>
-          <label class="dehid-choice-card">
-            <input type="radio" name="calfDehydration" value="10" onchange="updateCalfCalc()">
-            <div><strong>%9 - 10 (Ağır):</strong> Gözler çukura kaçmış, yatar vaziyette, kulaklar soğuk, deri 5-7 saniyede düzeliyor.</div>
-          </label>
-          <label class="dehid-choice-card danger">
-            <input type="radio" name="calfDehydration" value="12" onchange="updateCalfCalc()">
-            <div><strong>%10 - 12 (Kritik Şok / Koma):</strong> Baygın, refleks yok, asidoz şoku (ACİL DAMAR SERUMU!).</div>
-          </label>
-        </div>
-
-        <div id="calf-result-box" style="background:#fff7ed; border:2px solid #fdba74; border-radius:10px; padding:12px; margin-bottom:12px;">
-          <!-- Hesaplama JS ile basılır -->
-        </div>
-
-        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:10px; font-size:0.78rem; line-height:1.45;">
-          <strong>🍼 Ahır Tipi Acil Elektrolit (Hazır Toz Yoksa):</strong><br>
-          • 2 Litre ılık temiz su + 1 tatlı kaşığı tuz + 1 yemek kaşığı yemek sodası + 2 yemek kaşığı bal/şeker.<br>
-          • <em>Ilık olarak içirin. Asla sütle karıştırmayın, süt öğünü aralarında verin!</em>
-        </div>
-      </div>
-      <div class="modal-ftr">
-        <button class="btn-send-report" onclick="closeCalfModal()" style="background:#ea580c; width:100%;">Tamam, Kapat</button>
-      </div>
-    </div>
   </div>
 
   <!-- SÜT KİLİDİ & İLAÇ ARINMA (İKAS) DEFTERİ MODALI -->
@@ -1144,6 +1027,14 @@
     // SAĞIMCI MOTORU
     // =========================================================================
     function openMilkerScannerModal() {
+      openKupeModal();
+    }
+
+    function closeMilkerModal() {
+      closeKupeModal();
+    }
+
+    function _disabled_old_openMilkerScannerModal() {
       document.getElementById("milker-modal")?.classList.add("active");
       renderMilkerLockedList();
       const input = document.getElementById("milkerTagInput");

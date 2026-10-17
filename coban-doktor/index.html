@@ -2112,10 +2112,6 @@
           <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.82-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/></svg>
           <span>Kolostrum</span>
         </button>
-        <button onclick="openSesliIkasModal()" class="wa-hdr-btn" title="Sesli İKAS (Et & Süt Kesim/Sağım Kilit Denetimi)" style="background:#0284c7 !important; border-color:#38bdf8 !important;">
-          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
-          <span>Sesli İKAS</span>
-        </button>
         <button onclick="openDozajModal()" class="wa-hdr-btn" title="Acil İlaç Dozaj & İlk Yardım Motoru" style="background:#dc2626 !important; border-color:#f87171 !important;">
           <svg class="lucide-icon" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
           <span>Dozaj</span>
@@ -2776,65 +2772,6 @@
       </div>
       <div class="generic-modal-ftr">
         <button class="guide-modal-ftr-btn" onclick="closeKolostrumModal()" style="background:#d97706; width:100%;">Tamam, Kapat</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- SESLİ İKAS (ET & SÜT ARINMA KİLİT DENETİMİ) MODAL -->
-  <div class="generic-modal-overlay" id="ikas-modal" onclick="closeGenericModalOnBackdrop(event, 'ikas-modal')">
-    <div class="generic-modal-box">
-      <div class="generic-modal-hdr" style="background:#0284c7;">
-        <div class="generic-modal-title">
-          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
-          <span>Sesli İKAS (Et & Süt Kilit Denetimi)</span>
-        </div>
-        <button class="guide-modal-close" onclick="closeSesliIkasModal()" aria-label="Kapat">&times;</button>
-      </div>
-      <div class="generic-modal-body">
-        <p style="font-size:0.84rem; color:#475569; margin-bottom:10px;">
-          Mezbahaya veya süt tankına sevk etmeden önce küpe numarasını yazın veya mikrofona söyleyin. Sistem kayıtlı <strong>Et İKAS ve Süt İKAS</strong> arınma kilitlerini anında denetler ve Türkçe seslendirir:
-        </p>
-
-        <div style="display:flex; gap:8px; margin-bottom:10px;">
-          <input type="text" id="ikasTagInput" placeholder="Küpe No (Örn: 145 veya TR1600)" oninput="this.value = this.value.toUpperCase();" style="flex:1; padding:10px; font-size:1.05rem; font-weight:800; border:1.5px solid #94a3b8; border-radius:8px;">
-          <button onclick="checkIkasTagManual()" class="wa-choice-btn primary" style="min-height:46px; padding:0 16px;">
-            Sorgula
-          </button>
-          <button onclick="toggleVoiceIkas()" id="btnMicIkas" class="wa-choice-btn" style="min-height:46px; padding:0 14px; background:#0284c7; color:#fff;" title="Mikrofonla Küpe Söyle">
-            <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
-          </button>
-        </div>
-
-        <div id="ikasVoiceStatus" style="display:none; font-size:0.8rem; color:#0284c7; font-weight:700; margin-bottom:10px; animation:pulse 1s infinite;">
-          🎙️ Dinleniyor... "yüz kırk beş" gibi küpe numarasını söyleyin...
-        </div>
-
-        <div style="display:flex; align-items:center; justify-content:space-between; background:#f1f5f9; padding:8px 12px; border-radius:8px; margin-bottom:12px; font-size:0.8rem;">
-          <div style="display:flex; align-items:center; gap:6px; font-weight:700; color:#0f172a;">
-            <svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
-            <span>Sesli Türkçe Uyarı (TTS):</span>
-          </div>
-          <label style="display:flex; align-items:center; gap:6px; cursor:pointer;">
-            <input type="checkbox" id="ikasVoiceToggle" checked style="width:18px; height:18px;">
-            <span style="font-weight:700; color:#0284c7;">Açık</span>
-          </label>
-        </div>
-
-        <div id="ikas-result-card" style="display:none; padding:12px; border-radius:10px; margin-bottom:12px;">
-          <!-- Sonuç dinamik basılır -->
-        </div>
-
-        <div style="font-weight:800; font-size:0.84rem; color:#0f172a; margin-bottom:6px; display:flex; justify-content:space-between;">
-          <span>🛑 Aktif İlaç Kilidi Olan Hayvanlar:</span>
-          <span id="ikas-active-count" style="background:#fee2e2; color:#dc2626; padding:2px 8px; border-radius:12px; font-size:0.75rem;">0 Hayvan</span>
-        </div>
-        <div id="ikas-locked-list" style="display:flex; flex-direction:column; gap:6px; max-height:160px; overflow-y:auto;">
-          <!-- Kilitli hayvanlar listelenir -->
-        </div>
-      </div>
-      <div class="generic-modal-ftr">
-        <button class="guide-modal-ftr-btn" onclick="openKupeDefteriModal('new'); closeSesliIkasModal();" style="background:#008069; flex:1;">+ Yeni İlaç Kaydet</button>
-        <button class="guide-modal-ftr-btn" onclick="closeSesliIkasModal()" style="background:#64748b; flex:1;">Kapat</button>
       </div>
     </div>
   </div>
@@ -5142,7 +5079,27 @@
     let ikasSpeechRec = null;
     let isIkasListening = false;
 
+    function handleKupeSearchInput(val) {
+      renderKupeRecords();
+      const cleanVal = (val || "").trim().toUpperCase();
+      const card = document.getElementById("ikas-result-card");
+      if (!card) return;
+      if (cleanVal.length < 2) {
+        card.style.display = "none";
+        return;
+      }
+      checkIkasTagInternal(cleanVal);
+    }
+
     function openSesliIkasModal() {
+      openKupeDefteriModal('list');
+    }
+
+    function closeSesliIkasModal() {
+      closeKupeDefteriModal();
+    }
+
+    function _disabled_old_openSesliIkasModal() {
       const modal = document.getElementById("ikas-modal");
       if (modal) {
         modal.classList.add("active");

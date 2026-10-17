@@ -768,10 +768,6 @@
           <span>İKAS Defteri</span>
           <span id="header-defter-badge" class="defter-badge zero">0</span>
         </button>
-        <button onclick="openSesliIkasModal()" class="wa-hdr-btn" title="Sesli Ağıl & Mezbaha Kilit Sorgusu">
-          <svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
-          <span>Sesli İKAS</span>
-        </button>
         <button onclick="openKiloModal()" class="wa-hdr-btn" title="Şerit Metreyle Canlı Kilo Ölçer">
           <svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
           <span>Kilo Ölçer</span>
@@ -952,6 +948,16 @@
 
         <!-- İKAS LİSTESİ -->
         <div id="ikas-sec-list">
+          <div style="display:flex; gap:6px; margin-bottom:8px; align-items:center;">
+            <input type="text" id="koyunSearchInput" class="form-input" placeholder="Küpe No veya İlaç Ara (Örn: 120)..." oninput="handleKoyunSearchInput(this.value)" style="flex:1; font-weight:700;">
+            <button type="button" class="btn-diag-act" id="btnMicIkas" onclick="toggleVoiceIkas()" style="background:#0284c7; color:#fff; padding:0 12px; min-height:40px;" title="Mikrofonla Söyle">
+              <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+            </button>
+          </div>
+          <div id="sesliVoiceStatus" style="display:none; font-size:0.8rem; color:#0284c7; font-weight:700; margin-bottom:8px;">
+            🎙️ Dinleniyor... "yüz yirmi" gibi küpe numarasını söyleyin...
+          </div>
+          <div id="sesli-result-card" style="display:none; padding:10px; border-radius:8px; margin-bottom:10px;"></div>
           <div id="ikas-list-container">
             <!-- Dinamik kartlar -->
           </div>
@@ -1004,55 +1010,6 @@
       </div>
       <div class="generic-modal-ftr">
         <button onclick="closeKupeDefteriModal()" class="btn-diag-act" style="background:#64748b; color:#fff; width:100%;">Kapat</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- 4. SESLİ İKAS (AĞIL & MEZBAHA KİLİT DENETİMİ) MODAL -->
-  <div class="generic-modal-overlay" id="sesli-ikas-modal" onclick="closeGenericModalOnBackdrop(event, 'sesli-ikas-modal')">
-    <div class="generic-modal-box">
-      <div class="generic-modal-hdr" style="background:#0284c7;">
-        <div class="generic-modal-title">
-          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
-          <span>Sesli İKAS (Et & Süt Kilit Denetimi)</span>
-        </div>
-        <button class="generic-modal-close" onclick="closeSesliIkasModal()">&times;</button>
-      </div>
-      <div class="generic-modal-body">
-        <p style="font-size:0.85rem; color:#475569; margin-bottom:10px;">
-          Sağıma almadan veya mezbahaya göndermeden önce hayvanın küpe numarasını söyleyin veya yazın. Sistem et ve süt kilitlerini anında denetleyip seslendirir:
-        </p>
-
-        <div style="display:flex; gap:8px; margin-bottom:10px;">
-          <input type="text" id="sesliTagInput" class="form-input" placeholder="Küpe No (Örn: 120 veya TR16)" oninput="this.value = this.value.toUpperCase();" style="flex:1; font-weight:800; font-size:1.1rem;">
-          <button onclick="checkSesliIkasManual()" class="btn-diag-act" style="background:#15803d; color:#fff; padding:0 16px;">Sorgula</button>
-          <button onclick="toggleVoiceIkas()" id="btnMicIkas" class="btn-diag-act" style="background:#0284c7; color:#fff; padding:0 14px;" title="Mikrofonla Dinle">
-            <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
-          </button>
-        </div>
-
-        <div id="sesliVoiceStatus" style="display:none; font-size:0.82rem; color:#0284c7; font-weight:700; margin-bottom:10px;">
-          🎙️ Dinleniyor... "yüz kırk beş" gibi küpeyi söyleyin...
-        </div>
-
-        <div style="display:flex; align-items:center; justify-content:space-between; background:#f1f5f9; padding:8px 12px; border-radius:8px; margin-bottom:12px; font-size:0.82rem;">
-          <span style="font-weight:700; color:#0f172a;">🔊 Sesli Türkçe Uyarı (TTS):</span>
-          <label style="display:flex; align-items:center; gap:6px; cursor:pointer;">
-            <input type="checkbox" id="sesliVoiceToggle" checked style="width:18px; height:18px;">
-            <span style="font-weight:700; color:#0284c7;">Açık</span>
-          </label>
-        </div>
-
-        <div id="sesli-result-card" style="display:none; padding:12px; border-radius:10px; margin-bottom:12px;"></div>
-
-        <div style="font-weight:800; font-size:0.85rem; color:#0f172a; margin-bottom:6px; display:flex; justify-content:space-between;">
-          <span>🛑 Aktif İlaç Kilidi Olan Küçükbaşlar:</span>
-          <span id="sesli-active-count" style="background:#fee2e2; color:#dc2626; padding:2px 8px; border-radius:12px; font-size:0.75rem;">0 Hayvan</span>
-        </div>
-        <div id="sesli-locked-list" style="display:flex; flex-direction:column; gap:6px; max-height:160px; overflow-y:auto;"></div>
-      </div>
-      <div class="generic-modal-ftr">
-        <button onclick="closeSesliIkasModal()" class="btn-diag-act" style="background:#64748b; color:#fff; width:100%;">Kapat</button>
       </div>
     </div>
   </div>
@@ -1845,7 +1802,27 @@
     let ikasSpeechRec = null;
     let isIkasListening = false;
 
+    function handleKoyunSearchInput(val) {
+      renderIkasList();
+      const cleanVal = (val || "").trim().toUpperCase();
+      const card = document.getElementById("sesli-result-card");
+      if (!card) return;
+      if (cleanVal.length < 2) {
+        card.style.display = "none";
+        return;
+      }
+      checkSesliIkasInternal(cleanVal);
+    }
+
     function openSesliIkasModal() {
+      openKupeDefteriModal();
+    }
+
+    function closeSesliIkasModal() {
+      closeKupeDefteriModal();
+    }
+
+    function _disabled_old_openSesliIkasModal() {
       const m = document.getElementById("sesli-ikas-modal");
       if (m) {
         m.classList.add("active");
