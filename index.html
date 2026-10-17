@@ -207,7 +207,7 @@
     }
     @media (min-width: 1150px) {
       .animals-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(5, 1fr);
       }
     }
 
@@ -795,6 +795,22 @@
         </div>
         <span class="animal-launch-btn">Rehberi Başlat</span>
       </a>
+      <!-- 2. SÜT SIĞIRI -->
+      <a href="./sut-saglik-rehberi/" class="animal-card" id="choice-sut" title="Süt Sığırı - Süt Sağlık Asistanını Başlat">
+        <div class="animal-symbol-box" aria-hidden="true">
+          <img src="./icons/noto-cow.svg" alt="Süt Sığırı İkonu" class="animal-symbol-img" onerror="this.onerror=null; this.src='https://api.iconify.design/noto:cow.svg';">
+        </div>
+        <h3 class="animal-name">Süt Sığırı</h3>
+        <p class="animal-app-title">Süt Sağlık Asistanı</p>
+        <p class="animal-desc">Diyalog tabanlı muayene, ilaçlı süt kilidi, sesli sağımcı uyarısı, buzağı sıvı açığı ve tohumlama takvimi.</p>
+        <div class="animal-badges">
+          <span class="animal-badge">Süt İKAS Kilidi</span>
+          <span class="animal-badge">Sesli Sağım Uyarısı</span>
+          <span class="animal-badge">Buzağı Sıvı Tedavisi</span>
+        </div>
+        <span class="animal-launch-btn">Asistanı Başlat</span>
+      </a>
+
 
       <!-- 3. KOYUN -->
       <a href="./koyun-saglik-rehberi/" class="animal-card" id="choice-koyun" title="Koyun - Koyun Çiftliği Rehberini Başlat">
@@ -905,10 +921,26 @@
           </div>
         </section>
 
-        <!-- 3. Dört Uygulamanın Ayrıntılı Kapsamı -->
+        <!-- 3. Beş Uygulamanın Ayrıntılı Kapsamı -->
         <section class="modal-section" aria-label="Uygulama Detayları">
-          <h3 class="modal-section-title">4 Bağımsız Rehberin Ayrıntılı Kapsamı</h3>
+          <h3 class="modal-section-title">5 Bağımsız Rehberin Ayrıntılı Kapsamı</h3>
           <div class="modal-apps-grid">
+            <!-- SÜT SAĞLIK ASİSTANI -->
+            <div class="modal-app-card" data-modal-tags="all ikas triage repro emergency" id="modal-card-sut">
+              <div>
+                <h4 class="modal-app-card-title">Süt Sağlık Asistanı</h4>
+                <p class="modal-app-card-subtitle">İnteraktif Muayene, Sesli Sağımcı & İlaçlı Süt Kilidi</p>
+                <ul class="modal-feature-list">
+                  <li class="modal-feature-item"><strong>Sohbet Tabanlı Muayene:</strong> Sağmal inek, kuru dönem, düve ve buzağı için adım adım teşhis robotu.</li>
+                  <li class="modal-feature-item"><strong>Sesli Sağımcı Onayı:</strong> Küpe sorgulandığında sağımhanede "SAĞMA" veya "UYGUN" sesli uyarısı verir.</li>
+                  <li class="modal-feature-item"><strong>İlaç & İKAS Kilidi:</strong> Yasal süt ve et arınma süresi canlı sayaçla kilitlenir; tank sütü korunur.</li>
+                  <li class="modal-feature-item"><strong>Buzağı Sıvı Tedavisi:</strong> İshalli buzağılarda 24 saatlik serum ve elektrolit ihtiyacı kg bazında hesaplanır.</li>
+                  <li class="modal-feature-item"><strong>Tohumlama & Doğum:</strong> USG, 220. gün kuruya alma ve doğum takvimi otomatik işler.</li>
+                </ul>
+              </div>
+              <a href="./sut-saglik-rehberi/" class="modal-launch-link">Süt Sağlık Asistanı'nı Aç</a>
+            </div>
+
 
             <!-- BESİ ÇİFTLİĞİ REHBERİ -->
             <div class="modal-app-card" data-modal-tags="all ikas triage weight emergency" id="modal-card-besi">
@@ -985,6 +1017,7 @@
               <thead>
                 <tr>
                   <th>Özellik / Modül</th>
+                  <th>Süt Sağlık</th>
                   <th>Besi Rehberi</th>
                   <th>Koyun Rehberi</th>
                   <th>Rasyon Rehberi</th>
@@ -996,6 +1029,7 @@
                   <td><strong>Rasyon & TMR Vagon Hesabı</strong></td>
                   <td class="check-no">Temel</td>
                   <td class="check-no">Temel</td>
+                  <td class="check-no">Temel</td>
                   <td class="check-yes">Tam (NASEM/NRC/CNCPS)</td>
                   <td class="check-no">Yok</td>
                 </tr>
@@ -1003,11 +1037,13 @@
                   <td><strong>Otomatik Yem Dengeleme & Maliyet</strong></td>
                   <td class="check-no">Yok</td>
                   <td class="check-no">Yok</td>
+                  <td class="check-no">Yok</td>
                   <td class="check-yes">Var (En Düşük Maliyet)</td>
                   <td class="check-no">Yok</td>
                 </tr>
                 <tr>
                   <td><strong>İlaç Arınma Süresi (İKAS)</strong></td>
+                  <td class="check-yes">Var (Süt & Et)</td>
                   <td class="check-yes">Var (Mezbaha)</td>
                   <td class="check-yes">Var (Küçükbaş)</td>
                   <td class="check-no">Sağlık Modülünde</td>
@@ -1015,6 +1051,7 @@
                 </tr>
                 <tr>
                   <td><strong>Sesli / Dijital Küpe Bildirimi</strong></td>
+                  <td class="check-yes">Var (Sesli Sağımcı)</td>
                   <td class="check-yes">Var</td>
                   <td class="check-yes">Var</td>
                   <td class="check-no">Sağlık Modülünde</td>
@@ -1022,6 +1059,7 @@
                 </tr>
                 <tr>
                   <td><strong>Hızlı Ön Teşhis & Karar Ağacı</strong></td>
+                  <td class="check-yes">Var (Diyalog)</td>
                   <td class="check-yes">Var</td>
                   <td class="check-yes">Var</td>
                   <td class="check-no">Sağlık Modülünde</td>
@@ -1031,11 +1069,13 @@
                   <td><strong>Asidoz, İdrar Taşı & Şişme İlk Yardım</strong></td>
                   <td class="check-yes">Var (Saha)</td>
                   <td class="check-yes">Var (Saha)</td>
+                  <td class="check-yes">Var (Saha)</td>
                   <td class="check-yes">Var (Rasyon Analizi)</td>
                   <td class="check-yes">Var (Acil Aksiyon Kartı)</td>
                 </tr>
                 <tr>
                   <td><strong>%100 Çevrimdışı Çalışma (Offline PWA)</strong></td>
+                  <td class="check-yes">Evet</td>
                   <td class="check-yes">Evet</td>
                   <td class="check-yes">Evet</td>
                   <td class="check-yes">Evet</td>

@@ -1,4 +1,4 @@
-const CACHE_NAME = "ciftlik-portal-v11";
+const CACHE_NAME = "ciftlik-portal-v12";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
