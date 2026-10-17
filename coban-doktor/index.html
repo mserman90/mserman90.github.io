@@ -2392,6 +2392,10 @@
               <button type="button" class="preset-pill" onclick="applyPreset('Sefalosporin Tüp', 0, 4)">Sefalosporin (Süt: 0g / Et: 4g)</button>
               <button type="button" class="preset-pill" onclick="applyPreset('Fluniksin Ağrı Kesici', 2, 5)">Fluniksin (Süt: 2g / Et: 5g)</button>
               <button type="button" class="preset-pill" onclick="applyPreset('İvermektin Parazit İlacı', 0, 28)">İvermektin (Et: 28g)</button>
+              <button type="button" class="preset-pill" onclick="applyPreset('Tilmikosin / Draxxin (Ciğer İğnesi)', 0, 28)">Tilmikosin (Et: 28g)</button>
+              <button type="button" class="preset-pill" onclick="applyPreset('Sülfametazin (Kuzu İshali)', 0, 15)">Sülfametazin (Et: 15g)</button>
+              <button type="button" class="preset-pill" onclick="applyPreset('Albendazol Kelebek Şurubu', 3, 14)">Albendazol (Süt: 3g / Et: 14g)</button>
+              <button type="button" class="preset-pill" onclick="applyPreset('Kalsiyum Boroglukonat Serum', 0, 0)">Kalsiyum Serumu (Süt: 0g / Et: 0g)</button>
             </div>
           </div>
 
@@ -2678,12 +2682,15 @@
           İshalli yavrularda ana ölüm sebebi mikrop değil, <strong>sıvı kaybı (dehidrasyon) ve kanın asitleşmesidir</strong>. Canlı ağırlık ve kuruma seviyesini seçerek 24 saatlik damardan/ağızdan sıvı miktarını hesaplayın:
         </p>
 
-        <div style="display:flex; gap:6px; margin-bottom:12px;">
-          <button type="button" class="wa-choice-btn primary" id="siviAnimalCalfBtn" onclick="switchSiviAnimal('calf')" style="flex:1; justify-content:center; padding:8px;">
-            🍼 Buzağı
+        <div style="display:flex; gap:6px; margin-bottom:12px; flex-wrap:wrap;">
+          <button type="button" class="wa-choice-btn primary" id="siviAnimalCalfBtn" onclick="switchSiviAnimal('calf')" style="flex:1; justify-content:center; padding:8px; font-size:0.8rem;">
+            🍼 Buzağı İshali
           </button>
-          <button type="button" class="wa-choice-btn" id="siviAnimalLambBtn" onclick="switchSiviAnimal('lamb')" style="flex:1; justify-content:center; padding:8px;">
-            🐑 Kuzu / Oğlak
+          <button type="button" class="wa-choice-btn" id="siviAnimalLambBtn" onclick="switchSiviAnimal('lamb')" style="flex:1; justify-content:center; padding:8px; font-size:0.8rem;">
+            🐑 Kuzu İshali
+          </button>
+          <button type="button" class="wa-choice-btn" id="siviAnimalHypoBtn" onclick="switchSiviAnimal('hypo')" style="flex:1; justify-content:center; padding:8px; font-size:0.8rem; background:#eff6ff; color:#1e40af; border:1px solid #bfdbfe;">
+            ❄️ Kuzu Donması / Hipotermi
           </button>
         </div>
 
@@ -2903,6 +2910,27 @@
           <button class="wa-choice-btn" id="protBtn5" onclick="switchSaglikProtokolTab('piyeten')" style="padding:6px 10px; font-size:0.78rem;">
             🩹 Piyeten & Tırnak
           </button>
+          <button class="wa-choice-btn" id="protBtn6" onclick="switchSaglikProtokolTab('toksemi')" style="padding:6px 10px; font-size:0.78rem;">
+            🐑 İkiz Koması & Toksemi
+          </button>
+          <button class="wa-choice-btn" id="protBtn7" onclick="switchSaglikProtokolTab('ektima')" style="padding:6px 10px; font-size:0.78rem;">
+            👄 Ektima (Orf) Yaraları
+          </button>
+          <button class="wa-choice-btn" id="protBtn8" onclick="switchSaglikProtokolTab('idrar')" style="padding:6px 10px; font-size:0.78rem;">
+            🪨 Sidik Zoru / İdrar Taşı
+          </button>
+          <button class="wa-choice-btn" id="protBtn9" onclick="switchSaglikProtokolTab('metritis')" style="padding:6px 10px; font-size:0.78rem;">
+            🩸 Lohusa Metritis & Eş Kalması
+          </button>
+          <button class="wa-choice-btn" id="protBtn10" onclick="switchSaglikProtokolTab('bogulma')" style="padding:6px 10px; font-size:0.78rem;">
+            🥔 Yemek Borusu Boğulması
+          </button>
+          <button class="wa-choice-btn" id="protBtn11" onclick="switchSaglikProtokolTab('besi21')" style="padding:6px 10px; font-size:0.78rem;">
+            🐂 Besi 21 Gün Karşılama
+          </button>
+          <button class="wa-choice-btn" id="protBtn12" onclick="switchSaglikProtokolTab('hipotermi')" style="padding:6px 10px; font-size:0.78rem;">
+            ❄️ Kuzu Donması & Açlık
+          </button>
         </div>
 
         <!-- 1. CMT & MASTİTİS -->
@@ -2985,6 +3013,115 @@
               <li><strong>Ayak Banyosu (%5 Göztaşı / Bakır Sülfat):</strong> 100 Litre suya 5 kg Bakır Sülfat eritilir. Hayvanlar haftada 1-2 kez bu banyodan geçirilir (Tırnak içinde 2-3 dakika durmalıdır).</li>
               <li><strong>Kuru Zemin Şartı:</strong> Banyodan çıkan hayvanlar en az 1 saat kuru ve temiz beton/taş zeminde bekletilmeli, hemen ıslak çamura sokulmamalıdır.</li>
               <li><strong>İzolasyon:</strong> Topallayan hayvanlar sürüden ayrılıp ayrı bölmede tedavi edilmeli; ortak meraya sağlamlarla birlikte çıkarılmamalıdır.</li>
+            </ul>
+          </div>
+        </div>
+        <!-- 6. İKİZ KOMASI (GEBELİK TOKSEMİSİ) -->
+        <div id="saglik-tab-toksemi" style="display:none;">
+          <div style="background:#fffbeb; border:1.5px solid #fde68a; border-radius:8px; padding:12px;">
+            <h4 style="color:#92400e; font-weight:800; margin-bottom:6px;">🐑 İkiz Koması & Gebe Koyun Toksemisi (Ketozis)</h4>
+            <p style="color:#475569; margin-bottom:8px;">
+              Doğuma 2-4 hafta kala ikiz veya üçüz taşıyan koyunlarda yetersiz enerji alımı sonucu karaciğer yağlanır, kan şekeri çöker ve nefeste aseton kokusuyla körlük/yere yıkılma başlar.
+            </p>
+            <ul style="padding-left:18px; color:#334155; margin-bottom:10px;">
+              <li><strong>Acil Enerji Desteği:</strong> Ağızdan günde 2 kez 100-150 mL Propilen Glikol veya gliserin içirin (Yoksa koyu pekmezli ılık su).</li>
+              <li><strong>Damardan Dekstroz:</strong> Hekim gözetiminde damardan %30 Dekstroz serumu ve B12 vitamini verilmesi şarttır.</li>
+              <li><strong>Kuzuların Kurtarılması:</strong> Günü dolmuş ve ayağa kalkamayan ağır komadaki koyunlarda acil sezaryenle kuzuların alınması anneyi ve yavruları kurtarır.</li>
+              <li><strong>Önleme:</strong> Gebe koyunları gebeliğin son 4 haftasında aç bırakmayın, kaliteli kuru yonca ve ezme arpa verin.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 7. EKTİMA (ORF) AĞIZ YARALARI -->
+        <div id="saglik-tab-ektima" style="display:none;">
+          <div style="background:#fef2f2; border:1.5px solid #fecaca; border-radius:8px; padding:12px;">
+            <h4 style="color:#991b1b; font-weight:800; margin-bottom:6px;">👄 Ektima (Orf / Bulaşıcı Ağız & Dudak Yaraları)</h4>
+            <p style="color:#475569; margin-bottom:8px;">
+              Kuzuların dudaklarında ve koyunların memelerinde karnabahar gibi siyah/kahverengi kabuklar oluşturan viral hastalıktır. İnsana bulaşır (zoonoz).
+            </p>
+            <ul style="padding-left:18px; color:#334155; margin-bottom:10px;">
+              <li><strong>Kabukları Yolmayın:</strong> Kabuklar virüs kaynağıdır; elle yolunursa kanar ve tüm sürüye yayılır.</li>
+              <li><strong>Lokal Bakım:</strong> Günde 1-2 kez Gliserin İyot solüsyonu veya çinko oksitli koruyucu merhem sürün.</li>
+              <li><strong>Beslenme Desteği:</strong> Ağzı acıyan kuzulara ılık süt, kepek bulamacı ve yumuşak yapraklı kuru yonca verin.</li>
+              <li><strong>Eldiven Kullanımı:</strong> İnsan eline bulaşırsa çok ağrılı yaralar açar; pansuman yaparken mutlaka lastik eldiven takın.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 8. İDRAR TAŞI & SİDİK ZORU -->
+        <div id="saglik-tab-idrar" style="display:none;">
+          <div style="background:#f0fdf4; border:1.5px solid #86efac; border-radius:8px; padding:12px;">
+            <h4 style="color:#166534; font-weight:800; margin-bottom:6px;">🪨 Sidik Zoru & İdrar Taşı Tıkanması (Besi Danası & Koç)</h4>
+            <p style="color:#475569; margin-bottom:8px;">
+              Aşırı tahıl, buğday kepeği ve kireçli sert suların yol açtığı fosfor taşları idrar borusunu (üretrayı) tıkar; idrar kesesi patlayarak 'su karnı' tablosu oluşturur.
+            </p>
+            <ul style="padding-left:18px; color:#334155; margin-bottom:10px;">
+              <li><strong>Erken Teşhis:</strong> Hayvan sürekli kuyruk sallar, karın altına tekme atar ve damla damla kanlı idrar yapar.</li>
+              <li><strong>Amonyum Klorür Kürü:</strong> Yeme veya suya günde dana başına 20-30 gr, koç başına 5-10 gr Amonyum Klorür katılarak idrar asitleştirilir ve taşlar eritilir.</li>
+              <li><strong>Kalsiyum/Fosfor Dengesi:</strong> Rasyonda kepeği kısın, kireç taşı (mermer tozu) takviyesiyle kalsiyum:fosfor oranını 2:1 seviyesinde tutun.</li>
+              <li><strong>Bol Temiz Su ve Tuz:</strong> Yalama taşı ve serbest temiz ılık su temin ederek idrar debisini artırın.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 9. LOHUSA METRİTİS & EŞ KALMASI -->
+        <div id="saglik-tab-metritis" style="display:none;">
+          <div style="background:#fdf2f8; border:1.5px solid #fbcfe8; border-radius:8px; padding:12px;">
+            <h4 style="color:#9d174d; font-weight:800; margin-bottom:6px;">🩸 Lohusa Rahim İltihabı (Metritis) & Eş Kalması</h4>
+            <p style="color:#475569; margin-bottom:8px;">
+              Doğum sonrası ilk 10 günde rahimden çikolata renkli pis kokulu akıntı gelmesi, 40°C üzeri ateş ve iştahsızlıktır.
+            </p>
+            <ul style="padding-left:18px; color:#334155; margin-bottom:10px;">
+              <li><strong>Eşe Zorla Asılmayın:</strong> Dışarı sarkan eşe zorla asılıp çekilirse rahim yırtılır ve ölümcül kanama başlar.</li>
+              <li><strong>Sistemik Antibiyotik:</strong> Veteriner hekim gözetiminde süte geçmeyen Seftiofur veya hekim önerili antibiyotik ve fluniksin uygulayın.</li>
+              <li><strong>Temiz Doğum Locası:</strong> Doğum sonrası ineğin altını bol kuru sapla kaplayın; kirli ıslak zeminden mikropların rahme girmesini önleyin.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 10. YEMEK BORUSU TIKANMASI (BOĞULMA) -->
+        <div id="saglik-tab-bogulma" style="display:none;">
+          <div style="background:#fef2f2; border:1.5px solid #fecaca; border-radius:8px; padding:12px;">
+            <h4 style="color:#991b1b; font-weight:800; margin-bottom:6px;">🥔 Yemek Borusu Tıkanması (Patates/Pancar Boğulması)</h4>
+            <p style="color:#475569; margin-bottom:8px;">
+              Bütün patates, elma, koçan veya şeker pancarının yemek borusuna takılması sonucu gaz dışarı atılamaz; sol böğür dakikalar içinde şişip boğar.
+            </p>
+            <ul style="padding-left:18px; color:#334155; margin-bottom:10px;">
+              <li><strong>Acil Trokar:</strong> Şişme nefesi kesiyorsa sol böğürden hemen trokar veya kalın kanül batırıp gazı yavaşça indirin.</li>
+              <li><strong>Asla Su İçirmeyin:</strong> Tıkalı yemek borusuna su dökülürse direkt nefes borusuna akar ve hayvanı anında boğar.</li>
+              <li><strong>Dışarıdan Sıvazlama:</strong> Boyun sol oluğunu iki elle sıkarak kütleyi yukarı ağza doğru getirmeye çalışın veya hekimin sonda ile itmesini sağlayın.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 11. YENİ GELEN BESİ DANASI 21 GÜN PROTOKOLÜ -->
+        <div id="saglik-tab-besi21" style="display:none;">
+          <div style="background:#f0fdf4; border:1.5px solid #86efac; border-radius:8px; padding:12px;">
+            <h4 style="color:#166534; font-weight:800; margin-bottom:6px;">🐂 Yeni Gelen Besi Danası 21 Gün Karşılama & BRD Aşılama</h4>
+            <p style="color:#475569; margin-bottom:8px;">
+              Pazardan veya uzun yoldan gelen danalarda ilk 21 gün ölüm riskinin %80'ini oluşturur. Kademeli yem ve aşı takvimi:
+            </p>
+            <ul style="padding-left:18px; color:#334155; margin-bottom:10px;">
+              <li><strong>İlk 24 Saat (Dinlenme):</strong> Kesif yem ASLA verilmez! Sadece temiz kuru kaba saman, çayır otu ve ılık temiz suya elektrolit/vitamin takviyesi.</li>
+              <li><strong>2-3. Gün (Sağlık Taraması):</strong> İç-dış parazit iğnesi (İvermektin) ve burun içi/canlı BRD solunum yolu aşısı uygulanır.</li>
+              <li><strong>4-7. Gün (Kademeli Başlangıç):</strong> Günlük 500 gr ile başlayıp kesif yem her 3 günde bir 300 gr artırılır; kaba yem daima serbesttir.</li>
+              <li><strong>14. Gün (Rapel Doz):</strong> Karma aşı ve enterotoksemi aşılarının 2. dozu (rapel) vurulur. Rasyon tam besi formuna kademeli geçirilir.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 12. KUZU DONMASI & HİPOTERMİ PROTOKOLÜ -->
+        <div id="saglik-tab-hipotermi" style="display:none;">
+          <div style="background:#eff6ff; border:1.5px solid #bfdbfe; border-radius:8px; padding:12px;">
+            <h4 style="color:#1e40af; font-weight:800; margin-bottom:6px;">❄️ Kuzu Donması (Hipotermi) & Açlık Kurtarma Protokolü</h4>
+            <p style="color:#475569; margin-bottom:8px;">
+              Yeni doğan kuzuda vücut ısısının 37°C altına düşmesi acil ölüm tehlikesidir.
+            </p>
+            <ul style="padding-left:18px; color:#334155; margin-bottom:10px;">
+              <li><strong>Hayati Altın Kural:</strong> Aç kuzu <strong>ASLA ÖNCE ISITILMAZ!</strong> Isıtırsanız beyin şeker bulamaz ve kuzu komadan ölür.</li>
+              <li><strong>1. Adım (Şeker Takviyesi):</strong> 5 saatten büyük ve emme refleksi olmayan kuzuya veteriner kontrolünde karın boşluğuna (göbeğin 2 parmak altı ve 1 parmak sağı) ılık %20 Dekstroz (10 mL/kg) verilir.</li>
+              <li><strong>2. Adım (Isıtma):</strong> Şeker verildikten sonra 38-40°C sıcak hava kutusuna veya ısıtıcı lamba altına alınır.</li>
+              <li><strong>3. Adım (Ağız Sütü):</strong> Vücut ısısı 38.5°C üzerine çıkıp ağzı ısınınca hemen ılık koyun kolostrumu (ağız sütü) içirilir.</li>
             </ul>
           </div>
         </div>
@@ -3349,6 +3486,341 @@
           "Kanını toprağa veya suya akıtmayın."
         ]
       }
+    ,
+    {    
+          "id": "ketozis",    
+          "name": "Ketozis / Asetonemi (Negatif Enerji Dengesi)",    
+          "species": [    
+                "sigir"    
+          ],    
+          "category": "genel",    
+          "urgency": "YELLOW",    
+          "contagious": false,    
+          "symptoms": [    
+                "Doğumdan sonraki 2-6 haftalık süt ineğinde ani iştahsızlık ve zayıflama var",    
+                "Tane yemi ve fabrika yemini reddediyor, sadece kaba samanı yemek istiyor",    
+                "Ağzından ve nefesinden çürük elma, sirke veya aseton kokusu geliyor",    
+                "Süt verimi aniden yarı yarıya düştü, gözleri donuk ve hareketsiz bakıyor"    
+          ],    
+          "doList": [    
+                "Ağızdan günde 2 kez 250-300 ml Propilen Glikol veya gliserin içirin.",    
+                "Veteriner hekime danışarak damardan %30-50'lik Glikoz/Dekstroz serumu ve B12 vitamini uygulatın.",    
+                "Önüne taze, kaliteli kuru yonca otu ve serbest yalayabileceği kaya tuzu koyun."    
+          ],    
+          "dontList": [    
+                "Yem yemiyor diye aniden önüne fazla arpa ezmesi dökmeyin (işkembe asidozunu tetikler).",    
+                "Kuru dönemde ineği aşırı yağlandırmayın (yağlı inek doğumda ketozise yakalanır)."    
+          ]    
+    },
+    {    
+          "id": "metritis",    
+          "name": "Lohusa Rahim İltihabı (Metritis) & Eş Kalması",    
+          "species": [    
+                "sigir",    
+                "koyun"    
+          ],    
+          "category": "dogum_ishal",    
+          "urgency": "RED",    
+          "contagious": false,    
+          "symptoms": [    
+                "Doğumdan sonraki ilk 2 haftada hayvandan pis kokulu, çikolata rengi veya kırmızı akıntı geliyor",    
+                "Kuyruğunu sürekli havaya kaldırıyor, acıyla ıkınıyor ve sırtını kamburlaştırıyor",    
+                "Yüksek ateş (39.8 - 41.0°C), şiddetli iştahsızlık ve sütte ani kesilme var",    
+                "Doğumda eşi (sonu) geç düştü veya içeride parça kaldı"    
+          ],    
+          "doList": [    
+                "ACİL VETERİNER ÇAĞIRIN! Erken dönemde başlanan sistemik antibiyotik (Seftiofur) ve ateş düşürücü hayat kurtarır.",    
+                "Hayvanın altlığını derhal temiz, kuru ve bol sapla yenileyin.",    
+                "Ateşi düşürmek için serin, havadar bir bölmede bol temiz ılık su içmesini sağlayın."    
+          ],    
+          "dontList": [    
+                "ARKADAN SARKAN EŞE (SONA) ASLA ZORLA ASILIP ÇEKMEYİN! Rahmi yırtar veya ölümcül iç kanama yapar.",    
+                "Bilinçsizce rahmin içine yakıcı kimyasal veya kova ile dezenfektan dökmeyin."    
+          ]    
+    },
+    {    
+          "id": "abomazum_lda",    
+          "name": "Mide Dönmesi (Sol Abomazum Deplasmanı - LDA)",    
+          "species": [    
+                "sigir"    
+          ],    
+          "category": "siskinlik_idrar",    
+          "urgency": "RED",    
+          "contagious": false,    
+          "symptoms": [    
+                "Doğumdan sonraki ilk 1 ayda sol son kaburga altına vurulduğunda çelik çan tınlaması (ping sesi) alınıyor",    
+                "Geviş getirme durmuş veya çok yavaşlamış, hayvan kesif yemi yemiyor",    
+                "Dışkı koyu renkli, zeytin ezmesi gibi parlak ve yapışkan az miktarda çıkıyor",    
+                "Sol açlık çukurunda hafif bir kabarıklık ve kaburgaların arkasında şişkinlik var"    
+          ],    
+          "doList": [    
+                "ACİL VETERİNER HEKİM ÇAĞIRIN! İlaçla düzelmez; operasyonla veya yuvarlama manevrasıyla midenin yerine dikilmesi şarttır.",    
+                "Veteriner gelene kadar kaba kuru ot verin, kesif yemi tamamen kesin.",    
+                "Hayvanın susuz kalmaması için ılık su ve elektrolit takviyesi yapın."    
+          ],    
+          "dontList": [    
+                "Midesi dönmüş hayvana zorla yemek sodası veya ağır yağ içirmeyin (gazı daha da sıkıştırabilir).",    
+                "Operasyonu ertelemeyin; gecikilirse mide dokusu çürür (gangren olur)."    
+          ]    
+    },
+    {    
+          "id": "tirnak_curugu",    
+          "name": "Bulaşıcı Ayak Çürüğü & Tırnak Yangısı (Panaritium / Flegmon)",    
+          "species": [    
+                "sigir"    
+          ],    
+          "category": "ayak_topallik",    
+          "urgency": "YELLOW",    
+          "contagious": true,    
+          "symptoms": [    
+                "Tırnak aralığı ve ökçe bölgesinde leş gibi pis kokulu, çilek kırmızısı açık yara var",    
+                "Ayak bileği ve tırnak üstü davul gibi şişmiş (flegmon), el değdirmiyor",    
+                "Hayvan ayağını yere basamıyor, havada tutuyor veya şiddetli topallıyor",    
+                "Çamurlu, ıslak veya gübreli zeminlerde yatan hayvanlarda yaygındır"    
+          ],    
+          "doList": [    
+                "Ayağı temiz ılık suyla yıkayıp kurulayın; tırnak arasını kirden arındırın.",    
+                "Yaranın üzerine Oksitetrasiklin içerikli mavi/mor sprey sıkın veya veteriner önerisiyle sargı yapın.",    
+                "Veteriner kontrolünde gecikmeden kas içi sistemik antibiyotik ve ağrı kesici başlatın.",    
+                "Ayak banyosuna %5'lik Bakır Sülfat (Göztaşı) veya Çinko Sülfat koyup sürüyü geçirin."    
+          ],    
+          "dontList": [    
+                "Yaralı hayvanı çamur, cıvık gübre ve ıslak taşlı zeminlerde bırakmayın.",    
+                "Tırnağın canlı et dokusunu derin kesip kanatmayın."    
+          ]    
+    },
+    {    
+          "id": "besi_bogulma_obstruksiyon",    
+          "name": "Yemek Borusu Tıkanması (Patates / Pancar / Kaba Yem Boğulması)",    
+          "species": [    
+                "sigir"    
+          ],    
+          "category": "siskinlik_idrar",    
+          "urgency": "RED",    
+          "contagious": false,    
+          "symptoms": [    
+                "Bütün patates, elma, şeker pancarı veya koçan yendikten hemen sonra sol böğürde çok hızlı gaz şişmesi başladı",    
+                "Ağzından durmaksızın bol köpüklü salya akıyor, yutkunamıyor",    
+                "Boynunu ileri doğru uzatmış, öksürmeye çalışıyor, gözleri dışarı fırlayacak gibi",    
+                "Nefes alamıyor ve boğulma tehlikesiyle yere yıkılmak üzere"    
+          ],    
+          "doList": [    
+                "HAYATİ ACİL DURUM! Şişen gaz nefesini kesmesin diye DERHAL sol böğürden trokar veya kalın iğne batırıp gazı tahliye edin!",    
+                "Boyun sol oluğunu elle yoklayarak takılan yumrunun yerini tespit edin; yukarı ağza doğru sıvazlamaya çalışın.",    
+                "ACİL VETERİNER ÇAĞIRIN; hekim mide sondasıyla yumruyu işkembeye itecektir."    
+          ],    
+          "dontList": [    
+                "AĞZINDAN ASLA SU VEYA YAĞ İÇİRMEYİN! Yemek borusu tıkalı olduğu için sıvı direkt akciğere akar ve boğar.",    
+                "Trokar batırmakta tereddüt etmeyin; gaz kalbi ve akciğeri sıkıştırıp 15 dakikada öldürebilir."    
+          ]    
+    },
+    {    
+          "id": "piyeten",    
+          "name": "Bulaşıcı Tırnak Çürüğü & Ayak Yanması (Piyeten)",    
+          "species": [    
+                "koyun"    
+          ],    
+          "category": "ayak_topallik",    
+          "urgency": "YELLOW",    
+          "contagious": true,    
+          "symptoms": [    
+                "Sürüde birden fazla koyun ve toklu ön ayaklarının dizleri üstünde otluyor",    
+                "Tırnak aralığında ve tabanında leş gibi ağır bir koku ve gri-siyah çürüme var",    
+                "Tırnak boynuzu canlı dokudan ayrılmış, soyuluyor ve kanıyor",    
+                "Islak, çamurlu meralarda ve rutubetli ağıllarda hızla sürüye yayılıyor"    
+          ],    
+          "doList": [    
+                "Tırnak makasıyla çürümüş, ayrılmış ölü tırnak parçalarını kanatmadan düzgünce budayın.",    
+                "Sürüyü %10'luk Çinko Sülfat veya %5'lik Formalin tırnak banyosundan yürütün.",    
+                "Şiddetli vakalara veteriner kontrolünde uzun etkili Oksitetrasiklin (LA) iğnesi vurun ve tırnağa antibiyotikli sprey sıkın.",    
+                "Ağıl tabanına sönmüş kireç tozu serpin, altlığı kuru tutun."    
+          ],    
+          "dontList": [    
+                "Tırnağı kanatacak kadar derin oymayın (mikrop kan yoluyla kemiğe ilerler).",    
+                "Tedavi edilen koyunları derhal ıslak, çamurlu meraya salmayın; en az 1 saat kuru betonda bekletin."    
+          ]    
+    },
+    {    
+          "id": "ektima",    
+          "name": "Ektima (Orf / Bulaşıcı Dudak ve Ağız Yaraları)",    
+          "species": [    
+                "koyun"    
+          ],    
+          "category": "agiz_deri",    
+          "urgency": "YELLOW",    
+          "contagious": true,    
+          "symptoms": [    
+                "Kuzuların dudak kenarlarında, burun deliklerinde ve diş etlerinde kalın siyah-kahverengi kabuklu yaralar var",    
+                "Emziren koyunların meme uçlarında çiçek gibi kabuklu yaralar oluştu, koyun kuzusunu emzirmiyor",    
+                "Kuzular acıdan yem yiyemiyor, anasını ememiyor ve hızla zayıflıyor",    
+                "Sürüdeki diğer kuzulara hızla bulaşıyor"    
+          ],    
+          "doList": [    
+                "KABUKLARI ASLA ZORLA KOPARMAYIN! Kabuklar virüs doludur; koparılırsa kanar ve etrafa yayılır.",    
+                "Yaraların üzerine günde 1-2 kez Gliserin İyot karışımı veya çinko oksitli koruyucu merhem sürün.",    
+                "Kuzulara yumuşak kepek bulamacı, ılık süt ve kaliteli ince yapraklı kuru yonca verin.",    
+                "İNSANA BULAŞIR (ZOONOZ)! Müdahale ederken MUTLAKA kalın lastik eldiven kullanın."    
+          ],    
+          "dontList": [    
+                "Eldivensiz açık elle kabuklara dokunmayın (insan elinde ağrılı çıbanlar yapar).",    
+                "Yaralı kuzuları sağlam anaç koyunlara emzirtmeyin (tüm meme uçlarına bulaşır)."    
+          ]    
+    },
+    {    
+          "id": "mavi_meme",    
+          "name": "Mavi Meme (Kangrenli Mastitis)",    
+          "species": [    
+                "koyun"    
+          ],    
+          "category": "meme",    
+          "urgency": "RED",    
+          "contagious": true,    
+          "symptoms": [    
+                "Koyunun memesi başlangıçta çok sıcak ve sertken, birkaç saatte buz gibi soğudu ve rengi mor-maviye döndü",    
+                "Memeden süt yerine kanlı, sulu, köpüklü ve pis kokulu bir sıvı geliyor",    
+                "Koyun topallayarak yürüyor, arka bacağını açıyor, yüksek ateş ve titremeyle yere düşüyor",    
+                "Kuzusunu kesinlikle yanına yaklaştırmıyor, emzirmiyor"    
+          ],    
+          "doList": [    
+                "HAYATİ TEHLİKE! ACİL Veteriner Hekim çağırın; kangrenli meme septisemiye (kan zehirlenmesine) yol açar.",    
+                "Kuzuyu DERHAL anasından ayırın ve başka koyuna veya ılık biberon sütüne geçirin.",    
+                "Veteriner kontrolünde yüksek doz sistemik antibiyotik, antiinflamatuar ve serum takviyesi başlatın."    
+          ],    
+          "dontList": [    
+                "Kuzunun o memeden emmesine ASLA izin vermeyin (kuzu zehirlenip birkaç saatte ölür).",    
+                "Morarmış kangrenli memeyi ovmayın veya masaj yapmayın (toksinleri kana karıştırır)."    
+          ]    
+    },
+    {    
+          "id": "cicek",    
+          "name": "Koyun ve Keçi Çiçeği (Variola Ovina)",    
+          "species": [    
+                "koyun"    
+          ],    
+          "category": "agiz_deri",    
+          "urgency": "RED",    
+          "contagious": true,    
+          "symptoms": [    
+                "Yünsüz bölgelerde (göz kapakları, dudaklar, kuyruk altı, memeler ve bacak aralarında) sert kırmızı kabartılar ve çiçek kabukları var",    
+                "41°C'yi aşan çok yüksek ateş, titreme, burun akıntısı ve nefes darlığı var",    
+                "Kuzularda ve toklularda toplu ölümler ve aşırı durgunluk görülüyor"    
+          ],    
+          "doList": [    
+                "İHBARI MECBURİ TEHLİKELİ HASTALIKTIR! Derhal İl/İlçe Tarım Müdürlüğüne haber verin.",    
+                "Ağılı derhal karantinaya alın; yabancı hayvan ve insan giriş çıkışını tamamen durdurun.",    
+                "Sağlam hayvanlara hekim kontrolünde çiçek aşısı yaptırın.",    
+                "Yaraları antiseptik solüsyonlarla temizleyin ve sekonder enfeksiyonlar için hekim önerili antibiyotik verin."    
+          ],    
+          "dontList": [    
+                "Hastalıklı sürüden hayvan satmayın, meraya veya komşu ağıllara yaklaştırmayın.",    
+                "Ölen hayvanları açıkta bırakmayın; kireçleyerek derin çukura gömün."    
+          ]    
+    },
+    {    
+          "id": "akciger_kilkurdu",    
+          "name": "Akciğer Kıl Kurdu & Paraziter Öksürük",    
+          "species": [    
+                "koyun",    
+                "sigir"    
+          ],    
+          "category": "solunum",    
+          "urgency": "YELLOW",    
+          "contagious": true,    
+          "symptoms": [    
+                "Sürüde özellikle genç toklu ve kuzularda inatçı, kuru, tıslayıcı ve nöbet şeklinde öksürük var",    
+                "Hayvanlar koşturulduğunda veya ağıla girip çıkarken boğulur gibi öksürüyor",    
+                "Antibiyotik tedavisi yapılmasına rağmen öksürük ve hırıltı kesinlikle düzelmiyor",    
+                "Burundan şeffaf veya sümüksü akıntı geliyor, hayvanlar günden güne zayıflıyor"    
+          ],    
+          "doList": [    
+                "Sürüye veteriner hekim tavsiyesiyle İvermektin enjeksiyonu veya Albendazol ağız şurubu uygulayın.",    
+                "Parazit tedavisini 14-21 gün sonra tekrarlayarak yumurtadan çıkan yeni kurtları da temizleyin.",    
+                "Sabah çiği kalkmadan veya kırağılı meralara hayvanları aç karnına salmayın.",    
+                "İçme sularına ve yemlerine vitamin ADE ve direnç artırıcı takviye yapın."    
+          ],    
+          "dontList": [    
+                "Kıl kurdu olan hayvana boş yere günlerce ağır antibiyotik yüklemeyin (paraziti öldürmez, böbreği yorar).",    
+                "Sümüklü böceklerin bol olduğu ıslak sazlık su kenarlarında otlatmayın."    
+          ]    
+    },
+    {    
+          "id": "kelebek",    
+          "name": "Karaciğer Kelebeği (Fasciolosis) & Çene Altı Şişliği",    
+          "species": [    
+                "koyun",    
+                "sigir"    
+          ],    
+          "category": "dogum_ishal",    
+          "urgency": "YELLOW",    
+          "contagious": true,    
+          "symptoms": [    
+                "Çene altında su toplamış gibi yumuşak, sarkık bir şişlik (şişe çene ödemi) oluştu",    
+                "Göz kapaklarının içi ve diş etleri kireç gibi bembeyaz, kansız (şiddetli anemi)",    
+                "Yapağı tutam tutam kolayca dökülüyor, hayvan günden güne kuruyup zayıflıyor",    
+                "Sazlık, bataklık veya gölet kenarlarında otlatma öyküsü var"    
+          ],    
+          "doList": [    
+                "Hemen karaciğer kelebeği için etkili antelmentik (Triklabendazol, Klorsulon veya Oksiklozanid) içerikli şurup/hap içirin.",    
+                "Kansızlığı gidermek için veteriner hekimden Demir, B12 vitamini ve fosfor takviyesi alın.",    
+                "Sürüyü durgun su birikintisi ve sazlık alanlardan uzaklaştırıp kuru meraya veya ağıla çekin."    
+          ],    
+          "dontList": [    
+                "Sıradan kurt ilaçlarının kelebeği öldüreceğini sanmayın; mutlaka kelebeğe özel etken madde kullanın.",    
+                "Çene altındaki su torbasını iğneyle veya bıçakla patlatmayın (iç kan ve serum kaybını hızlandırır)."    
+          ]    
+    },
+    {    
+          "id": "beyaz_kas",    
+          "name": "Beyaz Kas Hastalığı (Kuzu Tutulması / Selenyum Eksikliği)",    
+          "species": [    
+                "koyun",    
+                "sigir"    
+          ],    
+          "category": "genel",    
+          "urgency": "RED",    
+          "contagious": false,    
+          "symptoms": [    
+                "2 ila 8 haftalık kuzu veya buzağılarda arka bacaklar tutulmuş, kalas gibi sert ve titreyerek yürüyor",    
+                "Ayağa kalkmak istiyor ama arka ayakları taşımıyor, yere yığılıyor",    
+                "Bacak kasları tahta gibi sertleşmiş, el değdirince acı çekiyor",    
+                "Kalp kası tutulan yavrularda körük gibi soluma, kalp çarpıntısı ve ani ölüm görülüyor"    
+          ],    
+          "doList": [    
+                "ACİL VETERİNER ÇAĞIRIN veya derhal kas içi E Vitamini + Selenyum enjeksiyonu yapın.",    
+                "Yavruyu temiz, kuru, bol saplı ve sıcak bir bölmeye alıp anasını yanına koyun.",    
+                "Sürüdeki tüm gebe koyunlara doğuma 1 ay kala koruyucu E-Selenyum iğnesi uygulayın."    
+          ],    
+          "dontList": [    
+                "Bacakları tutulmuş kuzuyu yürümeye veya koşmaya zorlamayın (kalp kası durabilir).",    
+                "Aşırı dozda selenyum vurmayın (selenyum fazlası zehirlenme yapar; prospektüs dozuna uyun)."    
+          ]    
+    },
+    {    
+          "id": "kuzu_hipotermi",    
+          "name": "Kuzu Donması & Hipotermi (Açlık Şoku)",    
+          "species": [    
+                "koyun"    
+          ],    
+          "category": "genel",    
+          "urgency": "RED",    
+          "contagious": false,    
+          "symptoms": [    
+                "Yeni doğan kuzunun vücut ısısı 37°C'nin altına düşmüş (derin hipotermi)",    
+                "Ağzının içi ve dili parmak değdirildiğinde buz gibi soğuk, emme refleksi yok",    
+                "Kuzu titremeyi bırakmış, uyuşmuş ve yan yatarak kendinden geçmiş",    
+                "Soğuk havada doğmuş, anası yalamamış veya yeterli ağız sütü alamamış"    
+          ],    
+          "doList": [    
+                "ALTIN KURAL: Kuzu aç ise ASLA ÖNCE ISITMAYIN! Isıtırsanız beyin şeker bulamaz ve hipoglisemik komaya girer.",    
+                "Kuzu 5 saatten büyükse ve ememiyorsa: Önce vücut ağırlığına göre (10 mL/kg) ılık %20 Dekstroz (şekerli su) verin.",    
+                "Şeker takviyesinden sonra kuzuyu 38-39°C ısıtma lambasının altına veya ısıtma kutusuna alın.",    
+                "Vücut ısısı 38.5°C'ye yükselip ağzı ısınınca hemen ılık koyun kolostrumu (ağız sütü) içirin."    
+          ],    
+          "dontList": [    
+                "Buz gibi donmuş ve emme refleksi olmayan kuzuya ağızdan zorla lıkır lıkır süt dökmeyin (ciğerine kaçar).",    
+                "Kuzuyu kaynar suya sokmayın veya saç kurutma makinesini çok yakından tutarak derisini yakmayın."    
+          ]    
+    }
     ];
 
     const CATEGORIES = [
@@ -3830,30 +4302,30 @@
 
         // OTOMATİK PUANLAMA (AUTOMATIC SCORING)
         if (evalRes.status === "HIGH_FEVER") {
-          const feverDiseases = ["uc_gun", "zaturre", "noduler", "sap", "sarbon", "mastitis"];
+          const feverDiseases = ["uc_gun", "zaturre", "noduler", "sap", "sarbon", "mastitis", "metritis", "cicek", "mavi_meme"];
           state.candidates.forEach(d => {
             if (feverDiseases.includes(d.id)) {
               state.scores[d.id] = (state.scores[d.id] || 0) + 60;
             }
-            if (d.id === "sut_hummasi") {
+            if (d.id === "sut_hummasi" || d.id === "kuzu_hipotermi") {
               state.scores[d.id] = (state.scores[d.id] || 0) - 80;
             }
           });
         } else if (evalRes.status === "HYPOTHERMIA") {
           state.candidates.forEach(d => {
-            if (d.id === "sut_hummasi") {
+            if (d.id === "sut_hummasi" || d.id === "kuzu_hipotermi") {
               state.scores[d.id] = (state.scores[d.id] || 0) + 80;
             }
             if (d.id === "buzagi_ishal" || d.id === "ikiz_koması") {
               state.scores[d.id] = (state.scores[d.id] || 0) + 50;
             }
-            if (["uc_gun", "noduler", "sap", "sarbon"].includes(d.id)) {
+            if (["uc_gun", "noduler", "sap", "sarbon", "metritis", "cicek", "mavi_meme"].includes(d.id)) {
               state.scores[d.id] = (state.scores[d.id] || 0) - 60;
             }
           });
         } else if (evalRes.status === "NORMAL") {
           state.candidates.forEach(d => {
-            if (["arpa_vurmasi", "iskembe_gazi", "idrar_tasi"].includes(d.id)) {
+            if (["arpa_vurmasi", "iskembe_gazi", "idrar_tasi", "abomazum_lda", "piyeten", "ektima", "ketozis", "besi_bogulma_obstruksiyon", "beyaz_kas", "kelebek"].includes(d.id)) {
               state.scores[d.id] = (state.scores[d.id] || 0) + 40;
             }
           });
@@ -4534,21 +5006,23 @@
       currentSiviAnimal = animal;
       const btnCalf = document.getElementById("siviAnimalCalfBtn");
       const btnLamb = document.getElementById("siviAnimalLambBtn");
+      const btnHypo = document.getElementById("siviAnimalHypoBtn");
       const weightInput = document.getElementById("siviWeightInput");
       const weightLabel = document.getElementById("siviWeightLabel");
+      const dehidContainer = document.querySelector("#sivi-modal .generic-modal-body > div:nth-of-type(2)");
+
+      if (btnCalf) btnCalf.classList.toggle("primary", animal === 'calf');
+      if (btnLamb) btnLamb.classList.toggle("primary", animal === 'lamb');
+      if (btnHypo) btnHypo.classList.toggle("primary", animal === 'hypo');
 
       if (animal === 'calf') {
-        if (btnCalf) btnCalf.classList.add("primary");
-        if (btnLamb) btnLamb.classList.remove("primary");
         if (weightLabel) weightLabel.textContent = "Buzağı Canlı Ağırlığı:";
         if (weightInput) {
           weightInput.min = "25";
           weightInput.max = "80";
           weightInput.value = "40";
         }
-      } else {
-        if (btnCalf) btnCalf.classList.remove("primary");
-        if (btnLamb) btnLamb.classList.add("primary");
+      } else if (animal === 'lamb') {
         if (weightLabel) weightLabel.textContent = "Kuzu / Oğlak Canlı Ağırlığı:";
         if (weightInput) {
           weightInput.min = "2";
@@ -5011,7 +5485,7 @@
     }
 
     function switchSaglikProtokolTab(tab) {
-      const tabs = ['cmt', 'humma', 'sisme', 'celerme', 'piyeten'];
+      const tabs = ['cmt', 'humma', 'sisme', 'celerme', 'piyeten', 'toksemi', 'ektima', 'idrar', 'metritis', 'bogulma', 'besi21', 'hipotermi'];
       tabs.forEach((t, i) => {
         const el = document.getElementById("saglik-tab-" + t);
         const btn = document.getElementById("protBtn" + (i + 1));
