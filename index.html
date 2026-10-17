@@ -269,7 +269,38 @@
       font-size: 0.95rem;
       font-weight: 800;
       color: var(--text);
-      margin-bottom: 24px;
+      margin-bottom: 8px;
+    }
+
+    .animal-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      line-height: 1.45;
+      margin-bottom: 14px;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .animal-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 4px;
+      margin-bottom: 16px;
+    }
+
+    .animal-badge {
+      background-color: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 0.68rem;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 999px;
+      white-space: nowrap;
     }
 
     .animal-launch-btn {
@@ -286,6 +317,9 @@
       min-height: 46px;
       line-height: 1.2;
       transition: background 0.15s ease, color 0.15s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .animal-card:hover .animal-launch-btn {
       background-color: var(--bg);
@@ -753,6 +787,12 @@
         </div>
         <h3 class="animal-name">Besi Sığırı</h3>
         <p class="animal-app-title">Besi Çiftliği Rehberi</p>
+        <p class="animal-desc">21 günlük alıştırma protokolü, mezbaha kesim arınma kilidi (İKAS), canlı ağırlık artışı (CAAG) ve karkas randımanı hesabı.</p>
+        <div class="animal-badges">
+          <span class="animal-badge">21 Gün Karşılama</span>
+          <span class="animal-badge">Mezbaha İKAS</span>
+          <span class="animal-badge">Karkas Randımanı</span>
+        </div>
         <span class="animal-launch-btn">Rehberi Başlat</span>
       </a>
 
@@ -763,6 +803,12 @@
         </div>
         <h3 class="animal-name">Süt Sığırı</h3>
         <p class="animal-app-title">Süt Çiftliği Rehberi</p>
+        <p class="animal-desc">Hasta muayenesi, ilaçlı süt arınma kilidi, sesli sağımcı uyarısı, 21 günlük kızgınlık dönüşü ve ishalli buzağı sıvı protokolü.</p>
+        <div class="animal-badges">
+          <span class="animal-badge">Süt İKAS Kilidi</span>
+          <span class="animal-badge">Sesli Sağım Uyarısı</span>
+          <span class="animal-badge">Buzağı Sıvı Tedavisi</span>
+        </div>
         <span class="animal-launch-btn">Rehberi Başlat</span>
       </a>
 
@@ -773,6 +819,12 @@
         </div>
         <h3 class="animal-name">Koyun</h3>
         <p class="animal-app-title">Koyun Çiftliği Rehberi</p>
+        <p class="animal-desc">Ağıl ve mera acil ilk yardımı (çelerme/şişme), koç katımı ve kuzulama çarkı, kuzu kolostrum yaşatma rehberi ve küçükbaş İKAS.</p>
+        <div class="animal-badges">
+          <span class="animal-badge">Çelerme & Şişme</span>
+          <span class="animal-badge">Koç Katımı Çarkı</span>
+          <span class="animal-badge">Kuzu Kolostrum</span>
+        </div>
         <span class="animal-launch-btn">Rehberi Başlat</span>
       </a>
 
@@ -783,6 +835,12 @@
         </div>
         <h3 class="animal-name">Yem & Rasyon</h3>
         <p class="animal-app-title">Rasyon Hazırlama Rehberi</p>
+        <p class="animal-desc">Uluslararası standartlarda (NASEM / NRC / CNCPS) TMR vagon hesabı, tek tıkla en düşük maliyetli otomatik yem dengeleme ve asidoz uyarısı.</p>
+        <div class="animal-badges">
+          <span class="animal-badge">NASEM / NRC / CNCPS</span>
+          <span class="animal-badge">Otomatik Dengeleyici</span>
+          <span class="animal-badge">TMR Vagon Kantarı</span>
+        </div>
         <span class="animal-launch-btn">Programı Başlat</span>
       </a>
 
@@ -792,7 +850,13 @@
           <img src="./icons/noto-doctor.svg" alt="Çoban Doktor İkonu" class="animal-symbol-img">
         </div>
         <h3 class="animal-name">Çoban Doktor</h3>
-        <p class="animal-app-title">Hızlı Ön Teşhis & İlk Yardım</p>
+        <p class="animal-app-title">Hızlı Ön Teşhis & Küpe Defteri</p>
+        <p class="animal-desc">Sığır ve koyun için karar ağaçlı saha ön teşhisi, rektal derece kontrolü, ilaç arınma süresi (süt/et) geri sayımı ve doğum takvimi.</p>
+        <div class="animal-badges">
+          <span class="animal-badge">Saha Karar Ağacı</span>
+          <span class="animal-badge">Derece Kontrolü</span>
+          <span class="animal-badge">İlaç Arınma Sayacı</span>
+        </div>
         <span class="animal-launch-btn">Doktoru Başlat</span>
       </a>
 
@@ -830,13 +894,14 @@
         <section class="modal-section" aria-label="Portal Tanıtımı">
           <h3 class="modal-section-title">Açık Kaynak & Ücretsiz Saha Yönetimi</h3>
           <p class="modal-desc-text">
-            Süt inekçiliği, besi danacılığı ve küçükbaş koyunculuk alanlarında hayvan sağlığı, ilaç arınma süresi (İKAS), aşılama takvimi, acil müdahaleler ve uluslararası standartlarda (NASEM / NRC / CNCPS) yem rasyon hazırlama işlemlerini yönetmeniz için geliştirilmiş 4 ayrı uzman uygulama. Tüm sistemler internet bağlantısı olmadan, %100 çevrimdışı ve bağımsız çalışır.
+            Süt inekçiliği, besi danacılığı ve küçükbaş koyunculuk alanlarında hayvan sağlığı, ilaç arınma süresi (İKAS), aşılama takvimi, acil müdahaleler, hızlı veteriner ön teşhis ve uluslararası standartlarda (NASEM / NRC / CNCPS) yem rasyon hazırlama işlemlerini yönetmeniz için geliştirilmiş 5 ayrı uzman uygulama. Tüm sistemler internet bağlantısı olmadan, %100 çevrimdışı ve bağımsız çalışır.
           </p>
           <div class="modal-badges">
             <span class="modal-badge-pill">%100 Çevrimdışı (İnternetsiz)</span>
             <span class="modal-badge-pill">Sıfır Sunucu & Tam Gizlilik</span>
             <span class="modal-badge-pill">NASEM / NRC / CNCPS Rasyon Motoru</span>
             <span class="modal-badge-pill">Sesli Küpe & Sağımcı Uyarısı</span>
+            <span class="modal-badge-pill">Küpe Defteri & İlaç Arınma Geri Sayımı</span>
             <span class="modal-badge-pill">Yetiştirici & Çiftçi Dili</span>
           </div>
         </section>
@@ -856,9 +921,9 @@
           </div>
         </section>
 
-        <!-- 3. Dört Uygulamanın Ayrıntılı Kapsamı -->
+        <!-- 3. Beş Uygulamanın Ayrıntılı Kapsamı -->
         <section class="modal-section" aria-label="Uygulama Detayları">
-          <h3 class="modal-section-title">4 Bağımsız Rehberin Ayrıntılı Kapsamı</h3>
+          <h3 class="modal-section-title">5 Bağımsız Rehberin Ayrıntılı Kapsamı</h3>
           <div class="modal-apps-grid">
 
             <!-- SÜT ÇİFTLİĞİ REHBERİ -->
@@ -926,16 +991,16 @@
             </div>
 
             <!-- ÇOBAN DOKTOR -->
-            <div class="modal-app-card" data-modal-tags="all triage emergency" id="modal-card-coban">
+            <div class="modal-app-card" data-modal-tags="all ikas triage repro emergency" id="modal-card-coban">
               <div>
                 <h4 class="modal-app-card-title">Çoban Doktor</h4>
-                <p class="modal-app-card-subtitle">Sığır ve Koyun Hızlı Ön Teşhis, İlk Yardım & Dijital Bildirim</p>
+                <p class="modal-app-card-subtitle">Hızlı Ön Teşhis, Küpe Defteri & İlaç Arınma Süresi Takibi</p>
                 <ul class="modal-feature-list">
-                  <li class="modal-feature-item"><strong>Adım Adım Karar Ağacı:</strong> Hayvan türü (buzağı, inek, toklu, kuzu) ve ana belirtiye göre hızlı yönlendirme.</li>
-                  <li class="modal-feature-item"><strong>Eliminatif Soru Sistemi:</strong> 3 basit soruyla (Evet / Kısmen / Hayır) olası hastalığı tespit eder.</li>
-                  <li class="modal-feature-item"><strong>Hemen Yap & Asla Yapma:</strong> Zehirlenme, şişme, felç veya salgın durumunda hayat kurtaran ilk müdahaleler.</li>
-                  <li class="modal-feature-item"><strong>Veterinere Durum Bildirimi:</strong> Kulak küpe no ve belirtilerle tek tıkla hekime detaylı durum raporu iletir.</li>
-                  <li class="modal-feature-item"><strong>Güneş Işığı & Büyük Yazı:</strong> Merada ve açık sahada parlak ışık altında tam kontrastlı kullanım.</li>
+                  <li class="modal-feature-item"><strong>Saha Karar Ağacı:</strong> Sığır, buzağı, koyun ve kuzu için soru-cevaplı triyaj ve eliminatif hastalık ön teşhisi.</li>
+                  <li class="modal-feature-item"><strong>Küpe Defteri & İlaç Arınma (İKAS):</strong> Süt dökme ve et kesim yasağı için saniye saniye canlı geri sayım sayacı.</li>
+                  <li class="modal-feature-item"><strong>Hızlı Derece & Ateş Kontrolü:</strong> Rektal ateşin sığır/buzağı/koyun/kuzu referanslarıyla anında kıyaslanması ve puanlanması.</li>
+                  <li class="modal-feature-item"><strong>Sürü Sağlığı (Doğum & Aşı Takvimi):</strong> İnek (283 gün) ve koyun (150 gün) tohumlama, kuruya alma ve doğum öncesi karma aşı hesabı.</li>
+                  <li class="modal-feature-item"><strong>Hemen Yap & Sakın Yapma:</strong> Zehirlenme, şişme, çelerme veya salgında hayat kurtaran veteriner acil protokolleri.</li>
                 </ul>
               </div>
               <a href="./coban-doktor/" class="modal-launch-link">Çoban Doktor'u Aç</a>
@@ -982,7 +1047,7 @@
                   <td class="check-yes">Var (Mezbaha)</td>
                   <td class="check-yes">Var (Küçükbaş)</td>
                   <td class="check-no">Sağlık Modülünde</td>
-                  <td class="check-no">Hekim Danışma</td>
+                  <td class="check-yes">Var (Canlı Geri Sayım & Küpe Defteri)</td>
                 </tr>
                 <tr>
                   <td><strong>Sesli / Dijital Küpe Bildirimi</strong></td>
@@ -990,7 +1055,7 @@
                   <td class="check-yes">Var</td>
                   <td class="check-yes">Var</td>
                   <td class="check-no">Sağlık Modülünde</td>
-                  <td class="check-yes">Var (Hekim Raporu)</td>
+                  <td class="check-yes">Var (Hekim & Toplu Defter Raporu)</td>
                 </tr>
                 <tr>
                   <td><strong>Hızlı Ön Teşhis & Karar Ağacı</strong></td>
