@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sutsys-offline-v14';
+const CACHE_NAME = 'sutsys-restore-v18';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -19,7 +19,13 @@ const ASSETS_TO_CACHE = [
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(ASSETS_TO_CACHE);
+      return Promise.all(
+        ASSETS_TO_CACHE.map((url) => {
+          return fetch(url, { cache: 'reload' }).then((res) => {
+            if (res.ok) return cache.put(url, res);
+          }).catch(() => {});
+        })
+      );
     })
   );
   self.skipWaiting();
