@@ -1,10 +1,9 @@
-const CACHE_NAME = 'cobandoktor-mera-v9';
+const CACHE_NAME = 'cobandoktor-mera-v10';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
   './manifest.json',
   './KULLANIM_KILAVUZU.md',
-  './WHATSAPP_BOT.md',
   './favicon.ico',
   './favicon-16x16.png',
   './favicon-32x32.png',

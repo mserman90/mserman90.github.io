@@ -56,7 +56,7 @@
 
   <style>
     /* =========================================================================
-       WHATSAPP SOHBET ARAYÜZÜ (%100 ÇEVRİMDIŞI / SIFIR DIŞ BAĞIMLILIK)
+       AKILLI SOHBET & ASİSTAN ARAYÜZÜ (%100 ÇEVRİMDIŞI / SIFIR DIŞ BAĞIMLILIK)
        ========================================================================= */
     :root {
       --wa-header: #008069;
@@ -162,7 +162,7 @@
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
     }
 
-    /* WHATSAPP ÜST BAŞLIK */
+    /* ÜST BAŞLIK BARI */
     .wa-header {
       background-color: var(--wa-header);
       color: #ffffff;
@@ -326,7 +326,7 @@
       font-size: 0.8rem;
     }
 
-    /* İNTERAKTİF SEÇENEK BUTONLARI (WHATSAPP BUSINESS BUTONLARI GİBİ) */
+    /* İNTERAKTİF SEÇENEK BUTONLARI (DİJİTAL ASİSTAN HIZLI SEÇİMLERİ) */
     .btn-options-container {
       display: flex;
       flex-direction: column;
@@ -388,7 +388,7 @@
       background-color: #fffbeb;
     }
 
-    /* TEŞHİS RAPOR KARTI (WHATSAPP REÇETE KARTI) */
+    /* TEŞHİS RAPOR KARTI (SAHA REÇETE VE RAPOR KARTI) */
     .report-card {
       background: #ffffff;
       border-radius: 12px;
@@ -976,7 +976,7 @@
       border-color: #008069;
     }
 
-    /* TOPLU WHATSAPP BUTONU */
+    /* TOPLU İLAÇ RAPORU BUTONU */
     .btn-batch-wa {
       font-family: inherit;
       width: 100%;
@@ -2208,7 +2208,7 @@
           </button>
         </div>
 
-        <button onclick="shareAllActiveWhatsApp()" class="btn-batch-wa" id="btn-batch-share" style="display:none;">
+        <button onclick="shareAllActiveDirect()" class="btn-batch-wa" id="btn-batch-share" style="display:none;">
           <svg class="lucide-icon" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>
           <span>Aktif Arınma Listesini Paylaş / İlet</span>
         </button>
@@ -2394,7 +2394,7 @@
               <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
               <span>Takvime Kaydet</span>
             </button>
-            <button type="button" onclick="shareCurrentReproWhatsApp()" class="btn-save-record" id="btn-share-repro" style="margin-top:0; background:#0284c7; font-size:0.86rem;">
+            <button type="button" onclick="shareCurrentReproDirect()" class="btn-save-record" id="btn-share-repro" style="margin-top:0; background:#0284c7; font-size:0.86rem;">
               <svg class="lucide-icon" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>
               <span>Raporu İlet</span>
             </button>
@@ -3541,7 +3541,7 @@
             <input id="chatEarTag" class="ear-input" type="text" placeholder="Örn: TR 42 1234567" autocomplete="off" oninput="this.value = this.value.toUpperCase()">
           </div>
 
-          <button onclick="sendReportToWhatsApp('${bestMatch.name}', '${bestMatch.urgency}', ${isContagious})" class="btn-send-wa">
+          <button onclick="sendReportDirect('${bestMatch.name}', '${bestMatch.urgency}', ${isContagious})" class="btn-send-wa">
             ${SVG_ICONS.share}
             <span>Veterinerime Rapor İlet</span>
           </button>
@@ -3561,7 +3561,7 @@
       );
     }
 
-    function sendReportToWhatsApp(diseaseName, urgency, isContagious) {
+    function sendReportDirect(diseaseName, urgency, isContagious) {
       const earInput = document.getElementById("chatEarTag");
       const tag = earInput && earInput.value.trim() ? earInput.value.trim().toUpperCase() : "Belirtilmedi";
       const spName = state.species === "sigir" ? "Büyükbaş (Sığır)" : "Küçükbaş (Koyun)";
@@ -3839,7 +3839,7 @@
       renderKupeRecords();
     }
 
-    function shareKupeRecordWhatsApp(id) {
+    function shareKupeRecordDirect(id) {
       const records = getKupeRecords();
       const rec = records.find(r => r.id === id);
       if (!rec) return;
@@ -3871,7 +3871,7 @@
       window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
-    function shareAllActiveWhatsApp() {
+    function shareAllActiveDirect() {
       const records = getKupeRecords();
       const activeRecs = records.filter(r => computeWithdrawal(r).isAnyActive);
       if (activeRecs.length === 0) {
@@ -4025,7 +4025,7 @@
             ${rec.notes ? `<div style="font-size:0.74rem; color:#475569; background:#f8fafc; padding:6px 8px; border-radius:6px; margin-top:6px; display:flex; align-items:center; gap:6px;">${SVG_ICONS.book}<span>${rec.notes}</span></div>` : ''}
 
             <div class="kupe-card-actions">
-              <button onclick="shareKupeRecordWhatsApp('${rec.id}')" class="kupe-btn-wa">
+              <button onclick="shareKupeRecordDirect('${rec.id}')" class="kupe-btn-wa">
                 ${SVG_ICONS.share}
                 <span>Paylaş</span>
               </button>
@@ -4218,7 +4218,7 @@
       saveReproRecords(records);
     }
 
-    function shareCurrentReproWhatsApp() {
+    function shareCurrentReproDirect() {
       const dateVal = document.getElementById("reproEventDate")?.value;
       if (!dateVal) {
         alert("Lütfen önce tohumlama veya koç katımı tarihini seçiniz.");
@@ -4250,7 +4250,7 @@
       window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
-    function shareReproRecordWhatsApp(id) {
+    function shareReproRecordDirect(id) {
       const records = getReproRecords();
       const rec = records.find(r => r.id === id);
       if (!rec) return;
@@ -4341,7 +4341,7 @@
             </div>
 
             <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:8px;">
-              <button onclick="shareReproRecordWhatsApp('${rec.id}')" class="kupe-btn-wa" style="min-height:48px; padding:8px 14px; font-size:0.85rem; display:inline-flex; align-items:center; gap:6px;">${SVG_ICONS.share} Paylaş</button>
+              <button onclick="shareReproRecordDirect('${rec.id}')" class="kupe-btn-wa" style="min-height:48px; padding:8px 14px; font-size:0.85rem; display:inline-flex; align-items:center; gap:6px;">${SVG_ICONS.share} Paylaş</button>
               <button onclick="deleteReproRecord('${rec.id}')" class="kupe-btn-del" style="min-height:48px; padding:8px 14px; font-size:0.85rem; display:inline-flex; align-items:center; gap:6px;">${SVG_ICONS.trash} Sil</button>
             </div>
           </div>
