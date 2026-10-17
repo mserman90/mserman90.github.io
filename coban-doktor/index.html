@@ -59,15 +59,16 @@
        AKILLI SOHBET & ASİSTAN ARAYÜZÜ (%100 ÇEVRİMDIŞI / SIFIR DIŞ BAĞIMLILIK)
        ========================================================================= */
     :root {
-      --wa-header: #008069;
-      --wa-header-dark: #075e54;
+      --wa-header: #075e54;
+      --wa-header-dark: #004d40;
       --wa-bg: #efeae2;
       --wa-chat-bg: #f0f2f5;
       --wa-incoming: #ffffff;
-      --wa-outgoing: #d9fdd3;
-      --wa-text: #111b21;
-      --wa-text-muted: #667781;
-      --wa-btn-border: #e9edef;
+      --wa-outgoing: #dcfce7;
+      --wa-text: #0f172a;
+      --wa-radius: 4px;
+      --wa-text-muted: #334155;
+      --wa-btn-border: #cbd5e1;
       --wa-btn-active: #00a884;
       --wa-danger: #ea0038;
       --wa-warning: #b25e02;
@@ -232,7 +233,7 @@
       border: 1px solid rgba(255, 255, 255, 0.35);
       color: #ffffff;
       padding: 8px 12px;
-      border-radius: 10px;
+      border-radius: var(--wa-radius);
       font-size: 0.82rem;
       font-weight: 700;
       letter-spacing: -0.01em;
@@ -277,7 +278,7 @@
       font-size: 0.72rem;
       font-weight: 700;
       padding: 4px 12px;
-      border-radius: 8px;
+      border-radius: var(--wa-radius);
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
       margin-bottom: 4px;
     }
@@ -302,7 +303,7 @@
 
     .msg-bubble {
       padding: 10px 14px 6px 14px;
-      border-radius: 12px;
+      border-radius: var(--wa-radius);
       font-size: 0.95rem;
       line-height: 1.4;
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
@@ -347,7 +348,7 @@
       background-color: #ffffff;
       color: #0f766e;
       border: 1.5px solid #cbd5e1;
-      border-radius: 12px;
+      border-radius: var(--wa-radius);
       padding: 13px 16px;
       font-size: 0.95rem;
       font-weight: 700;
@@ -399,7 +400,7 @@
     /* TEŞHİS RAPOR KARTI (SAHA REÇETE VE RAPOR KARTI) */
     .report-card {
       background: #ffffff;
-      border-radius: 12px;
+      border-radius: var(--wa-radius);
       padding: 14px;
       border: 2px solid #00a884;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
@@ -407,7 +408,7 @@
     }
     .report-badge {
       padding: 6px 10px;
-      border-radius: 6px;
+      border-radius: var(--wa-radius);
       font-size: 0.85rem;
       font-weight: 900;
       text-align: center;
@@ -473,7 +474,7 @@
       width: 100%;
       padding: 12px 14px;
       border: 2px solid #cbd5e1;
-      border-radius: 8px;
+      border-radius: var(--wa-radius);
       font-size: 1rem;
       font-weight: 800;
       text-transform: uppercase;
@@ -494,7 +495,7 @@
       color: #ffffff;
       border: none;
       padding: 14px 18px;
-      border-radius: 12px;
+      border-radius: var(--wa-radius);
       font-size: 1rem;
       font-weight: 800;
       letter-spacing: -0.01em;
@@ -525,7 +526,7 @@
       gap: 4px;
       padding: 8px 14px;
       background: #ffffff;
-      border-radius: 12px;
+      border-radius: var(--wa-radius);
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
       width: fit-content;
     }
@@ -606,7 +607,7 @@
       width: 100%;
       max-width: 520px;
       max-height: 90vh;
-      border-radius: 16px;
+      border-radius: var(--wa-radius);
       display: flex;
       flex-direction: column;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
@@ -641,7 +642,7 @@
       cursor: pointer;
       line-height: 1;
       padding: 8px;
-      border-radius: 8px;
+      border-radius: var(--wa-radius);
       min-width: 48px;
       min-height: 48px;
       display: inline-flex;
@@ -659,7 +660,7 @@
       background: #f0f2f5;
       border-left: 4px solid #008069;
       padding: 10px 12px;
-      border-radius: 6px;
+      border-radius: var(--wa-radius);
       margin-bottom: 10px;
     }
     .guide-step-num {
@@ -694,7 +695,7 @@
       color: #ffffff;
       border: none;
       padding: 12px;
-      border-radius: 8px;
+      border-radius: var(--wa-radius);
       font-weight: 800;
       font-size: 1rem;
       cursor: pointer;
@@ -747,7 +748,7 @@
       color: #ffffff;
       font-size: 0.68rem;
       padding: 1px 5px;
-      border-radius: 10px;
+      border-radius: var(--wa-radius);
       margin-left: 3px;
       font-weight: 900;
     }
@@ -784,7 +785,7 @@
       color: #ffffff;
       border: none;
       padding: 13px 16px;
-      border-radius: 12px;
+      border-radius: var(--wa-radius);
       font-size: 0.95rem;
       font-weight: 700;
       letter-spacing: -0.01em;
@@ -831,7 +832,7 @@
       width: 100%;
       max-width: 540px;
       max-height: 94vh;
-      border-radius: 16px;
+      border-radius: var(--wa-radius);
       display: flex;
       flex-direction: column;
       box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
@@ -862,7 +863,7 @@
       cursor: pointer;
       line-height: 1;
       padding: 8px;
-      border-radius: 8px;
+      border-radius: var(--wa-radius);
       min-width: 48px;
       min-height: 48px;
       display: inline-flex;
@@ -883,7 +884,7 @@
     .kupe-stat-card {
       background: #ffffff;
       border: 1px solid #e2e8f0;
-      border-radius: 8px;
+      border-radius: var(--wa-radius);
       padding: 6px 8px;
       text-align: center;
     }
@@ -912,7 +913,7 @@
       border: none;
       background: transparent;
       padding: 8px 4px;
-      border-radius: 6px;
+      border-radius: var(--wa-radius);
       font-size: 0.78rem;
       font-weight: 800;
       color: #475569;
@@ -949,7 +950,7 @@
       min-width: 130px;
       padding: 10px 14px;
       border: 1.5px solid #cbd5e1;
-      border-radius: 10px;
+      border-radius: var(--wa-radius);
       font-size: 0.95rem;
       outline: none;
       font-weight: 600;
@@ -965,7 +966,7 @@
       background: #f1f5f9;
       border: 1.5px solid #cbd5e1;
       padding: 8px 14px;
-      border-radius: 24px;
+      border-radius: var(--wa-radius);
       font-size: 0.82rem;
       font-weight: 700;
       cursor: pointer;
@@ -992,7 +993,7 @@
       color: #ffffff;
       border: none;
       padding: 12px 16px;
-      border-radius: 12px;
+      border-radius: var(--wa-radius);
       font-size: 0.95rem;
       font-weight: 800;
       cursor: pointer;
@@ -1017,7 +1018,7 @@
     .kupe-card {
       background: #ffffff;
       border: 1.5px solid #e2e8f0;
-      border-radius: 12px;
+      border-radius: var(--wa-radius);
       padding: 11px;
       margin-bottom: 10px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
@@ -1044,7 +1045,7 @@
       font-size: 0.72rem;
       font-weight: 800;
       padding: 2px 8px;
-      border-radius: 12px;
+      border-radius: var(--wa-radius);
     }
     .kupe-med-title {
       font-size: 0.88rem;
@@ -1067,7 +1068,7 @@
     }
     .cd-box {
       padding: 7px;
-      border-radius: 8px;
+      border-radius: var(--wa-radius);
       font-size: 0.78rem;
       line-height: 1.35;
     }
@@ -1114,7 +1115,7 @@
       color: #ffffff;
       border: none;
       padding: 10px 16px;
-      border-radius: 10px;
+      border-radius: var(--wa-radius);
       font-size: 0.84rem;
       font-weight: 700;
       cursor: pointer;
@@ -1138,7 +1139,7 @@
       color: #b91c1c;
       border: 1px solid #fecaca;
       padding: 10px 16px;
-      border-radius: 10px;
+      border-radius: var(--wa-radius);
       font-size: 0.84rem;
       font-weight: 700;
       cursor: pointer;
@@ -1174,7 +1175,7 @@
       width: 100%;
       padding: 12px;
       border: 1.5px solid #cbd5e1;
-      border-radius: 10px;
+      border-radius: var(--wa-radius);
       font-size: 1rem;
       outline: none;
       box-sizing: border-box;
@@ -1200,7 +1201,7 @@
       background: #f1f5f9;
       border: 1.5px solid #cbd5e1;
       padding: 8px 12px;
-      border-radius: 8px;
+      border-radius: var(--wa-radius);
       font-size: 0.8rem;
       font-weight: 700;
       cursor: pointer;
@@ -1225,7 +1226,7 @@
       color: #ffffff;
       border: none;
       padding: 13px 18px;
-      border-radius: 12px;
+      border-radius: var(--wa-radius);
       font-size: 0.98rem;
       font-weight: 800;
       letter-spacing: -0.01em;
@@ -1254,7 +1255,7 @@
       background: #f8fafc;
       border-left: 4px solid #0284c7;
       padding: 10px 12px;
-      border-radius: 6px;
+      border-radius: var(--wa-radius);
       margin-bottom: 10px;
       font-size: 0.85rem;
       line-height: 1.45;
@@ -1389,7 +1390,7 @@
       width: 100%;
       max-width: 500px;
       max-height: 92vh;
-      border-radius: 16px;
+      border-radius: var(--wa-radius);
       display: flex;
       flex-direction: column;
       box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
@@ -1422,7 +1423,7 @@
     .temp-input-box {
       background: #fff7ed;
       border: 1.5px solid #fed7aa;
-      border-radius: 12px;
+      border-radius: var(--wa-radius);
       padding: 12px;
       margin-bottom: 12px;
     }
@@ -1439,7 +1440,7 @@
       text-align: center;
       padding: 8px 10px;
       border: 2px solid #ea580c;
-      border-radius: 10px;
+      border-radius: var(--wa-radius);
       outline: none;
       color: #9a3412;
       background: #ffffff;
@@ -1448,7 +1449,7 @@
       font-variant-numeric: tabular-nums;
     }
     .temp-eval-card {
-      border-radius: 10px;
+      border-radius: var(--wa-radius);
       padding: 12px;
       margin-top: 10px;
       font-size: 0.85rem;
@@ -1483,7 +1484,7 @@
       background: #fff7ed;
       border: 1.5px solid #fdba74;
       padding: 8px 10px;
-      border-radius: 8px;
+      border-radius: var(--wa-radius);
       margin-bottom: 10px;
       font-size: 0.84rem;
     }
@@ -1496,7 +1497,7 @@
       margin-top: 8px;
       background: #ffffff;
       padding: 10px;
-      border-radius: 10px;
+      border-radius: var(--wa-radius);
       border: 1.5px solid #cbd5e1;
     }
 
@@ -1535,7 +1536,7 @@
     .gebelik-box {
       background: #f0fdf4;
       border: 1.5px solid #86efac;
-      border-radius: 12px;
+      border-radius: var(--wa-radius);
       padding: 12px;
       margin-bottom: 12px;
     }
@@ -1548,7 +1549,7 @@
     .gebelik-species-btn {
       padding: 12px 10px;
       border: 2px solid #cbd5e1;
-      border-radius: 10px;
+      border-radius: var(--wa-radius);
       background: #ffffff;
       font-size: 0.9rem;
       font-weight: 800;
@@ -1585,7 +1586,7 @@
       width: 100%;
       padding: 12px 14px;
       border: 1.5px solid #cbd5e1;
-      border-radius: 10px;
+      border-radius: var(--wa-radius);
       font-size: 1rem;
       font-weight: 700;
       color: #0f172a;
@@ -1598,7 +1599,7 @@
     .gebelik-timeline-card {
       background: #ffffff;
       border: 1.5px solid #e2e8f0;
-      border-radius: 12px;
+      border-radius: var(--wa-radius);
       padding: 12px;
       margin-top: 10px;
       display: flex;
@@ -1611,7 +1612,7 @@
       gap: 10px;
       align-items: flex-start;
       padding: 8px 10px;
-      border-radius: 8px;
+      border-radius: var(--wa-radius);
       background: #f8fafc;
       border-left: 4px solid #cbd5e1;
     }
@@ -1659,7 +1660,7 @@
     .timeline-badge {
       font-size: 0.68rem;
       padding: 2px 6px;
-      border-radius: 6px;
+      border-radius: var(--wa-radius);
       font-weight: 800;
     }
     .badge-birth { background: #fee2e2; color: #b91c1c; }
@@ -1672,7 +1673,7 @@
     .gebelik-saved-card {
       background: #ffffff;
       border: 1px solid #e2e8f0;
-      border-radius: 10px;
+      border-radius: var(--wa-radius);
       padding: 10px;
       margin-bottom: 8px;
       display: flex;
@@ -1743,7 +1744,7 @@
       width: 100%;
       max-width: 560px;
       max-height: 94vh;
-      border-radius: 16px;
+      border-radius: var(--wa-radius);
       display: flex;
       flex-direction: column;
       box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
@@ -1785,7 +1786,7 @@
       padding: 8px 10px;
       background: #f8fafc;
       border: 1.5px solid #cbd5e1;
-      border-radius: 8px;
+      border-radius: var(--wa-radius);
       cursor: pointer;
       font-size: 0.82rem;
       margin-bottom: 6px;
@@ -1842,7 +1843,7 @@
       color: #064e3b;
       border: none;
       padding: 6px 14px;
-      border-radius: 8px;
+      border-radius: var(--wa-radius);
       font-weight: 900;
       font-size: 0.82rem;
       cursor: pointer;
@@ -1869,7 +1870,7 @@
         max-width: 680px;
         height: 96vh;
         height: 96dvh;
-        border-radius: 18px;
+        border-radius: var(--wa-radius);
         overflow: hidden;
       }
       .msg-row {
@@ -1979,7 +1980,7 @@
         width: 100%;
         max-width: 100%;
         max-height: 94dvh;
-        border-radius: 18px 18px 0 0;
+        border-radius: var(--wa-radius) var(--wa-radius) 0 0;
         margin: 0;
       }
       .kupe-tabs {
@@ -2267,7 +2268,7 @@
           <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
           <span>ANLADIM, SOHBETE DÖN</span>
         </button>
-        <a href="https://mserman90.github.io/" style="display:inline-flex; align-items:center; justify-content:center; gap:6px; width:100%; padding:10px; border-radius:8px; border:1px solid #cbd5e1; background:#f8fafc; color:#0f172a; font-weight:700; text-decoration:none; font-size:0.85rem;">
+        <a href="https://mserman90.github.io/" style="display:inline-flex; align-items:center; justify-content:center; gap:6px; width:100%; padding:10px; border-radius: var(--wa-radius); border:1px solid #cbd5e1; background:#f8fafc; color:#0f172a; font-weight:700; text-decoration:none; font-size:0.85rem;">
           <svg class="lucide-icon" viewBox="0 0 24 24" style="width:16px;height:16px;"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           Ana Portala Dön (mserman90.github.io)
         </a>
@@ -2338,7 +2339,7 @@
         </div>
 
         <!-- BİLDİRİM & YEDEKLEME HIZLI ARAÇLARI -->
-        <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:12px; flex-wrap:wrap; background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:8px 12px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:12px; flex-wrap:wrap; background:#f8fafc; border:1px solid #e2e8f0; border-radius: var(--wa-radius); padding:8px 12px;">
           <div style="display:flex; align-items:center; gap:6px;">
             <button type="button" class="filter-pill" id="btn-kupe-notif" onclick="toggleKupeNotifications()" style="background:#0f172a; color:#fff; border-color:#0f172a; display:inline-flex; align-items:center; gap:5px; font-weight:700;">
               <span>🔔</span> <span id="lbl-kupe-notif">Bildirimleri Aç</span>
@@ -2500,7 +2501,7 @@
       <!-- SEKME 4: ÜREME SAĞLIĞI, DOĞUM HASTALIKLARI & İLK YARDIM -->
       <div class="kupe-tab-content" id="kupe-tab-repro">
         <!-- ÜRETİM REHBERİ ENTEGRASYON KÖPRÜSÜ -->
-        <div style="background:linear-gradient(135deg, #064e3b 0%, #047857 100%); border-radius:12px; padding:14px; color:#fff; margin-bottom:14px; box-shadow:0 4px 12px rgba(6,78,59,0.15);">
+        <div style="background:linear-gradient(135deg, #064e3b 0%, #047857 100%); border-radius: var(--wa-radius); padding:14px; color:#fff; margin-bottom:14px; box-shadow:0 4px 12px rgba(6,78,59,0.15);">
           <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
             <span style="font-size:1.3rem;">📅</span>
             <strong style="font-size:1rem; font-weight:800; color:#ecfdf5;">Tohumlama, Doğum Çarkı & Sürü Üreme Defteri</strong>
@@ -2508,7 +2509,7 @@
           <p style="font-size:0.82rem; margin:0 0 10px 0; color:#d1fae5; line-height:1.45;">
             Suni tohumlama takvimleri, <strong>büyükbaş 283 günlük buzağılama çarkı</strong>, <strong>küçükbaş 150 günlük koç katımı</strong>, kuruya çıkarma ve damızlık olgunluk hesaplamaları <strong>Üretim Rehberi</strong> modülüne taşınmıştır.
           </p>
-          <a href="https://mserman90.github.io/uretim-rehberi/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; width:100%; background:#f8fafc; color:#065f46; font-weight:800; font-size:0.88rem; padding:10px 14px; border-radius:8px; text-decoration:none; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
+          <a href="https://mserman90.github.io/uretim-rehberi/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; width:100%; background:#f8fafc; color:#065f46; font-weight:800; font-size:0.88rem; padding:10px 14px; border-radius: var(--wa-radius); text-decoration:none; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
             <svg class="lucide-icon icon-sm" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
             <span>👉 Üretim Rehberini Aç (Tohumlama & Doğum Çarkı)</span>
           </a>
@@ -2525,10 +2526,10 @@
         <!-- HASTALIK KARTLARI LİSTESİ -->
         <div style="display:flex; flex-direction:column; gap:10px;">
           <!-- 1. GÜÇ DOĞUM -->
-          <div style="background:#fff; border:1px solid #fecaca; border-left:5px solid #dc2626; border-radius:10px; padding:12px;">
+          <div style="background:#fff; border:1px solid #fecaca; border-left:5px solid #dc2626; border-radius: var(--wa-radius); padding:12px;">
             <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:4px;">
               <strong style="color:#991b1b; font-size:0.92rem;">🚨 Güç Doğum & Hatalı Geliş (Distosi)</strong>
-              <span style="background:#fee2e2; color:#b91c1c; font-weight:800; font-size:0.72rem; padding:2px 8px; border-radius:6px;">HAYATİ ACİL</span>
+              <span style="background:#fee2e2; color:#b91c1c; font-weight:800; font-size:0.72rem; padding:2px 8px; border-radius: var(--wa-radius);">HAYATİ ACİL</span>
             </div>
             <div style="font-size:0.78rem; color:#475569; line-height:1.45; margin-bottom:8px;">
               • İnek 2 saatten fazla ıkındığı halde yavru ilerlemiyorsa veya ayaklar ters/baş bükülmüşse.<br>
@@ -2540,10 +2541,10 @@
           </div>
 
           <!-- 2. PROLAPSUS -->
-          <div style="background:#fff; border:1px solid #fed7aa; border-left:5px solid #ea580c; border-radius:10px; padding:12px;">
+          <div style="background:#fff; border:1px solid #fed7aa; border-left:5px solid #ea580c; border-radius: var(--wa-radius); padding:12px;">
             <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:4px;">
               <strong style="color:#9a3412; font-size:0.92rem;">🚨 Rahim Sarkması (Prolapsus Uteri)</strong>
-              <span style="background:#ffedd5; color:#c2410c; font-weight:800; font-size:0.72rem; padding:2px 8px; border-radius:6px;">ACİL HEKİM</span>
+              <span style="background:#ffedd5; color:#c2410c; font-weight:800; font-size:0.72rem; padding:2px 8px; border-radius: var(--wa-radius);">ACİL HEKİM</span>
             </div>
             <div style="font-size:0.78rem; color:#475569; line-height:1.45; margin-bottom:8px;">
               • Doğum sonrası devasa et kütlesinin dışarı fırlaması.<br>
@@ -2555,10 +2556,10 @@
           </div>
 
           <!-- 3. SONUN ATILAMAMASI -->
-          <div style="background:#fff; border:1px solid #fef08a; border-left:5px solid #ca8a04; border-radius:10px; padding:12px;">
+          <div style="background:#fff; border:1px solid #fef08a; border-left:5px solid #ca8a04; border-radius: var(--wa-radius); padding:12px;">
             <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:4px;">
               <strong style="color:#854d0e; font-size:0.92rem;">⚠️ Sonun Atılamaması & Eten Kalması</strong>
-              <span style="background:#fef9c3; color:#a16207; font-weight:800; font-size:0.72rem; padding:2px 8px; border-radius:6px;">RETENSİYO</span>
+              <span style="background:#fef9c3; color:#a16207; font-weight:800; font-size:0.72rem; padding:2px 8px; border-radius: var(--wa-radius);">RETENSİYO</span>
             </div>
             <div style="font-size:0.78rem; color:#475569; line-height:1.45; margin-bottom:8px;">
               • Doğumun üzerinden 12-24 saat geçmesine rağmen eşin düşmemesi.<br>
@@ -2570,10 +2571,10 @@
           </div>
 
           <!-- 4. METRİTİS -->
-          <div style="background:#fff; border:1px solid #fecaca; border-left:5px solid #b91c1c; border-radius:10px; padding:12px;">
+          <div style="background:#fff; border:1px solid #fecaca; border-left:5px solid #b91c1c; border-radius: var(--wa-radius); padding:12px;">
             <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:4px;">
               <strong style="color:#7f1d1d; font-size:0.92rem;">⚠️ Akut Rahim İltihabı (Metritis)</strong>
-              <span style="background:#fee2e2; color:#991b1b; font-weight:800; font-size:0.72rem; padding:2px 8px; border-radius:6px;">LOHUSALIK</span>
+              <span style="background:#fee2e2; color:#991b1b; font-weight:800; font-size:0.72rem; padding:2px 8px; border-radius: var(--wa-radius);">LOHUSALIK</span>
             </div>
             <div style="font-size:0.78rem; color:#475569; line-height:1.45; margin-bottom:8px;">
               • Doğum sonrası ilk haftalarda pis kokulu akıntı, yüksek ateş (39.5-41°C) ve iştahsızlık.<br>
@@ -2590,10 +2591,10 @@
           </div>
 
           <!-- 5. DOĞUM FELCİ / SÜT HUMMASI -->
-          <div style="background:#fff; border:1px solid #bfdbfe; border-left:5px solid #2563eb; border-radius:10px; padding:12px;">
+          <div style="background:#fff; border:1px solid #bfdbfe; border-left:5px solid #2563eb; border-radius: var(--wa-radius); padding:12px;">
             <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:4px;">
               <strong style="color:#1e40af; font-size:0.92rem;">🚨 Doğum Felci & Süt Humması (Hipokalsemi)</strong>
-              <span style="background:#dbeafe; color:#1d4ed8; font-weight:800; font-size:0.72rem; padding:2px 8px; border-radius:6px;">HİPOKALSEMİ</span>
+              <span style="background:#dbeafe; color:#1d4ed8; font-weight:800; font-size:0.72rem; padding:2px 8px; border-radius: var(--wa-radius);">HİPOKALSEMİ</span>
             </div>
             <div style="font-size:0.78rem; color:#475569; line-height:1.45; margin-bottom:8px;">
               • Doğumdan sonra ineğin kalkamaması, S-boyun pozisyonunda yatması ve kulakların soğuması.<br>
@@ -2610,10 +2611,10 @@
           </div>
 
           <!-- 6. ABORTUS / YAVRU ATMA -->
-          <div style="background:#fff; border:1px solid #fecaca; border-left:5px solid #991b1b; border-radius:10px; padding:12px;">
+          <div style="background:#fff; border:1px solid #fecaca; border-left:5px solid #991b1b; border-radius: var(--wa-radius); padding:12px;">
             <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:4px;">
               <strong style="color:#7f1d1d; font-size:0.92rem;">🛑 Yavru Atma & Salgın Düşük (Abortus)</strong>
-              <span style="background:#fee2e2; color:#991b1b; font-weight:800; font-size:0.72rem; padding:2px 8px; border-radius:6px;">BRUSELLA RİSKİ</span>
+              <span style="background:#fee2e2; color:#991b1b; font-weight:800; font-size:0.72rem; padding:2px 8px; border-radius: var(--wa-radius);">BRUSELLA RİSKİ</span>
             </div>
             <div style="font-size:0.78rem; color:#475569; line-height:1.45; margin-bottom:8px;">
               • Erken atılan yavru. <strong>DİKKAT:</strong> Çıplak elle ASLA dokunmayın (insana bulaşır).<br>
@@ -2625,10 +2626,10 @@
           </div>
 
           <!-- 7. DÖL TUTMAMA & KİSTİK OVER -->
-          <div style="background:#fff; border:1px solid #ddd6fe; border-left:5px solid #7c3aed; border-radius:10px; padding:12px;">
+          <div style="background:#fff; border:1px solid #ddd6fe; border-left:5px solid #7c3aed; border-radius: var(--wa-radius); padding:12px;">
             <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:4px;">
               <strong style="color:#5b21b6; font-size:0.92rem;">🔍 Döl Tutmama & Kistik Over (Repeat Breeder)</strong>
-              <span style="background:#ede9fe; color:#6d28d9; font-weight:800; font-size:0.72rem; padding:2px 8px; border-radius:6px;">KISIRLIK</span>
+              <span style="background:#ede9fe; color:#6d28d9; font-weight:800; font-size:0.72rem; padding:2px 8px; border-radius: var(--wa-radius);">KISIRLIK</span>
             </div>
             <div style="font-size:0.78rem; color:#475569; line-height:1.45; margin-bottom:8px;">
               • 3 veya daha fazla kez tohumlandığı halde tutmayan veya sürekli boğasak gezen inekler.<br>
@@ -2640,10 +2641,10 @@
           </div>
 
           <!-- 8. İKİZ GEBELİK TOKSEMİSİ -->
-          <div style="background:#fff; border:1px solid #fed7aa; border-left:5px solid #d97706; border-radius:10px; padding:12px;">
+          <div style="background:#fff; border:1px solid #fed7aa; border-left:5px solid #d97706; border-radius: var(--wa-radius); padding:12px;">
             <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:4px;">
               <strong style="color:#92400e; font-size:0.92rem;">⚠️ İkiz Gebelik Toksemisi (Koyun)</strong>
-              <span style="background:#fef3c7; color:#b45309; font-weight:800; font-size:0.72rem; padding:2px 8px; border-radius:6px;">KETOZİS</span>
+              <span style="background:#fef3c7; color:#b45309; font-weight:800; font-size:0.72rem; padding:2px 8px; border-radius: var(--wa-radius);">KETOZİS</span>
             </div>
             <div style="font-size:0.78rem; color:#475569; line-height:1.45; margin-bottom:8px;">
               • Doğuma 1 ay kala gebe koyunlarda körlük, titreme, diş gıcırdatma ve yatıp kalkamama.<br>
@@ -2747,7 +2748,7 @@
         </button>
 
         <!-- KISA REFERANS TABLOSU -->
-        <div style="margin-top:14px; font-size:0.78rem; color:#475569; background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:8px;">
+        <div style="margin-top:14px; font-size:0.78rem; color:#475569; background:#f8fafc; border:1px solid #e2e8f0; border-radius: var(--wa-radius); padding:8px;">
           <strong style="color:#0f172a;">📋 Bilimsel Referans Aralıkları:</strong>
           <table style="width:100%; border-collapse:collapse; margin-top:4px; font-size:0.76rem;">
             <tr style="border-bottom:1px solid #e2e8f0;">
@@ -2803,7 +2804,7 @@
           </button>
         </div>
 
-        <div style="background:#fff7ed; border:1px solid #fed7aa; border-radius:8px; padding:10px; margin-bottom:12px;">
+        <div style="background:#fff7ed; border:1px solid #fed7aa; border-radius: var(--wa-radius); padding:10px; margin-bottom:12px;">
           <label style="font-size:0.82rem; font-weight:800; color:#9a3412; display:flex; justify-content:space-between;">
             <span id="siviWeightLabel">Hayvan Canlı Ağırlığı:</span>
             <span id="siviWeightDisplay" style="font-size:1.05rem; color:#c2410c;">40 kg</span>
@@ -2833,11 +2834,11 @@
           </label>
         </div>
 
-        <div id="sivi-result-box" style="background:#fff7ed; border:2px solid #fdba74; border-radius:10px; padding:12px; margin-bottom:12px;">
+        <div id="sivi-result-box" style="background:#fff7ed; border:2px solid #fdba74; border-radius: var(--wa-radius); padding:12px; margin-bottom:12px;">
           <!-- Sonuç dinamik basılır -->
         </div>
 
-        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:10px; font-size:0.78rem; line-height:1.45;">
+        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius: var(--wa-radius); padding:10px; font-size:0.78rem; line-height:1.45;">
           <strong>🍼 Ahır Tipi Acil Elektrolit (Hazır Toz Yoksa):</strong><br>
           • 2 Litre ılık temiz su + 1 tatlı kaşığı kaya tuzu + 1 yemek kaşığı yemek sodası + 2 yemek kaşığı bal/şeker.<br>
           • <em>Ilık olarak içirin. Asla sütle karıştırmayın, süt öğünleri arasında verin!</em>
@@ -2864,7 +2865,7 @@
           Yeni doğan yavrunun yaşamasını belirleyen en kritik faktör ilk ağız sütündeki antikor (IgG) yoğunluğudur. Refraktometre Brix değerini girip sütün koruyuculuğunu test edin:
         </p>
 
-        <div style="background:#fef3c7; border:1px solid #fde68a; border-radius:8px; padding:10px; margin-bottom:12px;">
+        <div style="background:#fef3c7; border:1px solid #fde68a; border-radius: var(--wa-radius); padding:10px; margin-bottom:12px;">
           <label style="font-size:0.82rem; font-weight:800; color:#92400e; display:flex; justify-content:space-between;">
             <span>Ölçülen Refraktometre Değeri:</span>
             <span id="brixValDisplay" style="font-size:1.15rem; color:#b45309;">%24 Brix</span>
@@ -2872,11 +2873,11 @@
           <input type="range" id="brixInput" min="10" max="35" step="1" value="24" oninput="updateKolostrumCalc()" style="width:100%; accent-color:#d97706; margin-top:6px;">
         </div>
 
-        <div id="brix-result-box" style="padding:12px; border-radius:10px; margin-bottom:12px;">
+        <div id="brix-result-box" style="padding:12px; border-radius: var(--wa-radius); margin-bottom:12px;">
           <!-- Sonuç dinamik basılır -->
         </div>
 
-        <div style="background:#f8fafc; border:1.5px solid #cbd5e1; border-radius:8px; padding:10px; font-size:0.8rem; line-height:1.45;">
+        <div style="background:#f8fafc; border:1.5px solid #cbd5e1; border-radius: var(--wa-radius); padding:10px; font-size:0.8rem; line-height:1.45;">
           <strong>⏱️ İlk 2 Saat Altın Kuralı:</strong><br>
           • <strong>Zaman:</strong> Doğumdan sonraki ilk 2 saat içinde mutlaka verilmelidir. 6. saatten sonra bağırsak emilimi %50 düşer, 24. saatte tamamen sıfırlanır.<br>
           • <strong>Miktar:</strong> Buzağıya ilk öğünde <strong>3.0 - 4.0 Litre</strong>, kuzuya <strong>300 - 400 mL</strong> ılık olarak içirilmelidir.<br>
@@ -2904,7 +2905,7 @@
           Acil durumlarda hayvanın canlı ağırlığına göre veteriner ilaçlarının tam mL dozajını hesaplayın (Aşırı veya yetersiz doz ölümcül olabilir):
         </p>
 
-        <div style="background:#fef2f2; border:1.5px solid #fecaca; border-radius:8px; padding:10px; margin-bottom:12px;">
+        <div style="background:#fef2f2; border:1.5px solid #fecaca; border-radius: var(--wa-radius); padding:10px; margin-bottom:12px;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
             <label style="font-size:0.82rem; font-weight:800; color:#991b1b;">Hayvan Canlı Ağırlığı:</label>
             <span id="dozajWeightDisplay" style="font-size:1.15rem; font-weight:900; color:#dc2626;">400 kg</span>
@@ -2923,7 +2924,7 @@
           <!-- Dozaj hesaplama kartları JS ile basılır -->
         </div>
 
-        <div style="background:#fffbeb; border:1px solid #fde68a; border-radius:8px; padding:10px; margin-top:12px; font-size:0.75rem; color:#92400e; line-height:1.4;">
+        <div style="background:#fffbeb; border:1px solid #fde68a; border-radius: var(--wa-radius); padding:10px; margin-top:12px; font-size:0.75rem; color:#92400e; line-height:1.4;">
           ⚠️ <strong>Yasal Uyarı:</strong> İlaç dozajları Merck Veterinary Manual ve veteriner prospektüs standartlarına göredir. Teşhis ve reçete mutlaka yetkili Veteriner Hekim kontrolünde yapılmalıdır.
         </div>
       </div>
@@ -2985,7 +2986,7 @@
 
         <!-- 1. CMT & MASTİTİS -->
         <div id="saglik-tab-cmt">
-          <div style="background:#f5f3ff; border:1.5px solid #ddd6fe; border-radius:8px; padding:12px;">
+          <div style="background:#f5f3ff; border:1.5px solid #ddd6fe; border-radius: var(--wa-radius); padding:12px;">
             <h4 style="color:#5b21b6; font-weight:800; margin-bottom:6px;">🧪 California Mastitis Testi (CMT) & Meme Sağlığı</h4>
             <p style="color:#475569; margin-bottom:8px;">
               Gözle görülmeyen gizli (subklinik) meme yangısını tespit etmenin en pratik ahır yöntemidir. Sütteki somatik hücre sayısı ve mikrobu saniyeler içinde jelleşme ile gösterir.
@@ -3005,7 +3006,7 @@
 
         <!-- 2. SÜT HUMMASI & HİPOKALSEMİ -->
         <div id="saglik-tab-humma" style="display:none;">
-          <div style="background:#fffbeb; border:1.5px solid #fde68a; border-radius:8px; padding:12px;">
+          <div style="background:#fffbeb; border:1.5px solid #fde68a; border-radius: var(--wa-radius); padding:12px;">
             <h4 style="color:#92400e; font-weight:800; margin-bottom:6px;">⚡ Süt Humması (Hipokalsemi / Doğum Felci) Protokolü</h4>
             <p style="color:#475569; margin-bottom:8px;">
               Doğumdan sonraki ilk 48 saatte kalsiyumun aniden süte geçmesiyle ineğin kan kalsiyumu çöker; bacaklar titrer, hayvan ayağa kalkamaz ve kafasını göğsüne dayayıp S-şeklinde yatar.
@@ -3021,7 +3022,7 @@
 
         <!-- 3. GAZLI ŞİŞME & TROKAR -->
         <div id="saglik-tab-sisme" style="display:none;">
-          <div style="background:#fef2f2; border:1.5px solid #fecaca; border-radius:8px; padding:12px;">
+          <div style="background:#fef2f2; border:1.5px solid #fecaca; border-radius: var(--wa-radius); padding:12px;">
             <h4 style="color:#991b1b; font-weight:800; margin-bottom:6px;">🎈 İşkembe Gazı, Timpani ve Trokar Tatbiki</h4>
             <p style="color:#475569; margin-bottom:8px;">
               Körpe yonca, kırağılı mera veya tahıl çarpması sonucu sol açlık çukuru davul gibi şişer. İşkembe diyaframa baskı yaparak hayvanın nefes almasını engeller; dilde morarma başlar.
@@ -3037,7 +3038,7 @@
 
         <!-- 4. ÇELERME (ENTEROTOKSEMİ) -->
         <div id="saglik-tab-celerme" style="display:none;">
-          <div style="background:#f0fdf4; border:1.5px solid #86efac; border-radius:8px; padding:12px;">
+          <div style="background:#f0fdf4; border:1.5px solid #86efac; border-radius: var(--wa-radius); padding:12px;">
             <h4 style="color:#166534; font-weight:800; margin-bottom:6px;">🩸 Çelerme (Enterotoksemi / Yumuşak Böbrek) Protokolü</h4>
             <p style="color:#475569; margin-bottom:8px;">
               Clostridium perfringens bakterisinin bağırsakta aşırı çoğalarak ürettiği öldürücü toksinlerdir. Genellikle sürünün en semiz ve hızlı kilo alan kuzu ve danalarını vurur; kasılma ve ani ölüm yapar.
@@ -3053,7 +3054,7 @@
 
         <!-- 5. PİYETEN & AYAK BANYOSU -->
         <div id="saglik-tab-piyeten" style="display:none;">
-          <div style="background:#f0f9ff; border:1.5px solid #bae6fd; border-radius:8px; padding:12px;">
+          <div style="background:#f0f9ff; border:1.5px solid #bae6fd; border-radius: var(--wa-radius); padding:12px;">
             <h4 style="color:#0369a1; font-weight:800; margin-bottom:6px;">🩹 Bulaşıcı Tırnak Çürüğü (Piyeten) & Ayak Banyosu</h4>
             <p style="color:#475569; margin-bottom:8px;">
               Dichelobacter nodosus mikrobu tırnak aralığından girerek tırnak tabanını çürütür; hayvan dizleri üstünde otlar ve şiddetli topallık nedeniyle kilo/süt kaybeder.
@@ -3068,7 +3069,7 @@
         </div>
         <!-- 6. İKİZ KOMASI (GEBELİK TOKSEMİSİ) -->
         <div id="saglik-tab-toksemi" style="display:none;">
-          <div style="background:#fffbeb; border:1.5px solid #fde68a; border-radius:8px; padding:12px;">
+          <div style="background:#fffbeb; border:1.5px solid #fde68a; border-radius: var(--wa-radius); padding:12px;">
             <h4 style="color:#92400e; font-weight:800; margin-bottom:6px;">🐑 İkiz Koması & Gebe Koyun Toksemisi (Ketozis)</h4>
             <p style="color:#475569; margin-bottom:8px;">
               Doğuma 2-4 hafta kala ikiz veya üçüz taşıyan koyunlarda yetersiz enerji alımı sonucu karaciğer yağlanır, kan şekeri çöker ve nefeste aseton kokusuyla körlük/yere yıkılma başlar.
@@ -3084,7 +3085,7 @@
 
         <!-- 7. EKTİMA (ORF) AĞIZ YARALARI -->
         <div id="saglik-tab-ektima" style="display:none;">
-          <div style="background:#fef2f2; border:1.5px solid #fecaca; border-radius:8px; padding:12px;">
+          <div style="background:#fef2f2; border:1.5px solid #fecaca; border-radius: var(--wa-radius); padding:12px;">
             <h4 style="color:#991b1b; font-weight:800; margin-bottom:6px;">👄 Ektima (Orf / Bulaşıcı Ağız & Dudak Yaraları)</h4>
             <p style="color:#475569; margin-bottom:8px;">
               Kuzuların dudaklarında ve koyunların memelerinde karnabahar gibi siyah/kahverengi kabuklar oluşturan viral hastalıktır. İnsana bulaşır (zoonoz).
@@ -3100,7 +3101,7 @@
 
         <!-- 8. İDRAR TAŞI & SİDİK ZORU -->
         <div id="saglik-tab-idrar" style="display:none;">
-          <div style="background:#f0fdf4; border:1.5px solid #86efac; border-radius:8px; padding:12px;">
+          <div style="background:#f0fdf4; border:1.5px solid #86efac; border-radius: var(--wa-radius); padding:12px;">
             <h4 style="color:#166534; font-weight:800; margin-bottom:6px;">🪨 Sidik Zoru & İdrar Taşı Tıkanması (Besi Danası & Koç)</h4>
             <p style="color:#475569; margin-bottom:8px;">
               Aşırı tahıl, buğday kepeği ve kireçli sert suların yol açtığı fosfor taşları idrar borusunu (üretrayı) tıkar; idrar kesesi patlayarak 'su karnı' tablosu oluşturur.
@@ -3116,7 +3117,7 @@
 
         <!-- 9. LOHUSA METRİTİS & EŞ KALMASI -->
         <div id="saglik-tab-metritis" style="display:none;">
-          <div style="background:#fdf2f8; border:1.5px solid #fbcfe8; border-radius:8px; padding:12px;">
+          <div style="background:#fdf2f8; border:1.5px solid #fbcfe8; border-radius: var(--wa-radius); padding:12px;">
             <h4 style="color:#9d174d; font-weight:800; margin-bottom:6px;">🩸 Lohusa Rahim İltihabı (Metritis) & Eş Kalması</h4>
             <p style="color:#475569; margin-bottom:8px;">
               Doğum sonrası ilk 10 günde rahimden çikolata renkli pis kokulu akıntı gelmesi, 40°C üzeri ateş ve iştahsızlıktır.
@@ -3131,7 +3132,7 @@
 
         <!-- 10. YEMEK BORUSU TIKANMASI (BOĞULMA) -->
         <div id="saglik-tab-bogulma" style="display:none;">
-          <div style="background:#fef2f2; border:1.5px solid #fecaca; border-radius:8px; padding:12px;">
+          <div style="background:#fef2f2; border:1.5px solid #fecaca; border-radius: var(--wa-radius); padding:12px;">
             <h4 style="color:#991b1b; font-weight:800; margin-bottom:6px;">🥔 Yemek Borusu Tıkanması (Patates/Pancar Boğulması)</h4>
             <p style="color:#475569; margin-bottom:8px;">
               Bütün patates, elma, koçan veya şeker pancarının yemek borusuna takılması sonucu gaz dışarı atılamaz; sol böğür dakikalar içinde şişip boğar.
@@ -3146,7 +3147,7 @@
 
         <!-- 11. YENİ GELEN BESİ DANASI 21 GÜN PROTOKOLÜ -->
         <div id="saglik-tab-besi21" style="display:none;">
-          <div style="background:#f0fdf4; border:1.5px solid #86efac; border-radius:8px; padding:12px;">
+          <div style="background:#f0fdf4; border:1.5px solid #86efac; border-radius: var(--wa-radius); padding:12px;">
             <h4 style="color:#166534; font-weight:800; margin-bottom:6px;">🐂 Yeni Gelen Besi Danası 21 Gün Karşılama & BRD Aşılama</h4>
             <p style="color:#475569; margin-bottom:8px;">
               Pazardan veya uzun yoldan gelen danalarda ilk 21 gün ölüm riskinin %80'ini oluşturur. Kademeli yem ve aşı takvimi:
@@ -3162,7 +3163,7 @@
 
         <!-- 12. KUZU DONMASI & HİPOTERMİ PROTOKOLÜ -->
         <div id="saglik-tab-hipotermi" style="display:none;">
-          <div style="background:#eff6ff; border:1.5px solid #bfdbfe; border-radius:8px; padding:12px;">
+          <div style="background:#eff6ff; border:1.5px solid #bfdbfe; border-radius: var(--wa-radius); padding:12px;">
             <h4 style="color:#1e40af; font-weight:800; margin-bottom:6px;">❄️ Kuzu Donması (Hipotermi) & Açlık Kurtarma Protokolü</h4>
             <p style="color:#475569; margin-bottom:8px;">
               Yeni doğan kuzuda vücut ısısının 37°C altına düşmesi acil ölüm tehlikesidir.
@@ -4270,7 +4271,7 @@
         </div>
         <div style="margin-bottom:8px;">${res.desc}</div>
         
-        <div style="background:rgba(255,255,255,0.7); padding:8px; border-radius:6px; margin-bottom:8px; border:1px solid rgba(0,0,0,0.08);">
+        <div style="background:rgba(255,255,255,0.7); padding:8px; border-radius: var(--wa-radius); margin-bottom:8px; border:1px solid rgba(0,0,0,0.08);">
           <div style="font-weight:800; font-size:0.8rem; margin-bottom:4px; color:#0f172a;">⚡ Otomatik Puanlanan Olası Hastalıklar:</div>
           <div style="font-size:0.8rem; line-height:1.4;">${diseasesList}</div>
         </div>
@@ -5393,7 +5394,7 @@
               ${meatBoxHtml}
             </div>
 
-            ${rec.notes ? `<div style="font-size:0.74rem; color:#475569; background:#f8fafc; padding:6px 8px; border-radius:6px; margin-top:6px; display:flex; align-items:center; gap:6px;">${SVG_ICONS.book}<span>${rec.notes}</span></div>` : ''}
+            ${rec.notes ? `<div style="font-size:0.74rem; color:#475569; background:#f8fafc; padding:6px 8px; border-radius: var(--wa-radius); margin-top:6px; display:flex; align-items:center; gap:6px;">${SVG_ICONS.book}<span>${rec.notes}</span></div>` : ''}
 
             <div class="kupe-card-actions">
               <button onclick="shareKupeRecordDirect('${rec.id}')" class="kupe-btn-wa">
@@ -5638,7 +5639,7 @@
 
       if (activeRecords.length === 0) {
         listEl.innerHTML = `
-          <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:6px; padding:10px; font-size:0.8rem; color:#166534; text-align:center;">
+          <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius: var(--wa-radius); padding:10px; font-size:0.8rem; color:#166534; text-align:center;">
             ✅ Harika! Şu anda çiftlikte süt veya kesim yasağı olan hiçbir hayvan yok.
           </div>
         `;
@@ -5652,7 +5653,7 @@
         if (w.isMeatActive) pills += `<span style="background:#fef2f2; color:#991b1b; padding:2px 6px; border-radius:4px; font-size:0.7rem; font-weight:800;">🥩 ET: ${w.meatRemaining}</span>`;
 
         return `
-          <div style="display:flex; justify-content:space-between; align-items:center; background:#fff; border:1px solid #e2e8f0; border-radius:6px; padding:8px 10px; cursor:pointer;" onclick="document.getElementById('ikasTagInput').value='${r.earTag}'; checkIkasTagManual();">
+          <div style="display:flex; justify-content:space-between; align-items:center; background:#fff; border:1px solid #e2e8f0; border-radius: var(--wa-radius); padding:8px 10px; cursor:pointer;" onclick="document.getElementById('ikasTagInput').value='${r.earTag}'; checkIkasTagManual();">
             <div>
               <strong style="color:#0f172a; font-size:0.85rem;">🏷️ ${r.earTag}</strong>
               <div style="font-size:0.75rem; color:#64748b;">${r.medicine} (${r.speciesGroup})</div>
@@ -5729,7 +5730,7 @@
           <div style="margin-top:6px; font-size:0.82rem; color:#7f1d1d; line-height:1.45;">
             ${lockDetails.map(d => `• ${d}`).join("<br>")}
           </div>
-          <div style="background:#fee2e2; border-radius:6px; padding:6px; margin-top:8px; font-size:0.75rem; color:#991b1b; font-weight:800;">
+          <div style="background:#fee2e2; border-radius: var(--wa-radius); padding:6px; margin-top:8px; font-size:0.75rem; color:#991b1b; font-weight:800;">
             ⚠️ BU HAYVANIN SÜTÜNÜ TANKA KATMAYIN, KESİME GÖNDERMEYİN!
           </div>
         `;
@@ -5879,7 +5880,7 @@
       const tulaDoz = (weight * 0.025).toFixed(1);
 
       container.innerHTML = `
-        <div style="background:#fff; border:1px solid #fed7aa; border-left:4px solid #ea580c; border-radius:8px; padding:10px;">
+        <div style="background:#fff; border:1px solid #fed7aa; border-left:4px solid #ea580c; border-radius: var(--wa-radius); padding:10px;">
           <div style="display:flex; justify-content:space-between; align-items:center;">
             <strong style="color:#9a3412; font-size:0.88rem;">💉 Adrenalin 1:1000 (1 mg/mL)</strong>
             <span style="font-size:1.1rem; font-weight:900; color:#c2410c;">${adrDoz} mL</span>
@@ -5890,7 +5891,7 @@
           </div>
         </div>
 
-        <div style="background:#fff; border:1px solid #bfdbfe; border-left:4px solid #2563eb; border-radius:8px; padding:10px;">
+        <div style="background:#fff; border:1px solid #bfdbfe; border-left:4px solid #2563eb; border-radius: var(--wa-radius); padding:10px;">
           <div style="display:flex; justify-content:space-between; align-items:center;">
             <strong style="color:#1e40af; font-size:0.88rem;">💉 Meloksikam %2 (20 mg/mL)</strong>
             <span style="font-size:1.1rem; font-weight:900; color:#1d4ed8;">${meloxDoz} mL</span>
@@ -5901,7 +5902,7 @@
           </div>
         </div>
 
-        <div style="background:#fff; border:1px solid #fecaca; border-left:4px solid #dc2626; border-radius:8px; padding:10px;">
+        <div style="background:#fff; border:1px solid #fecaca; border-left:4px solid #dc2626; border-radius: var(--wa-radius); padding:10px;">
           <div style="display:flex; justify-content:space-between; align-items:center;">
             <strong style="color:#991b1b; font-size:0.88rem;">💉 Fluniksin Meglumin %5 (50 mg/mL)</strong>
             <span style="font-size:1.1rem; font-weight:900; color:#b91c1c;">${flunDoz} mL</span>
@@ -5912,7 +5913,7 @@
           </div>
         </div>
 
-        <div style="background:#fff; border:1px solid #ddd6fe; border-left:4px solid #7c3aed; border-radius:8px; padding:10px;">
+        <div style="background:#fff; border:1px solid #ddd6fe; border-left:4px solid #7c3aed; border-radius: var(--wa-radius); padding:10px;">
           <div style="display:flex; justify-content:space-between; align-items:center;">
             <strong style="color:#5b21b6; font-size:0.88rem;">💉 Tulatromisin (100 mg/mL - BRD / Solunum)</strong>
             <span style="font-size:1.1rem; font-weight:900; color:#6d28d9;">${tulaDoz} mL</span>

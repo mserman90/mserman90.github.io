@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
-  <meta name="theme-color" content="#008069">
+  <meta name="theme-color" content="#075e54">
   <meta name="color-scheme" content="light dark">
   <meta name="description" content="Rasyon Rehberi - Süt sığırları, besi danaları ve koyunlar için uluslararası NASEM/NRC standartlarında çalışan etkileşimli diyalog tabanlı rasyon hazırlama, en ucuz yem dengeleme ve TMR yem karma vagonu asistanı.">
   <meta name="keywords" content="Rasyon Rehberi, rasyon hazırlama robotu, süt ineği rasyonu, besi danası rasyonu, koyun rasyonu, TMR vagon kantar hesabı, NASEM 2021 rasyon, NRC yem dengeleme, en ucuz rasyon, asidoz korumalı rasyon">
@@ -56,13 +56,13 @@
        ULUSLARARASI TİPOGRAFİ, TEMA VE DEĞİŞKENLER
        ========================================================================= */
     :root {
-      --wa-header-bg: #008069;
+      --wa-header-bg: #075e54;
       --wa-header-text: #ffffff;
       --wa-chat-bg: #efeae2;
       --wa-bubble-in: #ffffff;
       --wa-bubble-out: #d9fdd3;
-      --wa-text: #111b21;
-      --wa-text-muted: #667781;
+      --wa-text: #0f172a;
+      --wa-text-muted: #334155;
       --wa-btn-bg: #ffffff;
       --wa-btn-border: #d1d7db;
       --wa-btn-hover: #f0f2f5;
@@ -76,10 +76,10 @@
       --warning: #d97706;
       --safe: #16a34a;
       --font-stack: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      --radius-sm: 8px;
-      --radius-md: 12px;
-      --radius-lg: 16px;
-      --radius-full: 9999px;
+      --radius-sm: 4px;
+      --radius-md: 4px;
+      --radius-lg: 4px;
+      --radius-full: 4px;
       --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.08);
       --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
       --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.15);
@@ -507,7 +507,7 @@
     .nutrient-item {
       background: #f8fafc;
       border: 1px solid #e2e8f0;
-      border-radius: 8px;
+      border-radius: var(--radius-sm);
       padding: 8px;
     }
     .nutrient-lbl {
@@ -533,7 +533,7 @@
     .cost-summary-box {
       background: #ecfdf5;
       border: 1.5px solid #6ee7b7;
-      border-radius: 10px;
+      border-radius: var(--radius-sm);
       padding: 10px 12px;
       margin-bottom: 12px;
       display: flex;
@@ -621,7 +621,7 @@
       width: 100%;
       max-width: 540px;
       max-height: 92vh;
-      border-radius: 16px;
+      border-radius: var(--radius-sm);
       display: flex;
       flex-direction: column;
       overflow: hidden;
@@ -655,7 +655,7 @@
       font-size: 1.4rem;
       cursor: pointer;
       line-height: 1;
-      min-height: 36px;
+      min-height: 40px;
       width: 36px;
       display: flex;
       align-items: center;
@@ -739,7 +739,7 @@
       color: #334155;
       border: 1px solid #cbd5e1;
       padding: 5px 10px;
-      border-radius: 999px;
+      border-radius: var(--radius-sm);
       font-size: 0.76rem;
       font-weight: 700;
       cursor: pointer;
@@ -762,7 +762,7 @@
       color: #0f172a;
       border: 1px solid #94a3b8;
       padding: 4px 8px;
-      border-radius: 6px;
+      border-radius: var(--radius-sm);
       font-size: 0.74rem;
       font-weight: 700;
       cursor: pointer;
@@ -781,7 +781,7 @@
       justify-content: space-between;
       background: #f8fafc;
       border: 1.5px solid #e2e8f0;
-      border-radius: 8px;
+      border-radius: var(--radius-sm);
       padding: 8px 12px;
       font-size: 0.82rem;
       cursor: pointer;
@@ -992,32 +992,32 @@
         </div>
 
         <!-- HEDEF BESİN KISITLARI -->
-        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:12px; margin-bottom:14px;">
+        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius: var(--radius-sm); padding:12px; margin-bottom:14px;">
           <label style="font-size:0.78rem; font-weight:800; color:#0f172a; text-transform:uppercase; margin-bottom:8px; display:block;">2. Besin Maddesi İhtiyaçları & Kısıtlar:</label>
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
             <div>
               <label style="font-size:0.75rem; color:#475569; font-weight:700; display:block;">Kuru Madde Tüketimi (kg KM):</label>
-              <input type="number" id="sp-target-km" step="0.1" value="21.0" style="width:100%; padding:7px 10px; border:1.5px solid #cbd5e1; border-radius:8px; font-weight:700;">
+              <input type="number" id="sp-target-km" step="0.1" value="21.0" style="width:100%; padding:7px 10px; border:1.5px solid #cbd5e1; border-radius: var(--radius-sm); font-weight:700;">
             </div>
             <div>
               <label style="font-size:0.75rem; color:#475569; font-weight:700; display:block;">Min. Ham Protein (% HP):</label>
-              <input type="number" id="sp-target-hp" step="0.1" value="16.5" style="width:100%; padding:7px 10px; border:1.5px solid #cbd5e1; border-radius:8px; font-weight:700;">
+              <input type="number" id="sp-target-hp" step="0.1" value="16.5" style="width:100%; padding:7px 10px; border:1.5px solid #cbd5e1; border-radius: var(--radius-sm); font-weight:700;">
             </div>
             <div>
               <label style="font-size:0.75rem; color:#475569; font-weight:700; display:block;">Min. Net Enerji (NEL Mcal/kg):</label>
-              <input type="number" id="sp-target-nel" step="0.01" value="1.65" style="width:100%; padding:7px 10px; border:1.5px solid #cbd5e1; border-radius:8px; font-weight:700;">
+              <input type="number" id="sp-target-nel" step="0.01" value="1.65" style="width:100%; padding:7px 10px; border:1.5px solid #cbd5e1; border-radius: var(--radius-sm); font-weight:700;">
             </div>
             <div>
               <label style="font-size:0.75rem; color:#475569; font-weight:700; display:block;">Min. Kaba Yem Oranı (% KM):</label>
-              <input type="number" id="sp-min-kaba" step="1" value="45" style="width:100%; padding:7px 10px; border:1.5px solid #cbd5e1; border-radius:8px; font-weight:700;">
+              <input type="number" id="sp-min-kaba" step="1" value="45" style="width:100%; padding:7px 10px; border:1.5px solid #cbd5e1; border-radius: var(--radius-sm); font-weight:700;">
             </div>
             <div>
               <label style="font-size:0.75rem; color:#475569; font-weight:700; display:block;">Min. NDF Lif Oranı (% KM):</label>
-              <input type="number" id="sp-min-ndf" step="1" value="28" style="width:100%; padding:7px 10px; border:1.5px solid #cbd5e1; border-radius:8px; font-weight:700;">
+              <input type="number" id="sp-min-ndf" step="1" value="28" style="width:100%; padding:7px 10px; border:1.5px solid #cbd5e1; border-radius: var(--radius-sm); font-weight:700;">
             </div>
             <div>
               <label style="font-size:0.75rem; color:#475569; font-weight:700; display:block;">Günlük Süt Verimi (Litre, opsiyonel):</label>
-              <input type="number" id="sp-target-milk" step="1" value="30" placeholder="Litre başı maliyet için" style="width:100%; padding:7px 10px; border:1.5px solid #cbd5e1; border-radius:8px; font-weight:700;">
+              <input type="number" id="sp-target-milk" step="1" value="30" placeholder="Litre başı maliyet için" style="width:100%; padding:7px 10px; border:1.5px solid #cbd5e1; border-radius: var(--radius-sm); font-weight:700;">
             </div>
           </div>
         </div>
@@ -1028,7 +1028,7 @@
             <label style="font-size:0.78rem; font-weight:800; color:#334155; text-transform:uppercase; margin:0;">3. Rasyona Katılacak Yemler & Fiyatları:</label>
             <span style="font-size:0.74rem; color:#0284c7; cursor:pointer; font-weight:700;" onclick="selectAllSimplexFeeds(true)">Tümünü Seç</span>
           </div>
-          <div id="simplex-feeds-container" style="display:flex; flex-direction:column; gap:6px; max-height:220px; overflow-y:auto; border:1px solid #e2e8f0; border-radius:10px; padding:8px; background:#ffffff;">
+          <div id="simplex-feeds-container" style="display:flex; flex-direction:column; gap:6px; max-height:220px; overflow-y:auto; border:1px solid #e2e8f0; border-radius: var(--radius-sm); padding:8px; background:#ffffff;">
             <!-- Yem listesi JS ile basılır -->
           </div>
         </div>
@@ -1063,12 +1063,12 @@
           Hazırladığın rasyonu sürü büyüklüğüne göre mikser vagonuna kümülatif kantar sırasıyla yükle. Terazi ekranında çıkacak kiloları adım adım takip et:
         </p>
 
-        <div style="background:#f8fafc; border:1px solid #cbd5e1; border-radius:10px; padding:12px; margin-bottom:12px;">
+        <div style="background:#f8fafc; border:1px solid #cbd5e1; border-radius: var(--radius-sm); padding:12px; margin-bottom:12px;">
           <label style="font-size:0.82rem; font-weight:800; color:#0f172a; display:block; margin-bottom:6px;">
             Sürüdeki Hayvan Sayısı (Baş):
           </label>
           <div style="display:flex; gap:8px; align-items:center;">
-            <input type="number" id="tmrHeadCount" value="25" min="1" max="1000" style="width:100px; padding:8px 12px; font-size:1.1rem; font-weight:800; border:1.5px solid #94a3b8; border-radius:8px;" oninput="updateTmrCalculation()">
+            <input type="number" id="tmrHeadCount" value="25" min="1" max="1000" style="width:100px; padding:8px 12px; font-size:1.1rem; font-weight:800; border:1.5px solid #94a3b8; border-radius: var(--radius-sm);" oninput="updateTmrCalculation()">
             <span style="font-size:0.84rem; color:#64748b; font-weight:700;">baş hayvan için mikseri doldur</span>
           </div>
         </div>
@@ -1077,7 +1077,7 @@
           <!-- Dinamik kantar tablosu buraya basılır -->
         </div>
 
-        <div style="margin-top:12px; background:#f0f9ff; border:1px solid #bae6fd; border-radius:8px; padding:10px; font-size:0.78rem; color:#0369a1; line-height:1.45;">
+        <div style="margin-top:12px; background:#f0f9ff; border:1px solid #bae6fd; border-radius: var(--radius-sm); padding:10px; font-size:0.78rem; color:#0369a1; line-height:1.45;">
           <strong>🚜 Yem Karma Vagonu Altın Kuralları:</strong><br>
           1. <strong>Sıralama:</strong> Önce kuru ot/saman (kıyım için 3-5 dk), sonra silaj/yaş posalar, en son ezme tahıllar ve premiks/soda.<br>
           2. <strong>Karıştırma Süresi:</strong> Son yem girdikten sonra 4-6 dakikadan fazla çevirmeyin (fazla kıyım gevişi bozar ve asidoz yapar).<br>
@@ -1111,7 +1111,7 @@
         </div>
 
         <!-- YEM YEDEKLEME & DIŞA AKTARMA -->
-        <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:12px; flex-wrap:wrap; background:#fff7ed; border:1px solid #fed7aa; border-radius:10px; padding:8px 12px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:12px; flex-wrap:wrap; background:#fff7ed; border:1px solid #fed7aa; border-radius: var(--radius-sm); padding:8px 12px;">
           <span style="font-size:0.8rem; font-weight:700; color:#c2410c;">💾 Yem Ambarı & Fiyat Yedekleri:</span>
           <div style="display:flex; align-items:center; gap:6px;">
             <button type="button" class="filter-pill" onclick="exportFeedsJSON()" title="Yem Ambarını JSON Olarak İndir" style="background:#0284c7; color:#fff; border-color:#0284c7; display:inline-flex; align-items:center; gap:4px; padding:4px 8px; font-size:0.75rem;">
@@ -1154,7 +1154,7 @@
       <div class="modal-body" style="padding:14px; max-height:75vh; overflow-y:auto;">
         
         <!-- Üst Bilgi ve Sabit Yemleri Reddetme Alanı -->
-        <div style="background:#f0fdf4; border:1.5px solid #86efac; border-radius:10px; padding:10px 12px; margin-bottom:12px; font-size:0.83rem; color:#166534; line-height:1.45;">
+        <div style="background:#f0fdf4; border:1.5px solid #86efac; border-radius: var(--radius-sm); padding:10px 12px; margin-bottom:12px; font-size:0.83rem; color:#166534; line-height:1.45;">
           <strong>🌾 Sabit Yemleri Kullanmak İstemiyor musunuz?</strong><br>
           Aşağıdaki <em>"Sabit Yemleri Temizle"</em> butonuna dokunarak tüm standart yemleri kaldırabilir, sadece kendi ahırınızda bulunan veya kendinizin ürettiği yem ham maddelerini seçip rasyon hazırlayabilirsiniz.
         </div>
@@ -1176,7 +1176,7 @@
         </div>
 
         <!-- YENİ YEM HAM MADDESİ YAZMA / EKLEME FORMU -->
-        <div style="background:#f8fafc; border:1.5px solid #cbd5e1; border-radius:10px; padding:12px; margin-bottom:14px;">
+        <div style="background:#f8fafc; border:1.5px solid #cbd5e1; border-radius: var(--radius-sm); padding:12px; margin-bottom:14px;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
             <strong style="color:#0f172a; font-size:0.88rem; display:flex; align-items:center; gap:6px;">
               <svg class="lucide-icon" style="color:#008069;" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
@@ -1203,11 +1203,11 @@
           <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap:8px;">
             <div>
               <label style="font-size:0.73rem; font-weight:700; color:#334155;">Yem Adı (*):</label>
-              <input type="text" id="newFeedName" placeholder="Örn: Kendi Fiğ Otum" style="width:100%; padding:6px 8px; border:1px solid #cbd5e1; border-radius:6px; font-size:0.82rem;">
+              <input type="text" id="newFeedName" placeholder="Örn: Kendi Fiğ Otum" style="width:100%; padding:6px 8px; border:1px solid #cbd5e1; border-radius: var(--radius-sm); font-size:0.82rem;">
             </div>
             <div>
               <label style="font-size:0.73rem; font-weight:700; color:#334155;">Kategori:</label>
-              <select id="newFeedCategory" style="width:100%; padding:6px 8px; border:1px solid #cbd5e1; border-radius:6px; font-size:0.82rem;">
+              <select id="newFeedCategory" style="width:100%; padding:6px 8px; border:1px solid #cbd5e1; border-radius: var(--radius-sm); font-size:0.82rem;">
                 <option value="kaba">Kaba Yem (Ot/Silaj/Saman)</option>
                 <option value="kesif">Kesif Yem (Tahıl/Küspe/Yem)</option>
                 <option value="katki">Katkı / Mineral / Premiks</option>
@@ -1215,24 +1215,24 @@
             </div>
             <div>
               <label style="font-size:0.73rem; font-weight:700; color:#334155;">Kuru Madde (% KM):</label>
-              <input type="number" id="newFeedKm" value="88" step="1" min="10" max="100" style="width:100%; padding:6px 8px; border:1px solid #cbd5e1; border-radius:6px; font-size:0.82rem;">
+              <input type="number" id="newFeedKm" value="88" step="1" min="10" max="100" style="width:100%; padding:6px 8px; border:1px solid #cbd5e1; border-radius: var(--radius-sm); font-size:0.82rem;">
             </div>
             <div>
               <label style="font-size:0.73rem; font-weight:700; color:#334155;">Ham Protein (% HP):</label>
-              <input type="number" id="newFeedHp" value="14.0" step="0.1" min="0" max="100" style="width:100%; padding:6px 8px; border:1px solid #cbd5e1; border-radius:6px; font-size:0.82rem;">
+              <input type="number" id="newFeedHp" value="14.0" step="0.1" min="0" max="100" style="width:100%; padding:6px 8px; border:1px solid #cbd5e1; border-radius: var(--radius-sm); font-size:0.82rem;">
             </div>
             <div>
               <label style="font-size:0.73rem; font-weight:700; color:#334155;">Enerji NEL (Mcal/kg):</label>
-              <input type="number" id="newFeedNel" value="1.45" step="0.05" min="0" max="3" style="width:100%; padding:6px 8px; border:1px solid #cbd5e1; border-radius:6px; font-size:0.82rem;">
+              <input type="number" id="newFeedNel" value="1.45" step="0.05" min="0" max="3" style="width:100%; padding:6px 8px; border:1px solid #cbd5e1; border-radius: var(--radius-sm); font-size:0.82rem;">
             </div>
             <div>
               <label style="font-size:0.73rem; font-weight:700; color:#334155;">Fiyat (₺/kg):</label>
-              <input type="number" id="newFeedPrice" value="6.00" step="0.1" min="0" style="width:100%; padding:6px 8px; border:1px solid #cbd5e1; border-radius:6px; font-size:0.82rem; font-weight:700; color:#008069;">
+              <input type="number" id="newFeedPrice" value="6.00" step="0.1" min="0" style="width:100%; padding:6px 8px; border:1px solid #cbd5e1; border-radius: var(--radius-sm); font-size:0.82rem; font-weight:700; color:#008069;">
             </div>
           </div>
 
           <div style="margin-top:8px; display:flex; justify-content:flex-end;">
-            <button type="button" onclick="addNewCustomFeed()" style="background:#008069; color:#ffffff; border:none; padding:8px 14px; border-radius:6px; font-weight:800; font-size:0.82rem; cursor:pointer; display:inline-flex; align-items:center; gap:6px;">
+            <button type="button" onclick="addNewCustomFeed()" style="background:#008069; color:#ffffff; border:none; padding:8px 14px; border-radius: var(--radius-sm); font-weight:800; font-size:0.82rem; cursor:pointer; display:inline-flex; align-items:center; gap:6px;">
               <svg class="lucide-icon" viewBox="0 0 24 24" style="width:16px;height:16px;"><path d="M12 5v14M5 12h14"/></svg>
               <span>Bu Yemi Ambarıma Ekle ve Listede Seç</span>
             </button>
@@ -1289,7 +1289,7 @@
           <div style="display:flex; flex-direction:column; gap:8px;">
             <div>
               <label style="font-size:0.78rem; font-weight:700;">Hayvan Türü:</label>
-              <select id="schaefferAnimalType" onchange="calcSchaefferWeight()" style="width:100%; padding:6px 8px; border:1px solid #cbd5e1; border-radius:6px; font-size:0.85rem; margin-top:3px;">
+              <select id="schaefferAnimalType" onchange="calcSchaefferWeight()" style="width:100%; padding:6px 8px; border:1px solid #cbd5e1; border-radius: var(--radius-sm); font-size:0.85rem; margin-top:3px;">
                 <option value="cattle">🐂 Sığır / Besi Danası / İnek (Bölen: 108.38)</option>
                 <option value="sheep">🐑 Koyun / Kuzu / Koç (Bölen: 9850)</option>
               </select>
@@ -1302,7 +1302,7 @@
               <label style="font-size:0.78rem; font-weight:700;">Vücut Uzunluğu (Omuz başından kalça/kuyruk ucuna, cm):</label>
               <input type="number" id="schaefferUzunluk" class="chat-input" value="150" min="30" max="250" oninput="calcSchaefferWeight()" style="width:100%; margin-top:3px;">
             </div>
-            <div id="schaefferResultBox" style="background:#fef3c7; border:1px solid #fde68a; border-radius:8px; padding:10px; margin-top:6px; font-weight:700; color:#92400e;">
+            <div id="schaefferResultBox" style="background:#fef3c7; border:1px solid #fde68a; border-radius: var(--radius-sm); padding:10px; margin-top:6px; font-weight:700; color:#92400e;">
               <!-- Sonuç dinamik hesaplanır -->
             </div>
             <button class="btn-action-primary" onclick="applySchaefferWeightToRation()" style="margin-top:4px; background:#059669;">
@@ -1338,7 +1338,7 @@
               <label style="font-size:0.78rem; font-weight:700;">Karkas Et Fiyatı (₺/kg karkas):</label>
               <input type="number" id="caagFiyat" class="chat-input" value="420" oninput="calcCaagAndKarkas()" style="width:100%; margin-top:3px;">
             </div>
-            <div id="caagResultBox" style="background:#ecfdf5; border:1px solid #6ee7b7; border-radius:8px; padding:10px; margin-top:6px; font-size:0.82rem; color:#065f46;">
+            <div id="caagResultBox" style="background:#ecfdf5; border:1px solid #6ee7b7; border-radius: var(--radius-sm); padding:10px; margin-top:6px; font-size:0.82rem; color:#065f46;">
               <!-- CAAG ve Karkas hesaplanır -->
             </div>
             <button class="btn-action-primary" onclick="applyCaagWeightToRation()" style="margin-top:4px; background:#059669;">
@@ -1364,12 +1364,12 @@
         <button class="modal-close" onclick="closeKarsilamaModal()" aria-label="Kapat">&times;</button>
       </div>
       <div class="modal-body" style="font-size:0.85rem; line-height:1.5; color:#334155;">
-        <div style="background:#fef3c7; border:1px solid #fde68a; border-radius:8px; padding:10px; margin-bottom:12px; color:#92400e;">
+        <div style="background:#fef3c7; border:1px solid #fde68a; border-radius: var(--radius-sm); padding:10px; margin-bottom:12px; color:#92400e;">
           <strong>🚨 İLK 24 SAAT ALTIN KURALI:</strong> Kamyondan inen yorgun danaya <strong>kesinlikle fabrika yemi veya tahıl kırması vermeyin!</strong> İlk 24 saat yalnızca temiz kuru ot/kuru yonca ve ılık elektrolitli <strong>Can Suyu</strong> verilir.
         </div>
 
         <h4 style="color:#9a3412; font-weight:800; margin-bottom:6px;">🍯 100 Litre Ahır Tipi Acil Can Suyu Formülü:</h4>
-        <div style="background:#f8fafc; border:1.5px solid #cbd5e1; border-radius:8px; padding:10px; margin-bottom:12px;">
+        <div style="background:#f8fafc; border:1.5px solid #cbd5e1; border-radius: var(--radius-sm); padding:10px; margin-bottom:12px;">
           • <strong>100 Litre:</strong> Ilık ve temiz içme suyu<br>
           • <strong>500 gr:</strong> İnce Kaya Tuzu (NaCl - su içmeyi teşvik eder)<br>
           • <strong>500 gr:</strong> Sodyum Bikarbonat (Yemek Karbonatı - işkembe asitleşmesini önler)<br>
@@ -1379,16 +1379,16 @@
 
         <h4 style="color:#0f172a; font-weight:800; margin-bottom:6px;">📅 21 Günlük Kademeli Besi Rasyon Tablosu:</h4>
         <div style="display:flex; flex-direction:column; gap:6px; margin-bottom:12px;">
-          <div style="background:#fff; border:1px solid #e2e8f0; border-radius:6px; padding:8px;">
+          <div style="background:#fff; border:1px solid #e2e8f0; border-radius: var(--radius-sm); padding:8px;">
             <strong>1 - 3. Gün:</strong> %100 Kaliteli Kuru Ot / Yonca + Can Suyu. Kesif yem 0 kg. Dinlenme, bol altlık ve sakin ahır.
           </div>
-          <div style="background:#fff; border:1px solid #e2e8f0; border-radius:6px; padding:8px;">
+          <div style="background:#fff; border:1px solid #e2e8f0; border-radius: var(--radius-sm); padding:8px;">
             <strong>4 - 7. Gün:</strong> Dana başına günlük 1.0 - 1.5 kg besi başlangıç yemi + serbest kuru ot. İç-dış parazit ve koruyucu ciğer kalkanı (Veteriner kontrolünde).
           </div>
-          <div style="background:#fff; border:1px solid #e2e8f0; border-radius:6px; padding:8px;">
+          <div style="background:#fff; border:1px solid #e2e8f0; border-radius: var(--radius-sm); padding:8px;">
             <strong>8 - 14. Gün:</strong> Kesif yem her 2 günde 500 gr artırılır (2.5 - 3.5 kg/gün). Şap ve karma aşılar yapılır.
           </div>
-          <div style="background:#fff; border:1px solid #e2e8f0; border-radius:6px; padding:8px;">
+          <div style="background:#fff; border:1px solid #e2e8f0; border-radius: var(--radius-sm); padding:8px;">
             <strong>15 - 21. Gün:</strong> Hedef besi rasyonuna kademeli geçiş (4.5 - 6.0 kg kesif yem + kaba yem). İdrar taşı ve asidoz önleyici tampon (soda/mermer tozu) eklenir.
           </div>
         </div>
@@ -1438,7 +1438,7 @@
 
         <!-- 1. ANYONİK DCAD -->
         <div id="protokol-tab-dcad">
-          <div style="background:#faf5ff; border:1.5px solid #d8b4fe; border-radius:8px; padding:12px; margin-bottom:12px;">
+          <div style="background:#faf5ff; border:1.5px solid #d8b4fe; border-radius: var(--radius-sm); padding:12px; margin-bottom:12px;">
             <h4 style="color:#6b21a8; font-weight:800; margin-bottom:6px;">⚡ Doğum Felci ve Süt Humması Kalkanı (Anyonik Kuru Dönem Yemi)</h4>
             <p style="color:#475569; margin-bottom:8px;">
               Doğumdan önceki son 21 günde ineğin kemiklerindeki kalsiyumu kana çekmek; doğum felcini (yere yıkılıp kalkamama / hipokalsemi), sonun (eşin) atılamamasını ve şirden dönmesini (mide yer değiştirmesi) önleyen koruyucu yemleme kuralıdır.
@@ -1457,7 +1457,7 @@
 
         <!-- 2. SARA & peNDF (GİZLİ İŞKEMBE EKŞİMESİ) -->
         <div id="protokol-tab-sara" style="display:none;">
-          <div style="background:#f0fdf4; border:1.5px solid #86efac; border-radius:8px; padding:12px; margin-bottom:12px;">
+          <div style="background:#f0fdf4; border:1.5px solid #86efac; border-radius: var(--radius-sm); padding:12px; margin-bottom:12px;">
             <h4 style="color:#166534; font-weight:800; margin-bottom:6px;">🛡️ Gizli İşkembe Ekşimesi & Geviş Otu (SARA / peNDF Önleme)</h4>
             <p style="color:#475569; margin-bottom:8px;">
               Hayvan çok süt versin veya dana hızlı kilo alsın diye rasyona aşırı un, arpa ve fabrika yemi yüklenip kaba saman/ot azaltılırsa işkembe zehir gibi ekşir (veteriner dilinde <strong>Subakut Rumen Asidozu / SARA</strong> denir). Hayvan geviş getirmeyi bırakır, tezeği cıvık sarı köpük olur, tırnakları sızlar (ayak yanması başlar), süt yağı düşer.
@@ -1477,7 +1477,7 @@
 
         <!-- 3. FLUSHING (KOYUN İKİZLİK) -->
         <div id="protokol-tab-flushing" style="display:none;">
-          <div style="background:#fffbeb; border:1.5px solid #fde68a; border-radius:8px; padding:12px; margin-bottom:12px;">
+          <div style="background:#fffbeb; border:1.5px solid #fde68a; border-radius: var(--radius-sm); padding:12px; margin-bottom:12px;">
             <h4 style="color:#92400e; font-weight:800; margin-bottom:6px;">🐏 Koç Katımı Öncesi Flushing Rasyonu (İkizlik Artırıcı)</h4>
             <p style="color:#475569; margin-bottom:8px;">
               Koç katımından 3 hafta önce başlayıp koç katımının ilk 3 haftası boyunca devam eden enerji takviyesidir. Koyunun vücut kondisyonunu yükselterek yumurtlama (ovülasyon) sayısını ve ikizlik oranını %20 - %30 artırır.
@@ -1496,7 +1496,7 @@
 
         <!-- 4. GEBELİK TOKSEMİSİ (İKİZ KUZU HASTALIĞI) -->
         <div id="protokol-tab-toksemi" style="display:none;">
-          <div style="background:#fff1f2; border:1.5px solid #fecdd3; border-radius:8px; padding:12px; margin-bottom:12px;">
+          <div style="background:#fff1f2; border:1.5px solid #fecdd3; border-radius: var(--radius-sm); padding:12px; margin-bottom:12px;">
             <h4 style="color:#9f1239; font-weight:800; margin-bottom:6px;">🤰 Gebelik Toksemisi (İkiz Kuzu Hastalığı Kalkanı)</h4>
             <p style="color:#475569; margin-bottom:8px;">
               Doğuma son 4-6 hafta kala anne karnındaki ikiz/üçüz kuzular hızla büyüyerek anacın işkembesini sıkıştırır. Koyun yeterince kaba yem yiyemez ve negatif enerjiye düşerek vücut yağlarını yakar; keton cisimcikleri birikir, koyun körleşir, diş gıcırdatır ve felç olur.
@@ -1515,7 +1515,7 @@
 
         <!-- 5. İDRAR TAŞI (ÜROLİTİYAZİS) -->
         <div id="protokol-tab-urolithiasis" style="display:none;">
-          <div style="background:#f0f9ff; border:1.5px solid #bae6fd; border-radius:8px; padding:12px; margin-bottom:12px;">
+          <div style="background:#f0f9ff; border:1.5px solid #bae6fd; border-radius: var(--radius-sm); padding:12px; margin-bottom:12px;">
             <h4 style="color:#0369a1; font-weight:800; margin-bottom:6px;">💧 Besi Kuzusu Sidik Zoru (İdrar Yolu Taşı Kalkanı)</h4>
             <p style="color:#475569; margin-bottom:8px;">
               Yoğun arpa ve kesif yemle beslenen erkek besi kuzularında idrar kanalına taş (struvit / magnezyum-amonyum fosfat) oturarak idrar kesesinin patlamasına ve ölüme yol açar.
@@ -1534,7 +1534,7 @@
 
         <!-- 6. BUZAĞI & KUZU BÜYÜTME -->
         <div id="protokol-tab-calf" style="display:none;">
-          <div style="background:#f8fafc; border:1.5px solid #cbd5e1; border-radius:8px; padding:12px; margin-bottom:12px;">
+          <div style="background:#f8fafc; border:1.5px solid #cbd5e1; border-radius: var(--radius-sm); padding:12px; margin-bottom:12px;">
             <h4 style="color:#0f172a; font-weight:800; margin-bottom:6px;">🍼 Buzağı Başlangıç Yemi & Sütten Kesim Protokolü</h4>
             <p style="color:#475569; margin-bottom:8px;">
               Rumen papillalarının gelişimi kaba yemle değil, pelet buzağı başlangıç yeminin (uçucu yağ asitleri: bütirat ve propiyonat) fermantasyonu ile gerçekleşir.
@@ -1576,7 +1576,7 @@
         <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-bottom:12px;">
           <div>
             <label style="font-size:0.78rem; font-weight:700; color:#0f172a;">1. Yem (Düşük Protein / Tahıl):</label>
-            <input type="text" id="pearsonFeed1Name" value="Mısır Kırması" style="width:100%; padding:6px 8px; border:1px solid #cbd5e1; border-radius:6px; font-size:0.85rem; margin-top:3px;">
+            <input type="text" id="pearsonFeed1Name" value="Mısır Kırması" style="width:100%; padding:6px 8px; border:1px solid #cbd5e1; border-radius: var(--radius-sm); font-size:0.85rem; margin-top:3px;">
             <div style="display:flex; align-items:center; gap:4px; margin-top:4px;">
               <span style="font-size:0.75rem; color:#64748b;">HP %:</span>
               <input type="number" id="pearsonFeed1Hp" value="9.0" step="0.1" style="width:70px; padding:4px 6px; border:1px solid #cbd5e1; border-radius:4px; font-size:0.85rem;">
@@ -1584,7 +1584,7 @@
           </div>
           <div>
             <label style="font-size:0.78rem; font-weight:700; color:#0f172a;">2. Yem (Yüksek Protein / Küspe):</label>
-            <input type="text" id="pearsonFeed2Name" value="Soya Küspesi" style="width:100%; padding:6px 8px; border:1px solid #cbd5e1; border-radius:6px; font-size:0.85rem; margin-top:3px;">
+            <input type="text" id="pearsonFeed2Name" value="Soya Küspesi" style="width:100%; padding:6px 8px; border:1px solid #cbd5e1; border-radius: var(--radius-sm); font-size:0.85rem; margin-top:3px;">
             <div style="display:flex; align-items:center; gap:4px; margin-top:4px;">
               <span style="font-size:0.75rem; color:#64748b;">HP %:</span>
               <input type="number" id="pearsonFeed2Hp" value="46.0" step="0.1" style="width:70px; padding:4px 6px; border:1px solid #cbd5e1; border-radius:4px; font-size:0.85rem;">
@@ -1592,18 +1592,18 @@
           </div>
         </div>
 
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; background:#f8fafc; border:1px solid #cbd5e1; border-radius:8px; padding:10px; margin-bottom:12px;">
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; background:#f8fafc; border:1px solid #cbd5e1; border-radius: var(--radius-sm); padding:10px; margin-bottom:12px;">
           <div>
             <label style="font-size:0.78rem; font-weight:800; color:#008069;">Hedef Ham Protein (%):</label>
-            <input type="number" id="pearsonTargetHp" value="18.0" step="0.1" style="width:100%; padding:6px 8px; border:1.5px solid #008069; border-radius:6px; font-size:1rem; font-weight:800; margin-top:3px;" oninput="runPearsonCalculation()">
+            <input type="number" id="pearsonTargetHp" value="18.0" step="0.1" style="width:100%; padding:6px 8px; border:1.5px solid #008069; border-radius: var(--radius-sm); font-size:1rem; font-weight:800; margin-top:3px;" oninput="runPearsonCalculation()">
           </div>
           <div>
             <label style="font-size:0.78rem; font-weight:800; color:#0f172a;">Hedef Toplam Karışım (kg):</label>
-            <input type="number" id="pearsonTotalKg" value="1000" step="50" style="width:100%; padding:6px 8px; border:1.5px solid #94a3b8; border-radius:6px; font-size:1rem; font-weight:800; margin-top:3px;" oninput="runPearsonCalculation()">
+            <input type="number" id="pearsonTotalKg" value="1000" step="50" style="width:100%; padding:6px 8px; border:1.5px solid #94a3b8; border-radius: var(--radius-sm); font-size:1rem; font-weight:800; margin-top:3px;" oninput="runPearsonCalculation()">
           </div>
         </div>
 
-        <div id="pearson-output-box" style="background:#ecfdf5; border:1.5px solid #6ee7b7; border-radius:10px; padding:12px;">
+        <div id="pearson-output-box" style="background:#ecfdf5; border:1.5px solid #6ee7b7; border-radius: var(--radius-sm); padding:12px;">
           <!-- Sonuç buraya basılır -->
         </div>
       </div>
@@ -1637,7 +1637,7 @@
       </div>
       <div class="modal-ftr" style="display:flex; flex-direction:column; gap:8px;">
         <button class="btn-action-primary" onclick="closeGuideModal()" style="width:100%;">Anladım, Sohbete Dön</button>
-        <a href="https://mserman90.github.io/" style="display:inline-flex; align-items:center; justify-content:center; gap:6px; width:100%; padding:10px; border-radius:8px; border:1px solid #cbd5e1; background:#f8fafc; color:#0f172a; font-weight:700; text-decoration:none; font-size:0.85rem;">
+        <a href="https://mserman90.github.io/" style="display:inline-flex; align-items:center; justify-content:center; gap:6px; width:100%; padding:10px; border-radius: var(--radius-sm); border:1px solid #cbd5e1; background:#f8fafc; color:#0f172a; font-weight:700; text-decoration:none; font-size:0.85rem;">
           <svg class="lucide-icon" viewBox="0 0 24 24" style="width:16px;height:16px;"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           Ana Portala Dön (mserman90.github.io)
         </a>
@@ -2425,7 +2425,7 @@
       const ration = state.latestRation;
 
       if (!ration) {
-        container.innerHTML = `<div style="padding:10px; background:#fef3c7; border-radius:8px; font-size:0.8rem; color:#92400e;">Önce sohbet akışından bir rasyon hazırlamalısınız.</div>`;
+        container.innerHTML = `<div style="padding:10px; background:#fef3c7; border-radius: var(--radius-sm); font-size:0.8rem; color:#92400e;">Önce sohbet akışından bir rasyon hazırlamalısınız.</div>`;
         return;
       }
 
@@ -2489,7 +2489,7 @@
       container.innerHTML = feeds.map(f => {
         const isCustom = f.isCustom || f.id.startsWith("custom_");
         return `
-          <div style="display:flex; align-items:center; justify-content:space-between; background:${isCustom ? '#fffbeb' : '#f8fafc'}; border:1px solid ${isCustom ? '#fcd34d' : '#e2e8f0'}; border-radius:8px; padding:8px 12px; font-size:0.82rem;">
+          <div style="display:flex; align-items:center; justify-content:space-between; background:${isCustom ? '#fffbeb' : '#f8fafc'}; border:1px solid ${isCustom ? '#fcd34d' : '#e2e8f0'}; border-radius: var(--radius-sm); padding:8px 12px; font-size:0.82rem;">
             <div>
               <div style="display:flex; align-items:center; gap:6px;">
                 <strong style="color:#0f172a;">${f.name}</strong>
@@ -2498,7 +2498,7 @@
               <div style="font-size:0.72rem; color:#64748b;">KM: %${f.kmPct} | HP: %${f.hpPct} | ${f.category}</div>
             </div>
             <div style="display:flex; align-items:center; gap:6px;">
-              <input type="number" id="feedPrice_${f.id}" value="${f.price}" step="0.1" min="0" style="width:75px; padding:4px 6px; border:1px solid #cbd5e1; border-radius:6px; font-weight:700; text-align:right;">
+              <input type="number" id="feedPrice_${f.id}" value="${f.price}" step="0.1" min="0" style="width:75px; padding:4px 6px; border:1px solid #cbd5e1; border-radius: var(--radius-sm); font-weight:700; text-align:right;">
               <span style="font-weight:700; color:#64748b;">₺/kg</span>
               ${isCustom ? `
                 <button type="button" onclick="deleteCustomFeed('${f.id}', event)" title="Sil" style="background:#fee2e2; border:1px solid #fca5a5; color:#991b1b; padding:2px 6px; border-radius:4px; font-size:0.7rem; font-weight:700; cursor:pointer;">
@@ -2985,7 +2985,7 @@
             </label>
             <div style="display:flex; align-items:center; gap:4px; font-size:0.8rem;">
               <span style="color:#64748b;">Fiyat:</span>
-              <input type="number" id="sp-price-${f.id}" step="0.1" value="${f.price || 0}" style="width:70px; padding:3px 6px; border:1px solid #cbd5e1; border-radius:6px; font-weight:700; text-align:right;">
+              <input type="number" id="sp-price-${f.id}" step="0.1" value="${f.price || 0}" style="width:70px; padding:3px 6px; border:1px solid #cbd5e1; border-radius: var(--radius-sm); font-weight:700; text-align:right;">
               <span style="color:#64748b;">TL</span>
             </div>
           </div>
@@ -3052,7 +3052,7 @@
 
         if (!result.success) {
           resBox.innerHTML = `
-            <div style="background:#fef2f2; border:1.5px solid #fecaca; border-radius:12px; padding:14px; color:#991b1b;">
+            <div style="background:#fef2f2; border:1.5px solid #fecaca; border-radius: var(--radius-sm); padding:14px; color:#991b1b;">
               <div style="font-weight:800; font-size:0.95rem; display:flex; align-items:center; gap:6px; margin-bottom:6px;">
                 <span>⚠️</span> <span>Optimum Çözüm Bulunamadı</span>
               </div>
@@ -3063,7 +3063,7 @@
         }
 
         const milkCostHtml = milkL > 0 ? `
-          <div style="background:#ffffff; border-radius:8px; padding:8px 12px; border:1px solid #bbf7d0; text-align:center;">
+          <div style="background:#ffffff; border-radius: var(--radius-sm); padding:8px 12px; border:1px solid #bbf7d0; text-align:center;">
             <div style="font-size:0.75rem; color:#166534; font-weight:700;">1 Litre Süt Yem Maliyeti</div>
             <div style="font-size:1.15rem; font-weight:900; color:#15803d; font-variant-numeric:tabular-nums;">${(result.totalCostTL / milkL).toFixed(2)} TL/L</div>
           </div>
@@ -3083,21 +3083,21 @@
         }).join("");
 
         resBox.innerHTML = `
-          <div style="background:#f0fdf4; border:1.5px solid #86efac; border-radius:12px; padding:14px; margin-bottom:12px;">
+          <div style="background:#f0fdf4; border:1.5px solid #86efac; border-radius: var(--radius-sm); padding:14px; margin-bottom:12px;">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; flex-wrap:wrap; gap:8px;">
               <div style="font-weight:900; font-size:1.05rem; color:#166534; display:flex; align-items:center; gap:6px;">
                 <span>🎯</span> <span>En Düşük Maliyetli Rasyon Çözüldü</span>
               </div>
-              <span style="font-size:0.75rem; background:#dcfce7; color:#15803d; padding:3px 8px; border-radius:6px; font-weight:800;">Simplex LP Optimal</span>
+              <span style="font-size:0.75rem; background:#dcfce7; color:#15803d; padding:3px 8px; border-radius: var(--radius-sm); font-weight:800;">Simplex LP Optimal</span>
             </div>
 
             <!-- MALİYET KUTULARI -->
             <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(130px, 1fr)); gap:8px; margin-bottom:12px;">
-              <div style="background:#ffffff; border-radius:8px; padding:8px 12px; border:1px solid #bbf7d0; text-align:center;">
+              <div style="background:#ffffff; border-radius: var(--radius-sm); padding:8px 12px; border:1px solid #bbf7d0; text-align:center;">
                 <div style="font-size:0.75rem; color:#166534; font-weight:700;">Günlük Toplam Maliyet</div>
                 <div style="font-size:1.25rem; font-weight:900; color:#15803d; font-variant-numeric:tabular-nums;">${result.totalCostTL} TL</div>
               </div>
-              <div style="background:#ffffff; border-radius:8px; padding:8px 12px; border:1px solid #bbf7d0; text-align:center;">
+              <div style="background:#ffffff; border-radius: var(--radius-sm); padding:8px 12px; border:1px solid #bbf7d0; text-align:center;">
                 <div style="font-size:0.75rem; color:#166534; font-weight:700;">1 kg KM Maliyeti</div>
                 <div style="font-size:1.15rem; font-weight:900; color:#0f172a; font-variant-numeric:tabular-nums;">${result.costPerKgKM} TL/kg</div>
               </div>
@@ -3105,7 +3105,7 @@
             </div>
 
             <!-- BESİN ANALİZİ -->
-            <div style="background:#ffffff; border-radius:8px; padding:8px 10px; border:1px solid #e2e8f0; font-size:0.78rem; display:flex; justify-content:space-around; flex-wrap:wrap; gap:6px; margin-bottom:12px;">
+            <div style="background:#ffffff; border-radius: var(--radius-sm); padding:8px 10px; border:1px solid #e2e8f0; font-size:0.78rem; display:flex; justify-content:space-around; flex-wrap:wrap; gap:6px; margin-bottom:12px;">
               <div><strong>KM:</strong> ${result.actualKM} kg</div>
               <div><strong>Ham Protein:</strong> %${result.actualHPPct}</div>
               <div><strong>NEL Enerji:</strong> ${result.actualNEL} Mcal/kg</div>
@@ -3115,7 +3115,7 @@
 
             <!-- TARTIM TABLOSU -->
             <div style="overflow-x:auto; margin-bottom:12px;">
-              <table style="width:100%; border-collapse:collapse; font-size:0.8rem; background:#ffffff; border-radius:8px; overflow:hidden; border:1px solid #e2e8f0;">
+              <table style="width:100%; border-collapse:collapse; font-size:0.8rem; background:#ffffff; border-radius: var(--radius-sm); overflow:hidden; border:1px solid #e2e8f0;">
                 <thead>
                   <tr style="background:#f8fafc; border-bottom:1.5px solid #cbd5e1; text-align:left; font-size:0.74rem; color:#475569;">
                     <th style="padding:6px;">Yem Adı</th>
@@ -3205,7 +3205,7 @@
                 <span style="font-size:0.7rem; color:#64748b; display:block;">/ kg</span>
               </div>
               ${isCustom ? `
-                <button type="button" onclick="deleteCustomFeed('${f.id}', event)" title="Bu özel yemi ambardan sil" style="background:#fee2e2; border:1px solid #fca5a5; color:#991b1b; padding:4px 8px; border-radius:6px; font-size:0.72rem; cursor:pointer; font-weight:700;">
+                <button type="button" onclick="deleteCustomFeed('${f.id}', event)" title="Bu özel yemi ambardan sil" style="background:#fee2e2; border:1px solid #fca5a5; color:#991b1b; padding:4px 8px; border-radius: var(--radius-sm); font-size:0.72rem; cursor:pointer; font-weight:700;">
                   Sil
                 </button>
               ` : ''}

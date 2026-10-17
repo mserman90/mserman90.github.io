@@ -1,13 +1,13 @@
 {
-  "name": "Tosun Paşa Çiftliği - Süt, Besi ve Koyun Portalı",
+  "name": "Tosun Paşa Çiftliği - Çiftlik Yönetim Portalı",
   "short_name": "Tosun Paşa",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "background_color": "#ffffff",
-  "theme_color": "#000000",
-  "description": "Tosun Paşa Çiftliği - Besi sığırı, süt sığırı ve koyun sürüleri için %100 çevrimdışı bağımsız rehberler portalı.",
+  "background_color": "#f0f2f5",
+  "theme_color": "#075e54",
+  "description": "Çoban Doktor, Rasyon Rehberi ve Üretim Rehberi uzman modülleriyle %100 çevrimdışı, bağımsız çiftlik portalı.",
   "categories": [
     "medical",
     "business",
@@ -45,34 +45,10 @@
   ],
   "shortcuts": [
     {
-      "name": "Besi Çiftliği Rehberi",
-      "short_name": "Besi Rehberi",
-      "description": "Besi danacılığı, 21 gün alıştırma, günlük kilo alımı ve kesim kilidi",
-      "url": "./besi-saglik-rehberi/",
-      "icons": [
-        {
-          "src": "./icon-192.png",
-          "sizes": "192x192"
-        }
-      ]
-    },
-    {
-      "name": "Süt Çiftliği Rehberi",
-      "short_name": "Süt Rehberi",
-      "description": "Süt inekçiliği, sağımcı ekranı, ilaçlı süt yasağı ve doğum takvimi",
-      "url": "./sut-saglik-rehberi/",
-      "icons": [
-        {
-          "src": "./icon-192.png",
-          "sizes": "192x192"
-        }
-      ]
-    },
-    {
-      "name": "Koyun Çiftliği Rehberi",
-      "short_name": "Koyun Rehberi",
-      "description": "Koyun ve kuzu bakımı, koç katımı çarkı ve ağıl ilk yardım",
-      "url": "./koyun-saglik-rehberi/",
+      "name": "Çoban Doktor - Hızlı Ön Teşhis & Küpe Defteri",
+      "short_name": "Çoban Doktor",
+      "description": "Sığır ve koyun hastalık teşhisi, ilaç arınma süresi (İKAS) sayacı ve üreme sağlığı acil kılavuzu",
+      "url": "./coban-doktor/",
       "icons": [
         {
           "src": "./icon-192.png",
@@ -83,8 +59,20 @@
     {
       "name": "Yem & Rasyon Hazırlama Rehberi",
       "short_name": "Rasyon Rehberi",
-      "description": "Süt sığırı, besi sığırı ve koyun için uluslararası rasyon ve TMR hazırlama",
+      "description": "NASEM/NRC/CNCPS normlarında en düşük maliyetli rasyon (Linear Simplex) ve TMR kantar tartımı",
       "url": "./rasyon-rehberi/",
+      "icons": [
+        {
+          "src": "./icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Üretim Rehberi - Tohumlama & Doğum Çarkı",
+      "short_name": "Üretim Rehberi",
+      "description": "283 gün buzağılama çarkı, 150 gün koç katımı, kuruya çıkarma ve sürü üreme defteri",
+      "url": "./uretim-rehberi/",
       "icons": [
         {
           "src": "./icon-192.png",

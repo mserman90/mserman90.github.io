@@ -4,8 +4,8 @@
   "description": "Büyükbaş 283 gün ve küçükbaş 150 gün suni tohumlama, koç katımı, kuruya alma ve doğum takvimi.",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#064e3b",
-  "theme_color": "#008069",
+  "background_color": "#f0f2f5",
+  "theme_color": "#075e54",
   "orientation": "portrait-primary",
   "icons": [
     {
