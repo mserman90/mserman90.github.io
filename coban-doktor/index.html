@@ -1328,6 +1328,190 @@
       border-color: #ffff00;
       color: #ffff00;
     }
+
+    /* SÜRÜ SAĞLIĞI & GEBELİK TAKVİMİ STİLLERİ */
+    .gebelik-box {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+      border-radius: 12px;
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+    .gebelik-species-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .gebelik-species-btn {
+      padding: 10px 8px;
+      border: 2px solid #cbd5e1;
+      border-radius: 10px;
+      background: #ffffff;
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: #334155;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.15s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+    }
+    .gebelik-species-btn.active {
+      border-color: #16a34a;
+      background: #dcfce7;
+      color: #14532d;
+      box-shadow: 0 2px 6px rgba(22, 163, 74, 0.25);
+    }
+    .gebelik-species-btn span.sub {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #64748b;
+    }
+    .gebelik-species-btn.active span.sub {
+      color: #15803d;
+    }
+    .gebelik-date-input-group {
+      margin-bottom: 12px;
+    }
+    .gebelik-date-input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #0f172a;
+      background: #ffffff;
+      box-sizing: border-box;
+    }
+    .gebelik-timeline-card {
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 12px;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+    .timeline-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: #f8fafc;
+      border-left: 4px solid #cbd5e1;
+    }
+    .timeline-item.birth {
+      background: #fef2f2;
+      border-left-color: #ef4444;
+    }
+    .timeline-item.dry {
+      background: #fefce8;
+      border-left-color: #eab308;
+    }
+    .timeline-item.vaccine {
+      background: #eff6ff;
+      border-left-color: #3b82f6;
+    }
+    .timeline-icon {
+      font-size: 1.3rem;
+      line-height: 1;
+      margin-top: 2px;
+    }
+    .timeline-content {
+      flex: 1;
+    }
+    .timeline-title {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #0f172a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .timeline-date {
+      font-size: 0.95rem;
+      font-weight: 900;
+      color: #1e293b;
+      margin: 2px 0;
+    }
+    .timeline-desc {
+      font-size: 0.76rem;
+      color: #475569;
+      line-height: 1.35;
+    }
+    .timeline-badge {
+      font-size: 0.68rem;
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-weight: 800;
+    }
+    .badge-birth { background: #fee2e2; color: #b91c1c; }
+    .badge-dry { background: #fef08a; color: #854d0e; }
+    .badge-vaccine { background: #dbeafe; color: #1d4ed8; }
+
+    .gebelik-saved-list {
+      margin-top: 14px;
+    }
+    .gebelik-saved-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 10px;
+      margin-bottom: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .gebelik-saved-card.cow {
+      border-left: 4px solid #16a34a;
+    }
+    .gebelik-saved-card.sheep {
+      border-left: 4px solid #0284c7;
+    }
+
+    body.high-contrast .gebelik-box,
+    body.high-contrast .gebelik-timeline-card,
+    body.high-contrast .gebelik-saved-card {
+      background: #141414 !important;
+      border-color: #ffff00 !important;
+      color: #ffff00 !important;
+    }
+    body.high-contrast .gebelik-species-btn {
+      background: #000000;
+      border-color: #ffff00;
+      color: #ffff00;
+    }
+    body.high-contrast .gebelik-species-btn.active {
+      background: #ffff00;
+      color: #000000;
+    }
+    body.high-contrast .gebelik-species-btn span.sub,
+    body.high-contrast .gebelik-species-btn.active span.sub {
+      color: inherit;
+    }
+    body.high-contrast .timeline-item {
+      background: #000000;
+      border-color: #ffff00;
+      color: #ffff00;
+    }
+    body.high-contrast .timeline-title,
+    body.high-contrast .timeline-date,
+    body.high-contrast .timeline-desc {
+      color: #ffff00;
+    }
+    body.high-contrast .timeline-badge {
+      background: #ffff00;
+      color: #000000;
+    }
   </style>
 </head>
 <body>
@@ -1344,7 +1528,8 @@
         </div>
       </div>
       <div class="wa-actions">
-        <button onclick="openKupeDefteriModal()" class="wa-hdr-btn defter-btn" id="hdr-defter-btn" title="Küpe Defteri & İlaç Arınma Takibi">📋 Defter <span class="defter-badge zero" id="defter-active-badge">0</span></button>
+        <button onclick="openKupeDefteriModal('repro')" class="wa-hdr-btn defter-btn" id="hdr-repro-btn" title="Sürü Sağlığı - Gebelik & Doğum Takvimi" style="background:#15803d !important; border-color:#86efac !important;">📅 Sürü Sağlığı</button>
+        <button onclick="openKupeDefteriModal('list')" class="wa-hdr-btn defter-btn" id="hdr-defter-btn" title="Küpe Defteri & İlaç Arınma Takibi">📋 Defter <span class="defter-badge zero" id="defter-active-badge">0</span></button>
         <button onclick="openDereceModal()" class="wa-hdr-btn derece-btn" id="hdr-derece-btn" title="Hızlı Derece / Ateş Kontrolü">🌡️ Derece</button>
         <button onclick="openGuideModal()" class="wa-hdr-btn" title="Kullanım Kılavuzu">📖 Kılavuz</button>
         <button onclick="toggleLargeText()" class="wa-hdr-btn" title="Yazıyı Büyüt">A+</button>
@@ -1480,9 +1665,10 @@
 
       <!-- SEKMELER -->
       <div class="kupe-tabs">
-        <button class="kupe-tab-btn active" id="tabbtn-list" onclick="switchKupeTab('list')">📋 Hayvan Listesi</button>
+        <button class="kupe-tab-btn" id="tabbtn-repro" onclick="switchKupeTab('repro')">📅 Sürü Sağlığı (Doğum)</button>
+        <button class="kupe-tab-btn active" id="tabbtn-list" onclick="switchKupeTab('list')">📋 İlaç Listesi</button>
         <button class="kupe-tab-btn" id="tabbtn-new" onclick="switchKupeTab('new')">➕ Yeni İlaç Kaydet</button>
-        <button class="kupe-tab-btn" id="tabbtn-info" onclick="switchKupeTab('info')">ℹ️ Bilgi Rehberi</button>
+        <button class="kupe-tab-btn" id="tabbtn-info" onclick="switchKupeTab('info')">ℹ️ Rehber</button>
       </div>
 
       <!-- SEKME 1: HAYVAN LİSTESİ & GERİ SAYIM -->
@@ -1586,6 +1772,70 @@
         <div class="info-guide-card" style="border-left-color:#10b981;">
           <div class="info-guide-title" style="color:#047857;">📶 %100 Çevrimdışı Mera Güvencesi</div>
           Bu defter telefonunuzun kendi güvenli hafızasında tutulur. Yaylada, merada ve internetin çekmediği ahırda dahi geri sayım durmaksızın devam eder.
+        </div>
+      </div>
+
+      <!-- SEKME 4: SÜRÜ SAĞLIĞI & GEBELİK / DOĞUM TAKVİMİ -->
+      <div class="kupe-tab-content" id="kupe-tab-repro">
+        <div class="gebelik-box">
+          <div style="font-weight:900; color:#14532d; font-size:0.95rem; margin-bottom:4px; display:flex; align-items:center; gap:6px;">
+            <span>🗓️ Gebelik & Doğum Takvimi Hesaplayıcı</span>
+          </div>
+          <p style="margin:0 0 10px 0; font-size:0.78rem; color:#166534; line-height:1.4;">
+            Tohumlama veya koç katımı tarihini seçin; <strong>tahmini doğum gününü</strong>, <strong>kuruya çıkarma zamanını</strong> ve <strong>doğuma 1 ay kala yapılacak aşı/vitamin tarihlerini</strong> anında hesaplayıp kaydedin.
+          </p>
+
+          <!-- TÜR SEÇİMİ -->
+          <div class="gebelik-species-grid">
+            <button type="button" class="gebelik-species-btn active" id="btn-repro-inek" onclick="selectReproSpecies('inek')">
+              <span style="font-size:1.4rem;">🐄</span>
+              <span>İnek (Sığır)</span>
+              <span class="sub">Gebelik: 283 Gün</span>
+            </button>
+            <button type="button" class="gebelik-species-btn" id="btn-repro-koyun" onclick="selectReproSpecies('koyun')">
+              <span style="font-size:1.4rem;">🐑</span>
+              <span>Koyun / Keçi</span>
+              <span class="sub">Gebelik: 150 Gün</span>
+            </button>
+          </div>
+
+          <!-- KÜPE NO (OPSİYONEL) -->
+          <div class="kupe-form-group" style="margin-bottom:8px;">
+            <label class="kupe-form-label" for="reproEarTag">🏷️ Hayvan Küpe Numarası (Opsiyonel):</label>
+            <input type="text" id="reproEarTag" class="kupe-form-input" placeholder="Örn: TR16 88421" style="text-transform:uppercase;">
+          </div>
+
+          <!-- TOHUMLAMA / KOÇ KATIMI TARİHİ -->
+          <div class="gebelik-date-input-group">
+            <label class="kupe-form-label" for="reproEventDate" id="lbl-repro-date">📅 Tohumlama Tarihi (*):</label>
+            <input type="date" id="reproEventDate" class="gebelik-date-input" onchange="calculateReproTimeline()">
+          </div>
+
+          <!-- OTOMATİK ZAMAN ÇİZELGESİ ÖNİZLEMESİ -->
+          <div id="repro-timeline-container" class="gebelik-timeline-card" style="display:none;">
+            <!-- JavaScript dinamik olarak basar -->
+          </div>
+
+          <!-- BUTONLAR -->
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:10px;">
+            <button type="button" onclick="saveCurrentReproRecord()" class="btn-save-record" id="btn-save-repro" style="margin-top:0; background:#16a34a; font-size:0.86rem;">
+              💾 Takvime Kaydet
+            </button>
+            <button type="button" onclick="shareCurrentReproWhatsApp()" class="btn-save-record" id="btn-share-repro" style="margin-top:0; background:#0284c7; font-size:0.86rem;">
+              📲 WhatsApp'a İlet
+            </button>
+          </div>
+        </div>
+
+        <!-- KAYITLI DOĞUM TAKVİMİ LİSTESİ -->
+        <div class="gebelik-saved-list">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <strong style="color:#0f172a; font-size:0.88rem;">📋 Kayıtlı Gebelik & Doğum Takibi</strong>
+            <span style="font-size:0.75rem; color:#64748b;" id="repro-total-count">0 Kayıt</span>
+          </div>
+          <div id="repro-records-container">
+            <!-- Kayıtlı hayvanlar buraya basılır -->
+          </div>
         </div>
       </div>
     </div>
@@ -2853,7 +3103,7 @@
     }
 
     function switchKupeTab(tabName) {
-      const tabs = ["list", "new", "info"];
+      const tabs = ["repro", "list", "new", "info"];
       tabs.forEach(t => {
         const btn = document.getElementById(`tabbtn-${t}`);
         const content = document.getElementById(`kupe-tab-${t}`);
@@ -2862,6 +3112,14 @@
       });
       if (tabName === "list") {
         renderKupeRecords();
+      } else if (tabName === "repro") {
+        renderReproRecords();
+        if (!document.getElementById("reproEventDate").value) {
+          const today = new Date();
+          const todayStr = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
+          document.getElementById("reproEventDate").value = todayStr;
+          calculateReproTimeline();
+        }
       }
     }
 
@@ -3118,8 +3376,313 @@
     }
 
     // =========================================================================
-    // MERA VE ÇEVRİMDIŞI (OFFLINE) AĞ İZLEYİCİ
+    // SÜRÜ SAĞLIĞI & GEBELİK / DOĞUM TAKVİMİ MOTORU
     // =========================================================================
+    let currentReproSpecies = 'inek'; // 'inek' (283 gün) veya 'koyun' (150 gün)
+    const REPRO_STORAGE_KEY = 'cobandoktor_repro_records';
+
+    function getReproRecords() {
+      try {
+        const data = localStorage.getItem(REPRO_STORAGE_KEY);
+        return data ? JSON.parse(data) : [];
+      } catch (err) {
+        return [];
+      }
+    }
+
+    function saveReproRecords(records) {
+      try {
+        localStorage.setItem(REPRO_STORAGE_KEY, JSON.stringify(records));
+      } catch (err) {}
+      renderReproRecords();
+    }
+
+    function selectReproSpecies(species) {
+      currentReproSpecies = species;
+      const btnInek = document.getElementById("btn-repro-inek");
+      const btnKoyun = document.getElementById("btn-repro-koyun");
+      const lblDate = document.getElementById("lbl-repro-date");
+
+      if (species === 'inek') {
+        if (btnInek) btnInek.classList.add("active");
+        if (btnKoyun) btnKoyun.classList.remove("active");
+        if (lblDate) lblDate.textContent = "📅 Tohumlama Tarihi (*):";
+      } else {
+        if (btnInek) btnInek.classList.remove("active");
+        if (btnKoyun) btnKoyun.classList.add("active");
+        if (lblDate) lblDate.textContent = "📅 Koç Katımı Tarihi (*):";
+      }
+      calculateReproTimeline();
+    }
+
+    function calculateReproTimeline() {
+      const dateVal = document.getElementById("reproEventDate")?.value;
+      const container = document.getElementById("repro-timeline-container");
+      if (!container) return;
+
+      if (!dateVal) {
+        container.style.display = "none";
+        return;
+      }
+
+      const eventDate = new Date(dateVal + "T00:00:00");
+      if (isNaN(eventDate.getTime())) {
+        container.style.display = "none";
+        return;
+      }
+
+      const now = new Date();
+      now.setHours(0, 0, 0, 0);
+
+      const isInek = currentReproSpecies === 'inek';
+      const gestationDays = isInek ? 283 : 150;
+      const dryDaysFromStart = isInek ? (283 - 60) : (150 - 60); // 223. gün / 90. gün
+      const vaccineDaysFromStart = isInek ? (283 - 30) : (150 - 30); // 253. gün / 120. gün
+
+      const dryDate = new Date(eventDate.getTime() + dryDaysFromStart * 86400000);
+      const vaccineDate = new Date(eventDate.getTime() + vaccineDaysFromStart * 86400000);
+      const birthDate = new Date(eventDate.getTime() + gestationDays * 86400000);
+
+      const diffDaysBirth = Math.round((birthDate.getTime() - now.getTime()) / 86400000);
+
+      const formatTurkishDate = (d) => {
+        return d.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' });
+      };
+
+      let countdownBadge = "";
+      if (diffDaysBirth > 0) {
+        countdownBadge = `<span class="timeline-badge badge-birth">⏳ Doğuma ${diffDaysBirth} Gün Kaldı</span>`;
+      } else if (diffDaysBirth === 0) {
+        countdownBadge = `<span class="timeline-badge badge-birth">🚨 BUGÜN BEKLENEN DOĞUM GÜNÜ!</span>`;
+      } else {
+        countdownBadge = `<span class="timeline-badge" style="background:#f1f5f9; color:#475569;">Günü ${Math.abs(diffDaysBirth)} Gün Geçti</span>`;
+      }
+
+      const dryTitle = isInek ? "Kuruya Çıkarma Zamanı (Doğuma 60 Gün Kala)" : "Sütten Kesme / Sağımı Durdurma (Doğuma 60 Gün Kala)";
+      const dryDesc = isInek 
+        ? "Sağımı derhal kesin ve meme içine kuru dönem antibiyotik tüpü uygulayın. İneğin memesi ve işkembesi dinlenmeye geçmelidir."
+        : "Süt sağılıyorsa sağımı kesin. Koyunu aşırı zengin rasyondan çıkarıp kaba ot ağırlıklı besleyin.";
+
+      const vaccineTitle = isInek
+        ? "Doğuma 1 Ay Kala Hazırlık: Karma Aşı & E-Vitamini/Selenyum"
+        : "Doğuma 1 Ay Kala: Çelerme (Enterotoksemi) Karma Aşısı & Selenyum";
+
+      const vaccineDesc = isInek
+        ? "💉 <strong>Karma Aşı:</strong> Buzağı ishalini önleyen kombine (E. coli, Rota, Corona) aşıyı vurun.<br>💊 <strong>E-Vit + Selenyum:</strong> Son ay buzağının beyaz kas hastalığına yakalanmasını ve sonun (eşin) atılamamasını önler."
+        : "💉 <strong>Çelerme Aşısı:</strong> Doğacak kuzuyu yem çarpmasından koruyacak antikorlar ağız sütüne (kolostruma) geçer.<br>💊 <strong>E-Vit + Selenyum:</strong> Kuzularda beyaz kas hastalığını kesin olarak önler.";
+
+      container.style.display = "flex";
+      container.innerHTML = `
+        <!-- 1. DOĞUM TARİHİ KARTI -->
+        <div class="timeline-item birth">
+          <div class="timeline-icon">🎯</div>
+          <div class="timeline-content">
+            <div class="timeline-title">
+              <span>${isInek ? '🐄 Beklenen Buzağılama Tarihi' : '🐑 Beklenen Kuzulama Tarihi'} (+${gestationDays} Gün)</span>
+              ${countdownBadge}
+            </div>
+            <div class="timeline-date" style="color:#b91c1c;">${formatTurkishDate(birthDate)}</div>
+            <div class="timeline-desc">Doğum localarını hazırlayın, altlığı bol kuru sapla kaplayın ve acil doğum çantasını hazır tutun.</div>
+          </div>
+        </div>
+
+        <!-- 2. KURUYA ÇIKARMA KARTI -->
+        <div class="timeline-item dry">
+          <div class="timeline-icon">🥛</div>
+          <div class="timeline-content">
+            <div class="timeline-title">
+              <span>${dryTitle}</span>
+              <span class="timeline-badge badge-dry">${dryDaysFromStart}. Gün</span>
+            </div>
+            <div class="timeline-date" style="color:#854d0e;">${formatTurkishDate(dryDate)}</div>
+            <div class="timeline-desc">${dryDesc}</div>
+          </div>
+        </div>
+
+        <!-- 3. AŞI VE SELENYUM KARTI -->
+        <div class="timeline-item vaccine">
+          <div class="timeline-icon">💉</div>
+          <div class="timeline-content">
+            <div class="timeline-title">
+              <span>${vaccineTitle}</span>
+              <span class="timeline-badge badge-vaccine">${vaccineDaysFromStart}. Gün</span>
+            </div>
+            <div class="timeline-date" style="color:#1d4ed8;">${formatTurkishDate(vaccineDate)}</div>
+            <div class="timeline-desc">${vaccineDesc}</div>
+          </div>
+        </div>
+      `;
+    }
+
+    function saveCurrentReproRecord() {
+      const dateVal = document.getElementById("reproEventDate")?.value;
+      if (!dateVal) {
+        alert("Lütfen tohumlama veya koç katımı tarihini seçiniz.");
+        return;
+      }
+      const tagVal = (document.getElementById("reproEarTag")?.value || "").trim().toUpperCase();
+      const isInek = currentReproSpecies === 'inek';
+      const gestationDays = isInek ? 283 : 150;
+
+      const eventDate = new Date(dateVal + "T00:00:00");
+      const birthDate = new Date(eventDate.getTime() + gestationDays * 86400000);
+      const dryDate = new Date(eventDate.getTime() + (gestationDays - 60) * 86400000);
+      const vaccineDate = new Date(eventDate.getTime() + (gestationDays - 30) * 86400000);
+
+      const record = {
+        id: "repro_" + Date.now(),
+        species: currentReproSpecies,
+        earTag: tagVal || "KÜPESİZ HAYVAN",
+        eventDateStr: dateVal,
+        birthDateMs: birthDate.getTime(),
+        dryDateMs: dryDate.getTime(),
+        vaccineDateMs: vaccineDate.getTime(),
+        createdAt: Date.now()
+      };
+
+      const records = getReproRecords();
+      records.unshift(record);
+      saveReproRecords(records);
+
+      alert("✅ Gebelik & Doğum Takvimi başarıyla kaydedildi!");
+    }
+
+    function deleteReproRecord(id) {
+      if (!confirm("Bu gebelik/doğum takvim kaydını silmek istediğinize emin misiniz?")) return;
+      let records = getReproRecords();
+      records = records.filter(r => r.id !== id);
+      saveReproRecords(records);
+    }
+
+    function shareCurrentReproWhatsApp() {
+      const dateVal = document.getElementById("reproEventDate")?.value;
+      if (!dateVal) {
+        alert("Lütfen önce tohumlama veya koç katımı tarihini seçiniz.");
+        return;
+      }
+      const tagVal = (document.getElementById("reproEarTag")?.value || "").trim().toUpperCase() || "Belirtilmedi";
+      const isInek = currentReproSpecies === 'inek';
+      const spName = isInek ? "İnek (Sığır) [Gebelik: 283 Gün]" : "Koyun / Keçi [Gebelik: 150 Gün]";
+      const eventName = isInek ? "Tohumlama Tarihi" : "Koç Katımı Tarihi";
+
+      const eventDate = new Date(dateVal + "T00:00:00");
+      const gestationDays = isInek ? 283 : 150;
+      const dryDate = new Date(eventDate.getTime() + (gestationDays - 60) * 86400000);
+      const vaccineDate = new Date(eventDate.getTime() + (gestationDays - 30) * 86400000);
+      const birthDate = new Date(eventDate.getTime() + gestationDays * 86400000);
+
+      const fDate = (d) => d.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' });
+
+      const msg = `*Çoban Doktor - Gebelik & Doğum Takvimi Raporu*\n` +
+        `🐾 *Tür:* ${spName}\n` +
+        `🏷️ *Küpe No:* ${tagVal}\n` +
+        `📅 *${eventName}:* ${fDate(eventDate)}\n\n` +
+        `🎯 *Tahmini Doğum Tarihi:* ${fDate(birthDate)}\n` +
+        `🥛 *Kuruya Çıkarma (Doğuma 60 Gün):* ${fDate(dryDate)} (Sağımı kes, meme tüpü uygula)\n` +
+        `💉 *Doğuma 1 Ay Kala (Doğuma 30 Gün):* ${fDate(vaccineDate)}\n` +
+        `   └─ ${isInek ? 'Karma İshal Aşısı + E-Vit/Selenyum' : 'Çelerme (Enterotoksemi) Aşısı + E-Vit/Selenyum'}\n\n` +
+        `Bu takvim Çoban Doktor Sürü Sağlığı modülü tarafından hesaplanmıştır.`;
+
+      window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function shareReproRecordWhatsApp(id) {
+      const records = getReproRecords();
+      const rec = records.find(r => r.id === id);
+      if (!rec) return;
+
+      const isInek = rec.species === 'inek';
+      const spName = isInek ? "İnek (Sığır)" : "Koyun / Keçi";
+      const eventName = isInek ? "Tohumlama Tarihi" : "Koç Katımı Tarihi";
+      const eventDate = new Date(rec.eventDateStr + "T00:00:00");
+      const birthDate = new Date(rec.birthDateMs);
+      const dryDate = new Date(rec.dryDateMs);
+      const vaccineDate = new Date(rec.vaccineDateMs);
+
+      const fDate = (d) => d.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' });
+
+      const msg = `*Çoban Doktor - Gebelik & Doğum Takvimi Raporu*\n` +
+        `🐾 *Tür:* ${spName}\n` +
+        `🏷️ *Küpe No:* ${rec.earTag}\n` +
+        `📅 *${eventName}:* ${fDate(eventDate)}\n\n` +
+        `🎯 *Tahmini Doğum Tarihi:* ${fDate(birthDate)}\n` +
+        `🥛 *Kuruya Çıkarma:* ${fDate(dryDate)}\n` +
+        `💉 *Doğuma 1 Ay Kala Aşı & Selenyum:* ${fDate(vaccineDate)}\n\n` +
+        `Bu kayıt Çoban Doktor Sürü Sağlığı Takviminden paylaşılmıştır.`;
+
+      window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function renderReproRecords() {
+      const container = document.getElementById("repro-records-container");
+      const countEl = document.getElementById("repro-total-count");
+      if (!container) return;
+
+      const records = getReproRecords();
+      if (countEl) countEl.textContent = `${records.length} Kayıt`;
+
+      if (records.length === 0) {
+        container.innerHTML = `
+          <div style="text-align:center; padding:20px 10px; color:#64748b; background:#f8fafc; border:1px dashed #cbd5e1; border-radius:10px;">
+            <div style="font-size:1.8rem; margin-bottom:4px;">🗓️</div>
+            <div style="font-weight:700; font-size:0.86rem; color:#334155;">Henüz kayıtlı gebelik takvimi yok</div>
+            <div style="font-size:0.75rem; color:#64748b;">Yukarıdan tohumlama veya koç katımı tarihini girip "Takvime Kaydet" butonuna basarak ekleyebilirsiniz.</div>
+          </div>
+        `;
+        return;
+      }
+
+      const now = new Date();
+      now.setHours(0, 0, 0, 0);
+
+      const fDate = (d) => d.toLocaleDateString('tr-TR', { day: 'numeric', month: 'numeric', year: 'numeric' });
+
+      container.innerHTML = records.map(rec => {
+        const isInek = rec.species === 'inek';
+        const cardClass = isInek ? "gebelik-saved-card cow" : "gebelik-saved-card sheep";
+        const spBadge = isInek ? "🐄 İnek (283 Gün)" : "🐑 Koyun (150 Gün)";
+        const eventName = isInek ? "Tohumlama" : "Koç Katımı";
+
+        const birthDate = new Date(rec.birthDateMs);
+        const dryDate = new Date(rec.dryDateMs);
+        const vaccineDate = new Date(rec.vaccineDateMs);
+        const eventDate = new Date(rec.eventDateStr + "T00:00:00");
+
+        const daysLeft = Math.round((birthDate.getTime() - now.getTime()) / 86400000);
+        let statusBadge = "";
+        if (daysLeft > 0) {
+          statusBadge = `<span style="background:#fee2e2; color:#b91c1c; font-weight:800; font-size:0.72rem; padding:2px 6px; border-radius:6px;">Doğuma ${daysLeft} Gün</span>`;
+        } else if (daysLeft === 0) {
+          statusBadge = `<span style="background:#ef4444; color:#fff; font-weight:800; font-size:0.72rem; padding:2px 6px; border-radius:6px;">🚨 BUGÜN DOĞUM!</span>`;
+        } else {
+          statusBadge = `<span style="background:#e2e8f0; color:#475569; font-weight:700; font-size:0.72rem; padding:2px 6px; border-radius:6px;">${Math.abs(daysLeft)} gün geçti</span>`;
+        }
+
+        return `
+          <div class="${cardClass}">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+              <div>
+                <strong style="color:#0f172a; font-size:0.92rem;">🏷️ ${rec.earTag}</strong>
+                <span style="font-size:0.75rem; color:#475569; margin-left:6px;">(${spBadge})</span>
+              </div>
+              <div>${statusBadge}</div>
+            </div>
+
+            <div style="font-size:0.78rem; color:#334155; line-height:1.5; background:#f8fafc; padding:6px 8px; border-radius:6px; border:1px solid #f1f5f9;">
+              <div>📅 <strong>${eventName}:</strong> ${fDate(eventDate)}</div>
+              <div>🎯 <strong>Tahmini Doğum:</strong> <span style="font-weight:800; color:#b91c1c;">${fDate(birthDate)}</span></div>
+              <div>🥛 <strong>Kuruya Çıkarma:</strong> ${fDate(dryDate)} (Doğuma 60 gün)</div>
+              <div>💉 <strong>Aşı & Selenyum:</strong> ${fDate(vaccineDate)} (Doğuma 1 ay)</div>
+            </div>
+
+            <div style="display:flex; justify-content:flex-end; gap:6px; margin-top:4px;">
+              <button onclick="shareReproRecordWhatsApp('${rec.id}')" class="kupe-btn-wa" style="padding:4px 8px; font-size:0.74rem;">📲 WhatsApp</button>
+              <button onclick="deleteReproRecord('${rec.id}')" class="kupe-btn-del" style="padding:4px 8px; font-size:0.74rem;">🗑️ Sil</button>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
     function updateNetworkStatus() {
       const statusEl = document.getElementById("wa-online-status");
       const offlineBar = document.getElementById("mera-offline-bar");
