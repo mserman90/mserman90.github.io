@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <circle cx="64" cy="64" r="58" fill="#047857"/>
+  <circle cx="64" cy="64" r="50" fill="#065f46"/>
+  <!-- Stethoscope / Medical Cross / Health symbol -->
+  <path d="M48 38 C48 30 52 26 64 26 C76 26 80 30 80 38 L80 56 C80 68 72 76 64 76 C56 76 48 68 48 56 Z" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+  <path d="M64 76 L64 92" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="64" cy="98" r="10" fill="#fbbf24" stroke="#ffffff" stroke-width="3"/>
+  <circle cx="48" cy="38" r="5" fill="#fbbf24"/>
+  <circle cx="80" cy="38" r="5" fill="#fbbf24"/>
+  <!-- Red Cross Badge -->
+  <rect x="22" y="54" width="20" height="20" rx="4" fill="#ffffff"/>
+  <rect x="29" y="57" width="6" height="14" fill="#dc2626"/>
+  <rect x="25" y="61" width="14" height="6" fill="#dc2626"/>
+  <!-- Animal Ear Silhouettes -->
+  <path d="M30 26 Q40 18 46 28 Z" fill="#fbbf24"/>
+  <path d="M98 26 Q88 18 82 28 Z" fill="#fbbf24"/>
+</svg>

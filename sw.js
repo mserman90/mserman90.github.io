@@ -1,4 +1,4 @@
-const CACHE_NAME = "ciftlik-portal-v9";
+const CACHE_NAME = "ciftlik-portal-v10";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
@@ -12,7 +12,8 @@ const ASSETS_TO_CACHE = [
   "./icons/noto-ox.svg",
   "./icons/noto-cow.svg",
   "./icons/noto-sheep.svg",
-  "./icons/noto-ration.svg"
+  "./icons/noto-ration.svg",
+  "./icons/noto-doctor.svg"
 ];
 
 self.addEventListener("install", (event) => {

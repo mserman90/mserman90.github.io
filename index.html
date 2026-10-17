@@ -188,9 +188,14 @@
         grid-template-columns: repeat(2, 1fr);
       }
     }
-    @media (min-width: 1024px) {
+    @media (min-width: 880px) {
       .animals-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (min-width: 1150px) {
+      .animals-grid {
+        grid-template-columns: repeat(5, 1fr);
       }
     }
 
@@ -769,6 +774,16 @@
         <span class="animal-launch-btn">Programı Başlat</span>
       </a>
 
+      <!-- 5. ÇOBAN DOKTOR -->
+      <a href="./coban-doktor/" class="animal-card" id="choice-coban" title="Çoban Doktor - Sığır ve Koyun Hızlı Ön Teşhis Rehberini Başlat">
+        <div class="animal-symbol-box" aria-hidden="true">
+          <img src="./icons/noto-doctor.svg" alt="Çoban Doktor İkonu" class="animal-symbol-img">
+        </div>
+        <h3 class="animal-name">Çoban Doktor</h3>
+        <p class="animal-app-title">Hızlı Ön Teşhis & İlk Yardım</p>
+        <span class="animal-launch-btn">Doktoru Başlat</span>
+      </a>
+
     </div>
 
   </main>
@@ -898,6 +913,22 @@
               <a href="./rasyon-rehberi/" class="modal-launch-link">Rasyon Hazırlama Rehberi'ni Aç</a>
             </div>
 
+            <!-- ÇOBAN DOKTOR -->
+            <div class="modal-app-card" data-modal-tags="all triage emergency" id="modal-card-coban">
+              <div>
+                <h4 class="modal-app-card-title">Çoban Doktor</h4>
+                <p class="modal-app-card-subtitle">Sığır ve Koyun Hızlı Ön Teşhis, İlk Yardım & WhatsApp Bildirimi</p>
+                <ul class="modal-feature-list">
+                  <li class="modal-feature-item"><strong>Adım Adım Karar Ağacı:</strong> Hayvan türü (buzağı, inek, toklu, kuzu) ve ana belirtiye göre hızlı yönlendirme.</li>
+                  <li class="modal-feature-item"><strong>Eliminatif Soru Sistemi:</strong> 3 basit soruyla (Evet / Kısmen / Hayır) olası hastalığı tespit eder.</li>
+                  <li class="modal-feature-item"><strong>Hemen Yap & Asla Yapma:</strong> Zehirlenme, şişme, felç veya salgın durumunda hayat kurtaran ilk müdahaleler.</li>
+                  <li class="modal-feature-item"><strong>Veterinere WhatsApp Bildirimi:</strong> Kulak küpe no ve belirtilerle tek tıkla hekime detaylı durum raporu iletir.</li>
+                  <li class="modal-feature-item"><strong>Güneş Işığı & Büyük Yazı:</strong> Merada ve açık sahada parlak ışık altında tam kontrastlı kullanım.</li>
+                </ul>
+              </div>
+              <a href="./coban-doktor/" class="modal-launch-link">Çoban Doktor'u Aç</a>
+            </div>
+
           </div>
         </section>
 
@@ -913,6 +944,7 @@
                   <th>Besi Rehberi</th>
                   <th>Koyun Rehberi</th>
                   <th>Rasyon Rehberi</th>
+                  <th>Çoban Doktor</th>
                 </tr>
               </thead>
               <tbody>
@@ -922,6 +954,7 @@
                   <td class="check-no">Temel</td>
                   <td class="check-no">Temel</td>
                   <td class="check-yes">Tam (NASEM/NRC/CNCPS)</td>
+                  <td class="check-no">Yok</td>
                 </tr>
                 <tr>
                   <td><strong>Otomatik Yem Dengeleme & Maliyet</strong></td>
@@ -929,6 +962,7 @@
                   <td class="check-no">Yok</td>
                   <td class="check-no">Yok</td>
                   <td class="check-yes">Var (En Düşük Maliyet)</td>
+                  <td class="check-no">Yok</td>
                 </tr>
                 <tr>
                   <td><strong>İlaç Arınma Süresi (İKAS)</strong></td>
@@ -936,30 +970,35 @@
                   <td class="check-yes">Var (Mezbaha)</td>
                   <td class="check-yes">Var (Küçükbaş)</td>
                   <td class="check-no">Sağlık Modülünde</td>
+                  <td class="check-no">Hekim Danışma</td>
                 </tr>
                 <tr>
-                  <td><strong>Sesli Küpe Sorgulama & Uyarı</strong></td>
+                  <td><strong>Sesli / Dijital Küpe Bildirimi</strong></td>
                   <td class="check-yes">Var</td>
                   <td class="check-yes">Var</td>
                   <td class="check-yes">Var</td>
                   <td class="check-no">Sağlık Modülünde</td>
+                  <td class="check-yes">Var (WhatsApp Raporu)</td>
                 </tr>
                 <tr>
-                  <td><strong>Hasta Muayenesi & Ateş Kontrolü</strong></td>
+                  <td><strong>Hızlı Ön Teşhis & Karar Ağacı</strong></td>
                   <td class="check-yes">Var</td>
                   <td class="check-yes">Var</td>
                   <td class="check-yes">Var</td>
                   <td class="check-no">Sağlık Modülünde</td>
+                  <td class="check-yes">Tam (Soru-Cevap Süzgeci)</td>
                 </tr>
                 <tr>
-                  <td><strong>Asidoz, İdrar Taşı & Ketozis Koruması</strong></td>
+                  <td><strong>Asidoz, İdrar Taşı & Şişme İlk Yardım</strong></td>
                   <td class="check-yes">Var (Saha)</td>
                   <td class="check-yes">Var (Saha)</td>
                   <td class="check-yes">Var (Saha)</td>
                   <td class="check-yes">Var (Rasyon Analizi)</td>
+                  <td class="check-yes">Var (Acil Aksiyon Kartı)</td>
                 </tr>
                 <tr>
-                  <td><strong>%100 Çevrimdışı Çalışma (Offline)</strong></td>
+                  <td><strong>%100 Çevrimdışı Çalışma (Offline PWA)</strong></td>
+                  <td class="check-yes">Evet</td>
                   <td class="check-yes">Evet</td>
                   <td class="check-yes">Evet</td>
                   <td class="check-yes">Evet</td>

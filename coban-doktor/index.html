@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta name="theme-color" content="#047857">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Çoban Doktor - Sığır ve koyun yetiştiricileri için %100 internetsiz çalışan pratik ön teşhis, acil ilk yardım adımları, hastalık belirti sorgulama ve veterinere WhatsApp bildirim asistanı.">
+  <meta name="keywords" content="çoban doktor, sığır hastalıkları teşhis, koyun hastalıkları teşhis, buzağı ishali ilk yardım, şap hastalığı, çelerme, ikiz koması, süt humması, arpa vurması tırnak yanması, mastitis, veteriner acil whatsapp">
+  <meta name="author" content="Dr. Mert Serman / Çoban Doktor">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://mserman90.github.io/coban-doktor/">
+
+  <!-- Favicon & PWA Icons -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Çoban Doktor">
+  <meta name="application-name" content="Çoban Doktor">
+
+  <!-- Open Graph / WhatsApp -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mserman90.github.io/coban-doktor/">
+  <meta property="og:title" content="Çoban Doktor - Sığır ve Koyun Ön Teşhis Rehberi">
+  <meta property="og:description" content="%100 internetsiz çalışan sığır ve koyun hızlı hastalık ön teşhis rehberi, ilk yardım ve acil veterinere bildirim sistemi.">
+  <meta property="og:image" content="https://mserman90.github.io/coban-doktor/apple-touch-icon.png">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:site_name" content="Çoban Doktor">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Çoban Doktor",
+    "alternateName": "Sığır ve Koyun Hızlı Ön Teşhis Rehberi PWA",
+    "applicationCategory": "BusinessApplication",
+    "applicationSubCategory": "Veterinary & Livestock Diagnostic Guide",
+    "operatingSystem": "All",
+    "softwareVersion": "1.0",
+    "description": "Sığır ve koyun yetiştiricileri için internetsiz çalışan soru-cevaplı hastalık ön teşhis rehberi, ilk yardım ve veteriner bildirim sistemi.",
+    "url": "https://mserman90.github.io/coban-doktor/",
+    "inLanguage": "tr",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "TRY"
+    }
+  }
+  </script>
+
+  <title>Çoban Doktor - Sığır ve Koyun Hızlı Ön Teşhis Rehberi</title>
+
+  <style>
+    /* =========================================================================
+       SIFIR BAĞIMLILIK (%100 ÇEVRİMDIŞI) MODERN VE ERİŞİLEBİLİR STİL SİSTEMİ
+       ========================================================================= */
+    :root {
+      --bg: #f5f5f4;
+      --card-bg: #ffffff;
+      --text: #1c1917;
+      --text-muted: #57534e;
+      --primary: #047857;
+      --primary-hover: #065f46;
+      --primary-light: #ecfdf5;
+      --primary-border: #a7f3d0;
+      --border: #e7e5e4;
+      --danger: #dc2626;
+      --danger-light: #fef2f2;
+      --danger-border: #fecaca;
+      --warning: #d97706;
+      --warning-light: #fffbeb;
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    /* ÜST BAŞLIK */
+    header {
+      background-color: var(--primary);
+      color: #ffffff;
+      padding: calc(12px + env(safe-area-inset-top, 0px)) 16px 12px 16px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+    .header-inner {
+      max-width: 640px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+    .brand-icon {
+      font-size: 2.2rem;
+      line-height: 1;
+    }
+    .header-brand h1 {
+      font-size: 1.25rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+    .header-brand p {
+      font-size: 0.72rem;
+      color: #a7f3d0;
+      font-weight: 600;
+    }
+    .header-actions {
+      display: flex;
+      gap: 6px;
+    }
+    .hdr-btn {
+      background: rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      padding: 6px 12px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      transition: all 0.15s ease;
+    }
+    .hdr-btn:active {
+      transform: scale(0.95);
+    }
+
+    /* ANA TAŞIYICI */
+    main#app-container {
+      max-width: 640px;
+      width: 100%;
+      margin: 0 auto;
+      flex: 1;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* KART STİLLERİ */
+    .card {
+      background-color: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      border: 1.5px solid var(--border);
+    }
+    .card-banner {
+      border-left: 6px solid var(--primary);
+    }
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 900;
+      line-height: 1.25;
+      color: var(--text);
+    }
+    .card-subtitle {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+      font-weight: 600;
+    }
+
+    /* BUTONLAR */
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 14px;
+      font-size: 1rem;
+      font-weight: 800;
+      border: none;
+      cursor: pointer;
+      transition: all 0.12s ease;
+      text-align: center;
+      text-decoration: none;
+    }
+    .btn:active {
+      transform: scale(0.97);
+    }
+    .btn-primary {
+      background-color: var(--primary);
+      color: #ffffff;
+    }
+    .btn-secondary {
+      background-color: #e7e5e4;
+      color: #1c1917;
+    }
+    .btn-warning {
+      background-color: var(--warning);
+      color: #ffffff;
+    }
+    .btn-danger {
+      background-color: var(--danger);
+      color: #ffffff;
+    }
+    .btn-whatsapp {
+      background-color: #16a34a;
+      color: #ffffff;
+      font-size: 1.05rem;
+      box-shadow: 0 4px 14px rgba(22, 163, 74, 0.35);
+    }
+
+    /* TÜR SEÇİM KUTULARI */
+    .species-group {
+      margin-bottom: 12px;
+    }
+    .species-group-title {
+      font-size: 1.1rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .btn-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    /* KATEGORİ LİSTESİ */
+    .category-card {
+      background-color: var(--card-bg);
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      transition: all 0.12s ease;
+      text-align: left;
+      width: 100%;
+    }
+    .category-card:active {
+      transform: scale(0.98);
+      border-color: var(--primary);
+      background-color: var(--primary-light);
+    }
+    .category-icon {
+      font-size: 2.2rem;
+      flex-shrink: 0;
+    }
+    .category-name {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+    .category-desc {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+      line-height: 1.35;
+    }
+
+    /* SORU LİSTESİ VE BELİRTİLER */
+    .symptom-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background-color: #f5f5f4;
+      padding: 12px 14px;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      border: 1px solid var(--border);
+      line-height: 1.4;
+    }
+    .symptom-bullet {
+      font-size: 1.2rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    /* SONUÇ VE AKSİYON LİSTESİ */
+    .urgency-badge {
+      padding: 14px 16px;
+      border-radius: 14px;
+      font-size: 1.05rem;
+      font-weight: 900;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .badge-red {
+      background-color: var(--danger);
+      color: #ffffff;
+    }
+    .badge-yellow {
+      background-color: var(--warning);
+      color: #ffffff;
+    }
+    .action-box {
+      border-radius: 12px;
+      padding: 14px;
+      margin-top: 10px;
+    }
+    .action-box.do-box {
+      background-color: var(--primary-light);
+      border: 1.5px solid var(--primary-border);
+    }
+    .action-box.dont-box {
+      background-color: var(--danger-light);
+      border: 1.5px solid var(--danger-border);
+    }
+    .action-box-title {
+      font-size: 0.95rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .do-box .action-box-title { color: #065f46; }
+    .dont-box .action-box-title { color: #991b1b; }
+    .action-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .action-list li {
+      display: flex;
+      gap: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    /* KÜPE GİRİŞİ */
+    .ear-tag-input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      outline: none;
+      margin-top: 4px;
+    }
+    .ear-tag-input:focus {
+      border-color: var(--primary);
+    }
+
+    /* GÜNEŞ IŞIĞI / YÜKSEK KONTRAST MODU */
+    body.high-contrast {
+      --bg: #000000;
+      --card-bg: #121212;
+      --text: #ffff00;
+      --text-muted: #e5e500;
+      --border: #ffff00;
+      --primary: #ffff00;
+      --primary-light: #1c1c00;
+      --primary-border: #ffff00;
+    }
+    body.high-contrast header {
+      background-color: #000000;
+      border-bottom: 3px solid #ffff00;
+    }
+    body.high-contrast .header-brand h1 { color: #ffff00; }
+    body.high-contrast .header-brand p { color: #ffffff; }
+    body.high-contrast .hdr-btn {
+      background: #ffff00;
+      color: #000000;
+      border-color: #ffff00;
+    }
+    body.high-contrast .card {
+      border: 2px solid #ffff00;
+    }
+    body.high-contrast .btn-primary {
+      background-color: #ffff00;
+      color: #000000;
+      font-weight: 900;
+    }
+    body.high-contrast .symptom-item {
+      background-color: #1a1a00;
+      border-color: #ffff00;
+      color: #ffff00;
+    }
+    body.high-contrast .category-card {
+      border-color: #ffff00;
+    }
+    body.high-contrast .action-box.do-box,
+    body.high-contrast .action-box.dont-box {
+      background-color: #141414;
+      border-color: #ffff00;
+      color: #ffff00;
+    }
+    body.high-contrast .action-box-title { color: #ffff00 !important; }
+    body.high-contrast .ear-tag-input {
+      background: #141414;
+      color: #ffff00;
+      border-color: #ffff00;
+    }
+
+    /* BÜYÜK YAZI MODU */
+    body.large-text {
+      font-size: 1.15rem;
+    }
+    body.large-text .card-title { font-size: 1.4rem; }
+    body.large-text .btn { font-size: 1.15rem; padding: 16px 18px; }
+    body.large-text .symptom-item { font-size: 1.1rem; }
+
+    /* ALT BİLGİ */
+    footer {
+      text-align: center;
+      padding: 14px 16px;
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      max-width: 640px;
+      margin: 0 auto;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ÜST ERİŞİLEBİLİRLİK BARI -->
+  <header>
+    <div class="header-inner">
+      <div class="header-brand" onclick="resetApp()" title="Başa Dön">
+        <span class="brand-icon">🩺</span>
+        <div>
+          <h1>Çoban Doktor</h1>
+          <p>Sığır ve Koyun Hızlı Ön Teşhis Rehberi</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button onclick="toggleLargeText()" class="hdr-btn" title="Yazıyı Büyüt / Küçült">A+</button>
+        <button onclick="toggleContrast()" class="hdr-btn" title="Güneş Işığı / Gece Modu">☀️ Mod</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ANA İÇERİK ALANI -->
+  <main id="app-container">
+    <!-- Dinamik JS Ekranı -->
+  </main>
+
+  <!-- ALT BİLGİ -->
+  <footer>
+    Bu uygulama yetiştiriciler için hızlı ön bilgilendirme ve acil durum rehberidir. Kesin teşhis ve ilaç tedavisi için mutlaka Veteriner Hekiminize başvurunuz.
+  </footer>
+
+  <script>
+    // =========================================================================
+    // HASTALIK VERİTABANI VE SAHA KARAR AĞACI
+    // =========================================================================
+    const DISEASES = [
+      {
+        id: "sap",
+        name: "Şap Hastalığı (Tabak)",
+        species: ["sigir", "koyun"],
+        category: "agiz_deri",
+        urgency: "RED",
+        symptoms: [
+          "Ağzından ip gibi yoğun salya akıyor, ağzını şapırdatıyor",
+          "Dilinde, diş etinde, damağında su toplamış veya soyulmuş kırmızı yaralar var",
+          "Tırnak aralarında yara var, ayaklarını basamıyor ve şiddetli topallıyor",
+          "Memede kabarcık ve yara var, sürüdeki diğer hayvanlara hızla bulaşıyor"
+        ],
+        doList: [
+          "Hasta hayvanı DERHAL sürüden ayrı, kuru ve korunaklı bir bölmeye (karantinaya) alın.",
+          "İhbarı mecburi hastalıktır; vakit kaybetmeden İl/İlçe Tarım Müdürlüğüne veya Veteriner Hekime haber verin.",
+          "Ağzını karbonatlı/tuzlu ılık suyla yıkayın, yumuşak ot ve kepek bulamacı verin.",
+          "Sürüye yabancı araç ve ziyaretçi sokmayın, ahır girişine dezenfektanlı kireç paspası koyun."
+        ],
+        dontList: [
+          "Hayvanı kesinlikle pazara götürmeyin, dışarıdan sürüye hayvan sokmayın.",
+          "Hasta hayvanla sağlam hayvanlara aynı yemlik ve suluktan su/yem vermeyin.",
+          "Tırnaktaki veya ağızdaki yaraları sert cisimlerle kazımayın."
+        ]
+      },
+      {
+        id: "noduler",
+        name: "Çiçek / Yumru Deri Hastalığı (Nodüler Ekzantem)",
+        species: ["sigir", "koyun"],
+        category: "agiz_deri",
+        urgency: "RED",
+        symptoms: [
+          "Deride fındık/ceviz büyüklüğünde sert şişlikler, kabartılar ve yumrular var",
+          "Yüksek ateş (40-41°C), göz ve burun akıntısı, şiddetli iştahsızlık var",
+          "Bacaklarda ödem/şişlik ve topallık oluştu, süt aniden kesildi",
+          "Sineklerin ve sokucu haşerelerin yoğun olduğu dönemde başladı"
+        ],
+        doList: [
+          "Hasta hayvanı hemen sineklerden korunaklı, kapalı ve ayrı bir bölmeye ayırın.",
+          "Bulaşmayı önlemek için ahırda ve hayvanların üzerinde derhal sinek mücadelesi yapın.",
+          "Derhal Veteriner Hekime haber verip aşı ve destekleyici tedavi başlatın."
+        ],
+        dontList: [
+          "Derideki nodülleri ve şişlikleri bıçakla kesmeyin, patlatmayın.",
+          "Hasta hayvanları merada diğer sürülerle temas ettirmeyin."
+        ]
+      },
+      {
+        id: "celereme",
+        name: "Çelerme / Yem Çarpması (Enterotoksemi)",
+        species: ["koyun"],
+        category: "genel",
+        urgency: "RED",
+        symptoms: [
+          "En iyi gelişen toklu veya kuzularda aniden sıçrama, kasılma ve yere yıkılma var",
+          "Kafayı geriye bükme, diş gıcırdatma, ağızdan köpük gelme var",
+          "Ani yem değişikliği (fazla arpa, taze körpe mera veya kesif yem artışı) sonrası başladı",
+          "Birkaç saat içinde hızlı ölüm meydana geliyor"
+        ],
+        doList: [
+          "Kesif yemi, arpayı ve fabrika yemini DERHAL tamamen kesin; sadece kuru kaba saman/ot verin.",
+          "Acil durumlarda sürünün diğer hayvanlarına veteriner kontrolünde çelerme aşısı ve serum uygulayın.",
+          "Sağ kalan hayvanlara içme suyuyla karbonat ve probiyotik takviyesi sağlayın."
+        ],
+        dontList: [
+          "Aşılanmamış koyun ve kuzuları aniden zengin körpe meraya veya arpa yemliğine salmayın.",
+          "Can çekişen veya baygın hayvana ağızdan zorla sıvı içirmeyin (ciğerine kaçıp boğar)."
+        ]
+      },
+      {
+        id: "uc_gun",
+        name: "Üç Gün Hastalığı (Geçici Felç)",
+        species: ["sigir"],
+        category: "genel",
+        urgency: "YELLOW",
+        symptoms: [
+          "Aniden yüksek ateş başladı (40-41°C), hayvan şiddetle titriyor",
+          "Bacakları tutmuyor, ayakta duramıyor, felç olmuş gibi yatıyor",
+          "Yem yemeyi ve sütü bıçak gibi kesti, ağzından salya geliyor",
+          "Genellikle 3 gün sürer ve uygun bakımla toparlar"
+        ],
+        doList: [
+          "Hayvanı bol saplı, kuru, gölge ve yumuşak bir yere yatırın.",
+          "Yatış yönünü günde 3-4 kez değiştirin (uzun süre aynı tarafta yatarsa bacak felci kalıcı olur).",
+          "Ateş düşürücü ve kalsiyum desteği için Veteriner Hekiminizi çağırın."
+        ],
+        dontList: [
+          "Yutkunma refleksi felç olabileceği için zorla şişeyle su veya ilaç içirmeyin.",
+          "Hayvanı tekmeyle veya zorla ayağa kaldırmaya çalışmayın."
+        ]
+      },
+      {
+        id: "zaturre",
+        name: "Akciğer Enfeksiyonu / Zatürre (Yol Yorgunluğu)",
+        species: ["sigir", "koyun"],
+        category: "solunum",
+        urgency: "YELLOW",
+        symptoms: [
+          "Sık ve kuru öksürüyor, burnundan iltihaplı/koyu sarı-yeşil akıntı geliyor",
+          "Karnından hızlı hızlı körük gibi soluyor, boynunu öne uzatıyor",
+          "Kulakları düşmüş, gözleri mat, ateşi 39.5°C'nin üstünde",
+          "Yakın zamanda kamyonla nakliye yapıldı veya hava aniden soğudu"
+        ],
+        doList: [
+          "Hayvanı rüzgar almayan, hava cereyansız, havadar ve kuru altlıklı bir bölmeye alın.",
+          "Ciğerleri koruyucu antibiyotik ve ateş düşürücü iğne için Veteriner Hekiminizi çağırın.",
+          "Önüne ılık su ve temiz kaliteli kuru ot koyun."
+        ],
+        dontList: [
+          "Basık, amonyak kokulu ve havasız ahırda tutmayın.",
+          "Gelişigüzel yarım doz antibiyotik yapıp 1 günde bırakmayın (hastalık kronikleşir)."
+        ]
+      },
+      {
+        id: "buzagi_ishal",
+        name: "Buzağı / Kuzu İshali (Sıvı Kaybı Tehlikesi)",
+        species: ["sigir", "koyun"],
+        category: "dogum_ishal",
+        urgency: "RED",
+        symptoms: [
+          "Yavru su gibi cıvık, sarı-beyaz, köpüklü veya kanlı ishal yapıyor",
+          "Gözleri içeri çökmüş, boyun derisi çekildiğinde hemen yerine oturmuyor",
+          "Kulakları ve bacak uçları buz gibi soğuk, emme refleksi tamamen kaybolmuş",
+          "Yerde baygın yatıyor, ayağa kalkacak gücü kalmamış"
+        ],
+        doList: [
+          "Tuz ve su kaybını önlemek için derhal Buzağı İshal Elektroliti hazırlayıp ılık içirin.",
+          "Altına bol kuru sap serin, göğsünü sıcak tutacak yelek/battaniye örtün.",
+          "Gözleri çökmüş ve ememiyorsa damardan serum için ACİL Veteriner Hekim çağırın."
+        ],
+        dontList: [
+          "İshal oldu diye sütü tamamen kesmeyin (elektroliti sütün öğün aralarında verin).",
+          "Soğuk süt veya pis kaplarla besleme yapmayın."
+        ]
+      },
+      {
+        id: "mastitis",
+        name: "Meme İltihabı (Mastitis)",
+        species: ["sigir", "koyun"],
+        category: "meme",
+        urgency: "YELLOW",
+        symptoms: [
+          "Sütte pıhtı, lor parçaları, sarımtırak su veya kan var",
+          "Meme lobu taş gibi sert, şiş, el değdiğinde ateş gibi sıcak ve ağrılı",
+          "Sağım yapılırken hayvan tekmeliyor, memeye dokundurmuyor",
+          "İleri vakada hayvan yemden kesilir ve titreyerek yatar"
+        ],
+        doList: [
+          "Hasta memeyi sık sık (günde 4-5 kez) tamamen sağarak içindeki zehirli sütü boşaltın.",
+          "Hasta hayvanı her zaman EN SON sağın ki diğer hayvanlara meme mikrobu bulaşmasın.",
+          "Meme içi antibiyotik tüp ve yangı giderici için Veteriner Hekiminize danışın."
+        ],
+        dontList: [
+          "Pıhtılı bozuk sütü yere veya altlığa sağmayın (ayrı bir kaba sağıp dökün).",
+          "Bu sütü kesinlikle buzağılara veya kuzulara içirmeyin, tanka katmayın."
+        ]
+      },
+      {
+        id: "arpa_vurmasi",
+        name: "Arpa Vurması / Ayak Yanması (İşkembe Ekşimesi)",
+        species: ["sigir", "koyun"],
+        category: "ayak_topallik",
+        urgency: "YELLOW",
+        symptoms: [
+          "Hayvan köz üstünde yürür gibi ayaklarını değiştirerek basıyor",
+          "Tırnak dipleri ve ayak tabanı el yakacak kadar sıcak",
+          "Cıvık, köpüklü, ekşi kokulu ve sarımtırak tezek yapıyor",
+          "Yem kırma veya arpa ambarına girme, aşırı fabrika yemi yeme öyküsü var"
+        ],
+        doList: [
+          "Kesif yemi ve arpayı DERHAL kesin; bol kuru saman ve kaliteli ot verin.",
+          "Ağızdan 150-200 gram yemek sodasını (karbonat) ılık suda eritip içirin.",
+          "Ayaklarına 20-30 dakika boyunca hortumla soğuk su tutarak yangıyı dindirin."
+        ],
+        dontList: [
+          "Düzelene kadar kesinlikle arpa, ezme veya mısır tanesi vermeyin.",
+          "Hayvanı sert zeminlerde koşturmaya veya yürütmeye zorlamayın."
+        ]
+      },
+      {
+        id: "sut_hummasi",
+        name: "Süt Humması (Doğum Felci / Kalsiyum Çökmesi)",
+        species: ["sigir", "koyun"],
+        category: "genel",
+        urgency: "RED",
+        symptoms: [
+          "Doğumdan sonraki ilk 48 saatte hayvanın bacakları titredi ve yere yıkıldı",
+          "Kafasını kıvırıp göğsünün üstüne koymuş yatıyor (S-pozisyonu)",
+          "Göz bebekleri büyümüş, kulak ve boynuz dipleri soğuk",
+          "İşkembe hareketleri ve dışkılama tamamen durmuş"
+        ],
+        doList: [
+          "ACİL VETERİNER ÇAĞIRIN! Damardan kalsiyum serumu verilmesi hayat kurtarır.",
+          "Veteriner gelene kadar hayvanı göğsü üstünde dik tutun (yan yatmasın, gaz şişmesi boğar).",
+          "Üzerine battaniye örterek vücut sıcaklığını koruyun."
+        ],
+        dontList: [
+          "Ağzından asla zorla sıvı içirmeyin (yutkunamaz, doğrudan ciğerine kaçar!).",
+          "Tek başına kalsiyum iğnesini damara hızlı vermeyin (kalbi anında durdurabilir)."
+        ]
+      },
+      {
+        id: "ikiz_koması",
+        name: "İkiz Koması / Gebelik Zehirlenmesi (Gebelik Toksemisi)",
+        species: ["koyun"],
+        category: "genel",
+        urgency: "RED",
+        symptoms: [
+          "Doğuma 2-4 hafta kalmış gebe anaç koyunlarda durgunluk ve sürüden geri kalma var",
+          "Koyun kör gibi yürür, burnunu duvara dayar, dişlerini gıcırdatır",
+          "Nefesinde tatlımsı/aseton kokusu duyulur",
+          "Özellikle ikiz/üçüz gebe ve aşırı yağlı ya da çok zayıf koyunlarda görülür"
+        ],
+        doList: [
+          "Hemen enerji desteği için ağızdan Gliserin veya Propilen Glikol (veya koyu pekmezli ılık su) verin.",
+          "Veteriner hekim kontrolünde damardan glikoz serumu ve vitamin desteği uygulatın.",
+          "Sürüdeki diğer gebe koyunlara kaliteli yonca ve kademeli ezme takviyesi yapın."
+        ],
+        dontList: [
+          "Son haftalarda gebeleri aç bırakmayın, soğuk hava stresine maruz bırakmayın.",
+          "Ağır komadaki hayvana zorla büyük lokmalar yutturmayın."
+        ]
+      },
+      {
+        id: "beyin_donmesi",
+        name: "Beyin Dönmesi / Yıldız Gözleme (B1 Vitamini Eksikliği - CCN)",
+        species: ["sigir", "koyun"],
+        category: "genel",
+        urgency: "RED",
+        symptoms: [
+          "Hayvan kafasını havaya dikip yıldızları seyreder gibi geriye atıyor",
+          "Gözleri körleşmiş gibi sağa sola çarpıyor, dairesel hareketlerle dönüyor",
+          "Kaslarda titreme, diş gıcırdatma ve nöbetler halinde kasılma var",
+          "Yüksek tahıl/arpa beslemesi veya bozuk kükürtlü yem sonrası ortaya çıkar"
+        ],
+        doList: [
+          "ACİL VETERİNER ÇAĞIRIN! Erken dönemde yapılan damar/kas içi Tiamin (B1 Vitamini) iğnesi tam iyileşme sağlar.",
+          "Işıksız, sakin ve bol saplı bir bölmeye alın; kafasını çarpmaması için önlem alın.",
+          "Kesif yemi derhal kesin, kaliteli kuru ot verin."
+        ],
+        dontList: [
+          "Nöbet geçiren hayvana müdahale ederken boynuz veya tekme darbelerine dikkat edin.",
+          "Gecikmeyin; ilk 24 saatte B1 vitamini yapılmazsa beyin dokusu kalıcı hasar görür."
+        ]
+      },
+      {
+        id: "idrar_tasi",
+        name: "İdrar Yolu Tıkanması / Sidik Zoru",
+        species: ["sigir", "koyun"],
+        category: "siskinlik_idrar",
+        urgency: "RED",
+        symptoms: [
+          "Erkek danada veya koçta sürekli kuyruk sallama ve idrar yapamama var",
+          "Karın altına tekme atıyor, acıyla inliyor, damla damla kanlı idrar geliyor",
+          "Karnı gergin, idrar kesesi patlarsa bir anda rahatlar ama karnı su toplar (su karnı)",
+          "Aşırı kepek, mısır veya kireçli kuyu suyu kullanımı sonrası yaygındır"
+        ],
+        doList: [
+          "ACİL VETERİNER ÇAĞIRIN! İdrar kesesi patlamadan önce müdahale edilmesi şarttır.",
+          "İdrar yolunu asitleştirici amonyum klorür veya veteriner tavsiyeli tozları uygulayın.",
+          "Temiz ve bol su içmesini sağlayın, yalama taşı ve tuz verin."
+        ],
+        dontList: [
+          "Karın bölgesine sertçe bastırmayın (gergin idrar kesesi patlayabilir).",
+          "Sadece kepekle tek yönlü besleme yapmayın."
+        ]
+      },
+      {
+        id: "iskembe_gazi",
+        name: "İşkembe Gazı ve Şişmesi (Sol Böğür Davul Gibi)",
+        species: ["sigir", "koyun"],
+        category: "siskinlik_idrar",
+        urgency: "RED",
+        symptoms: [
+          "Sol açlık çukuru yukarı doğru davul gibi şişmiş, vurulduğunda tok ses veriyor",
+          "Nefes almakta güçlük çekiyor, dili dışarıda, gözleri büyümüş",
+          "Körpe yoncaya girme, kırağılı taze mera veya aşırı ıslak ot sonrası aniden başladı",
+          "Hayvan huzursuz, durup durup yatıp kalkıyor"
+        ],
+        doList: [
+          "Köpük varsa köpüğü söndürmek için hemen 250-500 mL sıvı bitkisel yağ (çiçek yağı) içirin.",
+          "Ön ayaklarını yüksek bir yere çıkarın (işkembeyi göğüsten uzaklaştırır, nefesi rahatlatır).",
+          "Ağzına yanlamasına bir sopa/odun bağlayın (çiğneme refleksiyle gaz çıkışını tetikler).",
+          "Boğulma tehlikesi varsa hekim kontrolünde sol açlık çukurundan trokar salın."
+        ],
+        dontList: [
+          "Hayvanı sırtüstü veya sağ tarafına yatırmayın (boğulmayı hızlandırır).",
+          "Kırağılı/ıslak yonca merasına aç hayvanları asla sokmayın."
+        ]
+      },
+      {
+        id: "sarbon",
+        name: "Şarbon (Dalak Hastalığı / Ani Ölüm Şüphesi)",
+        species: ["sigir", "koyun"],
+        category: "genel",
+        urgency: "RED",
+        symptoms: [
+          "Hayvanda önceden hiçbir belirti yokken aniden şişti veya ansızın öldü",
+          "Ağzından, burnundan veya makatından pıhtılaşmayan, katran gibi kara kan akıyor",
+          "Ölen hayvanın gövdesi çok hızlı şişer ve kokuşur"
+        ],
+        doList: [
+          "HAYVANA KESİNLİKLE DOKUNMAYIN ve yanına insan ya da köpek yaklaştırmayın!",
+          "Derhal İl/İlçe Tarım Müdürlüğünü ve Veteriner Hekimi arayın (İnsana da bulaşan ölümcül hastalıktır).",
+          "Hayvanın yattığı yeri derhal sönmemiş kireçle kapatın ve karantinaya alın."
+        ],
+        dontList: [
+          "HAYVANI ASLA KESMEYİN, BIÇAK VURMAYIN, DERİSİNİ YÜZMEYİN, ETİNİ TÜKETMEYİN!",
+          "Kanını toprağa veya suya akıtmayın (toprakta 50 yıl sporları canlı kalır)."
+        ]
+      }
+    ];
+
+    // =========================================================================
+    // ŞİKAYET KATEGORİLERİ
+    // =========================================================================
+    const CATEGORIES = [
+      { id: "genel", icon: "🌡️", title: "Genel Durum / Ateş / Yatma", desc: "Yem yemiyor, titriyor, ayağa kalkamıyor, baygın veya ani ölüm şüphesi" },
+      { id: "agiz_deri", icon: "👅", title: "Ağızda Salya / Deride Yara", desc: "Ağzından salya akıyor, dilde/dişte yara veya deride sert yumrular var" },
+      { id: "solunum", icon: "🫁", title: "Öksürük / Burun Akıntısı", desc: "Öksürüyor, körük gibi hızlı soluyor, burun akıntısı ve hırıltı var" },
+      { id: "dogum_ishal", icon: "🍼", title: "İshal / Doğum / Yavru Atma", desc: "Buzağı/kuzu cıvık ishal, gebe hayvan düşük yaptı veya süt humması" },
+      { id: "meme", icon: "🥛", title: "Meme Şişliği / Bozuk Süt", desc: "Sütte pıhtı veya kan var, meme lobu taş gibi sert, sıcak ve ağrılı" },
+      { id: "ayak_topallik", icon: "🦶", title: "Topallık / Ayak Yanması", desc: "Köz üstünde gibi basıyor, tırnak arası yaralı, yürümekte zorlanıyor" },
+      { id: "siskinlik_idrar", icon: "🎈", title: "Şişkinlik / Gaz / Sidik Zoru", desc: "Sol böğür davul gibi gaz şişti veya hayvan idrar yapamıyor" }
+    ];
+
+    // =========================================================================
+    // UYGULAMA DURUMU (STATE)
+    // =========================================================================
+    let state = {
+      step: 1,
+      species: null,
+      group: null,
+      category: null,
+      candidates: [],
+      currentDiseaseIndex: 0,
+      scores: {},
+      selectedSymptoms: [],
+      earTag: ""
+    };
+
+    function resetApp() {
+      state = {
+        step: 1,
+        species: null,
+        group: null,
+        category: null,
+        candidates: [],
+        currentDiseaseIndex: 0,
+        scores: {},
+        selectedSymptoms: [],
+        earTag: ""
+      };
+      render();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function toggleContrast() {
+      document.body.classList.toggle("high-contrast");
+    }
+
+    function toggleLargeText() {
+      document.body.classList.toggle("large-text");
+    }
+
+    function selectSpecies(sp, grp) {
+      state.species = sp;
+      state.group = grp;
+      state.step = 2;
+      render();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function selectCategory(catId) {
+      state.category = catId;
+      state.candidates = DISEASES.filter(d => d.species.includes(state.species) && d.category === catId);
+      if (state.candidates.length === 0) {
+        state.candidates = DISEASES.filter(d => d.species.includes(state.species));
+      }
+      state.currentDiseaseIndex = 0;
+      state.scores = {};
+      state.selectedSymptoms = [];
+      state.candidates.forEach(d => state.scores[d.id] = 0);
+      state.step = 3;
+      render();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function answerQuestion(answer) {
+      const currentDisease = state.candidates[state.currentDiseaseIndex];
+      if (answer === "YES") {
+        state.scores[currentDisease.id] += 100;
+        state.selectedSymptoms.push(...currentDisease.symptoms);
+        state.step = 4;
+        render();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      } else if (answer === "PARTIAL") {
+        state.scores[currentDisease.id] += 50;
+        state.selectedSymptoms.push(currentDisease.symptoms[0]);
+      }
+
+      if (state.currentDiseaseIndex + 1 < state.candidates.length) {
+        state.currentDiseaseIndex++;
+        render();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        state.step = 4;
+        render();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    }
+
+    function sendWhatsApp(diseaseName, urgency) {
+      const earTagInput = document.getElementById("earTagInput");
+      const tag = earTagInput && earTagInput.value.trim() ? earTagInput.value.trim().toUpperCase() : "Belirtilmedi";
+      const spName = state.species === "sigir" ? "Büyükbaş (Sığır)" : "Küçükbaş (Koyun)";
+      const symptomsText = state.selectedSymptoms.length > 0 ? state.selectedSymptoms.slice(0, 3).join(", ") : "Halsizlik ve genel hastalık belirtileri";
+
+      const message = `*Çoban Doktor Ön Bildirim Raporu*\n` +
+        `🐾 *Tür / Grup:* ${spName} (${state.group})\n` +
+        `🏷️ *Kulak Küpe No:* ${tag}\n` +
+        `⚠️ *Ön Şüphe:* ${diseaseName} (${urgency === 'RED' ? 'ACİL MÜDAHALE / BULAŞICI' : 'HEKİM KONTROLÜ'})\n` +
+        `📋 *Gözlenen Belirtiler:* ${symptomsText}\n\n` +
+        `Hocam hayvanı ayırdım, ilk tedbirleri aldım. Teşhis ve tedavi için desteğinizi rica ederim.`;
+
+      const url = `https://wa.me/?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank");
+    }
+
+    // =========================================================================
+    // EKRAN ÇİZİM MOTORU (RENDER)
+    // =========================================================================
+    function render() {
+      const container = document.getElementById("app-container");
+
+      // ADIM 1: TÜR VE GRUP SEÇİMİ
+      if (state.step === 1) {
+        container.innerHTML = `
+          <div class="card card-banner">
+            <h2 class="card-title">1. Hangi Hayvanınız Rahatsız?</h2>
+            <p class="card-subtitle">Doğru ön teşhis için önce hasta hayvanın türünü ve grubunu seçin.</p>
+          </div>
+
+          <!-- BÜYÜKBAŞ (SIĞIR) -->
+          <div class="card species-group">
+            <div class="species-group-title">
+              <span style="font-size:1.8rem;">🐄</span>
+              <span>BÜYÜKBAŞ (Sığır)</span>
+            </div>
+            <div class="btn-grid">
+              <button onclick="selectSpecies('sigir', 'Buzağı')" class="btn btn-primary">🍼 Buzağı</button>
+              <button onclick="selectSpecies('sigir', 'Sağmal İnek')" class="btn btn-primary">🥛 Sağmal İnek</button>
+              <button onclick="selectSpecies('sigir', 'Gebe / Düve')" class="btn btn-primary">🤰 Gebe / Düve</button>
+              <button onclick="selectSpecies('sigir', 'Besi Danası')" class="btn btn-primary">🥩 Besi Danası</button>
+            </div>
+          </div>
+
+          <!-- KÜÇÜKBAŞ (KOYUN) -->
+          <div class="card species-group">
+            <div class="species-group-title">
+              <span style="font-size:1.8rem;">🐑</span>
+              <span>KÜÇÜKBAŞ (Koyun)</span>
+            </div>
+            <div class="btn-grid">
+              <button onclick="selectSpecies('koyun', 'Kuzu')" class="btn btn-warning">🍼 Kuzu</button>
+              <button onclick="selectSpecies('koyun', 'Anaç Koyun')" class="btn btn-warning">🐑 Anaç Koyun</button>
+              <button onclick="selectSpecies('koyun', 'Koç / Toklu')" class="btn btn-warning">🐏 Koç / Toklu</button>
+              <button onclick="selectSpecies('koyun', 'Besi Kuzusu')" class="btn btn-warning">🥩 Besi Kuzusu</button>
+            </div>
+          </div>
+        `;
+      }
+
+      // ADIM 2: ŞİKAYET KATEGORİSİ
+      else if (state.step === 2) {
+        const catButtons = CATEGORIES.map(c => `
+          <button onclick="selectCategory('${c.id}')" class="category-card">
+            <span class="category-icon">${c.icon}</span>
+            <div>
+              <div class="category-name">${c.title}</div>
+              <div class="category-desc">${c.desc}</div>
+            </div>
+          </button>
+        `).join("");
+
+        container.innerHTML = `
+          <div class="card card-banner">
+            <div style="font-size:0.78rem; font-weight:800; color:var(--primary); text-transform:uppercase;">
+              ${state.species === 'sigir' ? '🐄 BÜYÜKBAŞ' : '🐑 KÜÇÜKBAŞ'} • ${state.group}
+            </div>
+            <h2 class="card-title" style="margin-top:2px;">2. Hayvanda İlk Ne Gördünüz?</h2>
+            <p class="card-subtitle">En belirgin şikayeti içeren kutuya dokunun:</p>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            ${catButtons}
+          </div>
+
+          <button onclick="resetApp()" class="btn btn-secondary" style="margin-top:4px;">⬅️ Baştan Başla</button>
+        `;
+      }
+
+      // ADIM 3: ELİMİNATİF SORULAR
+      else if (state.step === 3) {
+        const currentDisease = state.candidates[state.currentDiseaseIndex];
+        const symptomList = currentDisease.symptoms.map(s => `
+          <div class="symptom-item">
+            <span class="symptom-bullet">👉</span>
+            <span>${s}</span>
+          </div>
+        `).join("");
+
+        container.innerHTML = `
+          <div class="card card-banner" style="border-left-color:var(--warning);">
+            <div style="font-size:0.75rem; font-weight:800; color:var(--warning); text-transform:uppercase;">
+              SORU ${state.currentDiseaseIndex + 1} / ${state.candidates.length} • ${state.group}
+            </div>
+            <h2 class="card-title" style="margin-top:2px;">Hayvanda şu belirtiler var mı?</h2>
+          </div>
+
+          <div class="card">
+            ${symptomList}
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:10px; margin-top:4px;">
+            <button onclick="answerQuestion('YES')" class="btn btn-primary" style="font-size:1.1rem; padding:16px;">
+              ✅ EVET, AYNEN BUNLAR VAR
+            </button>
+            <button onclick="answerQuestion('PARTIAL')" class="btn btn-warning">
+              🤔 BİR KISMI VAR / EMİN DEĞİLİM
+            </button>
+            <button onclick="answerQuestion('NO')" class="btn btn-danger">
+              ❌ HAYIR, BUNLAR YOK (Diğerine Geç)
+            </button>
+          </div>
+        `;
+      }
+
+      // ADIM 4: SONUÇ VE İLK YARDIM
+      else if (state.step === 4) {
+        let bestMatch = state.candidates[0];
+        let maxScore = -1;
+        state.candidates.forEach(d => {
+          if (state.scores[d.id] > maxScore) {
+            maxScore = state.scores[d.id];
+            bestMatch = d;
+          }
+        });
+
+        const isRed = bestMatch.urgency === "RED";
+        const badgeClass = isRed ? "badge-red" : "badge-yellow";
+        const badgeText = isRed ? "🔴 ACİL VE BULAŞICI RİSK! HEMEN AYIRIN!" : "🟡 VETERİNER HEKİM KONTROLÜ GEREKLİ";
+
+        const doItems = bestMatch.doList.map(item => `<li><span>✔️</span><span>${item}</span></li>`).join("");
+        const dontItems = bestMatch.dontList.map(item => `<li><span>⛔</span><span>${item}</span></li>`).join("");
+
+        container.innerHTML = `
+          <div class="urgency-badge ${badgeClass}">
+            ${badgeText}
+          </div>
+
+          <div class="card">
+            <div style="font-size:0.78rem; font-weight:800; color:var(--text-muted); text-transform:uppercase;">
+              OLASI ÖN TEŞHİS:
+            </div>
+            <h2 class="card-title" style="font-size:1.35rem; margin-top:2px; color:#000000;">${bestMatch.name}</h2>
+
+            <div class="action-box do-box">
+              <div class="action-box-title">
+                <span>✅</span>
+                <span>HEMEN YAPILACAKLAR (İLK MÜDAHALE):</span>
+              </div>
+              <ul class="action-list">
+                ${doItems}
+              </ul>
+            </div>
+
+            <div class="action-box dont-box">
+              <div class="action-box-title">
+                <span>❌</span>
+                <span>KESİNLİKLE YAPMAYIN (ZARAR VERİR):</span>
+              </div>
+              <ul class="action-list">
+                ${dontItems}
+              </ul>
+            </div>
+
+            <div style="margin-top:14px; padding-top:14px; border-top:1.5px dashed var(--border);">
+              <label for="earTagInput" style="display:block; font-size:0.84rem; font-weight:800;">
+                🏷️ Hayvanın Kulak Küpe Numarası (Varsa):
+              </label>
+              <input id="earTagInput" class="ear-tag-input" type="text" placeholder="Örn: TR 42 1234567" autocomplete="off" oninput="this.value = this.value.toUpperCase()">
+            </div>
+
+            <button onclick="sendWhatsApp('${bestMatch.name}', '${bestMatch.urgency}')" class="btn btn-whatsapp" style="margin-top:14px;">
+              📲 WhatsApp ile Veterinerime Gönder
+            </button>
+          </div>
+
+          <button onclick="resetApp()" class="btn btn-secondary">
+            🔄 Yeni Hayvan Muayene Et
+          </button>
+        `;
+      }
+    }
+
+    // İlk açılışta çalıştır
+    render();
+
+    // =========================================================================
+    // PWA SERVICE WORKER KAYDI (%100 ÇEVRİMDIŞI)
+    // =========================================================================
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(() => {});
+      });
+    }
+  </script>
+</body>
+</html>
