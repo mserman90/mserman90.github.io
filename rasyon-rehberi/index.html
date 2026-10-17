@@ -671,6 +671,140 @@
       gap: 8px;
     }
 
+    /* ALT ETKİLEŞİM VE YAZMA BARI */
+    .chat-input-bar {
+      background: #f0f2f5;
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-top: 1px solid #d1d7db;
+      flex-shrink: 0;
+    }
+    .btn-custom-feed-trigger {
+      background: #008069;
+      color: #ffffff;
+      border: none;
+      border-radius: var(--radius-full);
+      padding: 0 12px;
+      height: 40px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      touch-action: manipulation;
+    }
+    .btn-custom-feed-trigger:hover { background: #006a57; }
+    .chat-input {
+      flex: 1;
+      background: #ffffff;
+      border: 1px solid #d1d7db;
+      border-radius: var(--radius-full);
+      padding: 8px 16px;
+      font-size: 0.92rem;
+      outline: none;
+      min-height: 40px;
+    }
+    .chat-input:focus { border-color: var(--primary); }
+    .chat-send-btn {
+      width: 40px;
+      height: 40px;
+      min-height: 40px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #ffffff;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background 0.15s ease;
+      touch-action: manipulation;
+    }
+    .chat-send-btn:hover { background: var(--primary-dark); }
+
+    /* ÖZEL YEM SEÇİCİ VE FİLTRE STİLLERİ */
+    .btn-filter-pill {
+      background: #f1f5f9;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.15s ease;
+      touch-action: manipulation;
+    }
+    .btn-filter-pill:hover { background: #e2e8f0; }
+    .btn-filter-pill.danger {
+      background: #fee2e2;
+      color: #991b1b;
+      border-color: #fca5a5;
+    }
+    .btn-filter-pill.danger:hover { background: #fecaca; }
+
+    .template-pill {
+      background: #ffffff;
+      color: #0f172a;
+      border: 1px solid #94a3b8;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      touch-action: manipulation;
+    }
+    .template-pill:hover {
+      background: #f0fdf4;
+      border-color: #16a34a;
+      color: #166534;
+    }
+
+    .feed-select-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: all 0.12s ease;
+    }
+    .feed-select-item:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+    .feed-select-item.selected {
+      background: #f0fdf4;
+      border-color: #86efac;
+    }
+    .feed-select-item.custom-feed {
+      border-left: 4px solid #ea580c;
+    }
+    .feed-badge {
+      font-size: 0.68rem;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+    .feed-badge.kaba { background: #dcfce7; color: #166534; }
+    .feed-badge.kesif { background: #ffedd5; color: #9a3412; }
+    .feed-badge.katki { background: #e0f2fe; color: #075985; }
+    .feed-badge.custom { background: #fef08a; color: #854d0e; }
+
     /* =========================================================================
        TAM RESPONSİF TASARIM (MOBİL, TABLET, KATLANABİLİR, GENİŞ EKRAN)
        ========================================================================= */
@@ -786,6 +920,18 @@
       <!-- JavaScript tarafından doldurulur -->
     </main>
 
+    <!-- ALT ETKİLEŞİM VE YAZMA BARI -->
+    <form class="chat-input-bar" id="chat-form" onsubmit="handleChatSubmit(event)" role="form">
+      <button type="button" class="btn-custom-feed-trigger" onclick="openFeedSelectorModal()" title="Kendi Yem Ham Maddelerini Belirle / Özel Yem Yaz">
+        <svg class="lucide-icon" viewBox="0 0 24 24" style="width:16px;height:16px;"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span>Özel Yem</span>
+      </button>
+      <input type="text" id="chat-input" class="chat-input" placeholder="Mesaj yazın veya yem ham maddesi ekleyin..." autocomplete="off">
+      <button type="submit" class="chat-send-btn" aria-label="Gönder" title="Gönder">
+        <svg class="lucide-icon" viewBox="0 0 24 24" style="width:18px;height:18px;"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+      </button>
+    </form>
+
   </div>
 
   <!-- TMR YEM KARMA VAGON KANTARI MODALI -->
@@ -832,24 +978,153 @@
 
   <!-- YEM AMBARI & FİYAT MODALI -->
   <div class="modal-overlay" id="feeds-modal" onclick="closeModalOnBackdrop(event, 'feeds-modal')">
-    <div class="modal-box">
+    <div class="modal-box" style="max-width:580px;">
       <div class="modal-hdr" style="background:#ea580c;">
         <div class="modal-title">
           <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-          <span>Yem Ambarı & Fiyat Listesi</span>
+          <span>Yem Ambarı & Ham Madde Yönetimi</span>
         </div>
         <button class="modal-close" onclick="closeFeedsModal()" aria-label="Kapat">&times;</button>
       </div>
       <div class="modal-body">
-        <p style="font-size:0.84rem; color:#475569; margin-bottom:12px;">
-          Çiftliğindeki güncel yem fiyatlarını (TL/kg) buradan güncelleyebilirsin. Rasyon optimizasyonu otomatik olarak bu fiyatlara göre en ucuz çözümü bulacaktır:
-        </p>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+          <p style="font-size:0.84rem; color:#475569; margin:0;">
+            Çiftliğindeki yem fiyatlarını güncelle veya yeni özel ham maddeler tanımla:
+          </p>
+          <button type="button" class="btn-filter-pill" onclick="closeFeedsModal(); openFeedSelectorModal();" style="background:#ea580c; color:#ffffff; border-color:#ea580c;">
+            ➕ Yeni Yem Yaz & Ekle
+          </button>
+        </div>
         <div id="feeds-list-container" style="display:flex; flex-direction:column; gap:8px;">
           <!-- Yemler JS ile basılır -->
         </div>
       </div>
-      <div class="modal-ftr">
-        <button class="btn-action-primary" onclick="saveCustomFeedPrices()" style="width:100%; background:#ea580c;">Fiyatları Kaydet & Kapat</button>
+      <div class="modal-ftr" style="display:flex; justify-content:space-between; align-items:center;">
+        <button type="button" onclick="resetToDefaultFeeds()" style="background:none; border:none; color:#dc2626; font-size:0.78rem; font-weight:700; cursor:pointer;">
+          Standart Yemleri Sıfırla
+        </button>
+        <button class="btn-action-primary" onclick="saveCustomFeedPrices()" style="background:#ea580c; min-width:160px;">Fiyatları Kaydet & Kapat</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- KENDİ YEM HAM MADDELERİNİ SEÇ & YAZ MODALI -->
+  <div class="modal-overlay" id="feed-selector-modal" onclick="closeModalOnBackdrop(event, 'feed-selector-modal')">
+    <div class="modal-box" style="max-width:620px;">
+      <div class="modal-hdr" style="background:#008069;">
+        <div class="modal-title">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span>Kendi Yem Ham Maddelerini Belirle & Yaz</span>
+        </div>
+        <button class="modal-close" onclick="closeFeedSelectorModal()" aria-label="Kapat">&times;</button>
+      </div>
+
+      <div class="modal-body" style="padding:14px; max-height:75vh; overflow-y:auto;">
+        
+        <!-- Üst Bilgi ve Sabit Yemleri Reddetme Alanı -->
+        <div style="background:#f0fdf4; border:1.5px solid #86efac; border-radius:10px; padding:10px 12px; margin-bottom:12px; font-size:0.83rem; color:#166534; line-height:1.45;">
+          <strong>🌾 Sabit Yemleri Kullanmak İstemiyor musunuz?</strong><br>
+          Aşağıdaki <em>"Sabit Yemleri Temizle"</em> butonuna dokunarak tüm standart yemleri kaldırabilir, sadece kendi ahırınızda bulunan veya kendinizin ürettiği yem ham maddelerini seçip rasyon hazırlayabilirsiniz.
+        </div>
+
+        <!-- Hızlı Filtre ve Temizleme Butonları -->
+        <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;">
+          <button type="button" class="btn-filter-pill danger" onclick="clearAllDefaultFeeds()" title="Tüm standart yemleri kaldır, sıfırdan başla">
+            🚫 Sabit Yemleri Temizle (Kullanmak İstemiyorum)
+          </button>
+          <button type="button" class="btn-filter-pill" onclick="toggleAllFeedsSelection(true)">
+            ✔️ Tümünü Seç
+          </button>
+          <button type="button" class="btn-filter-pill" onclick="selectOnlyCategory('kaba')">
+            🌿 Sadece Kaba Yemler
+          </button>
+          <button type="button" class="btn-filter-pill" onclick="selectOnlyCategory('kesif')">
+            🌽 Sadece Kesif Yemler
+          </button>
+        </div>
+
+        <!-- YENİ YEM HAM MADDESİ YAZMA / EKLEME FORMU -->
+        <div style="background:#f8fafc; border:1.5px solid #cbd5e1; border-radius:10px; padding:12px; margin-bottom:14px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <strong style="color:#0f172a; font-size:0.88rem; display:flex; align-items:center; gap:6px;">
+              <svg class="lucide-icon" style="color:#008069;" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+              Yeni Yem Ham Maddesi Yaz & Ekle
+            </strong>
+            <span style="font-size:0.75rem; color:#64748b; font-weight:600;">%100 Çevrimdışı Kayıt</span>
+          </div>
+
+          <!-- Hızlı Şablonlar -->
+          <div style="margin-bottom:8px;">
+            <div style="font-size:0.74rem; font-weight:700; color:#475569; margin-bottom:4px;">Hazır Popüler Ham Madde Şablonları (Tek Tıkla Doldur):</div>
+            <div style="display:flex; flex-wrap:wrap; gap:4px;">
+              <button type="button" class="template-pill" onclick="fillFeedTemplate('Fiğ Kuru Otu', 'kaba', 88, 14.5, 1.45, 2.30, 48, 6.50)">🌿 Fiğ Otu</button>
+              <button type="button" class="template-pill" onclick="fillFeedTemplate('Tritikale Kırması', 'kesif', 88, 12.0, 1.85, 2.90, 19, 8.20)">🌾 Tritikale</button>
+              <button type="button" class="template-pill" onclick="fillFeedTemplate('Yaş Bira Posası', 'kesif', 24, 26.0, 1.75, 2.75, 44, 2.80)">🍺 Bira Posası</button>
+              <button type="button" class="template-pill" onclick="fillFeedTemplate('Pamuk Tohumu Küspesi', 'kesif', 90, 28.0, 1.60, 2.50, 38, 9.80)">🌻 Pamuk Küspesi</button>
+              <button type="button" class="template-pill" onclick="fillFeedTemplate('Mısır Glüteni (%60)', 'kesif', 90, 60.0, 2.05, 3.20, 8, 22.00)">🌽 Mısır Glüteni</button>
+              <button type="button" class="template-pill" onclick="fillFeedTemplate('Reygras Silajı', 'kaba', 35, 12.5, 1.45, 2.35, 52, 2.90)">🌾 Reygras Silajı</button>
+              <button type="button" class="template-pill" onclick="fillFeedTemplate('Çavdar Kuru Otu', 'kaba', 88, 10.0, 1.25, 2.10, 58, 5.00)">🌾 Çavdar Otu</button>
+            </div>
+          </div>
+
+          <!-- Form Alanları -->
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap:8px;">
+            <div>
+              <label style="font-size:0.73rem; font-weight:700; color:#334155;">Yem Adı (*):</label>
+              <input type="text" id="newFeedName" placeholder="Örn: Kendi Fiğ Otum" style="width:100%; padding:6px 8px; border:1px solid #cbd5e1; border-radius:6px; font-size:0.82rem;">
+            </div>
+            <div>
+              <label style="font-size:0.73rem; font-weight:700; color:#334155;">Kategori:</label>
+              <select id="newFeedCategory" style="width:100%; padding:6px 8px; border:1px solid #cbd5e1; border-radius:6px; font-size:0.82rem;">
+                <option value="kaba">Kaba Yem (Ot/Silaj/Saman)</option>
+                <option value="kesif">Kesif Yem (Tahıl/Küspe/Yem)</option>
+                <option value="katki">Katkı / Mineral / Premiks</option>
+              </select>
+            </div>
+            <div>
+              <label style="font-size:0.73rem; font-weight:700; color:#334155;">Kuru Madde (% KM):</label>
+              <input type="number" id="newFeedKm" value="88" step="1" min="10" max="100" style="width:100%; padding:6px 8px; border:1px solid #cbd5e1; border-radius:6px; font-size:0.82rem;">
+            </div>
+            <div>
+              <label style="font-size:0.73rem; font-weight:700; color:#334155;">Ham Protein (% HP):</label>
+              <input type="number" id="newFeedHp" value="14.0" step="0.1" min="0" max="100" style="width:100%; padding:6px 8px; border:1px solid #cbd5e1; border-radius:6px; font-size:0.82rem;">
+            </div>
+            <div>
+              <label style="font-size:0.73rem; font-weight:700; color:#334155;">Enerji NEL (Mcal/kg):</label>
+              <input type="number" id="newFeedNel" value="1.45" step="0.05" min="0" max="3" style="width:100%; padding:6px 8px; border:1px solid #cbd5e1; border-radius:6px; font-size:0.82rem;">
+            </div>
+            <div>
+              <label style="font-size:0.73rem; font-weight:700; color:#334155;">Fiyat (₺/kg):</label>
+              <input type="number" id="newFeedPrice" value="6.00" step="0.1" min="0" style="width:100%; padding:6px 8px; border:1px solid #cbd5e1; border-radius:6px; font-size:0.82rem; font-weight:700; color:#008069;">
+            </div>
+          </div>
+
+          <div style="margin-top:8px; display:flex; justify-content:flex-end;">
+            <button type="button" onclick="addNewCustomFeed()" style="background:#008069; color:#ffffff; border:none; padding:8px 14px; border-radius:6px; font-weight:800; font-size:0.82rem; cursor:pointer; display:inline-flex; align-items:center; gap:6px;">
+              <svg class="lucide-icon" viewBox="0 0 24 24" style="width:16px;height:16px;"><path d="M12 5v14M5 12h14"/></svg>
+              <span>Bu Yemi Ambarıma Ekle ve Listede Seç</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- YEM LİSTESİ VE SEÇİM KUTULARI -->
+        <div>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+            <strong style="font-size:0.86rem; color:#0f172a;">Rasyona Girecek Yem Ham Maddelerini İşaretleyin:</strong>
+            <span id="selected-feed-counter" style="font-size:0.78rem; font-weight:800; color:#008069;">0 Yem Seçili</span>
+          </div>
+          <div id="feed-selector-list" style="display:flex; flex-direction:column; gap:6px;">
+            <!-- JS ile dinamik render edilir -->
+          </div>
+        </div>
+
+      </div>
+
+      <div class="modal-ftr" style="display:flex; justify-content:space-between; align-items:center;">
+        <span style="font-size:0.8rem; color:#64748b;">Seçtiğiniz yemlerle NASEM 2021 dengesi kurulur.</span>
+        <button class="btn-action-primary" onclick="applyCustomFeedsFromModal()" style="background:#008069; min-width:180px;">
+          🚀 Seçtiğim Yemlerle Rasyon Yap
+        </button>
       </div>
     </div>
   </div>
@@ -961,32 +1236,36 @@
     // YEM VERİTABANI (FEEDS DATABASE - NASEM 2021 & NRC)
     // =========================================================================
     const DEFAULT_FEEDS = [
-      { id: "misir_silaji", name: "Mısır Silajı", category: "kaba", kmPct: 33, hpPct: 8.5, nel: 1.62, me: 2.65, ndf: 45, price: 2.60 },
-      { id: "yonca_kuru", name: "Kuru Yonca Otu", category: "kaba", kmPct: 90, hpPct: 17.5, nel: 1.35, me: 2.25, ndf: 45, price: 7.50 },
-      { id: "bugday_samani", name: "Buğday Samanı", category: "kaba", kmPct: 90, hpPct: 3.5, nel: 0.85, me: 1.45, ndf: 72, price: 3.20 },
-      { id: "cayir_otu", name: "Çayır Kuru Otu", category: "kaba", kmPct: 88, hpPct: 11.0, nel: 1.25, me: 2.10, ndf: 55, price: 5.50 },
-      { id: "pancar_posasi_yas", name: "Yaş Şeker Pancarı Posası", category: "kaba", kmPct: 18, hpPct: 9.0, nel: 1.70, me: 2.70, ndf: 42, price: 1.40 },
-      { id: "arpa_ezmesi", name: "Arpa Ezmesi", category: "kesif", kmPct: 88, hpPct: 11.5, nel: 1.85, me: 2.95, ndf: 18, price: 8.80 },
-      { id: "misir_kirmasi", name: "Mısır Kırması", category: "kesif", kmPct: 88, hpPct: 9.0, nel: 2.05, me: 3.15, ndf: 10, price: 9.20 },
-      { id: "bugday_kepegi", name: "Buğday Kepeği", category: "kesif", kmPct: 88, hpPct: 15.5, nel: 1.65, me: 2.65, ndf: 38, price: 7.20 },
-      { id: "soya_kuspesi", name: "Soya Küspesi (%46 HP)", category: "kesif", kmPct: 89, hpPct: 46.0, nel: 2.00, me: 3.10, ndf: 14, price: 19.50 },
-      { id: "atk_kuspesi", name: "Ayçiçek Küspesi (%36 HP)", category: "kesif", kmPct: 90, hpPct: 36.0, nel: 1.55, me: 2.45, ndf: 32, price: 10.80 },
-      { id: "sut_yemi_19", name: "Fabrika Süt Yemi (%19 HP)", category: "kesif", kmPct: 88, hpPct: 19.0, nel: 1.75, me: 2.80, ndf: 28, price: 11.20 },
-      { id: "besi_yemi_14", name: "Fabrika Besi Yemi (%14 HP)", category: "kesif", kmPct: 88, hpPct: 14.0, nel: 1.80, me: 2.85, ndf: 26, price: 10.60 },
-      { id: "melas", name: "Melas (Şeker Enerjisi)", category: "katki", kmPct: 75, hpPct: 6.0, nel: 1.70, me: 2.70, ndf: 0, price: 7.00 },
-      { id: "soda_tampon", name: "Sodyum Bikarbonat (Tampon Soda)", category: "katki", kmPct: 99, hpPct: 0, nel: 0, me: 0, ndf: 0, price: 18.00 },
-      { id: "mermer_tozu", name: "Mermer Tozu (Kalsiyum)", category: "katki", kmPct: 99, hpPct: 0, nel: 0, me: 0, ndf: 0, price: 3.50 },
-      { id: "yem_tuzu", name: "Yemlik Tuz", category: "katki", kmPct: 99, hpPct: 0, nel: 0, me: 0, ndf: 0, price: 4.50 },
-      { id: "vit_min_premiks", name: "Vitamin-Mineral Premiks", category: "katki", kmPct: 99, hpPct: 0, nel: 0, me: 0, ndf: 0, price: 38.00 },
-      { id: "kuzu_besi_yemi", name: "Fabrika Kuzu Besi Yemi (%16 HP)", category: "kesif", kmPct: 88, hpPct: 16.0, nel: 1.80, me: 2.85, ndf: 24, price: 11.40 }
+      { id: "misir_silaji", name: "Mısır Silajı", category: "kaba", kmPct: 33, hpPct: 8.5, nel: 1.62, me: 2.65, ndf: 45, price: 2.60, isDefault: true },
+      { id: "yonca_kuru", name: "Kuru Yonca Otu", category: "kaba", kmPct: 90, hpPct: 17.5, nel: 1.35, me: 2.25, ndf: 45, price: 7.50, isDefault: true },
+      { id: "bugday_samani", name: "Buğday Samanı", category: "kaba", kmPct: 90, hpPct: 3.5, nel: 0.85, me: 1.45, ndf: 72, price: 3.20, isDefault: true },
+      { id: "cayir_otu", name: "Çayır Kuru Otu", category: "kaba", kmPct: 88, hpPct: 11.0, nel: 1.25, me: 2.10, ndf: 55, price: 5.50, isDefault: true },
+      { id: "pancar_posasi_yas", name: "Yaş Şeker Pancarı Posası", category: "kaba", kmPct: 18, hpPct: 9.0, nel: 1.70, me: 2.70, ndf: 42, price: 1.40, isDefault: true },
+      { id: "arpa_ezmesi", name: "Arpa Ezmesi", category: "kesif", kmPct: 88, hpPct: 11.5, nel: 1.85, me: 2.95, ndf: 18, price: 8.80, isDefault: true },
+      { id: "misir_kirmasi", name: "Mısır Kırması", category: "kesif", kmPct: 88, hpPct: 9.0, nel: 2.05, me: 3.15, ndf: 10, price: 9.20, isDefault: true },
+      { id: "bugday_kepegi", name: "Buğday Kepeği", category: "kesif", kmPct: 88, hpPct: 15.5, nel: 1.65, me: 2.65, ndf: 38, price: 7.20, isDefault: true },
+      { id: "soya_kuspesi", name: "Soya Küspesi (%46 HP)", category: "kesif", kmPct: 89, hpPct: 46.0, nel: 2.00, me: 3.10, ndf: 14, price: 19.50, isDefault: true },
+      { id: "atk_kuspesi", name: "Ayçiçek Küspesi (%36 HP)", category: "kesif", kmPct: 90, hpPct: 36.0, nel: 1.55, me: 2.45, ndf: 32, price: 10.80, isDefault: true },
+      { id: "sut_yemi_19", name: "Fabrika Süt Yemi (%19 HP)", category: "kesif", kmPct: 88, hpPct: 19.0, nel: 1.75, me: 2.80, ndf: 28, price: 11.20, isDefault: true },
+      { id: "besi_yemi_14", name: "Fabrika Besi Yemi (%14 HP)", category: "kesif", kmPct: 88, hpPct: 14.0, nel: 1.80, me: 2.85, ndf: 26, price: 10.60, isDefault: true },
+      { id: "melas", name: "Melas (Şeker Enerjisi)", category: "katki", kmPct: 75, hpPct: 6.0, nel: 1.70, me: 2.70, ndf: 0, price: 7.00, isDefault: true },
+      { id: "soda_tampon", name: "Sodyum Bikarbonat (Tampon Soda)", category: "katki", kmPct: 99, hpPct: 0, nel: 0, me: 0, ndf: 0, price: 18.00, isDefault: true },
+      { id: "mermer_tozu", name: "Mermer Tozu (Kalsiyum)", category: "katki", kmPct: 99, hpPct: 0, nel: 0, me: 0, ndf: 0, price: 3.50, isDefault: true },
+      { id: "yem_tuzu", name: "Yemlik Tuz", category: "katki", kmPct: 99, hpPct: 0, nel: 0, me: 0, ndf: 0, price: 4.50, isDefault: true },
+      { id: "vit_min_premiks", name: "Vitamin-Mineral Premiks", category: "katki", kmPct: 99, hpPct: 0, nel: 0, me: 0, ndf: 0, price: 38.00, isDefault: true },
+      { id: "kuzu_besi_yemi", name: "Fabrika Kuzu Besi Yemi (%16 HP)", category: "kesif", kmPct: 88, hpPct: 16.0, nel: 1.80, me: 2.85, ndf: 24, price: 11.40, isDefault: true }
     ];
 
     function getFeeds() {
       try {
         const stored = localStorage.getItem("rasyon_custom_feeds_v1");
-        return stored ? JSON.parse(stored) : DEFAULT_FEEDS;
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        }
+        return DEFAULT_FEEDS.map(f => ({ ...f }));
       } catch (e) {
-        return DEFAULT_FEEDS;
+        return DEFAULT_FEEDS.map(f => ({ ...f }));
       }
     }
 
@@ -994,6 +1273,18 @@
       try {
         localStorage.setItem("rasyon_custom_feeds_v1", JSON.stringify(feeds));
       } catch (e) {}
+    }
+
+    function resetToDefaultFeeds() {
+      if (confirm("Standart yemler ve fabrika değerleri geri yüklensin mi? (Kendi eklediğiniz özel ham maddeler korunacaktır)")) {
+        const currentFeeds = getFeeds();
+        const customOnly = currentFeeds.filter(f => f.isCustom || f.id.startsWith("custom_"));
+        const resetList = [...customOnly, ...DEFAULT_FEEDS.map(f => ({ ...f }))];
+        saveFeeds(resetList);
+        renderFeedsList();
+        renderFeedSelectorList();
+        alert("Standart yemler başarıyla geri yüklendi.");
+      }
     }
 
     // =========================================================================
@@ -1215,7 +1506,8 @@
           [
             { icon: SVG_ICONS.feed, text: "🌾 Klasik Çiftlik (Mısır Silajı + Kuru Yonca + Arpa + Süt Yemi + Saman)", action: "selectFeedBasket('classic', 'Klasik Çiftlik Yemleri')", class: "primary" },
             { icon: SVG_ICONS.feed, text: "🌽 Tahıl & Küspe Ağırlıklı (Silaj + Yonca + Arpa/Mısır + ATK/Soya Küspesi)", action: "selectFeedBasket('grain_meal', 'Tahıl ve Küspe Ağırlıklı')", class: "primary" },
-            { icon: SVG_ICONS.feed, text: "🏭 Pratik Menü (Mısır Silajı + Saman + Fabrika Yemi)", action: "selectFeedBasket('simple', 'Pratik Fabrika Yemi + Silaj')", class: "primary" }
+            { icon: SVG_ICONS.feed, text: "🏭 Pratik Menü (Mısır Silajı + Saman + Fabrika Yemi)", action: "selectFeedBasket('simple', 'Pratik Fabrika Yemi + Silaj')", class: "primary" },
+            { icon: SVG_ICONS.sparkles, text: "✍️ Kendi Yemlerimi Seç / Özel Yem Yaz (Sabit Yemleri İstemiyorum)", action: "openFeedSelectorModal()", class: "warning" }
           ]
         );
       }, 400);
@@ -1262,7 +1554,143 @@
       let yieldUnitLabel = "Litre Süt Yem Maliyeti";
       let divisor = state.targetYield || 1;
 
-      if (state.species === "dairy") {
+      if (state.feedBasketPreset === "custom") {
+        const userFeeds = feeds.filter(f => state.userFeedIds.includes(f.id));
+        const forages = userFeeds.filter(f => f.category === "kaba");
+        const concentrates = userFeeds.filter(f => f.category === "kesif");
+        const additives = userFeeds.filter(f => f.category === "katki");
+
+        if (state.species === "dairy") {
+          const milk = state.targetYield;
+          targetDmi = (state.bodyWeight * (milk >= 30 ? 0.036 : 0.033)).toFixed(1);
+          targetHp = milk >= 30 ? 17.0 : 16.2;
+          targetEnergy = milk >= 30 ? 1.72 : 1.66;
+          energyUnit = "NEL (Mcal/kg KM)";
+          yieldUnitLabel = "1 Litre Süt Yem Maliyeti";
+        } else if (state.species === "beef") {
+          targetDmi = (state.bodyWeight * 0.024).toFixed(1);
+          targetHp = state.bodyWeight < 400 ? 14.5 : 13.0;
+          targetEnergy = 2.80;
+          energyUnit = "ME (Mcal/kg KM)";
+          yieldUnitLabel = "1 Kg Kilo Artışı Yem Maliyeti";
+          divisor = state.targetYield || 1.4;
+        } else if (state.species === "lamb") {
+          targetDmi = 1.35;
+          targetHp = 15.5;
+          targetEnergy = 2.85;
+          energyUnit = "ME (Mcal/kg KM)";
+          yieldUnitLabel = "1 Kg Kuzu Artışı Yem Maliyeti";
+          divisor = 0.35;
+        } else {
+          targetDmi = state.species === "sheep" ? 2.2 : 11.5;
+          targetHp = 12.5;
+          targetEnergy = 1.45;
+          energyUnit = "NEL (Mcal/kg KM)";
+          yieldUnitLabel = "Hayvan Başı Günlük Gider";
+          divisor = 1;
+        }
+
+        const numTargetDmi = parseFloat(targetDmi);
+        let forageRatio = state.species === "dairy" ? 0.45 : (state.species === "beef" ? 0.20 : (state.species === "lamb" ? 0.30 : 0.65));
+
+        if (forages.length === 0) forageRatio = 0;
+        if (concentrates.length === 0) forageRatio = 1.0;
+
+        const targetForageDm = numTargetDmi * forageRatio;
+        const targetConcDm = numTargetDmi * (1.0 - forageRatio);
+
+        // 1. Kaba Yemleri Dağıt
+        if (forages.length > 0) {
+          const wetForages = forages.filter(f => f.kmPct < 50);
+          const dryForages = forages.filter(f => f.kmPct >= 50);
+
+          if (wetForages.length > 0 && dryForages.length > 0) {
+            const wetDmEach = (targetForageDm * 0.65) / wetForages.length;
+            const dryDmEach = (targetForageDm * 0.35) / dryForages.length;
+            wetForages.forEach(f => {
+              const fresh = wetDmEach / (f.kmPct / 100);
+              rationItems.push({ id: f.id, freshKg: parseFloat(fresh.toFixed(2)) });
+            });
+            dryForages.forEach(f => {
+              const fresh = dryDmEach / (f.kmPct / 100);
+              rationItems.push({ id: f.id, freshKg: parseFloat(fresh.toFixed(2)) });
+            });
+          } else {
+            const shareDm = targetForageDm / forages.length;
+            forages.forEach(f => {
+              const fresh = shareDm / (f.kmPct / 100);
+              rationItems.push({ id: f.id, freshKg: parseFloat(fresh.toFixed(2)) });
+            });
+          }
+        }
+
+        // 2. Kesif Yemleri Dağıt (Pearson Karesi / Protein Dengeleme)
+        if (concentrates.length > 0) {
+          let currentForageHpDm = 0;
+          rationItems.forEach(item => {
+            const f = userFeeds.find(x => x.id === item.id);
+            if (f) currentForageHpDm += (item.freshKg * (f.kmPct / 100)) * (f.hpPct / 100);
+          });
+
+          const totalNeededHpDm = numTargetDmi * (targetHp / 100);
+          const neededConcHpDm = Math.max(0.1, totalNeededHpDm - currentForageHpDm);
+          const neededConcHpPct = targetConcDm > 0 ? (neededConcHpDm / targetConcDm) * 100 : targetHp;
+
+          const proteinFeeds = concentrates.filter(c => c.hpPct >= 20);
+          const energyFeeds = concentrates.filter(c => c.hpPct < 20);
+
+          if (proteinFeeds.length > 0 && energyFeeds.length > 0) {
+            if (state.priority === "lowest_cost") {
+              proteinFeeds.sort((a,b) => (a.price / (a.hpPct || 1)) - (b.price / (b.hpPct || 1)));
+              energyFeeds.sort((a,b) => (a.price / (a.nel || a.me || 1)) - (b.price / (b.nel || b.me || 1)));
+            }
+
+            const pFeed = proteinFeeds[0];
+            const eFeed = energyFeeds[0];
+
+            let pShare = 0.35;
+            if (pFeed.hpPct > eFeed.hpPct) {
+              pShare = (neededConcHpPct - eFeed.hpPct) / (pFeed.hpPct - eFeed.hpPct);
+              pShare = Math.max(0.15, Math.min(0.65, pShare));
+            }
+            const eShare = 1.0 - pShare;
+
+            const pDmEach = (targetConcDm * pShare) / proteinFeeds.length;
+            proteinFeeds.forEach(f => {
+              const fresh = pDmEach / (f.kmPct / 100);
+              rationItems.push({ id: f.id, freshKg: parseFloat(fresh.toFixed(2)) });
+            });
+
+            const eDmEach = (targetConcDm * eShare) / energyFeeds.length;
+            energyFeeds.forEach(f => {
+              const fresh = eDmEach / (f.kmPct / 100);
+              rationItems.push({ id: f.id, freshKg: parseFloat(fresh.toFixed(2)) });
+            });
+          } else {
+            const concDmShare = targetConcDm / concentrates.length;
+            concentrates.forEach(f => {
+              const fresh = concDmShare / (f.kmPct / 100);
+              rationItems.push({ id: f.id, freshKg: parseFloat(fresh.toFixed(2)) });
+            });
+          }
+        }
+
+        // 3. Katkı ve Mineralleri Ekle
+        additives.forEach(a => {
+          let fresh = 0.08;
+          const aid = a.id.toLowerCase();
+          if (aid.includes("soda") || aid.includes("bikarbonat")) {
+            fresh = state.species === "dairy" ? 0.15 : (state.species === "beef" ? 0.10 : 0.02);
+          } else if (aid.includes("mermer") || aid.includes("kalsiyum")) {
+            fresh = state.species === "dairy" ? 0.10 : (state.species === "beef" ? 0.08 : 0.015);
+          } else if (aid.includes("tuz")) {
+            fresh = state.species === "dairy" ? 0.07 : (state.species === "beef" ? 0.05 : 0.01);
+          } else if (aid.includes("premiks") || aid.includes("vitamin")) {
+            fresh = state.species === "dairy" ? 0.10 : (state.species === "beef" ? 0.08 : 0.02);
+          }
+          rationItems.push({ id: a.id, freshKg: fresh });
+        });
+      } else if (state.species === "dairy") {
         const milk = state.targetYield;
         targetDmi = (state.bodyWeight * 0.035).toFixed(1);
         targetHp = milk >= 30 ? 17.0 : 16.2;
@@ -1430,9 +1858,9 @@
 
       const cardHtml = `
         <div class="report-card">
-          <div class="report-badge badge-green">
+          <div class="report-badge ${state.feedBasketPreset === 'custom' ? 'badge-blue' : 'badge-green'}">
             ${SVG_ICONS.check}
-            <span>NASEM 2021 ONAYLI RASYON REÇETESİ</span>
+            <span>${state.feedBasketPreset === 'custom' ? '✨ ÖZEL HAM MADDELERİNİZLE NASEM 2021 RASYONU' : 'NASEM 2021 ONAYLI RASYON REÇETESİ'}</span>
           </div>
           <div class="report-title">${state.speciesName} Rasyonu</div>
           <div class="report-subtitle">Hedef: <strong>${state.targetLabel}</strong> (${state.priority === 'lowest_cost' ? 'En Düşük Maliyet' : 'Yüksek Verim'})</div>
@@ -1522,6 +1950,7 @@
         `Rasyonunu NASEM standartlarına göre hazırladım. Analiz ve yemlik reçetesi aşağıdadır:<br>${cardHtml}`,
         [
           { icon: SVG_ICONS.refresh, text: "Başka Hayvan İçin Rasyon Hazırla", action: "restartChat()", class: "primary" },
+          { icon: SVG_ICONS.feed, text: "✍️ Yemleri Değiştir / Özel Yem Yaz", action: "openFeedSelectorModal()", class: "warning" },
           { icon: SVG_ICONS.coin, text: "Yem Fiyatlarını Ambar'da Güncelle", action: "openFeedsModal()", class: "" }
         ]
       );
@@ -1612,18 +2041,29 @@
       if (!container) return;
       const feeds = getFeeds();
 
-      container.innerHTML = feeds.map(f => `
-        <div style="display:flex; align-items:center; justify-content:space-between; background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; font-size:0.82rem;">
-          <div>
-            <strong style="color:#0f172a;">${f.name}</strong>
-            <div style="font-size:0.72rem; color:#64748b;">KM: %${f.kmPct} | HP: %${f.hpPct} | ${f.category}</div>
+      container.innerHTML = feeds.map(f => {
+        const isCustom = f.isCustom || f.id.startsWith("custom_");
+        return `
+          <div style="display:flex; align-items:center; justify-content:space-between; background:${isCustom ? '#fffbeb' : '#f8fafc'}; border:1px solid ${isCustom ? '#fcd34d' : '#e2e8f0'}; border-radius:8px; padding:8px 12px; font-size:0.82rem;">
+            <div>
+              <div style="display:flex; align-items:center; gap:6px;">
+                <strong style="color:#0f172a;">${f.name}</strong>
+                ${isCustom ? `<span class="feed-badge custom">⭐ Özel Yemim</span>` : ''}
+              </div>
+              <div style="font-size:0.72rem; color:#64748b;">KM: %${f.kmPct} | HP: %${f.hpPct} | ${f.category}</div>
+            </div>
+            <div style="display:flex; align-items:center; gap:6px;">
+              <input type="number" id="feedPrice_${f.id}" value="${f.price}" step="0.1" min="0" style="width:75px; padding:4px 6px; border:1px solid #cbd5e1; border-radius:6px; font-weight:700; text-align:right;">
+              <span style="font-weight:700; color:#64748b;">₺/kg</span>
+              ${isCustom ? `
+                <button type="button" onclick="deleteCustomFeed('${f.id}', event)" title="Sil" style="background:#fee2e2; border:1px solid #fca5a5; color:#991b1b; padding:2px 6px; border-radius:4px; font-size:0.7rem; font-weight:700; cursor:pointer;">
+                  Sil
+                </button>
+              ` : ''}
+            </div>
           </div>
-          <div style="display:flex; align-items:center; gap:6px;">
-            <input type="number" id="feedPrice_${f.id}" value="${f.price}" step="0.1" min="0" style="width:75px; padding:4px 6px; border:1px solid #cbd5e1; border-radius:6px; font-weight:700; text-align:right;">
-            <span style="font-weight:700; color:#64748b;">₺/kg</span>
-          </div>
-        </div>
-      `).join("");
+        `;
+      }).join("");
     }
 
     function saveCustomFeedPrices() {
@@ -1638,6 +2078,267 @@
       saveFeeds(feeds);
       closeFeedsModal();
       alert("Yem fiyatları başarıyla kaydedildi! Yeni rasyonlar bu fiyatlarla hesaplanacaktır.");
+    }
+
+    // =========================================================================
+    // KENDİ YEM HAM MADDELERİNİ SEÇME VE TANIMLAMA MOTORU
+    // =========================================================================
+    function openFeedSelectorModal() {
+      const modal = document.getElementById("feed-selector-modal");
+      if (!modal) return;
+      modal.classList.add("active");
+      renderFeedSelectorList();
+    }
+
+    function closeFeedSelectorModal() {
+      const modal = document.getElementById("feed-selector-modal");
+      if (modal) modal.classList.remove("active");
+    }
+
+    function renderFeedSelectorList() {
+      const container = document.getElementById("feed-selector-list");
+      if (!container) return;
+      const feeds = getFeeds();
+      const currentSelected = new Set(state.userFeedIds || []);
+
+      container.innerHTML = feeds.map(f => {
+        const isChecked = currentSelected.has(f.id);
+        const isCustom = f.isCustom || f.id.startsWith("custom_");
+        const badgeClass = f.category === "kaba" ? "kaba" : (f.category === "kesif" ? "kesif" : "katki");
+        const categoryName = f.category === "kaba" ? "Kaba Yem" : (f.category === "kesif" ? "Kesif Yem" : "Katkı/Mineral");
+
+        return `
+          <div class="feed-select-item ${isChecked ? 'selected' : ''} ${isCustom ? 'custom-feed' : ''}" onclick="toggleFeedItem('${f.id}', event)">
+            <div style="display:flex; align-items:center; gap:10px; flex:1;">
+              <input type="checkbox" class="feed-select-cb" value="${f.id}" ${isChecked ? 'checked' : ''} onclick="event.stopPropagation(); updateFeedSelectorCounter();" style="width:18px; height:18px; cursor:pointer; accent-color:#008069;">
+              <div>
+                <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
+                  <strong style="color:#0f172a; font-size:0.86rem;">${f.name}</strong>
+                  ${isCustom ? `<span class="feed-badge custom">⭐ Özel Yemim</span>` : ''}
+                  <span class="feed-badge ${badgeClass}">${categoryName}</span>
+                </div>
+                <div style="font-size:0.73rem; color:#64748b; margin-top:2px;">
+                  KM: %${f.kmPct} | HP: %${f.hpPct} | ${f.nel ? `NEL: ${f.nel}` : (f.me ? `ME: ${f.me}` : '')} | NDF: %${f.ndf || 0}
+                </div>
+              </div>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <div style="text-align:right;">
+                <span style="font-weight:800; color:#008069; font-size:0.88rem;">${parseFloat(f.price).toFixed(2)} ₺</span>
+                <span style="font-size:0.7rem; color:#64748b; display:block;">/ kg</span>
+              </div>
+              ${isCustom ? `
+                <button type="button" onclick="deleteCustomFeed('${f.id}', event)" title="Bu özel yemi ambardan sil" style="background:#fee2e2; border:1px solid #fca5a5; color:#991b1b; padding:4px 8px; border-radius:6px; font-size:0.72rem; cursor:pointer; font-weight:700;">
+                  Sil
+                </button>
+              ` : ''}
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      updateFeedSelectorCounter();
+    }
+
+    function toggleFeedItem(feedId, event) {
+      if (event && event.target && event.target.tagName === "INPUT") return;
+      const cb = document.querySelector(`.feed-select-cb[value="${feedId}"]`);
+      if (cb) {
+        cb.checked = !cb.checked;
+        const parent = cb.closest(".feed-select-item");
+        if (parent) parent.classList.toggle("selected", cb.checked);
+        updateFeedSelectorCounter();
+      }
+    }
+
+    function updateFeedSelectorCounter() {
+      const checkedBoxes = document.querySelectorAll(".feed-select-cb:checked");
+      const counter = document.getElementById("selected-feed-counter");
+      if (counter) counter.textContent = `${checkedBoxes.length} Yem Seçili`;
+
+      document.querySelectorAll(".feed-select-cb").forEach(cb => {
+        const parent = cb.closest(".feed-select-item");
+        if (parent) parent.classList.toggle("selected", cb.checked);
+      });
+    }
+
+    function clearAllDefaultFeeds() {
+      document.querySelectorAll(".feed-select-cb").forEach(cb => {
+        cb.checked = false;
+        const parent = cb.closest(".feed-select-item");
+        if (parent) parent.classList.remove("selected");
+      });
+      const feeds = getFeeds();
+      feeds.filter(f => f.isCustom || f.id.startsWith("custom_")).forEach(f => {
+        const cb = document.querySelector(`.feed-select-cb[value="${f.id}"]`);
+        if (cb) {
+          cb.checked = true;
+          const parent = cb.closest(".feed-select-item");
+          if (parent) parent.classList.add("selected");
+        }
+      });
+      updateFeedSelectorCounter();
+    }
+
+    function toggleAllFeedsSelection(checked) {
+      document.querySelectorAll(".feed-select-cb").forEach(cb => {
+        cb.checked = checked;
+        const parent = cb.closest(".feed-select-item");
+        if (parent) parent.classList.toggle("selected", checked);
+      });
+      updateFeedSelectorCounter();
+    }
+
+    function selectOnlyCategory(category) {
+      const feeds = getFeeds();
+      const catFeedIds = new Set(feeds.filter(f => f.category === category).map(f => f.id));
+      document.querySelectorAll(".feed-select-cb").forEach(cb => {
+        const shouldCheck = catFeedIds.has(cb.value);
+        cb.checked = shouldCheck;
+        const parent = cb.closest(".feed-select-item");
+        if (parent) parent.classList.toggle("selected", shouldCheck);
+      });
+      updateFeedSelectorCounter();
+    }
+
+    function fillFeedTemplate(name, cat, km, hp, nel, me, ndf, price) {
+      const nameInput = document.getElementById("newFeedName");
+      const catInput = document.getElementById("newFeedCategory");
+      const kmInput = document.getElementById("newFeedKm");
+      const hpInput = document.getElementById("newFeedHp");
+      const nelInput = document.getElementById("newFeedNel");
+      const priceInput = document.getElementById("newFeedPrice");
+
+      if (nameInput) nameInput.value = name;
+      if (catInput) catInput.value = cat;
+      if (kmInput) kmInput.value = km;
+      if (hpInput) hpInput.value = hp;
+      if (nelInput) nelInput.value = nel;
+      if (priceInput) priceInput.value = price;
+    }
+
+    function addNewCustomFeed() {
+      const name = document.getElementById("newFeedName")?.value.trim();
+      const category = document.getElementById("newFeedCategory")?.value || "kesif";
+      const kmPct = parseFloat(document.getElementById("newFeedKm")?.value) || 88;
+      const hpPct = parseFloat(document.getElementById("newFeedHp")?.value) || 12.0;
+      const nel = parseFloat(document.getElementById("newFeedNel")?.value) || 1.5;
+      const price = parseFloat(document.getElementById("newFeedPrice")?.value) || 5.0;
+
+      if (!name) {
+        alert("Lütfen yem ham maddesinin adını yazın!");
+        document.getElementById("newFeedName")?.focus();
+        return;
+      }
+
+      const id = "custom_" + Date.now();
+      const newFeed = {
+        id,
+        name,
+        category,
+        kmPct,
+        hpPct,
+        nel,
+        me: parseFloat((nel * 1.58).toFixed(2)),
+        ndf: category === "kaba" ? 50 : 20,
+        price,
+        isCustom: true
+      };
+
+      const feeds = getFeeds();
+      feeds.unshift(newFeed);
+      saveFeeds(feeds);
+
+      if (!state.userFeedIds.includes(id)) {
+        state.userFeedIds.push(id);
+      }
+
+      document.getElementById("newFeedName").value = "";
+
+      renderFeedSelectorList();
+      renderFeedsList();
+      alert(`"${name}" başarıyla ambara eklendi ve seçildi!`);
+    }
+
+    function deleteCustomFeed(id, event) {
+      if (event) event.stopPropagation();
+      if (!confirm("Bu özel yemi ambarınızdan silmek istediğinize emin misiniz?")) return;
+
+      let feeds = getFeeds();
+      feeds = feeds.filter(f => f.id !== id);
+      saveFeeds(feeds);
+
+      state.userFeedIds = state.userFeedIds.filter(fid => fid !== id);
+
+      renderFeedSelectorList();
+      renderFeedsList();
+    }
+
+    function applyCustomFeedsFromModal() {
+      const checkboxes = document.querySelectorAll(".feed-select-cb:checked");
+      const selectedIds = Array.from(checkboxes).map(cb => cb.value);
+
+      if (selectedIds.length === 0) {
+        alert("Lütfen en az bir adet yem ham maddesi seçin veya yukarıdan yeni bir yem tanımlayın!");
+        return;
+      }
+
+      state.userFeedIds = selectedIds;
+      state.feedBasketPreset = "custom";
+      closeFeedSelectorModal();
+
+      const allFeeds = getFeeds();
+      const names = selectedIds.map(id => allFeeds.find(f => f.id === id)?.name || id).slice(0, 4).join(", ");
+      const extraCount = selectedIds.length > 4 ? ` ve ${selectedIds.length - 4} yem daha` : "";
+      addOutgoingMessage(`✍️ Özel Yem Ham Maddelerim: ${names}${extraCount} (${selectedIds.length} Yem)`);
+
+      showTypingIndicator(() => {
+        addIncomingMessage(
+          `Seçtiğin <strong>${selectedIds.length} adet ham madde</strong> rasyon motoruna aktarıldı.<br>Bu rasyon için önceliğin nedir?`,
+          [
+            { icon: SVG_ICONS.coin, text: "💰 En Düşük Maliyet (Cebi Koruyan En Ucuz Rasyon)", action: "selectPriority('lowest_cost', 'En Düşük Maliyetli Rasyon')", class: "primary" },
+            { icon: SVG_ICONS.sparkles, text: "⚡ Maksimum Verim & Hızlı Kilo (Yüksek Enerji)", action: "selectPriority('max_yield', 'Maksimum Verim ve Enerji')", class: "primary" },
+            { icon: SVG_ICONS.check, text: "🛡️ Dengeli & Garantili İşkembe Sağlığı (Asidoz Korumalı)", action: "selectPriority('balanced', 'Dengeli & Asidoz Korumalı')", class: "primary" }
+          ]
+        );
+      }, 350);
+    }
+
+    function handleChatSubmit(e) {
+      if (e) e.preventDefault();
+      const input = document.getElementById("chat-input");
+      if (!input) return;
+      const text = input.value.trim();
+      if (!text) return;
+      input.value = "";
+
+      addOutgoingMessage(text);
+      const lower = text.toLowerCase();
+
+      showTypingIndicator(() => {
+        if (lower.includes("yem") || lower.includes("hammadde") || lower.includes("ham madde") || lower.includes("özel") || lower.includes("fiğ") || lower.includes("sabit")) {
+          addIncomingMessage(
+            `Kendi yem ham maddelerinizi belirlemek veya yeni bir yem yazmak için aşağıdaki butona dokunabilirsiniz:`,
+            [
+              { icon: SVG_ICONS.feed, text: "✍️ Kendi Yemlerimi Seç / Özel Yem Yaz", action: "openFeedSelectorModal()", class: "warning" }
+            ]
+          );
+        } else if (lower.includes("vagon") || lower.includes("kantar") || lower.includes("tmr")) {
+          openTmrModal();
+        } else if (lower.includes("fiyat") || lower.includes("ambar")) {
+          openFeedsModal();
+        } else if (lower.includes("sıfırla") || lower.includes("baştan") || lower.includes("yeniden")) {
+          restartChat();
+        } else {
+          addIncomingMessage(
+            `Mesajını aldım: "<em>${text}</em>". Rasyon adımında ilerlemek veya kendi özel yemlerinizi yazmak için seçenekleri kullanabilirsiniz:`,
+            [
+              { icon: SVG_ICONS.feed, text: "✍️ Kendi Yemlerimi Belirle / Özel Yem Yaz", action: "openFeedSelectorModal()", class: "warning" },
+              { icon: SVG_ICONS.refresh, text: "Sohbeti Baştan Başlat", action: "restartChat()", class: "primary" }
+            ]
+          );
+        }
+      }, 400);
     }
 
     // =========================================================================
