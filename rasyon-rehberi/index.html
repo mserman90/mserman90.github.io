@@ -231,8 +231,13 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      flex-shrink: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      max-width: 78%;
+      flex-shrink: 1;
     }
+    .wa-actions::-webkit-scrollbar { display: none; }
 
     .wa-hdr-btn {
       background: rgba(255, 255, 255, 0.15);
@@ -878,6 +883,18 @@
           <svg class="lucide-icon" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           <span>Ana Sayfa</span>
         </a>
+        <button onclick="openKiloModal()" class="wa-hdr-btn" title="Şerit Metre (Schaeffer) ile Kilo & Karkas Randımanı" style="background:#059669 !important; border-color:#34d399 !important;">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
+          <span>Kilo/CAAG</span>
+        </button>
+        <button onclick="openKarsilamaModal()" class="wa-hdr-btn" title="21 Günlük Dana Karşılama & Can Suyu Protokolü" style="background:#d97706 !important; border-color:#fcd34d !important;">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.82-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/></svg>
+          <span>21 Gün</span>
+        </button>
+        <button onclick="openProtokollerModal()" class="wa-hdr-btn" title="Altın Besleme & Koruyucu Rasyon Protokolleri (DCAD, SARA, Flushing, Toksemi)" style="background:#7c3aed !important; border-color:#a78bfa !important;">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          <span>Protokoller</span>
+        </button>
         <button onclick="openTmrModal()" class="wa-hdr-btn" title="TMR Yem Karma Vagon Kantarı" style="background:#0284c7 !important; border-color:#38bdf8 !important;">
           <svg class="lucide-icon" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M10 14h4"/></svg>
           <span>Vagon</span>
@@ -1125,6 +1142,303 @@
         <button class="btn-action-primary" onclick="applyCustomFeedsFromModal()" style="background:#008069; min-width:180px;">
           🚀 Seçtiğim Yemlerle Rasyon Yap
         </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- KİLO, CAAG VE KARKAS RANDIMANI MODALI -->
+  <div class="modal-overlay" id="kilo-modal" onclick="closeModalOnBackdrop(event, 'kilo-modal')">
+    <div class="modal-box">
+      <div class="modal-hdr" style="background:#059669;">
+        <div class="modal-title">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
+          <span>Kilo, CAAG & Karkas Randımanı</span>
+        </div>
+        <button class="modal-close" onclick="closeKiloModal()" aria-label="Kapat">&times;</button>
+      </div>
+      <div class="modal-body" style="font-size:0.85rem;">
+        <div style="display:flex; gap:6px; margin-bottom:12px;">
+          <button class="wa-choice-btn primary" id="kiloTabBtn1" onclick="switchKiloTab('schaeffer')" style="flex:1; justify-content:center; padding:8px;">
+            📏 Şerit Metre (Schaeffer)
+          </button>
+          <button class="wa-choice-btn" id="kiloTabBtn2" onclick="switchKiloTab('caag')" style="flex:1; justify-content:center; padding:8px;">
+            ⚖️ CAAG & Karkas Geliri
+          </button>
+        </div>
+
+        <!-- TAB 1: SCHAEFFER ŞERİT METRE -->
+        <div id="kilo-tab-schaeffer">
+          <p style="font-size:0.8rem; color:#64748b; margin-bottom:10px;">
+            Kantar yoksa mezura ile ölçün. Sığır/Dana için <code>(G² × U) / 108.38</code>, Küçükbaş için <code>(G² × U) / 9850</code> formülüyle ±%3-5 hassasiyetle hesaplanır.
+          </p>
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <div>
+              <label style="font-size:0.78rem; font-weight:700;">Hayvan Türü:</label>
+              <select id="schaefferAnimalType" onchange="calcSchaefferWeight()" style="width:100%; padding:6px 8px; border:1px solid #cbd5e1; border-radius:6px; font-size:0.85rem; margin-top:3px;">
+                <option value="cattle">🐂 Sığır / Besi Danası / İnek (Bölen: 108.38)</option>
+                <option value="sheep">🐑 Koyun / Kuzu / Koç (Bölen: 9850)</option>
+              </select>
+            </div>
+            <div>
+              <label style="font-size:0.78rem; font-weight:700;">Göğüs Çevresi (Ön bacakların hemen arkasından, cm):</label>
+              <input type="number" id="schaefferGogus" class="chat-input" value="180" min="40" max="320" oninput="calcSchaefferWeight()" style="width:100%; margin-top:3px;">
+            </div>
+            <div>
+              <label style="font-size:0.78rem; font-weight:700;">Vücut Uzunluğu (Omuz başından kalça/kuyruk ucuna, cm):</label>
+              <input type="number" id="schaefferUzunluk" class="chat-input" value="150" min="30" max="250" oninput="calcSchaefferWeight()" style="width:100%; margin-top:3px;">
+            </div>
+            <div id="schaefferResultBox" style="background:#fef3c7; border:1px solid #fde68a; border-radius:8px; padding:10px; margin-top:6px; font-weight:700; color:#92400e;">
+              <!-- Sonuç dinamik hesaplanır -->
+            </div>
+            <button class="btn-action-primary" onclick="applySchaefferWeightToRation()" style="margin-top:4px; background:#059669;">
+              🚀 Bu Canlı Ağırlığı Rasyona Aktar & Rasyon Yap
+            </button>
+          </div>
+        </div>
+
+        <!-- TAB 2: CAAG VE KARKAS RANDIMANI -->
+        <div id="kilo-tab-caag" style="display:none;">
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+              <div>
+                <label style="font-size:0.78rem; font-weight:700;">İlk Tartım (kg):</label>
+                <input type="number" id="caagIlkKg" class="chat-input" value="280" oninput="calcCaagAndKarkas()" style="width:100%; margin-top:3px;">
+              </div>
+              <div>
+                <label style="font-size:0.78rem; font-weight:700;">Son Tartım (kg):</label>
+                <input type="number" id="caagSonKg" class="chat-input" value="460" oninput="calcCaagAndKarkas()" style="width:100%; margin-top:3px;">
+              </div>
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+              <div>
+                <label style="font-size:0.78rem; font-weight:700;">İki Tartım Arası (Gün):</label>
+                <input type="number" id="caagGun" class="chat-input" value="120" oninput="calcCaagAndKarkas()" style="width:100%; margin-top:3px;">
+              </div>
+              <div>
+                <label style="font-size:0.78rem; font-weight:700;">Karkas Randımanı (%):</label>
+                <input type="number" id="caagRandiman" class="chat-input" value="58" min="45" max="68" oninput="calcCaagAndKarkas()" style="width:100%; margin-top:3px;">
+              </div>
+            </div>
+            <div>
+              <label style="font-size:0.78rem; font-weight:700;">Karkas Et Fiyatı (₺/kg karkas):</label>
+              <input type="number" id="caagFiyat" class="chat-input" value="420" oninput="calcCaagAndKarkas()" style="width:100%; margin-top:3px;">
+            </div>
+            <div id="caagResultBox" style="background:#ecfdf5; border:1px solid #6ee7b7; border-radius:8px; padding:10px; margin-top:6px; font-size:0.82rem; color:#065f46;">
+              <!-- CAAG ve Karkas hesaplanır -->
+            </div>
+            <button class="btn-action-primary" onclick="applyCaagWeightToRation()" style="margin-top:4px; background:#059669;">
+              🚀 Son Tartım Kilosuyla Rasyon Yap
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-ftr">
+        <button class="btn-action-secondary" onclick="closeKiloModal()" style="width:100%;">Kapat</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 21 GÜN DANA KARŞILAMA & CAN SUYU MODALI -->
+  <div class="modal-overlay" id="karsilama-modal" onclick="closeModalOnBackdrop(event, 'karsilama-modal')">
+    <div class="modal-box">
+      <div class="modal-hdr" style="background:#d97706;">
+        <div class="modal-title">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.82-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/></svg>
+          <span>21 Günlük Dana Karşılama & Can Suyu</span>
+        </div>
+        <button class="modal-close" onclick="closeKarsilamaModal()" aria-label="Kapat">&times;</button>
+      </div>
+      <div class="modal-body" style="font-size:0.85rem; line-height:1.5; color:#334155;">
+        <div style="background:#fef3c7; border:1px solid #fde68a; border-radius:8px; padding:10px; margin-bottom:12px; color:#92400e;">
+          <strong>🚨 İLK 24 SAAT ALTIN KURALI:</strong> Kamyondan inen yorgun danaya <strong>kesinlikle fabrika yemi veya tahıl kırması vermeyin!</strong> İlk 24 saat yalnızca temiz kuru ot/kuru yonca ve ılık elektrolitli <strong>Can Suyu</strong> verilir.
+        </div>
+
+        <h4 style="color:#9a3412; font-weight:800; margin-bottom:6px;">🍯 100 Litre Ahır Tipi Acil Can Suyu Formülü:</h4>
+        <div style="background:#f8fafc; border:1.5px solid #cbd5e1; border-radius:8px; padding:10px; margin-bottom:12px;">
+          • <strong>100 Litre:</strong> Ilık ve temiz içme suyu<br>
+          • <strong>500 gr:</strong> İnce Kaya Tuzu (NaCl - su içmeyi teşvik eder)<br>
+          • <strong>500 gr:</strong> Sodyum Bikarbonat (Yemek Karbonatı - işkembe asitleşmesini önler)<br>
+          • <strong>1-2 kg:</strong> Melas veya Pekmez (Hızlı enerji ve kan şekeri toparlanması)<br>
+          • <em>İsteğe bağlı: 20 gr C Vitamini tozu (Nakliye stresi kalkanı)</em>
+        </div>
+
+        <h4 style="color:#0f172a; font-weight:800; margin-bottom:6px;">📅 21 Günlük Kademeli Besi Rasyon Tablosu:</h4>
+        <div style="display:flex; flex-direction:column; gap:6px; margin-bottom:12px;">
+          <div style="background:#fff; border:1px solid #e2e8f0; border-radius:6px; padding:8px;">
+            <strong>1 - 3. Gün:</strong> %100 Kaliteli Kuru Ot / Yonca + Can Suyu. Kesif yem 0 kg. Dinlenme, bol altlık ve sakin ahır.
+          </div>
+          <div style="background:#fff; border:1px solid #e2e8f0; border-radius:6px; padding:8px;">
+            <strong>4 - 7. Gün:</strong> Dana başına günlük 1.0 - 1.5 kg besi başlangıç yemi + serbest kuru ot. İç-dış parazit ve koruyucu ciğer kalkanı (Veteriner kontrolünde).
+          </div>
+          <div style="background:#fff; border:1px solid #e2e8f0; border-radius:6px; padding:8px;">
+            <strong>8 - 14. Gün:</strong> Kesif yem her 2 günde 500 gr artırılır (2.5 - 3.5 kg/gün). Şap ve karma aşılar yapılır.
+          </div>
+          <div style="background:#fff; border:1px solid #e2e8f0; border-radius:6px; padding:8px;">
+            <strong>15 - 21. Gün:</strong> Hedef besi rasyonuna kademeli geçiş (4.5 - 6.0 kg kesif yem + kaba yem). İdrar taşı ve asidoz önleyici tampon (soda/mermer tozu) eklenir.
+          </div>
+        </div>
+
+        <button class="btn-action-primary" onclick="startKarsilamaRation()" style="width:100%; background:#d97706;">
+          🐂 Karşılama Dönemi Besi Rasyonu Başlat
+        </button>
+      </div>
+      <div class="modal-ftr">
+        <button class="btn-action-secondary" onclick="closeKarsilamaModal()" style="width:100%;">Kapat</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ALTIN BESLEME & KORUYUCU RASYON PROTOKOLLERİ MODALI -->
+  <div class="modal-overlay" id="protokoller-modal" onclick="closeModalOnBackdrop(event, 'protokoller-modal')">
+    <div class="modal-box" style="max-width:620px;">
+      <div class="modal-hdr" style="background:#7c3aed;">
+        <div class="modal-title">
+          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          <span>Altın Besleme & Rasyon Protokolleri</span>
+        </div>
+        <button class="modal-close" onclick="closeProtokollerModal()" aria-label="Kapat">&times;</button>
+      </div>
+      <div class="modal-body" style="font-size:0.85rem; line-height:1.5;">
+        <!-- Protokol Sekmeleri -->
+        <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;">
+          <button class="wa-choice-btn primary" id="protokolTabBtn1" onclick="switchProtokolTab('dcad')" style="padding:6px 10px; font-size:0.78rem;">
+            ⚡ Anyonik DCAD
+          </button>
+          <button class="wa-choice-btn" id="protokolTabBtn2" onclick="switchProtokolTab('sara')" style="padding:6px 10px; font-size:0.78rem;">
+            🛡️ SARA & peNDF
+          </button>
+          <button class="wa-choice-btn" id="protokolTabBtn3" onclick="switchProtokolTab('flushing')" style="padding:6px 10px; font-size:0.78rem;">
+            🐏 Flushing (İkizlik)
+          </button>
+          <button class="wa-choice-btn" id="protokolTabBtn4" onclick="switchProtokolTab('toksemi')" style="padding:6px 10px; font-size:0.78rem;">
+            🤰 Gebelik Toksemisi
+          </button>
+          <button class="wa-choice-btn" id="protokolTabBtn5" onclick="switchProtokolTab('urolithiasis')" style="padding:6px 10px; font-size:0.78rem;">
+            💧 İdrar Taşı Kalkanı
+          </button>
+          <button class="wa-choice-btn" id="protokolTabBtn6" onclick="switchProtokolTab('calf')" style="padding:6px 10px; font-size:0.78rem;">
+            🍼 Buzağı & Kuzu Büyütme
+          </button>
+        </div>
+
+        <!-- 1. ANYONİK DCAD -->
+        <div id="protokol-tab-dcad">
+          <div style="background:#faf5ff; border:1.5px solid #d8b4fe; border-radius:8px; padding:12px; margin-bottom:12px;">
+            <h4 style="color:#6b21a8; font-weight:800; margin-bottom:6px;">⚡ Anyonik Kuru Dönem Rasyonu (DCAD - Süt Humması Kalkanı)</h4>
+            <p style="color:#475569; margin-bottom:8px;">
+              Doğumdan önceki son 21 günde ineklerin kanındaki kalsiyum mekanizmasını harekete geçirmek ve doğum felcini (hipokalsemi), sonun atılamamasını (retensiyo) ve şirden dönmesini (abomazum deplasmanı) önleyen altın protokoldür.
+            </p>
+            <ul style="padding-left:18px; color:#334155; margin-bottom:10px;">
+              <li><strong>DCAD Dengesi:</strong> Rasyonda <code>(Na + K) - (Cl + S)</code> formülüyle anyonik tuzlar (magnezyum sülfat, amonyum klorür) verilerek negatif DCAD (-50 ila -100 mEq/kg KM) hedeflenir.</li>
+              <li><strong>Potasyum Yasağı:</strong> Son 21 günde yüksek potasyumlu yemler (bol yonca, melas, pancar posası) kısıtlanır, saman ve mısır silajı ağırlıklı verilir.</li>
+              <li><strong>İdrar pH Kontrolü:</strong> Anyonik rasyon alan inekte idrar pH'ı 6.0 - 6.8 arasına düşmelidir.</li>
+              <li><strong>Doğum Anı Takviyesi:</strong> Doğum yapar yapmaz ağızdan kalsiyum jeli / bolusu veya sıcak komposto verilmelidir.</li>
+            </ul>
+            <button class="btn-action-primary" onclick="startSpecificRation('dry_cow_dcad')" style="background:#7c3aed; width:100%;">
+              ⚡ Anyonik Doğuma Hazırlık Rasyonu Başlat
+            </button>
+          </div>
+        </div>
+
+        <!-- 2. SARA & peNDF -->
+        <div id="protokol-tab-sara" style="display:none;">
+          <div style="background:#f0fdf4; border:1.5px solid #86efac; border-radius:8px; padding:12px; margin-bottom:12px;">
+            <h4 style="color:#166534; font-weight:800; margin-bottom:6px;">🛡️ SARA & peNDF (Subakut Rumen Asidozu Önleme)</h4>
+            <p style="color:#475569; margin-bottom:8px;">
+              Yüksek süt veya hızlı besi uğruna rasyona aşırı tahıl (mısır/arpa) yüklenip lif azaltıldığında işkembe pH'ı 5.6'nın altına düşer; geviş getirme durur, tırnak yangısı (laminitis) ve köpüklü ishal başlar.
+            </p>
+            <ul style="padding-left:18px; color:#334155; margin-bottom:10px;">
+              <li><strong>Nişasta Tavanı:</strong> Toplam rasyonda nişasta oranı <strong>asla %28'i geçmemelidir</strong>.</li>
+              <li><strong>peNDF (Fiziksel Etkili Lif):</strong> Toplam rasyonun <strong>en az %21'i</strong> 8 mm'den uzun lifli kaba yem (yonca/saman) olmalıdır. Bu lifler geviş getirmeyi tetikler.</li>
+              <li><strong>Tampon Soda (Sodyum Bikarbonat):</strong> Sağmal inek başına günlük <strong>150 - 250 gr</strong>, besi danası başına <strong>80 - 120 gr</strong> rasyona homojen karıştırılmalıdır.</li>
+              <li><strong>Canlı Maya (Saccharomyces cerevisiae):</strong> Laktik asit tüketen rumen bakterilerini uyararak asidoz dalgalanmalarını yumuşatır.</li>
+              <li><strong>Geviş Getirme Kuralı:</strong> Yatan hayvanların en az %60'ı geviş getiriyor olmalıdır (dakikada 50-60 çiğneme).</li>
+            </ul>
+            <button class="btn-action-primary" onclick="startSpecificRation('sara_prevent')" style="background:#16a34a; width:100%;">
+              🛡️ SARA Korumalı Sağmal İnek Rasyonu Başlat
+            </button>
+          </div>
+        </div>
+
+        <!-- 3. FLUSHING (KOYUN İKİZLİK) -->
+        <div id="protokol-tab-flushing" style="display:none;">
+          <div style="background:#fffbeb; border:1.5px solid #fde68a; border-radius:8px; padding:12px; margin-bottom:12px;">
+            <h4 style="color:#92400e; font-weight:800; margin-bottom:6px;">🐏 Koç Katımı Öncesi Flushing Rasyonu (İkizlik Artırıcı)</h4>
+            <p style="color:#475569; margin-bottom:8px;">
+              Koç katımından 3 hafta önce başlayıp koç katımının ilk 3 haftası boyunca devam eden enerji takviyesidir. Koyunun vücut kondisyonunu yükselterek yumurtlama (ovülasyon) sayısını ve ikizlik oranını %20 - %30 artırır.
+            </p>
+            <ul style="padding-left:18px; color:#334155; margin-bottom:10px;">
+              <li><strong>Zamanlama:</strong> Koçlar sürüye salınmadan 21 gün önce başlar.</li>
+              <li><strong>Uygulama:</strong> Anaç koyun başına mera ve kuru ota ek olarak günde <strong>300 - 500 gr arpa ezmesi veya yüksek enerjili koyun yemi</strong> verilir.</li>
+              <li><strong>Koç Beslemesi:</strong> Koçlara da günde 500-750 gr kaliteli kesif yem + E vitamini/Selenyum takviyesi yapılarak sperm kalitesi artırılır.</li>
+              <li><strong>Aşı Uyarısı:</strong> Koç katımından hemen önce Agalaksi (Sütkesen) ve Çelerme (Enterotoksemi) aşıları tamamlanmalıdır.</li>
+            </ul>
+            <button class="btn-action-primary" onclick="startSpecificRation('sheep_flushing')" style="background:#d97706; width:100%;">
+              🐏 Koyun Flushing (İkizlik) Rasyonu Başlat
+            </button>
+          </div>
+        </div>
+
+        <!-- 4. GEBELİK TOKSEMİSİ (İKİZ KUZU HASTALIĞI) -->
+        <div id="protokol-tab-toksemi" style="display:none;">
+          <div style="background:#fff1f2; border:1.5px solid #fecdd3; border-radius:8px; padding:12px; margin-bottom:12px;">
+            <h4 style="color:#9f1239; font-weight:800; margin-bottom:6px;">🤰 Gebelik Toksemisi (İkiz Kuzu Hastalığı Kalkanı)</h4>
+            <p style="color:#475569; margin-bottom:8px;">
+              Doğuma son 4-6 hafta kala anne karnındaki ikiz/üçüz kuzular hızla büyüyerek anacın işkembesini sıkıştırır. Koyun yeterince kaba yem yiyemez ve negatif enerjiye düşerek vücut yağlarını yakar; keton cisimcikleri birikir, koyun körleşir, diş gıcırdatır ve felç olur.
+            </p>
+            <ul style="padding-left:18px; color:#334155; margin-bottom:10px;">
+              <li><strong>Az Hacim - Yüksek Enerji:</strong> Saman gibi düşük değerli yemler azaltılır; kaliteli yapraklı kuru yonca ve dane arpa/mısır artırılır.</li>
+              <li><strong>Kademeli Artış:</strong> Doğuma son 4 hafta kala kesif yem miktarı koyun başına 400 gr'dan 700-800 gr'a kademeli çıkarılır.</li>
+              <li><strong>Enerji Şurubu (Propilen Glikol / Gliserin):</strong> İkiz gebe olduğu ultrasonla tespit edilen veya zayıf düşen koyunlara haftada 2-3 kez 50-70 mL içirilir.</li>
+              <li><strong>Stres Yasağı:</strong> Son 1 ayda koyunları uzun mesafe yürütmeyin, aç bırakmayın veya ani rasyon değişikliği yapmayın.</li>
+            </ul>
+            <button class="btn-action-primary" onclick="startSpecificRation('sheep_late_preg')" style="background:#be123c; width:100%;">
+              🤰 Doğum Öncesi Koyun Rasyonu Başlat
+            </button>
+          </div>
+        </div>
+
+        <!-- 5. İDRAR TAŞI (ÜROLİTİYAZİS) -->
+        <div id="protokol-tab-urolithiasis" style="display:none;">
+          <div style="background:#f0f9ff; border:1.5px solid #bae6fd; border-radius:8px; padding:12px; margin-bottom:12px;">
+            <h4 style="color:#0369a1; font-weight:800; margin-bottom:6px;">💧 Besi Kuzusu Sidik Zoru (İdrar Yolu Taşı Kalkanı)</h4>
+            <p style="color:#475569; margin-bottom:8px;">
+              Yoğun arpa ve kesif yemle beslenen erkek besi kuzularında idrar kanalına taş (struvit / magnezyum-amonyum fosfat) oturarak idrar kesesinin patlamasına ve ölüme yol açar.
+            </p>
+            <ul style="padding-left:18px; color:#334155; margin-bottom:10px;">
+              <li><strong>Ca:P Oranı Altın Kuralı (2:1):</strong> Rasyondaki Kalsiyum / Fosfor oranı mutlaka <strong>en az 2:1</strong> olmalıdır. Yüksek fosfor taşın ana sebebidir; mermer tozu eklenerek kalsiyum artırılmalıdır.</li>
+              <li><strong>%1 Yemlik Tuz:</strong> Rasyona %1 oranında ince yemlik tuz eklenerek kuzuların bol su içmesi ve idrar yolunun yıkanması sağlanır.</li>
+              <li><strong>Amonyum Klorür (İdrar Asitleştirici):</strong> Ton yeme 5-10 kg amonyum klorür katılarak idrar pH'ı asitleştirilir ve taşların kristalleşmesi engellenir.</li>
+              <li><strong>🚫 SIĞIR YEMİ YASAKTIR:</strong> Sığır besi yemleri fosforca zengindir ve kuzuya verildiğinde sidik zorunu tetikler. Yalnızca kuzu besi yemi kullanılmalıdır.</li>
+            </ul>
+            <button class="btn-action-primary" onclick="startSpecificRation('lamb_urolithiasis')" style="background:#0284c7; width:100%;">
+              💧 İdrar Taşı Korumalı Kuzu Besi Rasyonu Başlat
+            </button>
+          </div>
+        </div>
+
+        <!-- 6. BUZAĞI & KUZU BÜYÜTME -->
+        <div id="protokol-tab-calf" style="display:none;">
+          <div style="background:#f8fafc; border:1.5px solid #cbd5e1; border-radius:8px; padding:12px; margin-bottom:12px;">
+            <h4 style="color:#0f172a; font-weight:800; margin-bottom:6px;">🍼 Buzağı Başlangıç Yemi & Sütten Kesim Protokolü</h4>
+            <p style="color:#475569; margin-bottom:8px;">
+              Rumen papillalarının gelişimi kaba yemle değil, pelet buzağı başlangıç yeminin (uçucu yağ asitleri: bütirat ve propiyonat) fermantasyonu ile gerçekleşir.
+            </p>
+            <ul style="padding-left:18px; color:#334155; margin-bottom:10px;">
+              <li><strong>İlk 3 Gün Kolostrum:</strong> Doğumdan sonraki ilk 2 saatte 3-4 litre kaliteli ağız sütü (Brix %22+) içirilir.</li>
+              <li><strong>4. Gün Kuralı:</strong> 4. günden itibaren buzağının önüne taze, temiz su ve avuç içi kadar pelet buzağı başlangıç yemi (%18-20 HP) konur.</li>
+              <li><strong>Sütten Kesim Şartı:</strong> Buzağı arka arkaya 3 gün boyunca <strong>günde en az 1.5 kg fabrika başlangıç yemi</strong> tüketmeden süt/mama ASLA kesilmez.</li>
+              <li><strong>Yonca Geçişi:</strong> Sütten kesildikten sonra sindirim bozulmaması için kaliteli kuru yonca kademeli olarak serbest verilir.</li>
+            </ul>
+            <button class="btn-action-primary" onclick="startSpecificRation('calf_starter')" style="background:#0f172a; width:100%;">
+              🍼 Buzağı Başlangıç & Sütten Kesim Rasyonu Başlat
+            </button>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-ftr">
+        <button class="btn-action-secondary" onclick="closeProtokollerModal()" style="width:100%;">Kapat</button>
       </div>
     </div>
   </div>
@@ -1427,7 +1741,8 @@
               { icon: SVG_ICONS.sparkles, text: "650 kg İnek • 25 Litre Süt (%3.8 Yağ)", action: "selectYield(650, 25, '650 kg • 25 Litre Süt')", class: "primary" },
               { icon: SVG_ICONS.sparkles, text: "650 kg İnek • 30 Litre Süt (%3.8 Yağ)", action: "selectYield(650, 30, '650 kg • 30 Litre Süt')", class: "primary" },
               { icon: SVG_ICONS.sparkles, text: "680 kg İnek • 35 Litre Süt (Yüksek Verim)", action: "selectYield(680, 35, '680 kg • 35 Litre Süt')", class: "primary" },
-              { icon: SVG_ICONS.sparkles, text: "600 kg İnek • 20 Litre Süt", action: "selectYield(600, 20, '600 kg • 20 Litre Süt')", class: "primary" },
+              { icon: SVG_ICONS.check, text: "🛡️ SARA & Asidoz Korumalı Rasyon (peNDF %22)", action: "startSpecificRation('sara_prevent')", class: "primary" },
+              { icon: SVG_ICONS.sparkles, text: "🍼 Buzağı Başlangıç Yemi & Sütten Kesim", action: "startSpecificRation('calf_starter')", class: "primary" },
               { icon: SVG_ICONS.feed, text: "Özel Kilo ve Süt Verimi Yaz...", action: "promptCustomDairy()", class: "" }
             ]
           );
@@ -1438,6 +1753,9 @@
               { icon: SVG_ICONS.sparkles, text: "350 kg (Besiye Giriş) • 1.400 gr/gün", action: "selectYield(350, 1.4, '350 kg • 1.400 gr/gün')", class: "blue" },
               { icon: SVG_ICONS.sparkles, text: "450 kg (Orta Besi) • 1.500 gr/gün", action: "selectYield(450, 1.5, '450 kg • 1.500 gr/gün')", class: "blue" },
               { icon: SVG_ICONS.sparkles, text: "550 kg (Besi Bitirme) • 1.300 gr/gün", action: "selectYield(550, 1.3, '550 kg • 1.300 gr/gün')", class: "blue" },
+              { icon: SVG_ICONS.feed, text: "🍼 21 Günlük Karşılama & Can Suyu (Yeni Dana)", action: "startKarsilamaRation()", class: "warning" },
+              { icon: SVG_ICONS.tmr, text: "📏 Şerit Metre (Schaeffer) ile Kilo Hesapla", action: "openKiloModal('schaeffer')", class: "primary" },
+              { icon: SVG_ICONS.coin, text: "⚖️ Tartım Farkı & CAAG / Karkas Geliri", action: "openKiloModal('caag')", class: "primary" },
               { icon: SVG_ICONS.feed, text: "Özel Dana Kilosu ve Hedef Yaz...", action: "promptCustomBeef()", class: "" }
             ]
           );
@@ -1447,6 +1765,8 @@
             [
               { icon: SVG_ICONS.sparkles, text: "30 kg Kuzu • 350 gr/gün Hızlı Besi", action: "selectYield(30, 0.35, '30 kg • 350 gr/gün')", class: "warning" },
               { icon: SVG_ICONS.sparkles, text: "40 kg Toklu • 300 gr/gün Bitirme", action: "selectYield(40, 0.3, '40 kg • 300 gr/gün')", class: "warning" },
+              { icon: SVG_ICONS.check, text: "💧 İdrar Taşı / Sidik Zoru Kalkanı (Ca:P 2:1)", action: "startSpecificRation('lamb_urolithiasis')", class: "primary" },
+              { icon: SVG_ICONS.tmr, text: "📏 Şerit Metre ile Kuzu Kilosu Ölç", action: "openKiloModal('schaeffer')", class: "warning" },
               { icon: SVG_ICONS.feed, text: "Özel Kuzu Kilosu Yaz...", action: "promptCustomLamb()", class: "" }
             ]
           );
@@ -1455,7 +1775,9 @@
             `Anaç koyunların durumu nedir?`,
             [
               { icon: SVG_ICONS.sparkles, text: "65 kg Koyun • İkizli Emziren (Yüksek Süt)", action: "selectYield(65, 2.0, '65 kg • İkizli Emziren')", class: "warning" },
-              { icon: SVG_ICONS.sparkles, text: "65 kg Gebe Koyun (Son Ay - Doğuma Hazırlık)", action: "selectYield(65, 1.0, '65 kg • Son Ay Gebe')", class: "warning" }
+              { icon: SVG_ICONS.sparkles, text: "65 kg Gebe Koyun (Son Ay - Doğuma Hazırlık)", action: "selectYield(65, 1.0, '65 kg • Son Ay Gebe')", class: "warning" },
+              { icon: SVG_ICONS.feed, text: "🐏 Koç Katımı Öncesi Flushing (İkizlik Artırıcı)", action: "startSpecificRation('sheep_flushing')", class: "warning" },
+              { icon: SVG_ICONS.feed, text: "🤰 Son 4 Hafta (Gebelik Toksemisi Kalkanı)", action: "startSpecificRation('sheep_late_preg')", class: "warning" }
             ]
           );
         } else {
@@ -1464,7 +1786,7 @@
             `Kuru dönemdeki inek ve düveler için doğum öncesi hedef:`,
             [
               { icon: SVG_ICONS.sparkles, text: "650 kg İnek • Kuru Dönem Başlangıcı (60-21 gün)", action: "selectYield(650, 0, '650 kg • Erken Kuru')", class: "primary" },
-              { icon: SVG_ICONS.sparkles, text: "650 kg İnek • Doğuma Hazırlık (Son 21 gün - Anyonik)", action: "selectYield(650, 0, '650 kg • Doğuma Hazırlık (Geç Kuru)')", class: "primary" }
+              { icon: SVG_ICONS.check, text: "⚡ Anyonik Doğuma Hazırlık (Son 21 gün - DCAD Süt Humması)", action: "startSpecificRation('dry_cow_dcad')", class: "primary" }
             ]
           );
         }
@@ -2398,6 +2720,214 @@
     }
 
     // =========================================================================
+    // KİLO, CAAG VE KARKAS RANDIMANI HESAPLAMA MOTORU
+    // =========================================================================
+    function openKiloModal(tab = 'schaeffer') {
+      const modal = document.getElementById("kilo-modal");
+      if (modal) modal.classList.add("active");
+      switchKiloTab(tab);
+      calcSchaefferWeight();
+      calcCaagAndKarkas();
+    }
+
+    function closeKiloModal() {
+      const modal = document.getElementById("kilo-modal");
+      if (modal) modal.classList.remove("active");
+    }
+
+    function switchKiloTab(tab) {
+      const tabSchaeffer = document.getElementById("kilo-tab-schaeffer");
+      const tabCaag = document.getElementById("kilo-tab-caag");
+      const btn1 = document.getElementById("kiloTabBtn1");
+      const btn2 = document.getElementById("kiloTabBtn2");
+
+      if (tab === 'schaeffer') {
+        if (tabSchaeffer) tabSchaeffer.style.display = "block";
+        if (tabCaag) tabCaag.style.display = "none";
+        btn1?.classList.add("primary");
+        btn2?.classList.remove("primary");
+      } else {
+        if (tabSchaeffer) tabSchaeffer.style.display = "none";
+        if (tabCaag) tabCaag.style.display = "block";
+        btn2?.classList.add("primary");
+        btn1?.classList.remove("primary");
+      }
+    }
+
+    function calcSchaefferWeight() {
+      const gogus = parseFloat(document.getElementById("schaefferGogus")?.value) || 0;
+      const uzunluk = parseFloat(document.getElementById("schaefferUzunluk")?.value) || 0;
+      const type = document.getElementById("schaefferAnimalType")?.value || "cattle";
+      const divisor = type === "sheep" ? 9850 : 108.38;
+      const box = document.getElementById("schaefferResultBox");
+      if (!box) return;
+
+      if (gogus <= 0 || uzunluk <= 0) {
+        box.innerHTML = "Lütfen göğüs ve vücut uzunluğu değerlerini giriniz.";
+        return;
+      }
+
+      // Schaeffer Formülü
+      const kg = Math.round((Math.pow(gogus, 2) * uzunluk) / divisor);
+      const randiman = type === "sheep" ? 0.48 : 0.58;
+      const karkas = Math.round(kg * randiman);
+      const dmiPct = type === "sheep" ? 0.035 : 0.025;
+      const dmiKg = (kg * dmiPct).toFixed(1);
+
+      box.innerHTML = `
+        <div style="font-size:1.05rem;">⚖️ Tahmini Canlı Ağırlık: <strong>${kg} kg</strong></div>
+        <div style="font-size:0.85rem; margin-top:3px;">🥩 %${Math.round(randiman*100)} Randımanlı Tahmini Karkas: <strong>${karkas} kg et</strong></div>
+        <div style="font-size:0.82rem; color:#065f46; margin-top:3px;">🌾 Tahmini Günlük Kuru Madde İhtiyacı: <strong>~${dmiKg} kg KM/gün</strong></div>
+        <div style="font-size:0.72rem; color:#78350f; margin-top:4px;">(Kantar olmayan ahırlarda şerit mezura ile ±%3-5 bilimsel hassasiyet sağlar).</div>
+      `;
+    }
+
+    function applySchaefferWeightToRation() {
+      const gogus = parseFloat(document.getElementById("schaefferGogus")?.value) || 0;
+      const uzunluk = parseFloat(document.getElementById("schaefferUzunluk")?.value) || 0;
+      const type = document.getElementById("schaefferAnimalType")?.value || "cattle";
+      const divisor = type === "sheep" ? 9850 : 108.38;
+      if (gogus <= 0 || uzunluk <= 0) {
+        alert("Lütfen geçerli ölçüm değerleri giriniz.");
+        return;
+      }
+      const kg = Math.round((Math.pow(gogus, 2) * uzunluk) / divisor);
+      closeKiloModal();
+
+      if (type === "sheep") {
+        if (kg <= 45) {
+          state.species = "lamb";
+          state.speciesName = "Kuzu Besisi";
+          selectYield(kg, 0.35, `${kg} kg Kuzu Besisi (Şerit Metre Ölçümü)`);
+        } else {
+          state.species = "sheep";
+          state.speciesName = "Anaç Koyun";
+          selectYield(kg, 1.5, `${kg} kg Anaç Koyun (Şerit Metre Ölçümü)`);
+        }
+      } else {
+        state.species = "beef";
+        state.speciesName = "Besi Danası";
+        selectYield(kg, 1.4, `${kg} kg Besi Danası (Şerit Metre Ölçümü)`);
+      }
+    }
+
+    function calcCaagAndKarkas() {
+      const ilk = parseFloat(document.getElementById("caagIlkKg")?.value) || 0;
+      const son = parseFloat(document.getElementById("caagSonKg")?.value) || 0;
+      const gun = parseFloat(document.getElementById("caagGun")?.value) || 1;
+      const randiman = parseFloat(document.getElementById("caagRandiman")?.value) || 58;
+      const fiyat = parseFloat(document.getElementById("caagFiyat")?.value) || 0;
+      const box = document.getElementById("caagResultBox");
+      if (!box) return;
+
+      if (son <= ilk || gun <= 0) {
+        box.innerHTML = "Son tartım ilk tartımdan büyük olmalıdır.";
+        return;
+      }
+
+      const toplamArtis = son - ilk;
+      const caag = toplamArtis / gun; // kg / gün
+      const karkasKg = son * (randiman / 100);
+      const toplamGelir = karkasKg * fiyat;
+
+      box.innerHTML = `
+        <div style="font-weight:800; font-size:0.95rem; margin-bottom:4px;">📊 Besi Performans Analizi:</div>
+        • <strong>Günlük Canlı Ağırlık Artışı (CAAG):</strong> <span style="font-size:1.05rem; font-weight:900; color:#047857;">${caag.toFixed(2)} kg / gün</span> (${(caag * 1000).toFixed(0)} gr/gün)<br>
+        • <strong>Toplam Alınan Kilo:</strong> ${toplamArtis.toFixed(0)} kg (${gun} günde)<br>
+        • <strong>%${randiman} Karkas Ağırlığı:</strong> <strong>${karkasKg.toFixed(1)} kg et</strong><br>
+        • <strong>Tahmini Mezbaha Satış Geliri:</strong> <strong style="color:#047857;">${toplamGelir.toLocaleString('tr-TR', {maximumFractionDigits:0})} ₺</strong>
+      `;
+    }
+
+    function applyCaagWeightToRation() {
+      const son = parseFloat(document.getElementById("caagSonKg")?.value) || 0;
+      if (son <= 0) {
+        alert("Lütfen geçerli son tartım giriniz.");
+        return;
+      }
+      closeKiloModal();
+      state.species = "beef";
+      state.speciesName = "Besi Danası";
+      selectYield(Math.round(son), 1.5, `${Math.round(son)} kg Besi Danası (Son Tartım Kilosu)`);
+    }
+
+    // =========================================================================
+    // 21 GÜN DANA KARŞILAMA VE CAN SUYU MOTORU
+    // =========================================================================
+    function openKarsilamaModal() {
+      const modal = document.getElementById("karsilama-modal");
+      if (modal) modal.classList.add("active");
+    }
+
+    function closeKarsilamaModal() {
+      const modal = document.getElementById("karsilama-modal");
+      if (modal) modal.classList.remove("active");
+    }
+
+    function startKarsilamaRation() {
+      closeKarsilamaModal();
+      state.species = "beef";
+      state.speciesName = "Besi Danası (Karşılama Dönemi)";
+      selectYield(320, 1.0, "320 kg Dana • 21 Günlük Karşılama ve Can Suyu Dönemi");
+    }
+
+    // =========================================================================
+    // ALTIN BESLEME VE KORUYUCU RASYON PROTOKOLLERİ MOTORU
+    // =========================================================================
+    function openProtokollerModal(tab = 'dcad') {
+      const modal = document.getElementById("protokoller-modal");
+      if (modal) modal.classList.add("active");
+      switchProtokolTab(tab);
+    }
+
+    function closeProtokollerModal() {
+      const modal = document.getElementById("protokoller-modal");
+      if (modal) modal.classList.remove("active");
+    }
+
+    function switchProtokolTab(tab) {
+      const tabs = ['dcad', 'sara', 'flushing', 'toksemi', 'urolithiasis', 'calf'];
+      tabs.forEach((t, i) => {
+        const el = document.getElementById(`protokol-tab-${t}`);
+        const btn = document.getElementById(`protokolTabBtn${i+1}`);
+        if (el) el.style.display = t === tab ? 'block' : 'none';
+        if (btn) {
+          if (t === tab) btn.classList.add("primary");
+          else btn.classList.remove("primary");
+        }
+      });
+    }
+
+    function startSpecificRation(protocolKey) {
+      closeProtokollerModal();
+      if (protocolKey === "dry_cow_dcad") {
+        state.species = "dry_cow";
+        state.speciesName = "Kuru Dönem İnek (Anyonik DCAD)";
+        selectYield(650, 0, "650 kg • Doğuma Hazırlık Anyonik DCAD Rasyonu");
+      } else if (protocolKey === "sara_prevent") {
+        state.species = "dairy";
+        state.speciesName = "Sağmal Süt İneği (SARA & peNDF Korumalı)";
+        selectYield(650, 28, "650 kg • 28L Süt (SARA Kalkanı & peNDF %22)");
+      } else if (protocolKey === "sheep_flushing") {
+        state.species = "sheep";
+        state.speciesName = "Anaç Koyun (Flushing - İkizlik Artırıcı)";
+        selectYield(65, 1.5, "65 kg Koyun • Koç Katımı Öncesi Flushing Rasyonu");
+      } else if (protocolKey === "sheep_late_preg") {
+        state.species = "sheep";
+        state.speciesName = "Gebe Koyun (Gebelik Toksemisi Kalkanı)";
+        selectYield(65, 1.0, "65 kg • Son Ay Gebe (İkiz Kuzu Toksemi Kalkanı)");
+      } else if (protocolKey === "lamb_urolithiasis") {
+        state.species = "lamb";
+        state.speciesName = "Kuzu Besisi (Sidik Zoru & Taş Kalkanı)";
+        selectYield(35, 0.35, "35 kg Kuzu • İdrar Taşı Korumalı Besi (Ca:P 2:1)");
+      } else if (protocolKey === "calf_starter") {
+        state.species = "dairy";
+        state.speciesName = "Buzağı Başlangıç & Sütten Kesim";
+        selectYield(70, 0.8, "70 kg Buzağı • Sütten Kesim & Başlangıç Yemi Rasyonu");
+      }
+    }
+
+    // =========================================================================
     // KULLANIM KILAVUZU VE YARDIMCI MODAL
     // =========================================================================
     function openGuideModal() {
@@ -2477,7 +3007,7 @@
     // =========================================================================
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js?v=20').then((reg) => {
+        navigator.serviceWorker.register('./sw.js?v=25').then((reg) => {
           reg.update();
         }).catch(() => {});
       });
