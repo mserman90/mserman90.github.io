@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sutsys-asistan-v27';
+const CACHE_NAME = 'sutsys-asistan-v28';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',

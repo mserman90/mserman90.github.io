@@ -1,13 +1,13 @@
 {
-  "name": "Koyun Çiftliği Rehberi",
-  "short_name": "KoyunÇiftliği",
-  "description": "Ağıl ve çiftlikler için %100 internetsiz çalışan koyun ve kuzu sağlık teşhisi, acil ilk yardım, aşı takvimi, ilaçlı süt arınma süresi ve sürü yönetim rehberi.",
+  "name": "Besi Rehberi",
+  "short_name": "BesiRehberi",
+  "description": "Besi danacılığı ve besi çiftlikleri için %100 internetsiz çalışan etkileşimli sohbet tabanlı dana sağlık teşhisi, sesli kantar & mezbaha Et İKAS kontrolü, 21 gün karşılama ve acil ilk yardım asistanı.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "background_color": "#efeae2",
+  "theme_color": "#b45309",
   "categories": [
     "medical",
     "business",
@@ -45,10 +45,10 @@
   ],
   "shortcuts": [
     {
-      "name": "Küçükbaş İlk Yardım",
-      "short_name": "İlk Yardım",
-      "description": "Gebelik zehirlenmesi, çelerme ve donma müdahaleleri",
-      "url": "./index.html#emergency",
+      "name": "Sesli Kantar & Mezbaha",
+      "short_name": "Kantar & Mezbaha",
+      "description": "Küpe bazlı sesli Et İKAS kilit kontrolü ve mezbaha randımanı",
+      "url": "./index.html#kantar",
       "icons": [
         {
           "src": "./icon-192.png",
@@ -57,10 +57,10 @@
       ]
     },
     {
-      "name": "Kuzu Bakımı & Kolostrum",
-      "short_name": "Kuzu Bakımı",
-      "description": "Kuzu ağız sütü ve ishal serum hesabı",
-      "url": "./index.html#calf",
+      "name": "21 Gün Karşılama",
+      "short_name": "21 Gün Karşılama",
+      "description": "Kamyondan yeni inen danalar için can suyu ve 21 günlük alıştırma",
+      "url": "./index.html#karsilama",
       "icons": [
         {
           "src": "./icon-192.png",
@@ -69,10 +69,10 @@
       ]
     },
     {
-      "name": "Koç Katımı Çarkı",
-      "short_name": "Koç Katımı",
-      "description": "150 günlük gebelik ve kuzulama takvimi",
-      "url": "./index.html#repro",
+      "name": "Kilo & Randıman Ölçer",
+      "short_name": "Kilo Ölçer",
+      "description": "Şerit metre / kantar ile canlı ağırlık ve %58 karkas hesabı",
+      "url": "./index.html#weight",
       "icons": [
         {
           "src": "./icon-192.png",

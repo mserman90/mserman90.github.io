@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sheepsys-offline-v30';
+const CACHE_NAME = 'sheepsys-offline-v31';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
