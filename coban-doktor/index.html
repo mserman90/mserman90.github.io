@@ -754,6 +754,7 @@
         species: ["sigir", "koyun"],
         category: "agiz_deri",
         urgency: "RED",
+        contagious: true,
         symptoms: [
           "Ağzından ip gibi yoğun salya akıyor, ağzını şapırdatıyor",
           "Dilinde, diş etinde veya damağında su toplamış kırmızı soyulmalar var",
@@ -777,6 +778,7 @@
         species: ["koyun"],
         category: "genel",
         urgency: "RED",
+        contagious: false,
         symptoms: [
           "En iyi gelişen toklu veya kuzularda aniden sıçrama, kasılma ve yere yıkılma var",
           "Kafayı geriye bükme, diş gıcırdatma, ağızdan köpük gelme var",
@@ -799,6 +801,7 @@
         species: ["sigir", "koyun"],
         category: "agiz_deri",
         urgency: "RED",
+        contagious: true,
         symptoms: [
           "Deride fındık/ceviz büyüklüğünde sert şişlikler, kabartılar ve yumrular var",
           "Yüksek ateş (40-41°C), göz ve burun akıntısı, şiddetli iştahsızlık var",
@@ -820,6 +823,7 @@
         species: ["sigir"],
         category: "genel",
         urgency: "YELLOW",
+        contagious: true,
         symptoms: [
           "Aniden yüksek ateş başladı (40-41°C), hayvan şiddetle titriyor",
           "Bacakları tutmuyor, ayakta duramıyor, felç olmuş gibi yatıyor",
@@ -841,6 +845,7 @@
         species: ["sigir", "koyun"],
         category: "solunum",
         urgency: "YELLOW",
+        contagious: true,
         symptoms: [
           "Sık ve kuru öksürüyor, burnundan koyu sarı-yeşil akıntı geliyor",
           "Karnından hızlı hızlı körük gibi soluyor, boynunu öne uzatıyor",
@@ -863,6 +868,7 @@
         species: ["sigir", "koyun"],
         category: "dogum_ishal",
         urgency: "RED",
+        contagious: true,
         symptoms: [
           "Yavru su gibi cıvık, sarı-beyaz, köpüklü veya kanlı ishal yapıyor",
           "Gözleri içeri çökmüş, boyun derisi çekildiğinde yerine oturmuyor",
@@ -885,6 +891,7 @@
         species: ["sigir", "koyun"],
         category: "meme",
         urgency: "YELLOW",
+        contagious: true,
         symptoms: [
           "Sütte pıhtı, lor parçaları, sarımtırak su veya kan var",
           "Meme lobu taş gibi sert, şiş, el değdiğinde ateş gibi sıcak ve ağrılı",
@@ -906,6 +913,7 @@
         species: ["sigir", "koyun"],
         category: "ayak_topallik",
         urgency: "YELLOW",
+        contagious: false,
         symptoms: [
           "Hayvan köz üstünde yürür gibi ayaklarını değiştirerek basıyor",
           "Tırnak dipleri ve ayak tabanı el yakacak kadar sıcak",
@@ -928,6 +936,7 @@
         species: ["sigir", "koyun"],
         category: "genel",
         urgency: "RED",
+        contagious: false,
         symptoms: [
           "Doğumdan sonraki ilk 48 saatte hayvanın bacakları titredi ve yere yıkıldı",
           "Kafasını kıvırıp göğsünün üstüne koymuş yatıyor (S-pozisyonu)",
@@ -950,6 +959,7 @@
         species: ["koyun"],
         category: "genel",
         urgency: "RED",
+        contagious: false,
         symptoms: [
           "Doğuma 2-4 hafta kalmış gebe koyunlarda durgunluk ve sürüden geri kalma var",
           "Koyun kör gibi yürür, burnunu duvara dayar, dişlerini gıcırdatır",
@@ -971,6 +981,7 @@
         species: ["sigir", "koyun"],
         category: "genel",
         urgency: "RED",
+        contagious: false,
         symptoms: [
           "Hayvan kafasını havaya dikip yıldızları seyreder gibi geriye atıyor",
           "Gözleri körleşmiş gibi sağa sola çarpıyor, dairesel hareketlerle dönüyor",
@@ -991,6 +1002,7 @@
         species: ["sigir", "koyun"],
         category: "siskinlik_idrar",
         urgency: "RED",
+        contagious: false,
         symptoms: [
           "Erkek danada veya koçta sürekli kuyruk sallama ve idrar yapamama var",
           "Karın altına tekme atıyor, acıyla inliyor, damla damla kanlı idrar geliyor",
@@ -1011,6 +1023,7 @@
         species: ["sigir", "koyun"],
         category: "siskinlik_idrar",
         urgency: "RED",
+        contagious: false,
         symptoms: [
           "Sol açlık çukuru yukarı doğru davul gibi şişmiş, vurulduğunda tok ses veriyor",
           "Nefes almakta güçlük çekiyor, dili dışarıda, gözleri büyümüş",
@@ -1033,6 +1046,7 @@
         species: ["sigir", "koyun"],
         category: "genel",
         urgency: "RED",
+        contagious: true,
         symptoms: [
           "Hayvanda önceden hiçbir belirti yokken aniden şişti veya ansızın öldü",
           "Ağzından, burnundan veya makatından pıhtılaşmayan, katran gibi kara kan akıyor"
@@ -1306,8 +1320,23 @@
       });
 
       const isRed = bestMatch.urgency === "RED";
+      const isContagious = !!bestMatch.contagious;
       const badgeClass = isRed ? "badge-red" : "badge-yellow";
-      const badgeText = isRed ? "🔴 ACİL VE BULAŞICI RİSK! HEMEN AYIRIN!" : "🟡 VETERİNER HEKİM KONTROLÜ GEREKLİ";
+      
+      let badgeText = "";
+      if (isRed) {
+        if (isContagious) {
+          badgeText = "🔴 ACİL VE BULAŞICI RİSK! HEMEN AYIRIN!";
+        } else {
+          badgeText = "🚨 ACİL MÜDAHALE GEREKLİ!";
+        }
+      } else {
+        if (isContagious) {
+          badgeText = "🟡 VETERİNER HEKİM KONTROLÜ (BULAŞICI RİSK)";
+        } else {
+          badgeText = "🟡 VETERİNER HEKİM KONTROLÜ GEREKLİ";
+        }
+      }
 
       const doItems = bestMatch.doList.map(item => `<li><span>✔️</span><span>${item}</span></li>`).join("");
       const dontItems = bestMatch.dontList.map(item => `<li><span>⛔</span><span>${item}</span></li>`).join("");
@@ -1337,7 +1366,7 @@
             <input id="chatEarTag" class="ear-input" type="text" placeholder="Örn: TR 42 1234567" autocomplete="off" oninput="this.value = this.value.toUpperCase()">
           </div>
 
-          <button onclick="sendReportToWhatsApp('${bestMatch.name}', '${bestMatch.urgency}')" class="btn-send-wa">
+          <button onclick="sendReportToWhatsApp('${bestMatch.name}', '${bestMatch.urgency}', ${isContagious})" class="btn-send-wa">
             📲 WhatsApp ile Veterinerime İlet
           </button>
         </div>
@@ -1351,18 +1380,27 @@
       );
     }
 
-    function sendReportToWhatsApp(diseaseName, urgency) {
+    function sendReportToWhatsApp(diseaseName, urgency, isContagious) {
       const earInput = document.getElementById("chatEarTag");
       const tag = earInput && earInput.value.trim() ? earInput.value.trim().toUpperCase() : "Belirtilmedi";
       const spName = state.species === "sigir" ? "Büyükbaş (Sığır)" : "Küçükbaş (Koyun)";
       const symptomsText = state.selectedSymptoms.length > 0 ? state.selectedSymptoms.slice(0, 3).join(", ") : "Genel hastalık ve iştahsızlık belirtileri";
 
+      let riskLabel = "HEKİM KONTROLÜ";
+      if (urgency === 'RED') {
+        riskLabel = isContagious ? 'ACİL MÜDAHALE / BULAŞICI' : 'ACİL MÜDAHALE';
+      }
+
+      const noteText = isContagious
+        ? "Hocam hayvanı sürüden ayırdım, ilk tedbirleri aldım. Teşhis ve tedavi için desteğinizi rica ederim."
+        : "Hocam ilk acil tedbirleri aldım. Teşhis ve tedavi için desteğinizi rica ederim.";
+
       const message = `*Çoban Doktor Ön Bildirim Raporu*\n` +
         `🐾 *Tür / Grup:* ${spName} (${state.group})\n` +
         `🏷️ *Kulak Küpe No:* ${tag}\n` +
-        `⚠️ *Ön Şüphe:* ${diseaseName} (${urgency === 'RED' ? 'ACİL MÜDAHALE / BULAŞICI' : 'HEKİM KONTROLÜ'})\n` +
+        `⚠️ *Ön Şüphe:* ${diseaseName} (${riskLabel})\n` +
         `📋 *Gözlenen Belirtiler:* ${symptomsText}\n\n` +
-        `Hocam hayvanı sürüden ayırdım, ilk tedbirleri aldım. Teşhis ve tedavi için desteğinizi rica ederim.`;
+        `${noteText}`;
 
       const url = `https://wa.me/?text=${encodeURIComponent(message)}`;
       window.open(url, "_blank");
