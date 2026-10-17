@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
   <meta name="theme-color" content="#075e54">
   <meta name="color-scheme" content="light dark">
-  <meta name="description" content="Çoban Doktor - WhatsApp sohbeti formatında çalışan sığır ve koyun hızlı ön teşhis, acil ilk yardım ve veteriner bildirim asistanı.">
-  <meta name="keywords" content="çoban doktor, whatsapp teşhis botu, sığır hastalıkları, koyun hastalıkları, buzağı ishali, şap, çelerme, veteriner whatsapp">
+  <meta name="description" content="Çoban Doktor - Sığır ve koyun hızlı ön teşhis, acil ilk yardım, ilaç arınma süresi takibi ve sürü sağlığı asistanı.">
+  <meta name="keywords" content="çoban doktor, sığır hastalıkları, koyun hastalıkları, buzağı ishali, şap, çelerme, veteriner ön teşhis, küpe defteri, sürü sağlığı">
   <meta name="author" content="Dr. Mert Serman / Çoban Doktor">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://mserman90.github.io/coban-doktor/">
@@ -23,11 +23,11 @@
   <meta name="apple-mobile-web-app-title" content="Çoban Doktor">
   <meta name="application-name" content="Çoban Doktor">
 
-  <!-- Open Graph / WhatsApp -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mserman90.github.io/coban-doktor/">
-  <meta property="og:title" content="Çoban Doktor - WhatsApp Ön Teşhis Sohbeti">
-  <meta property="og:description" content="WhatsApp sohbeti gibi çalışan sığır ve koyun hastalık ön teşhis rehberi ve veteriner ilk yardım asistanı.">
+  <meta property="og:title" content="Çoban Doktor - Hızlı Ön Teşhis & Sürü Sağlığı">
+  <meta property="og:description" content="Sığır ve koyun hastalık ön teşhis rehberi, ilk yardım ve sürü sağlığı takip asistanı.">
   <meta property="og:image" content="https://mserman90.github.io/coban-doktor/apple-touch-icon.png">
   <meta property="og:locale" content="tr_TR">
 
@@ -37,17 +37,17 @@
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "Çoban Doktor",
-    "alternateName": "WhatsApp Biçimli Sığır ve Koyun Ön Teşhis Rehberi",
+    "alternateName": "Sığır ve Koyun Hızlı Ön Teşhis Rehberi",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "All",
     "softwareVersion": "2.0",
-    "description": "WhatsApp sohbet arayüzüyle çalışan sığır ve koyun hastalık ön teşhis rehberi ve acil durum asistanı.",
+    "description": "Sığır ve koyun hastalık ön teşhis rehberi, acil durum ilk yardım ve sürü sağlığı asistanı.",
     "url": "https://mserman90.github.io/coban-doktor/",
     "inLanguage": "tr"
   }
   </script>
 
-  <title>Çoban Doktor - WhatsApp Ön Teşhis Sohbeti</title>
+  <title>Çoban Doktor - Hızlı Ön Teşhis & Sürü Sağlığı</title>
 
   <style>
     /* =========================================================================
@@ -1586,8 +1586,8 @@
         </div>
 
         <div class="guide-step-card">
-          <div class="guide-step-num">5. Adım: Veterinerine WhatsApp ile Yolla</div>
-          Varsa kulak küpe numarasını yaz, yeşil <strong>"WhatsApp ile Veterinerime İlet"</strong> düğmesine bas. Hazır rapor hekimin cebine gitsin!
+          <div class="guide-step-num">5. Adım: Veterinerine Rapor İlet</div>
+          Varsa kulak küpe numarasını yaz, yeşil <strong>"Veterinerime Rapor İlet"</strong> düğmesine bas. Hazır raporu hekimine veya yetiştiriciye anında gönder!
         </div>
 
         <h4 style="margin:14px 0 8px 0; color:#008069;">☀️ Merada ve Güneşte Okuma</h4>
@@ -1681,7 +1681,7 @@
         </div>
 
         <button onclick="shareAllActiveWhatsApp()" class="btn-batch-wa" id="btn-batch-share" style="display:none;">
-          📲 Aktif Arınma Listesini WhatsApp ile Gönder
+          📲 Aktif Arınma Listesini Paylaş / İlet
         </button>
 
         <div id="kupe-records-container">
@@ -1822,7 +1822,7 @@
               💾 Takvime Kaydet
             </button>
             <button type="button" onclick="shareCurrentReproWhatsApp()" class="btn-save-record" id="btn-share-repro" style="margin-top:0; background:#0284c7; font-size:0.86rem;">
-              📲 WhatsApp'a İlet
+              📲 Raporu İlet
             </button>
           </div>
         </div>
@@ -2895,7 +2895,7 @@
           </div>
 
           <button onclick="sendReportToWhatsApp('${bestMatch.name}', '${bestMatch.urgency}', ${isContagious})" class="btn-send-wa">
-            📲 WhatsApp ile Veterinerime İlet
+            📲 Veterinerime Rapor İlet
           </button>
 
           <button onclick="addCurrentDiagnosisToDefter('${bestMatch.name.replace(/'/g, "\\'")}')" class="btn-send-defter">
@@ -3367,7 +3367,7 @@
             ${rec.notes ? `<div style="font-size:0.74rem; color:#475569; background:#f8fafc; padding:4px 8px; border-radius:4px; margin-top:4px;">📝 ${rec.notes}</div>` : ''}
 
             <div class="kupe-card-actions">
-              <button onclick="shareKupeRecordWhatsApp('${rec.id}')" class="kupe-btn-wa">📲 WhatsApp</button>
+              <button onclick="shareKupeRecordWhatsApp('${rec.id}')" class="kupe-btn-wa">📲 Paylaş</button>
               <button onclick="deleteKupeRecord('${rec.id}')" class="kupe-btn-del">🗑️ Sil</button>
             </div>
           </div>
@@ -3676,7 +3676,7 @@
             </div>
 
             <div style="display:flex; justify-content:flex-end; gap:6px; margin-top:4px;">
-              <button onclick="shareReproRecordWhatsApp('${rec.id}')" class="kupe-btn-wa" style="padding:4px 8px; font-size:0.74rem;">📲 WhatsApp</button>
+              <button onclick="shareReproRecordWhatsApp('${rec.id}')" class="kupe-btn-wa" style="padding:4px 8px; font-size:0.74rem;">📲 Paylaş</button>
               <button onclick="deleteReproRecord('${rec.id}')" class="kupe-btn-del" style="padding:4px 8px; font-size:0.74rem;">🗑️ Sil</button>
             </div>
           </div>

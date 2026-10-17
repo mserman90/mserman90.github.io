@@ -5,7 +5,7 @@
 
 ## 🌟 Çoban Doktor Nedir?
 
-**Çoban Doktor**, ahırda veya merada hayvanın hastalandığında ne yapacağını sana **WhatsApp'tan sohbet eder gibi** anlatan, cebindeki nöbetçi veteriner yardımcındır.
+**Çoban Doktor**, ahırda veya merada hayvanın hastalandığında ne yapacağını sana **adım adım soru-cevap şeklinde** anlatan, cebindeki nöbetçi veteriner yardımcındır.
 
 - **Para istemez**, tamamen ücretsizdir.
 - **İnternet istemez**, dağda, yaylada, telefonun çekmediği bodrum ahırda bile tıkır tıkır çalışır.
@@ -20,16 +20,16 @@ Uygulamayı telefonuna bir kere yükledikten sonra, internetin ve hattın kapal�
 1. Telefonundan şu adrese gir: **[https://mserman90.github.io/coban-doktor/](https://mserman90.github.io/coban-doktor/)**
 2. Ekranın sağ üstündeki **üç noktaya** (veya alttaki paylaş okuna) dokun.
 3. Çıkan menüden **"Ana Ekrana Ekle"** veya **"Uygulamayı Yükle"** yazısına bas.
-4. Artık telefonunun ekranına yeşil logolu **Çoban Doktor** simgesi gelir. Tıpkı WhatsApp gibi tek dokunuşla açılır.
+4. Artık telefonunun ekranına yeşil logolu **Çoban Doktor** simgesi gelir. Tek dokunuşla açılır.
 
 ---
 
 ## 💬 2. Nasıl Kullanılır? (5 Basit Adım)
 
-Tıpkı bir arkadaşınla WhatsApp'ta yazışır gibi 1 dakika içinde sonuca ulaşırsın:
+Saniyeler içinde sonuca ulaşırsın:
 
 ```
-[ 1. Hangi Hayvan? ] ➡️ [ 2. Şikayet Ne? ] ➡️ [ 3. Soruları Yanıtla ] ➡️ [ 4. Reçeteyi Oku ] ➡️ [ 5. Veterinere WhatsApp'la Yolla ]
+[ 1. Hangi Hayvan? ] ➡️ [ 2. Şikayet Ne? ] ➡️ [ 3. Soruları Yanıtla ] ➡️ [ 4. Reçeteyi Oku ] ➡️ [ 5. Veterinere Raporu İlet ]
 ```
 
 ### 1. Adım: Hangi Hayvanın Rahatsız?
@@ -71,10 +71,10 @@ Doktor hastalığın adını ekrana çıkarır ve sana iki önemli liste verir:
 
 ---
 
-### 5. Adım: Tek Tuşla Veterinerine WhatsApp'tan Yolla!
+### 5. Adım: Tek Tuşla Veterinerine Rapor İlet!
 1. Raporun altındaki kutucuğa varsa hayvanın **Kulak Küpe Numarasını** yaz (Örn: *145*).
-2. Yeşil **"📲 WhatsApp ile Veterinerime İlet"** düğmesine dokun.
-3. Telefonundaki gerçek WhatsApp kendiliğinden açılır.
+2. Yeşil **"📲 Veterinerime Rapor İlet"** düğmesine dokun.
+3. Mesajlaşma ekranı otomatik olarak açılır.
 4. Kendi veterinerini seçip gönder dediğinde; hayvanın cinsi, küpesi, ön teşhis ve belirtilerin tamamı düzenli bir rapor halinde veterinerinin telefonuna gider.
 
 ---
@@ -119,7 +119,7 @@ Hayvanına iğne, antibiyotik veya meme tüpü uyguladığında ilacın vücutta
    - 🔴 **SÜT: DÖKÜLECEK! (2 gün 4 saat kaldı):** Sütü asla tanka katma, dök!
    - 🟢 **SÜT: GÜVENLİ (Arındı / Temiz):** Süresi bitti, sütü gönül rahatlığıyla sağ ve tanka kat.
    - 🔴 **ET: KESİM YASAK! / 🟢 ET: GÜVENLİ:** Kesim gününü takip eder.
-7. İstersen **"📲 WhatsApp ile Paylaş"** butonuna basarak süt toplayıcına veya veterinerine tek tıkla arınma raporu yollayabilirsin.
+7. İstersen **"📲 Paylaş"** butonuna basarak süt toplayıcına veya veterinerine tek tıkla arınma raporu yollayabilirsin.
 
 ---
 
