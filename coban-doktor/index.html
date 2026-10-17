@@ -11,6 +11,11 @@
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://mserman90.github.io/coban-doktor/">
 
+  <!-- Google Fonts: Inter & Roboto (International Typography) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
   <!-- Favicon & PWA Icons -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -76,10 +81,13 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
       background-color: #d1d7db;
       color: var(--wa-text);
-      line-height: 1.45;
+      line-height: 1.5;
       height: 100vh;
       height: 100dvh;
       display: flex;
@@ -160,21 +168,31 @@
       gap: 6px;
     }
     .wa-hdr-btn {
-      background: rgba(255, 255, 255, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      font-family: inherit;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.35);
       color: #ffffff;
-      padding: 6px 10px;
-      border-radius: 8px;
+      padding: 6px 11px;
+      border-radius: 9px;
       font-size: 0.8rem;
-      font-weight: 800;
+      font-weight: 700;
+      letter-spacing: -0.01em;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 34px;
+      gap: 5px;
+      min-height: 36px;
+      touch-action: manipulation;
+      transition: background-color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+    }
+    .wa-hdr-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
     }
     .wa-hdr-btn:active {
-      background: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.35);
+      transform: scale(0.96);
     }
 
     /* SOHBET ALANI */
@@ -265,33 +283,45 @@
       width: 100%;
     }
     .wa-choice-btn {
+      font-family: inherit;
       background-color: #ffffff;
-      color: #00a884;
-      border: 1.5px solid #d1d7db;
-      border-radius: 10px;
-      padding: 12px 14px;
-      font-size: 0.96rem;
-      font-weight: 800;
+      color: #0f766e;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 13px 16px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      gap: 10px;
+      gap: 12px;
       text-align: left;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
-      transition: all 0.12s ease;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+      transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
       touch-action: manipulation;
     }
+    .wa-choice-btn:hover {
+      border-color: #008069;
+      background-color: #f8fafc;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+    }
     .wa-choice-btn:active {
-      background-color: #00a884;
+      background-color: #008069;
       color: #ffffff;
-      border-color: #00a884;
-      transform: scale(0.98);
+      border-color: #008069;
+      transform: scale(0.985);
     }
     .wa-choice-btn.primary {
-      color: #008069;
-      border-color: #a7f3d0;
+      color: #047857;
+      border-color: #86efac;
       background-color: #f0fdf4;
+    }
+    .wa-choice-btn.primary:hover {
+      background-color: #dcfce7;
+      border-color: #22c55e;
     }
     .wa-choice-btn.danger {
       color: #dc2626;
@@ -391,27 +421,35 @@
       border-color: #008069;
     }
 
-    /* WHATSAPP GÖNDER BUTONU */
+    /* RAPOR İLET BUTONU (ANA AKSİYON) */
     .btn-send-wa {
+      font-family: inherit;
       width: 100%;
-      background-color: #25d366;
+      background: linear-gradient(135deg, #16a34a, #15803d);
       color: #ffffff;
       border: none;
-      padding: 14px;
-      border-radius: 10px;
-      font-size: 1.05rem;
-      font-weight: 900;
+      padding: 14px 18px;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
       margin-top: 12px;
-      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
-      transition: transform 0.1s ease;
+      box-shadow: 0 4px 14px rgba(22, 163, 74, 0.35);
+      transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+      touch-action: manipulation;
+    }
+    .btn-send-wa:hover {
+      background: linear-gradient(135deg, #15803d, #166534);
+      box-shadow: 0 6px 18px rgba(22, 163, 74, 0.45);
+      transform: translateY(-1px);
     }
     .btn-send-wa:active {
-      transform: scale(0.97);
+      transform: scale(0.98);
     }
 
     /* YAZIYOR... (TYPING INDICATOR) */
@@ -668,25 +706,33 @@
 
     /* RAPOR KARTINDAKİ DEFTERE EKLE BUTONU */
     .btn-send-defter {
+      font-family: inherit;
       width: 100%;
-      background-color: #0284c7;
+      background: linear-gradient(135deg, #0284c7, #0369a1);
       color: #ffffff;
       border: none;
-      padding: 12px;
-      border-radius: 10px;
+      padding: 13px 16px;
+      border-radius: 12px;
       font-size: 0.95rem;
-      font-weight: 800;
+      font-weight: 700;
+      letter-spacing: -0.01em;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
+      gap: 8px;
       margin-top: 8px;
-      box-shadow: 0 3px 10px rgba(2, 132, 199, 0.3);
-      transition: transform 0.1s ease;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+      transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+      touch-action: manipulation;
+    }
+    .btn-send-defter:hover {
+      background: linear-gradient(135deg, #0369a1, #075985);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(2, 132, 199, 0.4);
     }
     .btn-send-defter:active {
-      transform: scale(0.97);
+      transform: scale(0.98);
     }
 
     /* KÜPE DEFTERİ MODAL */
@@ -964,27 +1010,48 @@
       padding-top: 6px;
     }
     .kupe-btn-wa {
-      background: #25d366;
+      font-family: inherit;
+      background: #16a34a;
       color: #ffffff;
       border: none;
-      padding: 5px 9px;
-      border-radius: 6px;
-      font-size: 0.74rem;
-      font-weight: 800;
+      padding: 6px 11px;
+      border-radius: 8px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.12s ease;
+      touch-action: manipulation;
+    }
+    .kupe-btn-wa:hover {
+      background: #15803d;
+    }
+    .kupe-btn-wa:active {
+      transform: scale(0.96);
+    }
+    .kupe-btn-del {
+      font-family: inherit;
+      background: #fee2e2;
+      color: #b91c1c;
+      border: 1px solid #fecaca;
+      padding: 6px 11px;
+      border-radius: 8px;
+      font-size: 0.76rem;
+      font-weight: 700;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 4px;
+      transition: all 0.12s ease;
+      touch-action: manipulation;
     }
-    .kupe-btn-del {
-      background: #fee2e2;
-      color: #dc2626;
-      border: 1px solid #fecaca;
-      padding: 5px 9px;
-      border-radius: 6px;
-      font-size: 0.74rem;
-      font-weight: 800;
-      cursor: pointer;
+    .kupe-btn-del:hover {
+      background: #fecaca;
+    }
+    .kupe-btn-del:active {
+      transform: scale(0.96);
     }
 
     /* FORM STİLLERİ */
@@ -1033,21 +1100,33 @@
       border-color: #94a3b8;
     }
     .btn-save-record {
+      font-family: inherit;
       width: 100%;
-      background: #008069;
+      background: linear-gradient(135deg, #008069, #047857);
       color: #ffffff;
       border: none;
-      padding: 13px;
-      border-radius: 10px;
-      font-size: 1rem;
-      font-weight: 900;
+      padding: 13px 18px;
+      border-radius: 12px;
+      font-size: 0.98rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
-      box-shadow: 0 4px 12px rgba(0, 128, 105, 0.3);
+      gap: 8px;
+      box-shadow: 0 4px 14px rgba(0, 128, 105, 0.35);
       margin-top: 12px;
+      transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+      touch-action: manipulation;
+    }
+    .btn-save-record:hover {
+      background: linear-gradient(135deg, #047857, #065f46);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(0, 128, 105, 0.45);
+    }
+    .btn-save-record:active {
+      transform: scale(0.98);
     }
 
     /* BİLGİ REHBERİ KARTLARI */
