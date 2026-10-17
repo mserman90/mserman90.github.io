@@ -1,4 +1,4 @@
-const CACHE_NAME = "ciftlik-portal-v13";
+const CACHE_NAME = "ciftlik-portal-v14";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
@@ -9,9 +9,6 @@ const ASSETS_TO_CACHE = [
   "./apple-touch-icon.png",
   "./icon-192.png",
   "./icon-512.png",
-  "./icons/noto-ox.svg",
-  "./icons/noto-cow.svg",
-  "./icons/noto-sheep.svg",
   "./icons/noto-ration.svg",
   "./icons/noto-doctor.svg",
   "./icons/noto-repro.svg"
