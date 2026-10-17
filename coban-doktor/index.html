@@ -624,6 +624,541 @@
       background: #ffff00;
       color: #000000;
     }
+
+    /* KÜPE DEFTERİ BUTONU & ROZETİ */
+    .defter-btn {
+      background: #0f5132 !important;
+      border-color: #25d366 !important;
+      font-weight: 900 !important;
+      position: relative;
+    }
+    .defter-badge {
+      background: #ef4444;
+      color: #ffffff;
+      font-size: 0.68rem;
+      padding: 1px 5px;
+      border-radius: 10px;
+      margin-left: 3px;
+      font-weight: 900;
+    }
+    .defter-badge.zero {
+      background: rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+    }
+
+    /* MERA ÇEVRİMDIŞI BİLDİRİM ŞERİDİ */
+    .mera-offline-bar {
+      background: #15803d;
+      color: #ffffff;
+      font-size: 0.78rem;
+      padding: 5px 12px;
+      text-align: center;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      border-bottom: 1px solid #166534;
+      animation: slideDown 0.3s ease;
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(0); }
+    }
+
+    /* RAPOR KARTINDAKİ DEFTERE EKLE BUTONU */
+    .btn-send-defter {
+      width: 100%;
+      background-color: #0284c7;
+      color: #ffffff;
+      border: none;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 8px;
+      box-shadow: 0 3px 10px rgba(2, 132, 199, 0.3);
+      transition: transform 0.1s ease;
+    }
+    .btn-send-defter:active {
+      transform: scale(0.97);
+    }
+
+    /* KÜPE DEFTERİ MODAL */
+    .kupe-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.75);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1001;
+      padding: 10px;
+      backdrop-filter: blur(2px);
+    }
+    .kupe-modal-overlay.active {
+      display: flex;
+    }
+    .kupe-modal-box {
+      background: #ffffff;
+      color: #111b21;
+      width: 100%;
+      max-width: 540px;
+      max-height: 94vh;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+      animation: modalFadeIn 0.2s ease-out;
+    }
+    .kupe-modal-hdr {
+      background: #008069;
+      color: #ffffff;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .kupe-modal-title {
+      font-size: 1.05rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .kupe-modal-close {
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      font-size: 1.4rem;
+      font-weight: bold;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+
+    /* DEFTER ÖZET KARTLARI */
+    .kupe-stats-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      padding: 8px 12px;
+      background: #f8fafc;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .kupe-stat-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 6px 8px;
+      text-align: center;
+    }
+    .kupe-stat-val {
+      font-size: 1.15rem;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+    .kupe-stat-lbl {
+      font-size: 0.68rem;
+      color: #64748b;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    /* DEFTER SEKMELERİ */
+    .kupe-tabs {
+      display: flex;
+      background: #e2e8f0;
+      padding: 4px;
+      gap: 4px;
+      border-bottom: 1px solid #cbd5e1;
+    }
+    .kupe-tab-btn {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: 8px 4px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: #475569;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.15s ease;
+    }
+    .kupe-tab-btn.active {
+      background: #ffffff;
+      color: #008069;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    /* DEFTER İÇERİK ALANI */
+    .kupe-tab-content {
+      display: none;
+      padding: 12px;
+      overflow-y: auto;
+      flex: 1;
+    }
+    .kupe-tab-content.active {
+      display: block;
+    }
+
+    /* ARAMA VE FİLTRE ÇUBUĞU */
+    .kupe-filter-bar {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .kupe-search-input {
+      flex: 1;
+      min-width: 130px;
+      padding: 8px 10px;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      outline: none;
+      font-weight: 600;
+    }
+    .kupe-search-input:focus {
+      border-color: #008069;
+    }
+    .filter-pill {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      padding: 5px 9px;
+      border-radius: 20px;
+      font-size: 0.73rem;
+      font-weight: 800;
+      cursor: pointer;
+      color: #334155;
+    }
+    .filter-pill.active {
+      background: #008069;
+      color: #ffffff;
+      border-color: #008069;
+    }
+
+    /* TOPLU WHATSAPP BUTONU */
+    .btn-batch-wa {
+      width: 100%;
+      background: #25d366;
+      color: #ffffff;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 6px rgba(37, 211, 102, 0.3);
+    }
+
+    /* HAYVAN DEFTER KARTI */
+    .kupe-card {
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 11px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+    .kupe-card.is-active-warning {
+      border-color: #f87171;
+      background: #fffafa;
+    }
+    .kupe-card-hdr {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 4px;
+    }
+    .kupe-tag-title {
+      font-size: 1.02rem;
+      font-weight: 900;
+      color: #0f172a;
+    }
+    .kupe-species-pill {
+      background: #e0f2fe;
+      color: #0369a1;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 12px;
+    }
+    .kupe-med-title {
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: #334155;
+      margin-bottom: 2px;
+    }
+    .kupe-date-lbl {
+      font-size: 0.72rem;
+      color: #64748b;
+      margin-bottom: 6px;
+    }
+
+    /* GERİ SAYIM SAYACI KUTULARI */
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin: 6px 0;
+    }
+    .cd-box {
+      padding: 7px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      line-height: 1.35;
+    }
+    .cd-box.cd-danger {
+      background: #fef2f2;
+      border: 1.5px solid #fca5a5;
+      color: #991b1b;
+    }
+    .cd-box.cd-safe {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+      color: #166534;
+    }
+    .cd-title {
+      font-weight: 900;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      margin-bottom: 2px;
+    }
+    .cd-rem {
+      font-size: 0.88rem;
+      font-weight: 900;
+    }
+    .cd-sub {
+      font-size: 0.68rem;
+      opacity: 0.85;
+      margin-top: 2px;
+    }
+
+    /* KART BUTONLARI */
+    .kupe-card-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 6px;
+      margin-top: 8px;
+      border-top: 1px dashed #e2e8f0;
+      padding-top: 6px;
+    }
+    .kupe-btn-wa {
+      background: #25d366;
+      color: #ffffff;
+      border: none;
+      padding: 5px 9px;
+      border-radius: 6px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .kupe-btn-del {
+      background: #fee2e2;
+      color: #dc2626;
+      border: 1px solid #fecaca;
+      padding: 5px 9px;
+      border-radius: 6px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    /* FORM STİLLERİ */
+    .kupe-form-group {
+      margin-bottom: 11px;
+    }
+    .kupe-form-label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: #334155;
+      margin-bottom: 4px;
+    }
+    .kupe-form-input, .kupe-form-select, .kupe-form-textarea {
+      width: 100%;
+      padding: 9px;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      outline: none;
+      box-sizing: border-box;
+      font-family: inherit;
+    }
+    .kupe-form-input:focus, .kupe-form-select:focus, .kupe-form-textarea:focus {
+      border-color: #008069;
+    }
+    .presets-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 5px;
+    }
+    .preset-pill {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      padding: 4px 7px;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: #0f172a;
+      transition: all 0.1s;
+    }
+    .preset-pill:hover, .preset-pill:active {
+      background: #e2e8f0;
+      border-color: #94a3b8;
+    }
+    .btn-save-record {
+      width: 100%;
+      background: #008069;
+      color: #ffffff;
+      border: none;
+      padding: 13px;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 900;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 4px 12px rgba(0, 128, 105, 0.3);
+      margin-top: 12px;
+    }
+
+    /* BİLGİ REHBERİ KARTLARI */
+    .info-guide-card {
+      background: #f8fafc;
+      border-left: 4px solid #0284c7;
+      padding: 10px 12px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      font-size: 0.85rem;
+      line-height: 1.45;
+    }
+    .info-guide-title {
+      font-weight: 900;
+      color: #0369a1;
+      margin-bottom: 3px;
+    }
+
+    /* YÜKSEK KONTRAST MODU İÇİN UYARLAMALAR */
+    body.high-contrast .kupe-modal-box {
+      background: #000000;
+      color: #ffff00;
+      border: 2px solid #ffff00;
+    }
+    body.high-contrast .kupe-modal-hdr {
+      background: #141414;
+      border-bottom: 2px solid #ffff00;
+      color: #ffff00;
+    }
+    body.high-contrast .kupe-stats-row {
+      background: #141414;
+      border-bottom-color: #ffff00;
+    }
+    body.high-contrast .kupe-stat-card {
+      background: #000000;
+      border-color: #ffff00;
+      color: #ffff00;
+    }
+    body.high-contrast .kupe-stat-lbl {
+      color: #cccc00;
+    }
+    body.high-contrast .kupe-tabs {
+      background: #141414;
+      border-bottom-color: #ffff00;
+    }
+    body.high-contrast .kupe-tab-btn {
+      color: #ffff00;
+    }
+    body.high-contrast .kupe-tab-btn.active {
+      background: #ffff00;
+      color: #000000;
+    }
+    body.high-contrast .kupe-card {
+      background: #141414;
+      border-color: #ffff00;
+      color: #ffff00;
+    }
+    body.high-contrast .kupe-tag-title,
+    body.high-contrast .kupe-med-title,
+    body.high-contrast .kupe-date-lbl,
+    body.high-contrast .kupe-form-label {
+      color: #ffff00;
+    }
+    body.high-contrast .kupe-form-input,
+    body.high-contrast .kupe-form-select,
+    body.high-contrast .kupe-form-textarea,
+    body.high-contrast .kupe-search-input {
+      background: #141414;
+      color: #ffff00;
+      border-color: #ffff00;
+    }
+    body.high-contrast .cd-box.cd-danger {
+      background: #2a0000;
+      border-color: #ff4444;
+      color: #ff9999;
+    }
+    body.high-contrast .cd-box.cd-safe {
+      background: #002a00;
+      border-color: #44ff44;
+      color: #99ff99;
+    }
+    body.high-contrast .preset-pill {
+      background: #141414;
+      color: #ffff00;
+      border-color: #ffff00;
+    }
+    body.high-contrast .filter-pill {
+      background: #141414;
+      color: #ffff00;
+      border-color: #ffff00;
+    }
+    body.high-contrast .filter-pill.active {
+      background: #ffff00;
+      color: #000000;
+    }
+    body.high-contrast .info-guide-card {
+      background: #141414;
+      border-left-color: #ffff00;
+      color: #ffff00;
+    }
+    body.high-contrast .info-guide-title {
+      color: #ffff00;
+    }
+    body.high-contrast .btn-save-record {
+      background: #ffff00;
+      color: #000000;
+    }
+    body.high-contrast .btn-send-defter {
+      background: #ffff00;
+      color: #000000;
+    }
   </style>
 </head>
 <body>
@@ -640,12 +1175,18 @@
         </div>
       </div>
       <div class="wa-actions">
+        <button onclick="openKupeDefteriModal()" class="wa-hdr-btn defter-btn" id="hdr-defter-btn" title="Küpe Defteri & İlaç Arınma Takibi">📋 Defter <span class="defter-badge zero" id="defter-active-badge">0</span></button>
         <button onclick="openGuideModal()" class="wa-hdr-btn" title="Kullanım Kılavuzu">📖 Kılavuz</button>
         <button onclick="toggleLargeText()" class="wa-hdr-btn" title="Yazıyı Büyüt">A+</button>
         <button onclick="toggleContrast()" class="wa-hdr-btn" title="Güneş Işığı Modu">☀️ Mod</button>
         <button onclick="restartChat()" class="wa-hdr-btn" title="Baştan Başla">🔄 Sıfırla</button>
       </div>
     </header>
+
+    <!-- MERA ÇEVRİMDIŞI BİLDİRİM ŞERİDİ -->
+    <div id="mera-offline-bar" class="mera-offline-bar" style="display:none;">
+      📶 <span><strong>Mera Modu:</strong> %100 Çevrimdışı (İnternetsiz) Çalışıyor</span>
+    </div>
 
     <!-- SOHBET MESAJLARI AKIŞI -->
     <main class="chat-container" id="chat-stream">
@@ -739,6 +1280,143 @@
       </div>
       <div class="guide-modal-ftr">
         <button class="guide-modal-ftr-btn" onclick="closeGuideModal()">✅ ANLADIM, SOHBETE DÖN</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- KÜPE DEFTERİ & İLAÇ ARINMA SÜRESİ MODAL -->
+  <div class="kupe-modal-overlay" id="kupe-modal" onclick="closeKupeModalOnBackdrop(event)">
+    <div class="kupe-modal-box">
+      <div class="kupe-modal-hdr">
+        <div class="kupe-modal-title">📋 Küpe Defteri & İlaç Arınma Takibi</div>
+        <button class="kupe-modal-close" onclick="closeKupeDefteriModal()" aria-label="Kapat">&times;</button>
+      </div>
+
+      <!-- ÖZET İSTATİSTİKLER -->
+      <div class="kupe-stats-row">
+        <div class="kupe-stat-card">
+          <div class="kupe-stat-val" id="stat-active" style="color:#dc2626;">0</div>
+          <div class="kupe-stat-lbl">Arınması Süren (Yasak)</div>
+        </div>
+        <div class="kupe-stat-card">
+          <div class="kupe-stat-val" id="stat-cleared" style="color:#16a34a;">0</div>
+          <div class="kupe-stat-lbl">Arınması Biten (Güvenli)</div>
+        </div>
+        <div class="kupe-stat-card">
+          <div class="kupe-stat-val" id="stat-total" style="color:#0f172a;">0</div>
+          <div class="kupe-stat-lbl">Toplam Hayvan</div>
+        </div>
+      </div>
+
+      <!-- SEKMELER -->
+      <div class="kupe-tabs">
+        <button class="kupe-tab-btn active" id="tabbtn-list" onclick="switchKupeTab('list')">📋 Hayvan Listesi</button>
+        <button class="kupe-tab-btn" id="tabbtn-new" onclick="switchKupeTab('new')">➕ Yeni İlaç Kaydet</button>
+        <button class="kupe-tab-btn" id="tabbtn-info" onclick="switchKupeTab('info')">ℹ️ Bilgi Rehberi</button>
+      </div>
+
+      <!-- SEKME 1: HAYVAN LİSTESİ & GERİ SAYIM -->
+      <div class="kupe-tab-content active" id="kupe-tab-list">
+        <div class="kupe-filter-bar">
+          <input type="text" id="kupeSearchInput" class="kupe-search-input" placeholder="🔍 Küpe No veya İlaç Ara..." oninput="renderKupeRecords()">
+          <button class="filter-pill active" id="pill-all" onclick="setKupeFilter('all')">Tümü</button>
+          <button class="filter-pill" id="pill-active" onclick="setKupeFilter('active')">🔴 Yasaklılar</button>
+          <button class="filter-pill" id="pill-cleared" onclick="setKupeFilter('cleared')">🟢 Güvenliler</button>
+        </div>
+
+        <button onclick="shareAllActiveWhatsApp()" class="btn-batch-wa" id="btn-batch-share" style="display:none;">
+          📲 Aktif Arınma Listesini WhatsApp ile Gönder
+        </button>
+
+        <div id="kupe-records-container">
+          <!-- Hayvan kartları JavaScript tarafından buraya basılır -->
+        </div>
+      </div>
+
+      <!-- SEKME 2: YENİ İLAÇ / HAYVAN KAYDET -->
+      <div class="kupe-tab-content" id="kupe-tab-new">
+        <form id="kupe-add-form" onsubmit="saveNewKupeRecord(event)">
+          <div class="kupe-form-group">
+            <label class="kupe-form-label" for="formKupeTag">🏷️ Hayvan Küpe Numarası (*):</label>
+            <input type="text" id="formKupeTag" class="kupe-form-input" placeholder="Örn: TR 42 1234567" required autocomplete="off" oninput="this.value = this.value.toUpperCase()">
+          </div>
+
+          <div class="kupe-form-group">
+            <label class="kupe-form-label" for="formSpeciesGroup">🐾 Hayvan Grubu:</label>
+            <select id="formSpeciesGroup" class="kupe-form-select">
+              <option value="Sağmal İnek">🥛 Sağmal İnek</option>
+              <option value="Gebe / Düve">🤰 Gebe / Düve</option>
+              <option value="Besi Danası">🥩 Besi Danası</option>
+              <option value="Buzağı">🍼 Buzağı</option>
+              <option value="Anaç Koyun">🐑 Anaç Koyun</option>
+              <option value="Kuzu">🍼 Kuzu</option>
+              <option value="Koç / Toklu">🐏 Koç / Toklu</option>
+            </select>
+          </div>
+
+          <div class="kupe-form-group">
+            <label class="kupe-form-label" for="formMedicine">💊 Uygulanan İlaç / Teşhis (*):</label>
+            <input type="text" id="formMedicine" class="kupe-form-input" placeholder="Örn: Mastitis Meme İçi Tüpü" required>
+            
+            <div style="font-size:0.75rem; color:#64748b; margin-top:6px; font-weight:700;">💡 Hızlı Hazır İlaç Şablonları (Tek tıkla süreleri doldur):</div>
+            <div class="presets-container">
+              <button type="button" class="preset-pill" onclick="applyPreset('Mastitis Meme İçi Tüpü', 3, 7)">🥛 Mastitis Tüp (Süt: 3g / Et: 7g)</button>
+              <button type="button" class="preset-pill" onclick="applyPreset('Penisilin-Streptomisin', 4, 14)">💉 Penisilin (Süt: 4g / Et: 14g)</button>
+              <button type="button" class="preset-pill" onclick="applyPreset('Oksitetrasiklin L.A.', 7, 28)">💉 Oksitetrasiklin (Süt: 7g / Et: 28g)</button>
+              <button type="button" class="preset-pill" onclick="applyPreset('Sefalosporin Tüp', 0, 4)">🥛 Sefalosporin (Süt: 0g / Et: 4g)</button>
+              <button type="button" class="preset-pill" onclick="applyPreset('Fluniksin Ağrı Kesici', 2, 5)">⚡ Fluniksin (Süt: 2g / Et: 5g)</button>
+              <button type="button" class="preset-pill" onclick="applyPreset('İvermektin Parazit İlacı', 0, 28)">🐛 İvermektin (Et: 28g)</button>
+            </div>
+          </div>
+
+          <div class="kupe-form-group">
+            <label class="kupe-form-label" for="formDate">📅 İlaç Uygulama Tarihi ve Saati:</label>
+            <input type="datetime-local" id="formDate" class="kupe-form-input" required>
+          </div>
+
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px;">
+            <div class="kupe-form-group">
+              <label class="kupe-form-label" for="formMilkDays">🥛 Süt Arınma (Gün):</label>
+              <input type="number" id="formMilkDays" class="kupe-form-input" min="0" max="60" value="3" required>
+              <span style="font-size:0.68rem; color:#64748b;">(0 = Süt için bekleme yok)</span>
+            </div>
+            <div class="kupe-form-group">
+              <label class="kupe-form-label" for="formMeatDays">🥩 Et Arınma (Gün):</label>
+              <input type="number" id="formMeatDays" class="kupe-form-input" min="0" max="120" value="14" required>
+              <span style="font-size:0.68rem; color:#64748b;">(Kesime gönderilemez gün)</span>
+            </div>
+          </div>
+
+          <div class="kupe-form-group">
+            <label class="kupe-form-label" for="formNotes">📝 Çiftlik Notu (Opsiyonel):</label>
+            <textarea id="formNotes" class="kupe-form-textarea" rows="2" placeholder="Örn: Sol arka çeyrek, 2. doz yapıldı"></textarea>
+          </div>
+
+          <button type="submit" class="btn-save-record">💾 KÜPE DEFTERİNE KAYDET</button>
+        </form>
+      </div>
+
+      <!-- SEKME 3: İLAÇ ARINMA SÜRESİ REHBERİ -->
+      <div class="kupe-tab-content" id="kupe-tab-info">
+        <div class="info-guide-card">
+          <div class="info-guide-title">❓ İlaç Arınma Süresi (İKAS) Nedir?</div>
+          Hayvana yapılan iğne, hap veya meme tüpünün etinden ve sütünden vücuttan tamamen atılana kadar geçmesi gereken yasal süredir. Bu süre dolmadan sütün tüketilmesi veya hayvanın kesilmesi yasaktır.
+        </div>
+
+        <div class="info-guide-card" style="border-left-color:#ef4444;">
+          <div class="info-guide-title" style="color:#b91c1c;">🥛 İlaçlı Süt Tanka Katılırsa Ne Olur?</div>
+          1 tek ineğin antibiyotikli sütü, soğutma tankındaki tonlarca sütü bozar. Mandıranın fabrikasında yoğurt ve peynir mayalanmaz. Mandıra tankı döker ve tüm zararı yetiştiriciden keser.
+        </div>
+
+        <div class="info-guide-card" style="border-left-color:#f59e0b;">
+          <div class="info-guide-title" style="color:#b45309;">🥩 Kesim Öncesi Et Arınma Süresi</div>
+          Hayvan kesime gitmeden önce ilacın et kalıntı süresinin (E.A.S) sıfırlanmış olması şarttır. Kesimhanede yapılan kalıntı analizinde antibiyotik çıkarsa karkas imha edilir ve cezai işlem uygulanır.
+        </div>
+
+        <div class="info-guide-card" style="border-left-color:#10b981;">
+          <div class="info-guide-title" style="color:#047857;">📶 %100 Çevrimdışı Mera Güvencesi</div>
+          Bu defter telefonunuzun kendi güvenli hafızasında tutulur. Yaylada, merada ve internetin çekmediği ahırda dahi geri sayım durmaksızın devam eder.
+        </div>
       </div>
     </div>
   </div>
@@ -1369,6 +2047,10 @@
           <button onclick="sendReportToWhatsApp('${bestMatch.name}', '${bestMatch.urgency}', ${isContagious})" class="btn-send-wa">
             📲 WhatsApp ile Veterinerime İlet
           </button>
+
+          <button onclick="addCurrentDiagnosisToDefter('${bestMatch.name.replace(/'/g, "\\'")}')" class="btn-send-defter">
+            📋 Bu Hayvanı Küpe Defterine & İlaç Takibine Ekle
+          </button>
         </div>
       `;
 
@@ -1425,6 +2107,440 @@
     startConversation();
 
     // =========================================================================
+    // KÜPE DEFTERİ & İLAÇ ARINMA SÜRESİ (SÜT / ET) GERİ SAYIM MOTORU
+    // =========================================================================
+    const KUPE_STORAGE_KEY = "cobandoktor_kupe_records_v1";
+    let kupeCurrentFilter = "all";
+
+    function getKupeRecords() {
+      try {
+        const raw = localStorage.getItem(KUPE_STORAGE_KEY);
+        return raw ? JSON.parse(raw) : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveKupeRecords(records) {
+      try {
+        localStorage.setItem(KUPE_STORAGE_KEY, JSON.stringify(records));
+      } catch (e) {}
+      updateDefterBadge();
+    }
+
+    function getCurrentDateTimeLocal() {
+      const now = new Date();
+      const pad = n => String(n).padStart(2, '0');
+      return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}T${pad(now.getHours())}:${pad(now.getMinutes())}`;
+    }
+
+    function computeWithdrawal(record) {
+      const appTime = new Date(record.applicationDate).getTime();
+      const now = Date.now();
+      const milkMs = Number(record.milkDays) * 24 * 60 * 60 * 1000;
+      const meatMs = Number(record.meatDays) * 24 * 60 * 60 * 1000;
+
+      const milkEndTime = appTime + milkMs;
+      const meatEndTime = appTime + meatMs;
+
+      const isMilkActive = Number(record.milkDays) > 0 && now < milkEndTime;
+      const isMeatActive = Number(record.meatDays) > 0 && now < meatEndTime;
+      const isAnyActive = isMilkActive || isMeatActive;
+
+      function formatRemaining(ms) {
+        if (ms <= 0) return "Süre Doldu";
+        const totalHours = Math.floor(ms / (1000 * 60 * 60));
+        const days = Math.floor(totalHours / 24);
+        const hours = totalHours % 24;
+        if (days > 0) {
+          return `${days} gün ${hours} saat kaldı`;
+        }
+        const mins = Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60));
+        return `${hours} saat ${mins} dk kaldı`;
+      }
+
+      function formatDate(timeMs) {
+        const d = new Date(timeMs);
+        const day = String(d.getDate()).padStart(2, '0');
+        const month = String(d.getMonth() + 1).padStart(2, '0');
+        const h = String(d.getHours()).padStart(2, '0');
+        const m = String(d.getMinutes()).padStart(2, '0');
+        return `${day}.${month}.${d.getFullYear()} ${h}:${m}`;
+      }
+
+      return {
+        isMilkActive,
+        isMeatActive,
+        isAnyActive,
+        milkRemaining: formatRemaining(milkEndTime - now),
+        meatRemaining: formatRemaining(meatEndTime - now),
+        milkEndDateStr: formatDate(milkEndTime),
+        meatEndDateStr: formatDate(meatEndTime),
+        appDateStr: formatDate(appTime)
+      };
+    }
+
+    function updateDefterBadge() {
+      const records = getKupeRecords();
+      let activeCount = 0;
+      records.forEach(r => {
+        if (computeWithdrawal(r).isAnyActive) activeCount++;
+      });
+
+      const badge = document.getElementById("defter-active-badge");
+      if (badge) {
+        badge.textContent = activeCount;
+        if (activeCount > 0) {
+          badge.classList.remove("zero");
+        } else {
+          badge.classList.add("zero");
+        }
+      }
+
+      const statActive = document.getElementById("stat-active");
+      const statCleared = document.getElementById("stat-cleared");
+      const statTotal = document.getElementById("stat-total");
+      if (statActive && statCleared && statTotal) {
+        statActive.textContent = activeCount;
+        statCleared.textContent = records.length - activeCount;
+        statTotal.textContent = records.length;
+      }
+
+      const batchBtn = document.getElementById("btn-batch-share");
+      if (batchBtn) {
+        batchBtn.style.display = activeCount > 0 ? "flex" : "none";
+      }
+    }
+
+    function openKupeDefteriModal(initialTab = 'list', prefillTag = '', prefillMedicine = '') {
+      const modal = document.getElementById("kupe-modal");
+      if (!modal) return;
+
+      if (prefillTag) {
+        const tagInput = document.getElementById("formKupeTag");
+        if (tagInput) tagInput.value = prefillTag;
+      }
+      if (prefillMedicine) {
+        const medInput = document.getElementById("formMedicine");
+        if (medInput) medInput.value = prefillMedicine;
+      }
+      const dateInput = document.getElementById("formDate");
+      if (dateInput && !dateInput.value) {
+        dateInput.value = getCurrentDateTimeLocal();
+      }
+
+      switchKupeTab(initialTab);
+      renderKupeRecords();
+      modal.classList.add("active");
+    }
+
+    function closeKupeDefteriModal() {
+      const modal = document.getElementById("kupe-modal");
+      if (modal) modal.classList.remove("active");
+    }
+
+    function closeKupeModalOnBackdrop(e) {
+      if (e.target && e.target.id === "kupe-modal") {
+        closeKupeDefteriModal();
+      }
+    }
+
+    function switchKupeTab(tabName) {
+      const tabs = ["list", "new", "info"];
+      tabs.forEach(t => {
+        const btn = document.getElementById(`tabbtn-${t}`);
+        const content = document.getElementById(`kupe-tab-${t}`);
+        if (btn) btn.classList.toggle("active", t === tabName);
+        if (content) content.classList.toggle("active", t === tabName);
+      });
+      if (tabName === "list") {
+        renderKupeRecords();
+      }
+    }
+
+    function setKupeFilter(filter) {
+      kupeCurrentFilter = filter;
+      const pills = ["all", "active", "cleared"];
+      pills.forEach(p => {
+        const pill = document.getElementById(`pill-${p}`);
+        if (pill) pill.classList.toggle("active", p === filter);
+      });
+      renderKupeRecords();
+    }
+
+    function applyPreset(medicineName, milkDays, meatDays) {
+      const medInput = document.getElementById("formMedicine");
+      const milkInput = document.getElementById("formMilkDays");
+      const meatInput = document.getElementById("formMeatDays");
+
+      if (medInput) medInput.value = medicineName;
+      if (milkInput) milkInput.value = milkDays;
+      if (meatInput) meatInput.value = meatDays;
+    }
+
+    function saveNewKupeRecord(e) {
+      e.preventDefault();
+      const earTag = document.getElementById("formKupeTag").value.trim().toUpperCase();
+      const speciesGroup = document.getElementById("formSpeciesGroup").value;
+      const medicine = document.getElementById("formMedicine").value.trim();
+      const appDate = document.getElementById("formDate").value || getCurrentDateTimeLocal();
+      const milkDays = parseInt(document.getElementById("formMilkDays").value, 10) || 0;
+      const meatDays = parseInt(document.getElementById("formMeatDays").value, 10) || 0;
+      const notes = document.getElementById("formNotes").value.trim();
+
+      if (!earTag || !medicine) {
+        alert("Lütfen hayvan küpe numarasını ve uygulanan ilacı yazınız.");
+        return;
+      }
+
+      const newRecord = {
+        id: "rec_" + Date.now(),
+        earTag,
+        speciesGroup,
+        medicine,
+        applicationDate: appDate,
+        milkDays,
+        meatDays,
+        notes,
+        createdAt: Date.now()
+      };
+
+      const records = getKupeRecords();
+      records.unshift(newRecord);
+      saveKupeRecords(records);
+
+      // Formu temizle ve listeye geç
+      document.getElementById("kupe-add-form").reset();
+      document.getElementById("formDate").value = getCurrentDateTimeLocal();
+      switchKupeTab("list");
+    }
+
+    function deleteKupeRecord(id) {
+      if (!confirm("Bu hayvan kaydını defterden silmek istediğinize emin misiniz?")) {
+        return;
+      }
+      let records = getKupeRecords();
+      records = records.filter(r => r.id !== id);
+      saveKupeRecords(records);
+      renderKupeRecords();
+    }
+
+    function shareKupeRecordWhatsApp(id) {
+      const records = getKupeRecords();
+      const rec = records.find(r => r.id === id);
+      if (!rec) return;
+      const w = computeWithdrawal(rec);
+
+      let milkText = "✅ GÜVENLİ (Arındı / Tanka Katılabilir)";
+      if (rec.milkDays > 0) {
+        milkText = w.isMilkActive ? `🔴 DÖKÜLECEK! ${w.milkRemaining} (${w.milkEndDateStr}'e kadar tanka katılamaz)` : `🟢 ARINDI (${w.milkEndDateStr}'de bitti)`;
+      } else {
+        milkText = "⚪ Sütsüz Hayvan / Bekleme süresi yok";
+      }
+
+      let meatText = "✅ GÜVENLİ (Kesilebilir)";
+      if (rec.meatDays > 0) {
+        meatText = w.isMeatActive ? `🔴 KESİM YASAK! ${w.meatRemaining} (${w.meatEndDateStr}'e kadar)` : `🟢 ARINDI (${w.meatEndDateStr}'de bitti)`;
+      } else {
+        meatText = "⚪ Bekleme süresi yok";
+      }
+
+      const msg = `*Çoban Doktor - İlaç Arınma Takip Bildirimi*\n` +
+        `🏷️ *Küpe No:* ${rec.earTag} (${rec.speciesGroup})\n` +
+        `💊 *Uygulanan İlaç:* ${rec.medicine}\n` +
+        `📅 *Uygulama Tarihi:* ${w.appDateStr}\n` +
+        `🥛 *Süt Durumu:* ${milkText}\n` +
+        `🥩 *Et Durumu:* ${meatText}\n` +
+        (rec.notes ? `📝 *Not:* ${rec.notes}\n` : '') +
+        `\nBu kayıt Çoban Doktor Küpe Defterinden paylaşılmıştır.`;
+
+      window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function shareAllActiveWhatsApp() {
+      const records = getKupeRecords();
+      const activeRecs = records.filter(r => computeWithdrawal(r).isAnyActive);
+      if (activeRecs.length === 0) {
+        alert("Şu anda arınma süresi devam eden yasaklı hayvanınız bulunmuyor.");
+        return;
+      }
+
+      const now = new Date();
+      const todayStr = `${String(now.getDate()).padStart(2, '0')}.${String(now.getMonth()+1).padStart(2, '0')}.${now.getFullYear()}`;
+
+      let itemsText = activeRecs.map((rec, idx) => {
+        const w = computeWithdrawal(rec);
+        let milkLine = rec.milkDays > 0 ? (w.isMilkActive ? `\n   🥛 Süt: 🔴 DÖKÜLECEK (${w.milkRemaining} - Son: ${w.milkEndDateStr})` : `\n   🥛 Süt: 🟢 Güvenli`) : '';
+        let meatLine = rec.meatDays > 0 ? (w.isMeatActive ? `\n   🥩 Et: 🔴 KESİM YASAK (${w.meatRemaining} - Son: ${w.meatEndDateStr})` : `\n   🥩 Et: 🟢 Güvenli`) : '';
+        return `*${idx + 1}) Küpe: ${rec.earTag}* (${rec.speciesGroup})\n   💊 İlaç: ${rec.medicine}${milkLine}${meatLine}`.trim();
+      }).join("\n\n");
+
+      const msg = `*Çoban Doktor - Çiftlik Aktif İlaç Arınma (İKAS) Listesi*\n` +
+        `📅 *Tarih:* ${todayStr}\n` +
+        `⚠️ *DİKKAT:* Aşağıdaki hayvanların ilaç arınma süresi devam etmektedir:\n\n` +
+        itemsText +
+        `\n\n📌 *Toplam:* ${activeRecs.length} baş hayvanın sütü/eti karantina altındadır.`;
+
+      window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function addCurrentDiagnosisToDefter(diseaseName) {
+      const earInput = document.getElementById("chatEarTag");
+      const tag = earInput && earInput.value.trim() ? earInput.value.trim().toUpperCase() : "";
+      openKupeDefteriModal("new", tag, diseaseName);
+    }
+
+    function renderKupeRecords() {
+      const container = document.getElementById("kupe-records-container");
+      if (!container) return;
+
+      const records = getKupeRecords();
+      updateDefterBadge();
+
+      const searchVal = (document.getElementById("kupeSearchInput")?.value || "").trim().toLowerCase();
+
+      let filtered = records.filter(rec => {
+        const w = computeWithdrawal(rec);
+        if (kupeCurrentFilter === "active" && !w.isAnyActive) return false;
+        if (kupeCurrentFilter === "cleared" && w.isAnyActive) return false;
+        if (searchVal) {
+          const matchTag = rec.earTag.toLowerCase().includes(searchVal);
+          const matchMed = rec.medicine.toLowerCase().includes(searchVal);
+          const matchNote = (rec.notes || "").toLowerCase().includes(searchVal);
+          if (!matchTag && !matchMed && !matchNote) return false;
+        }
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div style="text-align:center; padding:30px 10px; color:#64748b;">
+            <div style="font-size:2.4rem; margin-bottom:8px;">📋</div>
+            <div style="font-weight:800; font-size:1rem; margin-bottom:4px;">Kayıt Bulunamadı</div>
+            <div style="font-size:0.82rem;">${searchVal || kupeCurrentFilter !== 'all' ? 'Arama kriterinize uygun hayvan yok.' : 'Henüz ilaç yapılmış hayvan kaydetmediniz. Yukarıdaki "Yeni İlaç Kaydet" sekmesinden ekleyebilirsiniz.'}</div>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(rec => {
+        const w = computeWithdrawal(rec);
+        const cardClass = w.isAnyActive ? "kupe-card is-active-warning" : "kupe-card";
+
+        // Süt kutusu
+        let milkBoxHtml = "";
+        if (rec.milkDays > 0) {
+          if (w.isMilkActive) {
+            milkBoxHtml = `
+              <div class="cd-box cd-danger">
+                <div class="cd-title">🥛 SÜT: DÖKÜLECEK!</div>
+                <div class="cd-rem">🔴 ${w.milkRemaining}</div>
+                <div class="cd-sub">Bitiş: ${w.milkEndDateStr}'e kadar tanka dökülemez</div>
+              </div>
+            `;
+          } else {
+            milkBoxHtml = `
+              <div class="cd-box cd-safe">
+                <div class="cd-title">🥛 SÜT: GÜVENLİ</div>
+                <div class="cd-rem">🟢 Arındı / Temiz</div>
+                <div class="cd-sub">Bitiş: ${w.milkEndDateStr}</div>
+              </div>
+            `;
+          }
+        } else {
+          milkBoxHtml = `
+            <div class="cd-box" style="background:#f1f5f9; color:#475569; border:1px solid #cbd5e1;">
+              <div class="cd-title">🥛 SÜT: SÜRESİZ</div>
+              <div class="cd-rem" style="font-size:0.75rem;">Bekleme Yok / Sütsüz</div>
+            </div>
+          `;
+        }
+
+        // Et kutusu
+        let meatBoxHtml = "";
+        if (rec.meatDays > 0) {
+          if (w.isMeatActive) {
+            meatBoxHtml = `
+              <div class="cd-box cd-danger">
+                <div class="cd-title">🥩 ET: KESİM YASAK!</div>
+                <div class="cd-rem">🔴 ${w.meatRemaining}</div>
+                <div class="cd-sub">Bitiş: ${w.meatEndDateStr}'e kadar kesilemez</div>
+              </div>
+            `;
+          } else {
+            meatBoxHtml = `
+              <div class="cd-box cd-safe">
+                <div class="cd-title">🥩 ET: GÜVENLİ</div>
+                <div class="cd-rem">🟢 Arındı / Kesilebilir</div>
+                <div class="cd-sub">Bitiş: ${w.meatEndDateStr}</div>
+              </div>
+            `;
+          }
+        } else {
+          meatBoxHtml = `
+            <div class="cd-box" style="background:#f1f5f9; color:#475569; border:1px solid #cbd5e1;">
+              <div class="cd-title">🥩 ET: SÜRESİZ</div>
+              <div class="cd-rem" style="font-size:0.75rem;">Bekleme Yok</div>
+            </div>
+          `;
+        }
+
+        return `
+          <div class="${cardClass}">
+            <div class="kupe-card-hdr">
+              <div class="kupe-tag-title">🏷️ ${rec.earTag}</div>
+              <span class="kupe-species-pill">${rec.speciesGroup}</span>
+            </div>
+            <div class="kupe-med-title">💊 ${rec.medicine}</div>
+            <div class="kupe-date-lbl">📅 Uygulama: ${w.appDateStr}</div>
+
+            <div class="countdown-grid">
+              ${milkBoxHtml}
+              ${meatBoxHtml}
+            </div>
+
+            ${rec.notes ? `<div style="font-size:0.74rem; color:#475569; background:#f8fafc; padding:4px 8px; border-radius:4px; margin-top:4px;">📝 ${rec.notes}</div>` : ''}
+
+            <div class="kupe-card-actions">
+              <button onclick="shareKupeRecordWhatsApp('${rec.id}')" class="kupe-btn-wa">📲 WhatsApp</button>
+              <button onclick="deleteKupeRecord('${rec.id}')" class="kupe-btn-del">🗑️ Sil</button>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    // =========================================================================
+    // MERA VE ÇEVRİMDIŞI (OFFLINE) AĞ İZLEYİCİ
+    // =========================================================================
+    function updateNetworkStatus() {
+      const statusEl = document.getElementById("wa-online-status");
+      const offlineBar = document.getElementById("mera-offline-bar");
+      if (!navigator.onLine) {
+        if (statusEl) statusEl.innerHTML = `<span style="color:#fde047;">●</span> Mera Modu (Çevrimdışı)`;
+        if (offlineBar) offlineBar.style.display = "flex";
+      } else {
+        if (statusEl) statusEl.innerHTML = `çevrimiçi`;
+        if (offlineBar) offlineBar.style.display = "none";
+      }
+    }
+    window.addEventListener('online', updateNetworkStatus);
+    window.addEventListener('offline', updateNetworkStatus);
+    updateNetworkStatus();
+
+    // 30 saniyede bir sayaçları ve rozeti otomatik yenile
+    setInterval(() => {
+      updateDefterBadge();
+      const modal = document.getElementById("kupe-modal");
+      if (modal && modal.classList.contains("active")) {
+        const listTab = document.getElementById("kupe-tab-list");
+        if (listTab && listTab.classList.contains("active")) {
+          renderKupeRecords();
+        }
+      }
+    }, 30000);
+
+    // =========================================================================
     // PWA SERVICE WORKER
     // =========================================================================
     if ('serviceWorker' in navigator) {
@@ -1432,6 +2548,9 @@
         navigator.serviceWorker.register('./sw.js').catch(() => {});
       });
     }
+
+    // İlk açılışta rozeti güncelle
+    updateDefterBadge();
   </script>
 </body>
 </html>

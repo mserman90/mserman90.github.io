@@ -101,5 +101,27 @@ Mera veya tarlada güneş tam tepedeyken ekran parlayabilir. Çoban Doktor'un ü
 
 ---
 
+## 📋 5. Küpe Defteri & İlaç Arınma Süresi Takibi (Süt / Et Sayacı)
+
+Hayvanına iğne, antibiyotik veya meme tüpü uyguladığında ilacın vücuttan atılma süresini aklında tutmak zordur. **Küpe Defteri**, internetsiz mera ve ahırda senin yerine saniyeleri sayar:
+
+### Neden Çok Önemlidir?
+- **🥛 Sütünü Kurtarır:** İlaçlı 1 tek ineğin sütünü tanka katarsan koca tanktaki tonlarca süt antibiyotikli olur. Mandıra sütü döker, yoğurt tutmaz ve binlerce lira ceza keser!
+- **🥩 Kesim Yasağını Takip Eder:** Kesim öncesi ilacın etten çıkma süresi (E.A.S) dolmadan hayvanı mezbahaya götürürsen karkas imha edilir.
+
+### Nasıl Kullanılır?
+1. Ekranın yukarısındaki **"📋 Defter"** düğmesine bas.
+2. **"➕ Yeni İlaç Kaydet"** sekmesine dokun.
+3. Hayvanın **Kulak Küpe Numarasını** yaz (Örn: *TR 42 1234567*).
+4. İster ilacın adını kendin yaz, istersen aşağıdaki hazır kutulara tek tıkla dokun (*Mastitis Tüp, Penisilin, Oksitetrasiklin LA vb.*).
+5. **"KÜPE DEFTERİNE KAYDET"** yeşil düğmesine bas.
+6. Artık Defter ekranında canlı sayaç başlar:
+   - 🔴 **SÜT: DÖKÜLECEK! (2 gün 4 saat kaldı):** Sütü asla tanka katma, dök!
+   - 🟢 **SÜT: GÜVENLİ (Arındı / Temiz):** Süresi bitti, sütü gönül rahatlığıyla sağ ve tanka kat.
+   - 🔴 **ET: KESİM YASAK! / 🟢 ET: GÜVENLİ:** Kesim gününü takip eder.
+7. İstersen **"📲 WhatsApp ile Paylaş"** butonuna basarak süt toplayıcına veya veterinerine tek tıkla arınma raporu yollayabilirsin.
+
+---
+
 ## 📞 Önemli Hatırlatma
 Çoban Doktor, veteriner hekimin ahıra ulaşana kadar **hayvanının canını kurtarmak ve vakit kazanmak** içindir. İğne, antibiyotik ve kesin tedavi için her zaman diplomalı **Veteriner Hekiminize** danışınız.
