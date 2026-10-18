@@ -752,6 +752,161 @@
       border-color: var(--danger);
     }
 
+    /* =========================================================================
+       TOHUMLUK KARIŞIM SİHİRBAZI STİLLERİ
+       ========================================================================= */
+    .mix-wizard-card {
+      background-color: var(--card-bg);
+      border: 1.5px solid var(--primary);
+      border-radius: var(--radius);
+      padding: 18px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    }
+    .mix-preset-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .mix-preset-btn {
+      background-color: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 8px 12px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text);
+      cursor: pointer;
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.15s ease;
+    }
+    .mix-preset-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .mix-preset-btn.active {
+      background-color: var(--primary);
+      border-color: var(--primary);
+      color: #ffffff;
+    }
+    .seed-section-title {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 14px;
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid var(--border);
+    }
+    .seed-checkbox-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .seed-choice-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 12px;
+      background-color: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      cursor: pointer;
+      user-select: none;
+      transition: border-color 0.15s, background-color 0.15s;
+    }
+    .seed-choice-card:hover {
+      border-color: var(--primary);
+    }
+    .seed-choice-card.is-selected {
+      border-color: var(--primary);
+      background-color: var(--primary-light);
+    }
+    body.dark-mode .seed-choice-card.is-selected {
+      background-color: rgba(0, 128, 105, 0.18);
+    }
+    .seed-checkbox-custom {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      margin-top: 2px;
+      flex-shrink: 0;
+      background-color: var(--card-bg);
+      cursor: pointer;
+      display: grid;
+      place-content: center;
+      transition: border-color 0.15s, background-color 0.15s;
+    }
+    .seed-checkbox-custom:checked {
+      background-color: var(--primary);
+      border-color: var(--primary);
+    }
+    .seed-checkbox-custom:checked::after {
+      content: "✔";
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .seed-info-label {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .seed-title-text {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+    .seed-sci-text {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+    .seed-tag-text {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: 2px;
+    }
+    .mix-stats-banner {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .mix-stat-tile {
+      background-color: var(--card-bg);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 10px;
+      text-align: center;
+    }
+    .mix-stat-label {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      display: block;
+    }
+    .mix-stat-val {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: var(--primary);
+    }
+
     /* Altbilgi (Footer) */
     footer {
       background-color: var(--primary-dark);
@@ -856,6 +1011,179 @@
       <div class="section-card">
         <h2 class="section-title">🌾 Yem Bitkisi Karışımları (Baklagil + Buğdaygil)</h2>
         <p class="section-desc">Tek tür yerine karışım ekildiğinde; buğdaygiller baklagillerin yatmasını engeller, baklagiller toprağa doğal azot bağlar ve kaba yemin sindirilebilir protein-enerji dengesini mükemmelleştirir.</p>
+
+        <!-- =========================================================================
+             İNTERAKTİF TOHUMLUK KARIŞIM SİHİRBAZI (ELDEKİ TOHUMLARLA KARIŞIM OLUŞTURUCU)
+             ========================================================================= -->
+        <div class="mix-wizard-card">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 12px;">
+            <div>
+              <h3 style="font-size: 1.15rem; font-weight: 900; color: var(--primary); margin-bottom: 4px; display: flex; align-items: center; gap: 8px;">
+                🌾 Akıllı Tohumluk Karışım Sihirbazı
+              </h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0;">
+                Deponuzdaki veya satın alabileceğiniz tohumları seçin; hedefinize en uygun tohum oranlarını, toplam çuval ihtiyacını, gübreleme takvimini ve ekim reçetesini otomatik oluşturalım.
+              </p>
+            </div>
+          </div>
+
+          <!-- Hızlı Şablonlar (Hazır Karışım Reçeteleri) -->
+          <div class="mix-preset-bar">
+            <span style="font-size: 0.8rem; font-weight: 800; align-self: center; color: var(--text-muted);">Hızlı Şablonlar:</span>
+            <button type="button" class="mix-preset-btn" onclick="applyMixPreset('macar_tritikale')">🌾 Macar Fiği + Tritikale</button>
+            <button type="button" class="mix-preset-btn" onclick="applyMixPreset('bezelye_tritikale')">🌱 Yem Bezelyesi + Tritikale</button>
+            <button type="button" class="mix-preset-btn" onclick="applyMixPreset('ryegrass_ucgul')">🍀 Ryegrass + İskenderiye Üçgülü</button>
+            <button type="button" class="mix-preset-btn" onclick="applyMixPreset('suni_mera')">🚜 Yonca + Korunga + Ryegrass (Mera)</button>
+            <button type="button" class="mix-preset-btn" onclick="applyMixPreset('clear')" style="color: var(--danger); border-color: var(--danger);">🔄 Seçimi Temizle</button>
+          </div>
+
+          <!-- Temel Parametreler (Hedef, Alan, Ekim Yöntemi) -->
+          <div class="calc-grid" style="margin-bottom: 14px;">
+            <div class="form-group" style="margin-bottom: 0;">
+              <label for="customMixPurpose">🎯 Üretim Amacı & Kullanım Hedefi:</label>
+              <select id="customMixPurpose" class="form-control" onchange="runCustomMixCalc()">
+                <option value="kuru_ot" selected>🌾 Kaliteli Kuru Ot Balyası (Hedef: %70 Baklagil + %30 Tahıl)</option>
+                <option value="silaj">🌽 Yüksek Proteinli Silaj (Hedef: %75 Baklagil + %25 Tahıl)</option>
+                <option value="otlatma">🐄 Kışlık / İlkbahar Otlatma & Yeşil Biçim (Hedef: %40 Baklagil + %60 Buğdaygil)</option>
+                <option value="mera">🌿 Çok Yıllık Suni Mera Tesisi (Hedef: %30 Baklagil + %70 Buğdaygil)</option>
+              </select>
+            </div>
+
+            <div class="calc-grid" style="gap: 10px;">
+              <div class="form-group" style="margin-bottom: 0;">
+                <label for="customMixArea">Tarla Alanı (Dekar):</label>
+                <input type="number" id="customMixArea" class="form-control" value="10" min="0.5" step="0.5" oninput="runCustomMixCalc()">
+              </div>
+              <div class="form-group" style="margin-bottom: 0;">
+                <label for="customMixMethod">Ekim Yöntemi:</label>
+                <select id="customMixMethod" class="form-control" onchange="runCustomMixCalc()">
+                  <option value="mivzer" selected>Mivzerle Sıraya (İdeal Norm)</option>
+                  <option value="serpme">Fırfır / Serpme (+%20 Tohum)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tohum Seçim Bölümü -->
+          <div class="seed-section-title">
+            <span>🍀 1. Adım: Elinizdeki Baklagil Tohumlarını Seçin (Protein & Biyolojik Azot Kaynağı)</span>
+          </div>
+          <div class="seed-checkbox-grid" id="legumeSeedsGrid">
+            <label class="seed-choice-card" id="card_seed_macar_figi">
+              <input type="checkbox" class="seed-checkbox-custom" value="macar_figi" onchange="handleSeedToggle(this)">
+              <div class="seed-info-label">
+                <span class="seed-title-text">Macar Fiği</span>
+                <span class="seed-sci-text">Vicia pannonica</span>
+                <span class="seed-tag-text">Kışa Çok Dayanıklı • %17-18 HP</span>
+              </div>
+            </label>
+
+            <label class="seed-choice-card" id="card_seed_yem_bezelyesi">
+              <input type="checkbox" class="seed-checkbox-custom" value="yem_bezelyesi" onchange="handleSeedToggle(this)">
+              <div class="seed-info-label">
+                <span class="seed-title-text">Yem Bezelyesi</span>
+                <span class="seed-sci-text">Pisum arvense</span>
+                <span class="seed-tag-text">Yüksek Biyokütle • %18-20 HP</span>
+              </div>
+            </label>
+
+            <label class="seed-choice-card" id="card_seed_adi_fig">
+              <input type="checkbox" class="seed-checkbox-custom" value="adi_fig" onchange="handleSeedToggle(this)">
+              <div class="seed-info-label">
+                <span class="seed-title-text">Adi Fiğ</span>
+                <span class="seed-sci-text">Vicia sativa</span>
+                <span class="seed-tag-text">Ilıman Kuşak • %18 HP</span>
+              </div>
+            </label>
+
+            <label class="seed-choice-card" id="card_seed_yonca">
+              <input type="checkbox" class="seed-checkbox-custom" value="yonca" onchange="handleSeedToggle(this)">
+              <div class="seed-info-label">
+                <span class="seed-title-text">Yonca</span>
+                <span class="seed-sci-text">Medicago sativa</span>
+                <span class="seed-tag-text">Kaba Yemlerin Kraliçesi • Çok Yıllık</span>
+              </div>
+            </label>
+
+            <label class="seed-choice-card" id="card_seed_korunga">
+              <input type="checkbox" class="seed-checkbox-custom" value="korunga" onchange="handleSeedToggle(this)">
+              <div class="seed-info-label">
+                <span class="seed-title-text">Korunga</span>
+                <span class="seed-sci-text">Onobrychis viciifolia</span>
+                <span class="seed-tag-text">Kıraç & Kireçli • Gaz Yapmaz</span>
+              </div>
+            </label>
+
+            <label class="seed-choice-card" id="card_seed_iskenderiye_ucgulu">
+              <input type="checkbox" class="seed-checkbox-custom" value="iskenderiye_ucgulu" onchange="handleSeedToggle(this)">
+              <div class="seed-info-label">
+                <span class="seed-title-text">İskenderiye Üçgülü</span>
+                <span class="seed-sci-text">Trifolium alexandrinum</span>
+                <span class="seed-tag-text">Tek Yıllık • Hızlı Gelişir</span>
+              </div>
+            </label>
+          </div>
+
+          <div class="seed-section-title">
+            <span>🌾 2. Adım: Elinizdeki Buğdaygil / Tahıl Tohumlarını Seçin (Destek Gövde & Silaj Şekeri)</span>
+          </div>
+          <div class="seed-checkbox-grid" id="grassSeedsGrid">
+            <label class="seed-choice-card" id="card_seed_tritikale">
+              <input type="checkbox" class="seed-checkbox-custom" value="tritikale" onchange="handleSeedToggle(this)">
+              <div class="seed-info-label">
+                <span class="seed-title-text">Tritikale</span>
+                <span class="seed-sci-text">X Triticosecale</span>
+                <span class="seed-tag-text">Güçlü Sap • Soğuğa Dayanıklı</span>
+              </div>
+            </label>
+
+            <label class="seed-choice-card" id="card_seed_yulaf">
+              <input type="checkbox" class="seed-checkbox-custom" value="yulaf" onchange="handleSeedToggle(this)">
+              <div class="seed-info-label">
+                <span class="seed-title-text">Yemlik Yulaf</span>
+                <span class="seed-sci-text">Avena sativa</span>
+                <span class="seed-tag-text">Lezzetli & Bol Yapraklı</span>
+              </div>
+            </label>
+
+            <label class="seed-choice-card" id="card_seed_yemlik_arpa">
+              <input type="checkbox" class="seed-checkbox-custom" value="yemlik_arpa" onchange="handleSeedToggle(this)">
+              <div class="seed-info-label">
+                <span class="seed-title-text">Yemlik Arpa</span>
+                <span class="seed-sci-text">Hordeum vulgare</span>
+                <span class="seed-tag-text">Erkenci Hasat • Yüksek Nişasta</span>
+              </div>
+            </label>
+
+            <label class="seed-choice-card" id="card_seed_ryegrass">
+              <input type="checkbox" class="seed-checkbox-custom" value="ryegrass" onchange="handleSeedToggle(this)">
+              <div class="seed-info-label">
+                <span class="seed-title-text">İtalyan Çimi (Ryegrass)</span>
+                <span class="seed-sci-text">Lolium multiflorum</span>
+                <span class="seed-tag-text">Yüksek Şeker • Süt Verimi Teşviği</span>
+              </div>
+            </label>
+
+            <label class="seed-choice-card" id="card_seed_cavdar">
+              <input type="checkbox" class="seed-checkbox-custom" value="cavdar" onchange="handleSeedToggle(this)">
+              <div class="seed-info-label">
+                <span class="seed-title-text">Yemlik Çavdar</span>
+                <span class="seed-sci-text">Secale cereale</span>
+                <span class="seed-tag-text">Kumlu & Zayıf Topraklara Uygun</span>
+              </div>
+            </label>
+          </div>
+
+          <!-- Hesaplanan Sonuçlar ve Reçete Paneli -->
+          <div id="customMixResultArea">
+            <!-- JS ile dinamik oluşturulur -->
+          </div>
+
+        </div>
+
+        <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text); margin-bottom: 14px;">
+          📚 Standart & Bölgesel Karışım Kılavuzları
+        </h3>
 
         <div class="crops-grid" style="margin-bottom: 24px;">
 
@@ -1751,6 +2079,488 @@
     };
 
     /* =========================================================================
+       ELDEKİ TOHUMLARLA İDEAL KARIŞIM SİHİRBAZI MANTIĞI & VERİLERİ
+       ========================================================================= */
+    const CUSTOM_SEEDS = {
+      macar_figi: {
+        id: "macar_figi",
+        name: "Macar Fiği",
+        latin: "Vicia pannonica",
+        type: "legume",
+        typeName: "Baklagil",
+        baseNormInMix: 7.5,
+        singleNorm: 11.0,
+        tkw: "Orta (35-45g)",
+        protein: 17.5,
+        depth: "3.5 - 5.0 cm",
+        nitrogenKg: 12.0
+      },
+      yem_bezelyesi: {
+        id: "yem_bezelyesi",
+        name: "Yem Bezelyesi",
+        latin: "Pisum arvense",
+        type: "legume",
+        typeName: "Baklagil",
+        baseNormInMix: 11.0,
+        singleNorm: 15.0,
+        tkw: "İri (140-180g)",
+        protein: 19.5,
+        depth: "4.5 - 6.0 cm",
+        nitrogenKg: 14.0
+      },
+      adi_fig: {
+        id: "adi_fig",
+        name: "Adi Fiğ",
+        latin: "Vicia sativa",
+        type: "legume",
+        typeName: "Baklagil",
+        baseNormInMix: 8.0,
+        singleNorm: 11.0,
+        tkw: "Orta (45-55g)",
+        protein: 18.0,
+        depth: "3.5 - 5.0 cm",
+        nitrogenKg: 11.0
+      },
+      yonca: {
+        id: "yonca",
+        name: "Yonca",
+        latin: "Medicago sativa",
+        type: "legume",
+        typeName: "Baklagil",
+        baseNormInMix: 1.8,
+        singleNorm: 3.0,
+        tkw: "Küçük (2-2.5g)",
+        protein: 21.0,
+        depth: "1.5 - 2.0 cm",
+        nitrogenKg: 24.0
+      },
+      korunga: {
+        id: "korunga",
+        name: "Korunga",
+        latin: "Onobrychis viciifolia",
+        type: "legume",
+        typeName: "Baklagil",
+        baseNormInMix: 5.0,
+        singleNorm: 9.0,
+        tkw: "İri Meyveli (18-22g)",
+        protein: 17.0,
+        depth: "2.5 - 3.5 cm",
+        nitrogenKg: 15.0
+      },
+      iskenderiye_ucgulu: {
+        id: "iskenderiye_ucgulu",
+        name: "İskenderiye Üçgülü",
+        latin: "Trifolium alexandrinum",
+        type: "legume",
+        typeName: "Baklagil",
+        baseNormInMix: 2.0,
+        singleNorm: 3.5,
+        tkw: "Küçük (2.8-3.2g)",
+        protein: 19.0,
+        depth: "1.5 - 2.0 cm",
+        nitrogenKg: 16.0
+      },
+      tritikale: {
+        id: "tritikale",
+        name: "Tritikale",
+        latin: "X Triticosecale",
+        type: "grass",
+        typeName: "Tahıl / Buğdaygil",
+        baseNormInMix: 3.5,
+        singleNorm: 20.0,
+        tkw: "İri (40-48g)",
+        protein: 11.5,
+        depth: "4.0 - 5.0 cm"
+      },
+      yulaf: {
+        id: "yulaf",
+        name: "Yemlik Yulaf",
+        latin: "Avena sativa",
+        type: "grass",
+        typeName: "Tahıl / Buğdaygil",
+        baseNormInMix: 3.5,
+        singleNorm: 18.0,
+        tkw: "Orta (32-38g)",
+        protein: 10.5,
+        depth: "3.5 - 4.5 cm"
+      },
+      yemlik_arpa: {
+        id: "yemlik_arpa",
+        name: "Yemlik Arpa",
+        latin: "Hordeum vulgare",
+        type: "grass",
+        typeName: "Tahıl / Buğdaygil",
+        baseNormInMix: 4.0,
+        singleNorm: 20.0,
+        tkw: "İri (42-50g)",
+        protein: 11.5,
+        depth: "3.5 - 5.0 cm"
+      },
+      ryegrass: {
+        id: "ryegrass",
+        name: "İtalyan Çimi (Ryegrass)",
+        latin: "Lolium multiflorum",
+        type: "grass",
+        typeName: "Buğdaygil (Süt Otu)",
+        baseNormInMix: 3.2,
+        singleNorm: 5.0,
+        tkw: "Küçük (2.0-2.4g)",
+        protein: 19.0,
+        depth: "1.5 - 2.0 cm"
+      },
+      cavdar: {
+        id: "cavdar",
+        name: "Yemlik Çavdar",
+        latin: "Secale cereale",
+        type: "grass",
+        typeName: "Tahıl / Buğdaygil",
+        baseNormInMix: 3.5,
+        singleNorm: 18.0,
+        tkw: "Orta (30-36g)",
+        protein: 10.0,
+        depth: "3.5 - 5.0 cm"
+      }
+    };
+
+    let lastCalculatedCustomMix = null;
+
+    function handleSeedToggle(checkbox) {
+      const card = checkbox.closest(".seed-choice-card");
+      if (card) {
+        if (checkbox.checked) {
+          card.classList.add("is-selected");
+        } else {
+          card.classList.remove("is-selected");
+        }
+      }
+      runCustomMixCalc();
+    }
+
+    function applyMixPreset(presetKey) {
+      document.querySelectorAll(".mix-preset-btn").forEach(b => b.classList.remove("active"));
+
+      const allCards = document.querySelectorAll(".seed-choice-card");
+      allCards.forEach(c => {
+        const cb = c.querySelector(".seed-checkbox-custom");
+        if (cb) {
+          cb.checked = false;
+          c.classList.remove("is-selected");
+        }
+      });
+
+      if (presetKey === "clear") {
+        runCustomMixCalc();
+        return;
+      }
+
+      const presetMap = {
+        macar_tritikale: {
+          purpose: "kuru_ot",
+          seeds: ["macar_figi", "tritikale"]
+        },
+        bezelye_tritikale: {
+          purpose: "silaj",
+          seeds: ["yem_bezelyesi", "tritikale"]
+        },
+        ryegrass_ucgul: {
+          purpose: "otlatma",
+          seeds: ["iskenderiye_ucgulu", "ryegrass"]
+        },
+        suni_mera: {
+          purpose: "mera",
+          seeds: ["yonca", "korunga", "ryegrass"]
+        }
+      };
+
+      const preset = presetMap[presetKey];
+      if (preset) {
+        const purposeSelect = document.getElementById("customMixPurpose");
+        if (purposeSelect) purposeSelect.value = preset.purpose;
+
+        preset.seeds.forEach(sId => {
+          const card = document.getElementById(`card_seed_${sId}`);
+          if (card) {
+            const cb = card.querySelector(".seed-checkbox-custom");
+            if (cb) {
+              cb.checked = true;
+              card.classList.add("is-selected");
+            }
+          }
+        });
+      }
+
+      runCustomMixCalc();
+    }
+
+    function runCustomMixCalc() {
+      const container = document.getElementById("customMixResultArea");
+      if (!container) return;
+
+      const purpose = document.getElementById("customMixPurpose")?.value || "kuru_ot";
+      const area = parseFloat(document.getElementById("customMixArea")?.value) || 0;
+      const method = document.getElementById("customMixMethod")?.value || "mivzer";
+
+      // Seçili tohumları topla
+      const checkedBoxes = Array.from(document.querySelectorAll("#legumeSeedsGrid input:checked, #grassSeedsGrid input:checked"));
+      const selectedSeedKeys = checkedBoxes.map(cb => cb.value);
+
+      if (selectedSeedKeys.length === 0) {
+        lastCalculatedCustomMix = null;
+        container.innerHTML = `
+          <div class="info-box" style="margin-top: 14px; text-align: center; padding: 24px;">
+            <strong style="font-size: 1rem; color: var(--primary);">🌱 Tohum Seçimi Yapılmadı</strong>
+            <p style="margin-bottom: 0;">Lütfen yukarıdan elinizde bulunan en az 1 baklagil ve/veya 1 buğdaygil/tahıl tohumunu işaretleyin veya yukarıdaki "Hızlı Şablonlar" butonlarını kullanın.</p>
+          </div>
+        `;
+        return;
+      }
+
+      const selectedSeeds = selectedSeedKeys.map(k => CUSTOM_SEEDS[k]).filter(Boolean);
+      const legumes = selectedSeeds.filter(s => s.type === "legume");
+      const grasses = selectedSeeds.filter(s => s.type === "grass");
+
+      let targetLegumeShare = 0.70;
+      let targetGrassShare = 0.30;
+      let purposeTitle = "Kaliteli Kuru Ot Balyası";
+      let expectedYieldText = "650 - 1.100 kg Kuru Ot / da";
+      let harvestStageText = "Tarladaki tahılın süt olum sonu - erken hamur döneminde; fiğin alt baklaları dolduğunda.";
+      let fertSchedule = "Taban: 20-25 kg/da DAP (18-46-0). Üst: Erken baharda max 8-10 kg/da Amonyum Nitrat (%26).";
+
+      if (purpose === "silaj") {
+        targetLegumeShare = 0.75;
+        targetGrassShare = 0.25;
+        purposeTitle = "Yüksek Proteinli & Enerjili Silaj";
+        expectedYieldText = "3.000 - 4.500 kg Yaş Silaj / da (%32-35 KM)";
+        harvestStageText = "Tahıl hamur olum başlangıcında ve baklagiller dolgun bakla evresindeyken.";
+        fertSchedule = "Taban: 25 kg/da DAP veya 20-20-0. Üst: Kardeşlenme döneminde 10 kg/da Üre veya A.N.";
+      } else if (purpose === "otlatma") {
+        targetLegumeShare = 0.40;
+        targetGrassShare = 0.60;
+        purposeTitle = "Kışlık / İlkbahar Otlatma & Yeşil Biçim";
+        expectedYieldText = "4.000 - 5.500 kg Yaş Ot (Sezonda 3-4 Biçim/Otlatma)";
+        harvestStageText = "Bitki boyu 35-40 cm'ye ulaştığında, başaklanma/çiçeklenme öncesinde.";
+        fertSchedule = "Taban: 20 kg/da 20-20-0. Her biçim/otlatma sonrası 12-15 kg/da Amonyum Nitrat veya Üre.";
+      } else if (purpose === "mera") {
+        targetLegumeShare = 0.30;
+        targetGrassShare = 0.70;
+        purposeTitle = "Çok Yıllık Suni Mera Tesisi";
+        expectedYieldText = "Yıllık 600 - 900 kg Kuru Ot eşdeğeri otlatma";
+        harvestStageText = "Münavebeli otlatma uygulanmalı; bitkiler 10 cm'den kısa çiğnetilmemelidir.";
+        fertSchedule = "Taban: 25-30 kg/da DAP. Her yıl ilkbahar çıkışı 15 kg/da 20-20-0.";
+      }
+
+      let singleSideNote = "";
+      if (legumes.length > 0 && grasses.length === 0) {
+        targetLegumeShare = 1.0;
+        targetGrassShare = 0.0;
+        singleSideNote = "⚠️ <strong>Dikkat:</strong> Sadece baklagil tohumu seçtiniz. Baklagiller tek ekildiğinde yatma (lodging) riski yüksektir ve silaj fermantasyonu için gerekli şeker düzeyi düşüktür. Karışıma %20-30 oranında Tritikale veya Yulaf eklemeniz gövde desteği ve kalite açısından şiddetle tavsiye edilir.";
+      } else if (grasses.length > 0 && legumes.length === 0) {
+        targetLegumeShare = 0.0;
+        targetGrassShare = 1.0;
+        singleSideNote = "⚠️ <strong>Dikkat:</strong> Sadece buğdaygil/tahıl tohumu seçtiniz. Karışımda baklagil bulunmadığı için toprağa biyolojik azot fiksasyonu sağlanamaz ve kaba yemin ham protein oranı (%10-12) daha düşük kalır.";
+      }
+
+      const methodMultiplier = method === "serpme" ? 1.20 : 1.0;
+
+      // Tohum hesaplamaları
+      const calculatedItems = [];
+      let totalSeedPerDa = 0;
+      let totalNitrogenKg = 0;
+      let weightedProteinSum = 0;
+
+      // Baklagiller hesabı
+      legumes.forEach(leg => {
+        let kgDa = 0;
+        if (grasses.length === 0) {
+          kgDa = (leg.singleNorm / legumes.length) * methodMultiplier;
+        } else {
+          kgDa = (leg.baseNormInMix * (targetLegumeShare / 0.70) / legumes.length) * methodMultiplier;
+        }
+        kgDa = Math.round(kgDa * 10) / 10;
+        const totalKg = Math.round(kgDa * area * 10) / 10;
+        const bags = Math.ceil(totalKg / 25);
+        totalSeedPerDa += kgDa;
+        totalNitrogenKg += (leg.nitrogenKg || 12) / legumes.length;
+        weightedProteinSum += (kgDa * leg.protein);
+
+        calculatedItems.push({
+          seed: leg,
+          kgPerDa: kgDa,
+          totalKg: totalKg,
+          bags: bags,
+          depth: leg.depth
+        });
+      });
+
+      // Buğdaygiller hesabı
+      grasses.forEach(gr => {
+        let kgDa = 0;
+        if (legumes.length === 0) {
+          kgDa = (gr.singleNorm / grasses.length) * methodMultiplier;
+        } else {
+          kgDa = (gr.baseNormInMix * (targetGrassShare / 0.30) / grasses.length) * methodMultiplier;
+        }
+        kgDa = Math.round(kgDa * 10) / 10;
+        const totalKg = Math.round(kgDa * area * 10) / 10;
+        const bags = Math.ceil(totalKg / 25);
+        totalSeedPerDa += kgDa;
+        weightedProteinSum += (kgDa * gr.protein);
+
+        calculatedItems.push({
+          seed: gr,
+          kgPerDa: kgDa,
+          totalKg: totalKg,
+          bags: bags,
+          depth: gr.depth
+        });
+      });
+
+      totalSeedPerDa = Math.round(totalSeedPerDa * 10) / 10;
+      const grandTotalKg = Math.round(totalSeedPerDa * area * 10) / 10;
+      const grandTotalBags = Math.ceil(grandTotalKg / 25);
+      const estProtein = totalSeedPerDa > 0 ? (weightedProteinSum / totalSeedPerDa).toFixed(1) : "0";
+
+      let ratioText = "";
+      if (legumes.length > 0 && grasses.length > 0) {
+        ratioText = `%${Math.round(targetLegumeShare * 100)} Baklagil + %${Math.round(targetGrassShare * 100)} Tahıl`;
+      } else if (legumes.length > 0) {
+        ratioText = "%100 Saf Baklagil";
+      } else {
+        ratioText = "%100 Saf Buğdaygil";
+      }
+
+      let depthAdvice = "";
+      const hasSmallSeed = selectedSeeds.some(s => s.depth.includes("1.5") || s.depth.includes("2.0"));
+      const hasLargeSeed = selectedSeeds.some(s => s.depth.includes("4.0") || s.depth.includes("5.0"));
+      if (hasSmallSeed && hasLargeSeed) {
+        depthAdvice = "Karışımınızda hem iri tohum (fiğ/tahıl: 4-5 cm) hem de küçük tohum (yonca/üçgül/ryegrass: 1.5-2 cm) bulunmaktadır. Mivzerinizin ince tohum sandığı varsa küçük tohumları oradan ekiniz; yoksa tarlayı çok iyi merdaneyle bastırıp ekim derinliğini 2.5-3 cm'ye ayarlayınız.";
+      } else if (hasSmallSeed) {
+        depthAdvice = "Küçük tohumlu karışım: Ekim derinliği 1.5 - 2.0 cm'yi geçmemelidir. Ekim öncesi ve sonrası mutlaka silindir/merdane çekilerek tohum toprakla temas ettirilmelidir.";
+      } else {
+        depthAdvice = "İri taneli karışım: Hububat mivzeriyle 3.5 - 4.5 cm derinliğe güvenle ekilebilir. Fiğ ve tahıl tohumlarını mivzer sandığına dökmeden önce harmanlayıp homojen karıştırınız.";
+      }
+
+      lastCalculatedCustomMix = {
+        purposeTitle,
+        area,
+        totalSeedPerDa,
+        grandTotalKg,
+        ratioText,
+        estProtein,
+        fertSchedule,
+        calculatedItems,
+        notes: `Tohum Dağılımı: ` + calculatedItems.map(i => `${i.seed.name}: ${i.kgPerDa} kg/da (${i.totalKg} kg)`).join(", ") + `. Amaç: ${purposeTitle}. Beklenen Ham Protein: %${estProtein}.`
+      };
+
+      container.innerHTML = `
+        <div style="margin-top: 18px; border-top: 1.5px dashed var(--border); padding-top: 18px;">
+          
+          <div class="mix-stats-banner">
+            <div class="mix-stat-tile">
+              <span class="mix-stat-label">Dekara Tohum</span>
+              <span class="mix-stat-val">${totalSeedPerDa} kg/da</span>
+            </div>
+            <div class="mix-stat-tile">
+              <span class="mix-stat-label">Tarla Toplamı (${area} da)</span>
+              <span class="mix-stat-val">${grandTotalKg} kg</span>
+            </div>
+            <div class="mix-stat-tile">
+              <span class="mix-stat-label">Toplam Paket/Çuval</span>
+              <span class="mix-stat-val">${grandTotalBags} Çuval (25 kg)</span>
+            </div>
+            <div class="mix-stat-tile">
+              <span class="mix-stat-label">Karışım Oranı</span>
+              <span class="mix-stat-val" style="font-size: 0.95rem;">${ratioText}</span>
+            </div>
+            <div class="mix-stat-tile">
+              <span class="mix-stat-label">Tahmini Ham Protein</span>
+              <span class="mix-stat-val">%${estProtein} HP</span>
+            </div>
+          </div>
+
+          ${singleSideNote ? `<div class="info-box alert-gold" style="margin-bottom: 14px;">${singleSideNote}</div>` : ""}
+
+          <div class="table-responsive" style="margin-bottom: 14px;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Tohum Çeşidi</th>
+                  <th>Grup</th>
+                  <th>Dekara Düşen</th>
+                  <th>Tarla Toplamı</th>
+                  <th>25 kg Çuval</th>
+                  <th>Ekim Derinliği</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${calculatedItems.map(item => `
+                  <tr>
+                    <td><strong>${item.seed.name}</strong> <span style="font-size: 0.78rem; color: var(--text-muted);">(${item.seed.latin})</span></td>
+                    <td>${item.seed.typeName}</td>
+                    <td><strong style="color: var(--primary);">${item.kgPerDa} kg/da</strong></td>
+                    <td><strong>${item.totalKg} kg</strong></td>
+                    <td>${item.bags} Çuval</td>
+                    <td>${item.depth}</td>
+                  </tr>
+                `).join("")}
+                <tr style="background-color: var(--primary-light); font-weight: 800;">
+                  <td>TOPLAM REÇETE</td>
+                  <td>-</td>
+                  <td><strong style="color: var(--primary); font-size: 1rem;">${totalSeedPerDa} kg/da</strong></td>
+                  <td><strong style="color: var(--primary); font-size: 1rem;">${grandTotalKg} kg</strong></td>
+                  <td>${grandTotalBags} Çuval</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="calc-grid" style="margin-bottom: 16px;">
+            <div class="info-box" style="margin-bottom: 0;">
+              <strong>⚙️ Mivzer Ayarı & Tohum Yatağı</strong>
+              <p>${depthAdvice}</p>
+            </div>
+            <div class="info-box" style="margin-bottom: 0;">
+              <strong>🧪 Taban & Üst Gübreleme Programı</strong>
+              <p>${fertSchedule}</p>
+            </div>
+          </div>
+
+          <div class="calc-grid" style="margin-bottom: 16px;">
+            <div class="info-box" style="margin-bottom: 0;">
+              <strong>🌾 Tahmini Verim & Biçim Evresi</strong>
+              <p><strong>Beklenen Verim:</strong> ${expectedYieldText}<br><strong>İdeal Hasat Zamanı:</strong> ${harvestStageText}</p>
+            </div>
+            <div class="info-box" style="margin-bottom: 0;">
+              <strong>🦠 Biyolojik Azot & Toprak Kazanımı</strong>
+              <p>${totalNitrogenKg > 0 ? `Baklagil nodülleri sayesinde bu karışımdan toprağa <strong>yaklaşık ${Math.round(totalNitrogenKg)} kg/da saf azot</strong> bırakılır. Bu sayede sonraki ekilecek mısır veya buğdayda 15-20 kg/da Üre gübresi tasarrufu sağlanır.` : "Karışımda baklagil olmadığı için biyolojik azot fiksasyonu gerçekleşmez."}</p>
+            </div>
+          </div>
+
+          <button class="btn-action" onclick="applyCustomMixToFieldBook()">
+            📋 Bu Karışımı Tarla Defterine Aktar
+          </button>
+
+        </div>
+      `;
+    }
+
+    function applyCustomMixToFieldBook() {
+      if (!lastCalculatedCustomMix) {
+        alert("Lütfen önce karışım oluşturunuz.");
+        return;
+      }
+
+      openFieldModal();
+
+      document.getElementById("fFieldName").value = `Özel Tohum Karışımı (${lastCalculatedCustomMix.area} da)`;
+      document.getElementById("fCropType").value = "Diğer";
+      document.getElementById("fAreaDa").value = lastCalculatedCustomMix.area;
+      document.getElementById("fFertilizerUsed").value = lastCalculatedCustomMix.fertSchedule;
+      document.getElementById("fNotes").value = lastCalculatedCustomMix.notes;
+    }
+
+    /* =========================================================================
          DOM & BAŞLANGIÇ YÖNETİMİ
          ========================================================================= */
     let currentCategory = "all";
@@ -1763,6 +2573,7 @@
       runFertilizerCalc();
       runSilageMoistureTest();
       runSiloCapacityCalc();
+      applyMixPreset("macar_tritikale");
 
       // PWA Service Worker Kaydı
       if ("serviceWorker" in navigator) {
