@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
-  <!-- Dış Zemin Çemberi (Zümrüt Yeşili & Toprak/Tarla Yem Teması) -->
-  <circle cx="64" cy="64" r="58" fill="#075e54"/>
-  <circle cx="64" cy="64" r="50" fill="#047857"/>
+  <!-- Dış Zemin Çemberi (Standart Zümrüt & Orman Yeşili) -->
+  <circle cx="64" cy="64" r="58" fill="#047857"/>
+  <circle cx="64" cy="64" r="50" fill="#065f46"/>
 
   <!-- Tarla / Sırt Zemin Çizgileri -->
   <path d="M28 92 C42 86 86 86 100 92" stroke="#065f46" stroke-width="4" stroke-linecap="round"/>

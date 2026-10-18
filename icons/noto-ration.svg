@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
   <defs>
     <linearGradient id="leafDark" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#43a047"/>
@@ -18,71 +18,78 @@
     </linearGradient>
   </defs>
 
-  <!-- Arka Plan Geniş Mısır / Silaj Yaprakları (Koyu Yem Bitkisi Yeşili) -->
-  <path fill="url(#leafDark)" d="M64 114 C44 86 18 68 10 38 C28 42 50 60 64 96 Z"/>
-  <path fill="url(#leafDark)" d="M64 114 C84 86 110 68 118 38 C100 42 78 60 64 96 Z"/>
-  <path fill="url(#leafMid)" d="M64 112 C48 76 34 46 36 14 C50 32 58 62 64 98 Z"/>
-  <path fill="url(#leafMid)" d="M64 112 C80 76 94 46 92 14 C78 32 70 62 64 98 Z"/>
+  <!-- Dış ve İç Standart Daire Çerçeveleri (Zümrüt & Koyu Orman Yeşili) -->
+  <circle cx="64" cy="64" r="58" fill="#047857"/>
+  <circle cx="64" cy="64" r="50" fill="#065f46"/>
 
-  <!-- Orta Ana Yem Bitkisi / Yonca Gövdesi ve Dalları -->
-  <path fill="none" stroke="#2e7d32" stroke-width="5" stroke-linecap="round" d="M64 118 L64 20"/>
-  <path fill="none" stroke="#388e3c" stroke-width="4" stroke-linecap="round" d="M64 88 C50 74 36 66 24 52"/>
-  <path fill="none" stroke="#388e3c" stroke-width="4" stroke-linecap="round" d="M64 84 C78 70 92 62 104 48"/>
-  <path fill="none" stroke="#43a047" stroke-width="3.5" stroke-linecap="round" d="M64 58 C52 46 44 38 34 28"/>
-  <path fill="none" stroke="#43a047" stroke-width="3.5" stroke-linecap="round" d="M64 58 C76 46 84 38 94 28"/>
+  <!-- Yem & Rasyon Demeti (Merkezli ve Daireye Standart Ölçeklenmiş) -->
+  <g transform="translate(64, 64) scale(0.74) translate(-64, -64)">
+    <!-- Arka Plan Geniş Mısır / Silaj Yaprakları -->
+    <path fill="url(#leafDark)" d="M64 114 C44 86 18 68 10 38 C28 42 50 60 64 96 Z"/>
+    <path fill="url(#leafDark)" d="M64 114 C84 86 110 68 118 38 C100 42 78 60 64 96 Z"/>
+    <path fill="url(#leafMid)" d="M64 112 C48 76 34 46 36 14 C50 32 58 62 64 98 Z"/>
+    <path fill="url(#leafMid)" d="M64 112 C80 76 94 46 92 14 C78 32 70 62 64 98 Z"/>
 
-  <!-- Sol Yonca (Alfalfa / Üçgül) Üçlü Yaprak Grubu -->
-  <g transform="translate(24,52) rotate(-25)">
-    <ellipse cx="0" cy="-12" rx="8" ry="12" fill="url(#leafLight)"/>
-    <ellipse cx="-11" cy="-2" rx="11" ry="7.5" transform="rotate(-20 -11 -2)" fill="#4caf50"/>
-    <ellipse cx="11" cy="-2" rx="11" ry="7.5" transform="rotate(20 11 -2)" fill="#43a047"/>
-    <path d="M0 -20 L0 -2 M-18 -4 L-2 -1 M18 -4 L2 -1" stroke="#a5d6a7" stroke-width="1.5" stroke-linecap="round"/>
+    <!-- Orta Ana Yem Bitkisi / Yonca Gövdesi ve Dalları -->
+    <path fill="none" stroke="#2e7d32" stroke-width="5" stroke-linecap="round" d="M64 118 L64 20"/>
+    <path fill="none" stroke="#388e3c" stroke-width="4" stroke-linecap="round" d="M64 88 C50 74 36 66 24 52"/>
+    <path fill="none" stroke="#388e3c" stroke-width="4" stroke-linecap="round" d="M64 84 C78 70 92 62 104 48"/>
+    <path fill="none" stroke="#43a047" stroke-width="3.5" stroke-linecap="round" d="M64 58 C52 46 44 38 34 28"/>
+    <path fill="none" stroke="#43a047" stroke-width="3.5" stroke-linecap="round" d="M64 58 C76 46 84 38 94 28"/>
+
+    <!-- Sol Yonca (Alfalfa / Üçgül) Üçlü Yaprak Grubu -->
+    <g transform="translate(24,52) rotate(-25)">
+      <ellipse cx="0" cy="-12" rx="8" ry="12" fill="url(#leafLight)"/>
+      <ellipse cx="-11" cy="-2" rx="11" ry="7.5" transform="rotate(-20 -11 -2)" fill="#4caf50"/>
+      <ellipse cx="11" cy="-2" rx="11" ry="7.5" transform="rotate(20 11 -2)" fill="#43a047"/>
+      <path d="M0 -20 L0 -2 M-18 -4 L-2 -1 M18 -4 L2 -1" stroke="#a5d6a7" stroke-width="1.5" stroke-linecap="round"/>
+    </g>
+
+    <!-- Sağ Yonca (Alfalfa / Üçgül) Üçlü Yaprak Grubu -->
+    <g transform="translate(104,48) rotate(25)">
+      <ellipse cx="0" cy="-12" rx="8" ry="12" fill="url(#leafLight)"/>
+      <ellipse cx="-11" cy="-2" rx="11" ry="7.5" transform="rotate(-20 -11 -2)" fill="#43a047"/>
+      <ellipse cx="11" cy="-2" rx="11" ry="7.5" transform="rotate(20 11 -2)" fill="#4caf50"/>
+      <path d="M0 -20 L0 -2 M-18 -4 L-2 -1 M18 -4 L2 -1" stroke="#a5d6a7" stroke-width="1.5" stroke-linecap="round"/>
+    </g>
+
+    <!-- Orta Üst Taze Yem Bitkisi / Yonca Yaprakları -->
+    <ellipse cx="52" cy="44" rx="7" ry="14" transform="rotate(-32 52 44)" fill="url(#leafLight)"/>
+    <ellipse cx="76" cy="44" rx="7" ry="14" transform="rotate(32 76 44)" fill="url(#leafLight)"/>
+    <ellipse cx="55" cy="68" rx="7.5" ry="15" transform="rotate(-36 55 68)" fill="#66bb6a"/>
+    <ellipse cx="73" cy="68" rx="7.5" ry="15" transform="rotate(36 73 68)" fill="#66bb6a"/>
+
+    <!-- Altın Sarısı Arpa / Buğday Başağı (Enerji & Kesif Yem Temsili - Merkezde) -->
+    <g>
+      <!-- Kılçıklar -->
+      <path d="M64 20 L64 6 M57 24 L50 10 M71 24 L78 10 M54 34 L46 22 M74 34 L82 22" stroke="#fbc02d" stroke-width="2.2" stroke-linecap="round"/>
+      <!-- Başak Taneleri -->
+      <ellipse cx="59" cy="28" rx="5.5" ry="10" transform="rotate(-22 59 28)" fill="url(#grainGold)" stroke="#f57f17" stroke-width="1"/>
+      <ellipse cx="69" cy="28" rx="5.5" ry="10" transform="rotate(22 69 28)" fill="url(#grainGold)" stroke="#f57f17" stroke-width="1"/>
+      <ellipse cx="58" cy="42" rx="5.8" ry="10.5" transform="rotate(-22 58 42)" fill="url(#grainGold)" stroke="#f57f17" stroke-width="1"/>
+      <ellipse cx="70" cy="42" rx="5.8" ry="10.5" transform="rotate(22 70 42)" fill="url(#grainGold)" stroke="#f57f17" stroke-width="1"/>
+      <ellipse cx="59" cy="56" rx="5.8" ry="10.5" transform="rotate(-20 59 56)" fill="url(#grainGold)" stroke="#f57f17" stroke-width="1"/>
+      <ellipse cx="69" cy="56" rx="5.8" ry="10.5" transform="rotate(20 69 56)" fill="url(#grainGold)" stroke="#f57f17" stroke-width="1"/>
+      <ellipse cx="64" cy="18" rx="5" ry="9" fill="#ffee58" stroke="#f57f17" stroke-width="1"/>
+    </g>
+
+    <!-- Yonca Çiçekleri (Mor / Eflatun Baklagil Yem Bitkisi Çiçekleri) -->
+    <g transform="translate(34,24)">
+      <circle cx="0" cy="0" r="5" fill="#7e57c2"/>
+      <circle cx="-4" cy="3" r="4.5" fill="#9575cd"/>
+      <circle cx="4" cy="3" r="4.5" fill="#5e35b1"/>
+      <circle cx="0" cy="-4" r="4" fill="#b39ddb"/>
+    </g>
+    <g transform="translate(94,24)">
+      <circle cx="0" cy="0" r="5" fill="#7e57c2"/>
+      <circle cx="-4" cy="3" r="4.5" fill="#5e35b1"/>
+      <circle cx="4" cy="3" r="4.5" fill="#9575cd"/>
+      <circle cx="0" cy="-4" r="4" fill="#b39ddb"/>
+    </g>
+
+    <!-- Alt Demet Bağlama Kemeri (Yem Demeti) -->
+    <path fill="#66bb6a" d="M46 92 C54 98 74 98 82 92 L76 118 L52 118 Z"/>
+    <rect x="46" y="96" width="36" height="9" rx="4.5" fill="#8bc34a" stroke="#1b5e20" stroke-width="2"/>
+    <rect x="49" y="105" width="30" height="6" rx="3" fill="#43a047" stroke="#1b5e20" stroke-width="1.5"/>
   </g>
-
-  <!-- Sağ Yonca (Alfalfa / Üçgül) Üçlü Yaprak Grubu -->
-  <g transform="translate(104,48) rotate(25)">
-    <ellipse cx="0" cy="-12" rx="8" ry="12" fill="url(#leafLight)"/>
-    <ellipse cx="-11" cy="-2" rx="11" ry="7.5" transform="rotate(-20 -11 -2)" fill="#43a047"/>
-    <ellipse cx="11" cy="-2" rx="11" ry="7.5" transform="rotate(20 11 -2)" fill="#4caf50"/>
-    <path d="M0 -20 L0 -2 M-18 -4 L-2 -1 M18 -4 L2 -1" stroke="#a5d6a7" stroke-width="1.5" stroke-linecap="round"/>
-  </g>
-
-  <!-- Orta Üst Taze Yem Bitkisi / Yonca Yaprakları -->
-  <ellipse cx="52" cy="44" rx="7" ry="14" transform="rotate(-32 52 44)" fill="url(#leafLight)"/>
-  <ellipse cx="76" cy="44" rx="7" ry="14" transform="rotate(32 76 44)" fill="url(#leafLight)"/>
-  <ellipse cx="55" cy="68" rx="7.5" ry="15" transform="rotate(-36 55 68)" fill="#66bb6a"/>
-  <ellipse cx="73" cy="68" rx="7.5" ry="15" transform="rotate(36 73 68)" fill="#66bb6a"/>
-
-  <!-- Altın Sarısı Arpa / Buğday Başağı (Enerji & Kesif Yem Temsili - Merkezde) -->
-  <g>
-    <!-- Kılçıklar -->
-    <path d="M64 20 L64 6 M57 24 L50 10 M71 24 L78 10 M54 34 L46 22 M74 34 L82 22" stroke="#fbc02d" stroke-width="2.2" stroke-linecap="round"/>
-    <!-- Başak Taneleri -->
-    <ellipse cx="59" cy="28" rx="5.5" ry="10" transform="rotate(-22 59 28)" fill="url(#grainGold)" stroke="#f57f17" stroke-width="1"/>
-    <ellipse cx="69" cy="28" rx="5.5" ry="10" transform="rotate(22 69 28)" fill="url(#grainGold)" stroke="#f57f17" stroke-width="1"/>
-    <ellipse cx="58" cy="42" rx="5.8" ry="10.5" transform="rotate(-22 58 42)" fill="url(#grainGold)" stroke="#f57f17" stroke-width="1"/>
-    <ellipse cx="70" cy="42" rx="5.8" ry="10.5" transform="rotate(22 70 42)" fill="url(#grainGold)" stroke="#f57f17" stroke-width="1"/>
-    <ellipse cx="59" cy="56" rx="5.8" ry="10.5" transform="rotate(-20 59 56)" fill="url(#grainGold)" stroke="#f57f17" stroke-width="1"/>
-    <ellipse cx="69" cy="56" rx="5.8" ry="10.5" transform="rotate(20 69 56)" fill="url(#grainGold)" stroke="#f57f17" stroke-width="1"/>
-    <ellipse cx="64" cy="18" rx="5" ry="9" fill="#ffee58" stroke="#f57f17" stroke-width="1"/>
-  </g>
-
-  <!-- Yonca Çiçekleri (Mor / Eflatun Baklagil Yem Bitkisi Çiçekleri) -->
-  <g transform="translate(34,24)">
-    <circle cx="0" cy="0" r="5" fill="#7e57c2"/>
-    <circle cx="-4" cy="3" r="4.5" fill="#9575cd"/>
-    <circle cx="4" cy="3" r="4.5" fill="#5e35b1"/>
-    <circle cx="0" cy="-4" r="4" fill="#b39ddb"/>
-  </g>
-  <g transform="translate(94,24)">
-    <circle cx="0" cy="0" r="5" fill="#7e57c2"/>
-    <circle cx="-4" cy="3" r="4.5" fill="#5e35b1"/>
-    <circle cx="4" cy="3" r="4.5" fill="#9575cd"/>
-    <circle cx="0" cy="-4" r="4" fill="#b39ddb"/>
-  </g>
-
-  <!-- Alt Demet Bağlama Kemeri (Yem Demeti) -->
-  <path fill="#66bb6a" d="M46 92 C54 98 74 98 82 92 L76 118 L52 118 Z"/>
-  <rect x="46" y="96" width="36" height="9" rx="4.5" fill="#8bc34a" stroke="#1b5e20" stroke-width="2"/>
-  <rect x="49" y="105" width="30" height="6" rx="3" fill="#43a047" stroke="#1b5e20" stroke-width="1.5"/>
 </svg>
