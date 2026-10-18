@@ -191,9 +191,25 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
       flex-shrink: 0;
       border: 2px solid rgba(255, 255, 255, 0.4);
+      overflow: hidden;
+    }
+    .wa-avatar-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .wa-hdr-btn.portal-home-btn {
+      background: #ffffff !important;
+      color: #075e54 !important;
+      border: 1.5px solid #ffffff !important;
+      font-weight: 800 !important;
+      text-decoration: none !important;
+    }
+    .wa-hdr-btn.portal-home-btn:hover {
+      background: #f0fdf4 !important;
     }
     .wa-info {
       display: flex;
@@ -2081,62 +2097,38 @@
     <header class="wa-header">
       <div class="wa-profile" onclick="restartChat()" title="Sohbeti Baştan Başlat">
         <div class="wa-avatar">
-          <svg class="lucide-icon icon-lg" viewBox="0 0 24 24" style="color:#008069;"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg>
+          <img src="../icons/noto-doctor.svg" alt="Çoban Doktor İkonu" class="wa-avatar-img">
         </div>
         <div class="wa-info">
           <div class="wa-name">Çoban Doktor</div>
-          <div class="wa-status" id="wa-online-status">çevrimiçi</div>
+          <div class="wa-status" id="wa-online-status">çevrimiçi • Ön Teşhis & Sürü Sağlığı</div>
         </div>
       </div>
       <div class="wa-actions">
-        <a href="https://mserman90.github.io/uretim-rehberi/" class="wa-hdr-btn" title="Üretim Rehberi - Tohumlama, Kızgınlık & Doğum Çarkı" style="background:#008069 !important; border-color:#34d399 !important; text-decoration:none !important; color:#ffffff !important;"><svg class="lucide-icon" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span>Üretim Rehberi</span></a>
-        <a href="https://mserman90.github.io/" class="wa-hdr-btn portal-home-btn" title="Ana Sayfa (Çiftlik Portalı)" style="background:#ffffff !important; color:#008069 !important; font-weight:800 !important; text-decoration:none !important;">
-          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          <span>Ana Sayfa</span>
-        </a>
-        <button onclick="openKupeDefteriModal('repro')" class="wa-hdr-btn defter-btn" id="hdr-repro-btn" title="Sürü Sağlığı - Gebelik & Doğum Takvimi" style="background:#15803d !important; border-color:#86efac !important;">
-          <svg class="lucide-icon" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-          <span>Sürü Sağlığı</span>
+        <a href="../index.html" class="wa-hdr-btn portal-home-btn" title="Çiftlik Portalı Ana Menüsü">◀ Portal</a>
+        <button onclick="openKupeDefteriModal('list')" class="wa-hdr-btn" id="hdr-defter-btn" title="Küpe Defteri & İlaç Arınma Takibi">
+          📋 Defter <span class="defter-badge zero" id="defter-active-badge">0</span>
         </button>
-        <button onclick="openKupeDefteriModal('list')" class="wa-hdr-btn defter-btn" id="hdr-defter-btn" title="Küpe Defteri & İlaç Arınma Takibi">
-          <svg class="lucide-icon" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4M12 16h4M8 11h.01M8 16h.01"/></svg>
-          <span>Defter</span> <span class="defter-badge zero" id="defter-active-badge">0</span>
+        <button onclick="openDereceModal()" class="wa-hdr-btn" id="hdr-derece-btn" title="Hızlı Derece / Ateş Kontrolü">
+          🌡️ Derece
         </button>
-        <button onclick="openDereceModal()" class="wa-hdr-btn derece-btn" id="hdr-derece-btn" title="Hızlı Derece / Ateş Kontrolü">
-          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg>
-          <span>Derece</span>
+        <button onclick="openSiviModal()" class="wa-hdr-btn" title="Buzağı & Kuzu İshali Sıvı-Elektrolit Hesabı">
+          💧 Sıvı/İshal
         </button>
-        <button onclick="openSiviModal()" class="wa-hdr-btn" title="Buzağı & Kuzu İshali Sıvı-Elektrolit Hesabı" style="background:#ea580c !important; border-color:#fb923c !important;">
-          <svg class="lucide-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m12 6 4 6H8l4-6z"/></svg>
-          <span>Sıvı/İshal</span>
+        <button onclick="openKolostrumModal()" class="wa-hdr-btn" title="Kolostrum Kalite & Refraktometre (Brix %)">
+          🥛 Kolostrum
         </button>
-        <button onclick="openKolostrumModal()" class="wa-hdr-btn" title="Kolostrum Kalite & Refraktometre (Brix %)" style="background:#d97706 !important; border-color:#fcd34d !important;">
-          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.82-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/></svg>
-          <span>Kolostrum</span>
+        <button onclick="openDozajModal()" class="wa-hdr-btn" title="Acil İlaç Dozaj & İlk Yardım Motoru">
+          💊 Dozaj
         </button>
-        <button onclick="openDozajModal()" class="wa-hdr-btn" title="Acil İlaç Dozaj & İlk Yardım Motoru" style="background:#dc2626 !important; border-color:#f87171 !important;">
-          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
-          <span>Dozaj</span>
-        </button>
-        <button onclick="openSaglikProtokolModal()" class="wa-hdr-btn" title="Altın Veteriner Sağlık & Müdahale Protokolleri" style="background:#7c3aed !important; border-color:#a78bfa !important;">
-          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-          <span>Protokoller</span>
+        <button onclick="openSaglikProtokolModal()" class="wa-hdr-btn" title="Veteriner Sağlık Protokolleri">
+          🛡️ Protokoller
         </button>
         <button onclick="openGuideModal()" class="wa-hdr-btn" title="Kullanım Kılavuzu">
-          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-          <span>Kılavuz</span>
+          ℹ️ Kılavuz
         </button>
-        <button onclick="toggleLargeText()" class="wa-hdr-btn" title="Yazıyı Büyüt">
-          <svg class="lucide-icon" viewBox="0 0 24 24"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" x2="15" y1="20" y2="20"/><line x1="12" x2="12" y1="4" y2="20"/></svg>
-          <span>A+</span>
-        </button>
-        <button onclick="toggleContrast()" class="wa-hdr-btn" title="Güneş Işığı Modu">
-          <svg class="lucide-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-          <span>Mod</span>
-        </button>
-        <button onclick="restartChat()" class="wa-hdr-btn" title="Baştan Başla">
-          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
-          <span>Sıfırla</span>
+        <button onclick="toggleContrast()" class="wa-hdr-btn" id="hcToggleBtn" title="Gece / Kontrast Modu">
+          🌙 Gece Modu
         </button>
       </div>
     </header>
@@ -4064,6 +4056,10 @@
 
     function toggleContrast() {
       document.body.classList.toggle("high-contrast");
+      const isDark = document.body.classList.contains("high-contrast");
+      const btn = document.getElementById("hcToggleBtn");
+      if (btn) btn.innerHTML = isDark ? "☀️ Gündüz" : "🌙 Gece Modu";
+      try { localStorage.setItem("coban_highcontrast", isDark ? "1" : "0"); } catch(e) {}
     }
 
     function toggleLargeText() {

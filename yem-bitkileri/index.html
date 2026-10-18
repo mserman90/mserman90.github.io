@@ -144,25 +144,33 @@
       align-items: center;
       gap: 10px;
     }
-    .back-btn {
-      background: var(--primary);
-      color: #ffffff;
-      border: 1.5px solid rgba(255, 255, 255, 0.4);
-      padding: 8px 12px;
-      border-radius: var(--radius);
-      font-size: 0.85rem;
-      font-weight: 700;
-      text-decoration: none;
-      display: inline-flex;
+    .wa-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #ffffff;
+      display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 40px;
-      transition: background 0.15s ease, border-color 0.15s ease;
-      white-space: nowrap;
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      flex-shrink: 0;
+      overflow: hidden;
     }
-    .back-btn:hover {
-      background: var(--primary-hover);
-      border-color: #ffffff;
+    .wa-avatar-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .tool-btn.portal-home-btn {
+      background: #ffffff !important;
+      color: #075e54 !important;
+      border: 1.5px solid #ffffff !important;
+      font-weight: 800 !important;
+      text-decoration: none !important;
+    }
+    .tool-btn.portal-home-btn:hover {
+      background: #f0fdf4 !important;
     }
     .header-title-box h1 {
       font-size: 1.15rem;
@@ -991,17 +999,20 @@
   <!-- Üst Başlık (Header) -->
   <header>
     <div class="header-inner">
-      <div class="header-left">
-        <a href="../index.html" class="back-btn" title="Çiftlik Portalı Ana Menüsüne Dön">◀ Portal</a>
+      <div class="header-left" style="cursor:pointer;" onclick="switchTab('ansiklopedi', document.querySelector('.nav-tab-btn'))" title="Yem Bitkileri Rehberi">
+        <div class="wa-avatar">
+          <img src="../icons/noto-forage.svg" alt="Yem Bitkileri İkonu" class="wa-avatar-img">
+        </div>
         <div class="header-title-box">
           <h1>Yem Bitkileri Rehberi</h1>
-          <p>Yetiştiricilik, Silaj & Tarla Yönetimi</p>
+          <p>çevrimiçi • Yetiştiricilik & Silaj Yönetimi</p>
         </div>
       </div>
       <div class="header-actions">
-        <button class="tool-btn" onclick="openFieldModal()" title="Yeni Tarla/Parsel Ekiliş Kaydı Ekle">➕ Tarla Ekle</button>
+        <a href="../index.html" class="tool-btn portal-home-btn" title="Çiftlik Portalı Ana Menüsü">◀ Portal</a>
+        <button class="tool-btn" onclick="openFieldModal()" title="Yeni Tarla/Parsel Ekiliş Kaydı Ekle">📋 Tarla Ekle</button>
         <button class="tool-btn" onclick="openInfoModal()" title="Yem Bitkileri Kılavuzu & Bilgi">ℹ️ Kılavuz</button>
-        <button id="themeToggleBtn" class="tool-btn" onclick="toggleTheme()" title="Koyu / Açık Mod Değiştir">Gece Modu</button>
+        <button id="themeToggleBtn" class="tool-btn" onclick="toggleTheme()" title="Koyu / Açık Mod Değiştir">🌙 Gece Modu</button>
       </div>
     </div>
   </header>
@@ -3158,7 +3169,7 @@
       const isDark = document.body.classList.contains("dark-mode");
       const btn = document.getElementById("themeToggleBtn");
       if (btn) {
-        btn.textContent = isDark ? "Gündüz Modu" : "Gece Modu";
+        btn.innerHTML = isDark ? "☀️ Gündüz" : "🌙 Gece Modu";
       }
       localStorage.setItem("yem_bitkileri_theme", isDark ? "dark" : "light");
     }
@@ -3168,7 +3179,7 @@
       if (saved === "dark") {
         document.body.classList.add("dark-mode");
         const btn = document.getElementById("themeToggleBtn");
-        if (btn) btn.textContent = "Gündüz Modu";
+        if (btn) btn.innerHTML = "☀️ Gündüz";
       }
     })();
 

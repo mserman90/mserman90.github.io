@@ -128,9 +128,9 @@
       gap: 6px;
     }
     .header-btn {
-      background: var(--primary);
+      background: rgba(255, 255, 255, 0.16);
       color: #ffffff;
-      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
       padding: 8px 12px;
       border-radius: var(--radius);
       font-size: 0.82rem;
@@ -142,10 +142,11 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 6px;
       white-space: nowrap;
     }
     .header-btn:hover {
-      background: var(--primary-hover);
+      background: rgba(255, 255, 255, 0.28);
       border-color: #ffffff;
     }
 
@@ -782,15 +783,20 @@
   <!-- Üst Başlık (Header) -->
   <header>
     <div class="header-inner">
-      <div class="header-brand">
-        <h1>Tosun Paşa Çiftliği</h1>
-        <p>Çoban Doktor, Rasyon ve Üretim Bağımsız Çiftlik Portalı</p>
+      <div class="header-brand" style="display: flex; align-items: center; gap: 10px;">
+        <div class="wa-avatar" style="width: 42px; height: 42px; border-radius: 50%; background: #ffffff; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(255, 255, 255, 0.4); flex-shrink: 0; overflow: hidden;">
+          <img src="./icons/noto-ox.svg" alt="Tosun Paşa" class="wa-avatar-img" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </div>
+        <div>
+          <h1>Tosun Paşa Çiftliği</h1>
+          <p>çevrimiçi • Çoban Doktor, Rasyon, Üretim & Yem Portalı</p>
+        </div>
       </div>
       <div class="header-actions">
-        <button id="backupModalBtn" class="header-btn" onclick="openBackupCenterModal()" title="Çiftlik Veri Merkezi (Tüm Modülleri Yedekle / Yükle)">💾 Veri Yedekle</button>
-        <button id="pwaInstallBtn" class="header-btn" onclick="triggerPwaInstall()" style="display:none;" title="Uygulamayı Telefona / Ana Ekrana Yükle">Uygulamayı Yükle</button>
-        <button id="infoMenuBtn" class="header-btn" onclick="openInfoModal()" title="Kapsam, Özellikler ve Kurulum Bilgisi">Bilgi</button>
-        <button id="themeToggleBtn" class="header-btn" onclick="toggleTheme()" title="Koyu / Açık Mod Değiştir">Gece Modu</button>
+        <button id="backupModalBtn" class="header-btn" onclick="openBackupCenterModal()" title="Çiftlik Veri Merkezi (Tüm Modülleri Yedekle / Yükle)">💾 Veri Merkezi</button>
+        <button id="pwaInstallBtn" class="header-btn" onclick="triggerPwaInstall()" style="display:none;" title="Uygulamayı Telefona / Ana Ekrana Yükle">📲 Yükle</button>
+        <button id="infoMenuBtn" class="header-btn" onclick="openInfoModal()" title="Kapsam, Özellikler ve Kurulum Bilgisi">ℹ️ Kılavuz</button>
+        <button id="themeToggleBtn" class="header-btn" onclick="toggleTheme()" title="Koyu / Açık Mod Değiştir">🌙 Gece Modu</button>
       </div>
     </div>
   </header>
@@ -1209,10 +1215,10 @@
       const btn = document.getElementById("themeToggleBtn");
       if (isDark) {
         document.body.classList.add("dark-mode");
-        if (btn) btn.textContent = "Gündüz Modu";
+        if (btn) btn.innerHTML = "☀️ Gündüz";
       } else {
         document.body.classList.remove("dark-mode");
-        if (btn) btn.textContent = "Gece Modu";
+        if (btn) btn.innerHTML = "🌙 Gece Modu";
       }
       localStorage.setItem("ciftlik_portal_theme", isDark ? "dark" : "light");
     }
@@ -1493,7 +1499,7 @@
        ========================================================================= */
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=20").then((reg) => {
+        navigator.serviceWorker.register("./sw.js?v=21").then((reg) => {
           reg.update();
           reg.onupdatefound = () => {
             const installing = reg.installing;

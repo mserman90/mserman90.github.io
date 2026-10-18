@@ -182,16 +182,33 @@
     }
 
     .wa-avatar, .wa-chat-header-avatar {
-      width: 44px;
-      height: 44px;
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
       background: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--primary-dark);
-      border: 2px solid rgba(255,255,255,0.85);
+      border: 2px solid rgba(255,255,255,0.4);
       flex-shrink: 0;
+      overflow: hidden;
+    }
+    .wa-avatar-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .wa-hdr-btn.portal-home-btn {
+      background: #ffffff !important;
+      color: #075e54 !important;
+      border: 1.5px solid #ffffff !important;
+      font-weight: 800 !important;
+      text-decoration: none !important;
+    }
+    .wa-hdr-btn.portal-home-btn:hover {
+      background: #f0fdf4 !important;
     }
 
     .wa-info, .wa-chat-header-info {
@@ -901,79 +918,39 @@
     <!-- ÜST BAŞLIK & ARAÇ ÇUBUĞU -->
     <header class="wa-header wa-chat-header">
       <div class="wa-profile" onclick="restartChat()" title="Sohbeti Baştan Başlat">
-        <div class="wa-avatar wa-chat-header-avatar" style="background:#008069; color:#fff;">
-          <svg class="lucide-icon" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        <div class="wa-avatar wa-chat-header-avatar">
+          <img src="../icons/noto-repro.svg" alt="Üretim Rehberi İkonu" class="wa-avatar-img">
         </div>
         <div class="wa-info wa-chat-header-info">
           <div class="wa-name wa-chat-header-title">Üretim Rehberi</div>
           <div class="wa-status wa-chat-header-status">
-            <span id="wa-online-status">çevrimiçi • Döl Verimi & Doğum</span>
+            <span id="wa-online-status">çevrimiçi • Döl Verimi & Doğum Takvimi</span>
           </div>
         </div>
       </div>
 
       <div class="wa-actions wa-chat-header-actions">
-        <!-- ANA PORTAL LINK BUTONU -->
-        <a href="https://mserman90.github.io/" class="wa-hdr-btn" title="Ana Sayfa (Çiftlik Portalı)" style="background:#0f172a !important; border-color:#334155 !important; text-decoration:none !important; color:#fff !important;">
-          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          <span>Ana Sayfa</span>
-        </a>
-
-        <!-- ÇOBAN DOKTOR KÖPRÜSÜ -->
-        <a href="https://mserman90.github.io/coban-doktor/" class="wa-hdr-btn" title="Çoban Doktor - Sağlık & Teşhis" style="background:#075e54 !important; border-color:#25d366 !important; text-decoration:none !important; color:#fff !important;">
-          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg>
-          <span>Çoban Doktor</span>
-        </a>
-
-        <!-- SIĞIR 283 GÜN TOHUMLAMA ÇARKI -->
-        <button class="wa-hdr-btn" onclick="openBovineModal()" title="İnek & Düve 283 Günlük Tohumlama Çarkı" style="background:#0284c7 !important; border-color:#38bdf8 !important;">
-          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M19 5c-1.5 0-3 1-4 2.5C13.5 6 12 5.5 10 5.5S6.5 6 5 7.5C4 6 2.5 5 1 5c0 3 2 5.5 3.5 6.5C4.5 13 5 15 6 17c1.5 3 4 4 6 4s4.5-1 6-4c1-2 1.5-4 1.5-5.5C21 10.5 23 8 23 5c-1.5 0-3 1-4 2.5z"/></svg>
-          <span>Sığır (283G)</span>
+        <a href="../index.html" class="wa-hdr-btn portal-home-btn" title="Çiftlik Portalı Ana Menüsü">◀ Portal</a>
+        <button class="wa-hdr-btn" onclick="openBovineModal()" title="İnek & Düve 283 Günlük Tohumlama Çarkı">
+          🐄 Sığır (283G)
         </button>
-
-        <!-- KOYUN 150 GÜN KOÇ KATIMI ÇARKI -->
-        <button class="wa-hdr-btn" onclick="openOvineModal()" title="Koyun & Keçi 150 Günlük Koç Katımı Çarkı" style="background:#d97706 !important; border-color:#fde68a !important;">
-          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M9 12c-1.5-1-3-1-4.5 0s-1.5 3.5 0 5 4 1 5.5 0"/><path d="M15 12c1.5-1 3-1 4.5 0s1.5 3.5 0 5-4 1-5.5 0"/><path d="M8 8a4 4 0 0 1 8 0v7a4 4 0 0 1-8 0z"/></svg>
-          <span>Koyun (150G)</span>
+        <button class="wa-hdr-btn" onclick="openOvineModal()" title="Koyun & Keçi 150 Günlük Koç Katımı Çarkı">
+          🐑 Koyun (150G)
         </button>
-
-        <!-- KIZGINLIK & TOHUMLAMA ZAMANLAYICI -->
         <button class="wa-hdr-btn" onclick="openEstrusModal()" title="Kızgınlık (Östrus) & Tohumlama Zamanı">
-          <svg class="lucide-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          <span>Kızgınlık</span>
+          ⏱️ Kızgınlık
         </button>
-
-        <!-- DAMIZLIK OLGUNLUK (KİLO & YAŞ) -->
         <button class="wa-hdr-btn" onclick="openMaturityModal()" title="Düve ve Toklu Damızlık Eşiği">
-          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
-          <span>Damızlık</span>
+          📏 Damızlık
         </button>
-
-        <!-- ÜRETİM & DOĞUM DEFTERİ -->
         <button class="wa-hdr-btn" onclick="openReproDefteriModal()" title="Sürü Gebelik & Doğum Defteri">
-          <svg class="lucide-icon" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4M12 16h4M8 11h.01M8 16h.01"/></svg>
-          <span>Defter</span>
-          <span class="defter-badge zero" id="defter-count-badge">0</span>
+          📋 Defter <span class="defter-badge zero" id="defter-count-badge">0</span>
         </button>
-
-        <!-- KILAVUZ -->
-        <button class="wa-hdr-btn" onclick="openGuideModal()" title="Kılavuz & Bilgiler">
-          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-          <span>Kılavuz</span>
+        <button class="wa-hdr-btn" onclick="openGuideModal()" title="Kullanım Kılavuzu">
+          ℹ️ Kılavuz
         </button>
-
-        <!-- ERİŞİLEBİLİRLİK VE SIFIRLAMA -->
-        <button class="wa-hdr-btn" onclick="toggleLargeText()" title="Yazıyı Büyüt">
-          <svg class="lucide-icon" viewBox="0 0 24 24"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" x2="15" y1="20" y2="20"/><line x1="12" x2="12" y1="4" y2="20"/></svg>
-          <span>A+</span>
-        </button>
-        <button class="wa-hdr-btn" onclick="toggleContrast()" title="Güneş Işığı Modu">
-          <svg class="lucide-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-          <span>Mod</span>
-        </button>
-        <button class="wa-hdr-btn" onclick="restartChat()" title="Sohbeti Sıfırla">
-          <svg class="lucide-icon" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
-          <span>Sıfırla</span>
+        <button class="wa-hdr-btn" onclick="toggleContrast()" id="reproThemeBtn" title="Gece / Kontrast Modu">
+          🌙 Gece Modu
         </button>
       </div>
     </header>
@@ -1671,7 +1648,10 @@
 
     function toggleContrast() {
       document.body.classList.toggle('high-contrast');
-      try { localStorage.setItem('uretim_highcontrast', document.body.classList.contains('high-contrast') ? '1' : '0'); } catch(e) {}
+      const isDark = document.body.classList.contains('high-contrast');
+      const btn = document.getElementById('hcToggleBtn');
+      if (btn) btn.innerHTML = isDark ? "☀️ Gündüz" : "🌙 Gece Modu";
+      try { localStorage.setItem('uretim_highcontrast', isDark ? '1' : '0'); } catch(e) {}
     }
     function toggleLargeText() {
       document.body.classList.toggle('large-text');

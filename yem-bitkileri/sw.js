@@ -1,4 +1,4 @@
-const CACHE_NAME = "yem-bitkileri-v2";
+const CACHE_NAME = "yem-bitkileri-v3";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
