@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <!-- Dış Zemin Çemberi (Zümrüt Yeşili & Toprak/Tarla Yem Teması) -->
+  <circle cx="64" cy="64" r="58" fill="#075e54"/>
+  <circle cx="64" cy="64" r="50" fill="#047857"/>
+
+  <!-- Tarla / Sırt Zemin Çizgileri -->
+  <path d="M28 92 C42 86 86 86 100 92" stroke="#065f46" stroke-width="4" stroke-linecap="round"/>
+  <path d="M34 100 C48 94 80 94 94 100" stroke="#065f46" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Yem Bitkisi Gövdesi (Sol Yonca/Baklagil, Sağ Tahıl/Buğdaygil Başak) -->
+  <!-- Sol Dal: Yonca & Baklagil Yaprakları -->
+  <path d="M64 96 Q56 68 44 48" stroke="#10b981" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+  
+  <!-- Yonca Yaprakları (Üçlü Yaprak) -->
+  <path d="M44 48 C36 44 32 32 42 28 C48 34 46 44 44 48 Z" fill="#34d399"/>
+  <path d="M44 48 C42 38 48 30 56 34 C58 44 50 48 44 48 Z" fill="#6ee7b7"/>
+  <path d="M44 48 C34 50 32 60 40 64 C46 60 46 52 44 48 Z" fill="#10b981"/>
+
+  <!-- Yan Küçük Yaprak -->
+  <path d="M54 70 C44 70 42 60 52 58 C56 62 56 68 54 70 Z" fill="#34d399"/>
+
+  <!-- Sağ Dal: Mısır / Tritikale / Çavdar Başak & Tohum -->
+  <path d="M64 96 Q70 66 82 38" stroke="#f59e0b" stroke-width="4" stroke-linecap="round" fill="none"/>
+
+  <!-- Başak Taneleri / Silaj Mısır ve Tahıl Temsili -->
+  <ellipse cx="82" cy="34" rx="4" ry="7" transform="rotate(25 82 34)" fill="#fbbf24"/>
+  <ellipse cx="76" cy="44" rx="4.5" ry="7.5" transform="rotate(-15 76 44)" fill="#f59e0b"/>
+  <ellipse cx="87" cy="46" rx="4.5" ry="7.5" transform="rotate(30 87 46)" fill="#fbbf24"/>
+  <ellipse cx="73" cy="56" rx="4.5" ry="7.5" transform="rotate(-20 73 56)" fill="#f59e0b"/>
+  <ellipse cx="85" cy="58" rx="4.5" ry="7.5" transform="rotate(25 85 58)" fill="#fbbf24"/>
+  <ellipse cx="72" cy="68" rx="4" ry="7" transform="rotate(-25 72 68)" fill="#f59e0b"/>
+  <ellipse cx="82" cy="70" rx="4" ry="7" transform="rotate(20 82 70)" fill="#fbbf24"/>
+
+  <!-- Merkez Güneş / Bereket Işıltısı -->
+  <circle cx="64" cy="94" r="5" fill="#fef08a"/>
+</svg>

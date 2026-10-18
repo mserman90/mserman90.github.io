@@ -29,5 +29,5 @@ Büyükbaş (inek, düve) ve küçükbaş (koyun, keçi) hayvanlarda döl verimi
    - Toklular için en az 42 - 46 kg ve 10-12 aylık yaş barajı.
 
 5. **Çevrimdışı Sürü Döl Defteri (LocalStorage):**
-   - Küpe bazlı kayıt tutma, doğuma kalan gün rozetleri ve WhatsApp/Sms rapor paylaşımı.
+   - Küpe bazlı kayıt tutma, doğuma kalan gün rozetleri ve doğrudan rapor paylaşımı.
    - %100 çevrimdışı çalışma (Progressive Web App).

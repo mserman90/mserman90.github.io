@@ -10,8 +10,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Tosun Paşa">
   <meta name="application-name" content="Tosun Paşa Çiftliği">
-  <title>Tosun Paşa Çiftliği - Rasyon, Sağlık ve Üretim Portalı</title>
-  <meta name="description" content="Tosun Paşa Çiftliği: Çoban Doktor, Rasyon Rehberi ve Üretim Rehberi uzman modülleriyle %100 çevrimdışı, bağımsız ve ücretsiz çiftlik portalı.">
+  <title>Tosun Paşa Çiftliği - Rasyon, Yem Bitkileri, Üretim ve Sağlık Portalı</title>
+  <meta name="description" content="Tosun Paşa Çiftliği: Çoban Doktor, Rasyon Rehberi, Yem Bitkileri Rehberi ve Üretim Rehberi uzman modülleriyle %100 çevrimdışı, bağımsız ve ücretsiz çiftlik portalı.">
   <!-- Google Fonts: Plus Jakarta Sans & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,7 +25,7 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="Tosun Paşa Çiftliği - Çiftlik Portalı">
-  <meta property="og:description" content="Tosun Paşa Çiftliği: Çoban Doktor, Rasyon Rehberi ve Üretim Rehberi ile %100 çevrimdışı bağımsız çiftlik yönetimi.">
+  <meta property="og:description" content="Tosun Paşa Çiftliği: Çoban Doktor, Rasyon Rehberi, Yem Bitkileri ve Üretim Rehberi ile %100 çevrimdışı bağımsız çiftlik yönetimi.">
   <meta property="og:type" content="website">
 
   <!-- Structured Data -->
@@ -41,7 +41,7 @@
       "price": "0",
       "priceCurrency": "TRY"
     },
-    "description": "Tosun Paşa Çiftliği - Çoban Doktor, Rasyon Rehberi ve Üretim Rehberi ile %100 çevrimdışı bağımsız çiftlik yönetimi."
+    "description": "Tosun Paşa Çiftliği - Çoban Doktor, Rasyon Rehberi, Yem Bitkileri ve Üretim Rehberi ile %100 çevrimdışı bağımsız çiftlik yönetimi."
   }
   </script>
 
@@ -205,9 +205,9 @@
         grid-template-columns: repeat(2, 1fr);
       }
     }
-    @media (min-width: 960px) {
+    @media (min-width: 1024px) {
       .animals-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
       }
     }
 
@@ -806,7 +806,22 @@
         <span class="animal-launch-btn">Rehberi Başlat</span>
       </a>
 
-      
+      <!-- YEM BİTKİLERİ REHBERİ -->
+      <a href="./yem-bitkileri/" class="animal-card" id="choice-yembitkileri" title="Yem Bitkileri - Yetiştiricilik, Karışımlar & Silaj Rehberi">
+        <div class="animal-symbol-box" aria-hidden="true">
+          <img src="./icons/noto-forage.svg" alt="Yem Bitkileri İkonu" class="animal-symbol-img">
+        </div>
+        <h3 class="animal-name">Yem Bitkileri</h3>
+        <p class="animal-app-title">Yetiştiricilik & Silaj</p>
+        <p class="animal-desc">Yonca, korunga, silajlık mısır, fiğ ve karışımların ekim-gübreleme normları, silaj nem testi ve tarla ekiliş defteri.</p>
+        <div class="animal-badges">
+          <span class="animal-badge">Yonca & Korunga</span>
+          <span class="animal-badge">Silaj Nem Testi</span>
+          <span class="animal-badge">Tohum & Gübre Hesabı</span>
+        </div>
+        <span class="animal-launch-btn">Bitkileri Başlat</span>
+      </a>
+
       <!-- 6. ÜRETİM & DÖL VERİMİ REHBERİ -->
       <a href="./uretim-rehberi/" class="animal-card" id="choice-uretim" title="Üretim Rehberi - Tohumlama, Kızgınlık & Doğum Çarkı">
         <div class="animal-symbol-box" aria-hidden="true">
@@ -899,9 +914,9 @@
           </div>
         </section>
 
-        <!-- 3. Beş Uygulamanın Ayrıntılı Kapsamı -->
+        <!-- 3. Dört Uygulamanın Ayrıntılı Kapsamı -->
         <section class="modal-section" aria-label="Uygulama Detayları">
-          <h3 class="modal-section-title">3 Uzman Rehberin Ayrıntılı Kapsamı</h3>
+          <h3 class="modal-section-title">4 Uzman Rehberin Ayrıntılı Kapsamı</h3>
           <div class="modal-apps-grid">
             <!-- YEM & RASYON REHBERİ -->
             <div class="modal-app-card" data-modal-tags="all ration weight" id="modal-card-rasyon">
@@ -917,6 +932,22 @@
                 </ul>
               </div>
               <a href="./rasyon-rehberi/" class="modal-launch-link">Rasyon Rehberi'ni Aç</a>
+            </div>
+
+            <!-- YEM BİTKİLERİ REHBERİ -->
+            <div class="modal-app-card" data-modal-tags="all forage silage crop" id="modal-card-yembitkileri">
+              <div>
+                <h4 class="modal-app-card-title">Yem Bitkileri Rehberi</h4>
+                <p class="modal-app-card-subtitle">Yetiştiricilik, Baklagil & Buğdaygil Karışımları, Silaj & Tarla Defteri</p>
+                <ul class="modal-feature-list">
+                  <li class="modal-feature-item"><strong>Türkiye İklimine Uygun Türler:</strong> Yonca, korunga, silajlık mısır, ryegrass, macar fiği, adi fiğ, yem bezelyesi ve sorgum yetiştiricilik ilkeleri.</li>
+                  <li class="modal-feature-item"><strong>Baklagil + Tahıl Karışımları:</strong> Yatmayı önleyen, toprağa azot bağlayan dengeli kuru ot ve silaj reçeteleri (%70 fiğ + %30 tahıl).</li>
+                  <li class="modal-feature-item"><strong>Tohum & Gübre Hesaplayıcı:</strong> Dekara ekim normu, çuval adedi, saf N-P-K ve ticari taban/üst (DAP, Üre, 20-20-0) gübre hesabı.</li>
+                  <li class="modal-feature-item"><strong>Silaj Nem & Biçim Testi:</strong> Avuç içi sıkma testi ve mısır 1/2 süt çizgisi (milk-line) ile biçim günü tayini ve silo hacim hesabı.</li>
+                  <li class="modal-feature-item"><strong>Çevrimdışı Tarla Defteri:</strong> Parsel ekim kayıtları, gübreleme, biçim takvimi ve elde edilen balya/tonaj takibi.</li>
+                </ul>
+              </div>
+              <a href="./yem-bitkileri/" class="modal-launch-link">Yem Bitkileri'ni Aç</a>
             </div>
 
             
@@ -965,6 +996,7 @@
                   <th>Özellik / Yetenek</th>
                   <th>Çoban Doktor</th>
                   <th>Rasyon Rehberi</th>
+                  <th>Yem Bitkileri</th>
                   <th>Üretim Rehberi</th>
                 </tr>
               </thead>
@@ -973,11 +1005,41 @@
                   <td><strong>Ana Odak & Kapsam</strong></td>
                   <td class="check-yes">Sağlık, Teşhis, Derece & İKAS</td>
                   <td class="check-yes">TMR Vagon, Yemleme & Asidoz</td>
+                  <td class="check-yes">Agronomi, Ekim, Silaj & Tarla</td>
                   <td class="check-yes">Tohumlama, Doğum & Koç Katımı</td>
+                </tr>
+                <tr>
+                  <td><strong>Yem Bitkisi Yetiştiriciliği & Karışımlar</strong></td>
+                  <td class="check-no">Yok</td>
+                  <td class="check-no">Yok</td>
+                  <td class="check-yes">Var (8+ Tür & Baklagil-Tahıl)</td>
+                  <td class="check-no">Yok</td>
+                </tr>
+                <tr>
+                  <td><strong>Tohum & Gübre Normu Hesabı (da)</strong></td>
+                  <td class="check-no">Yok</td>
+                  <td class="check-no">Yok</td>
+                  <td class="check-yes">Var (DAP, Üre, Çuval Adedi)</td>
+                  <td class="check-no">Yok</td>
+                </tr>
+                <tr>
+                  <td><strong>Silaj Nem & Süt Çizgisi Testi</strong></td>
+                  <td class="check-no">Yok</td>
+                  <td class="check-no">Yok</td>
+                  <td class="check-yes">Var (Avuç İçi & Süt Çizgisi)</td>
+                  <td class="check-no">Yok</td>
+                </tr>
+                <tr>
+                  <td><strong>Çevrimdışı Tarla & Ekiliş Defteri</strong></td>
+                  <td class="check-no">Yok</td>
+                  <td class="check-no">Yok</td>
+                  <td class="check-yes">Var (Parsel, Gübre & Rekolte)</td>
+                  <td class="check-no">Yok</td>
                 </tr>
                 <tr>
                   <td><strong>Karar Ağaçlı Klinik Ön Teşhis</strong></td>
                   <td class="check-yes">Tam (Sığır & Koyun)</td>
+                  <td class="check-no">Yok</td>
                   <td class="check-no">Yok</td>
                   <td class="check-no">Yok</td>
                 </tr>
@@ -986,10 +1048,12 @@
                   <td class="check-yes">Var (Canlı Geri Sayım & Küpe Defteri)</td>
                   <td class="check-no">Yok</td>
                   <td class="check-no">Yok</td>
+                  <td class="check-no">Yok</td>
                 </tr>
                 <tr>
                   <td><strong>Hızlı Rektal Derece / Ateş Değerlendirme</strong></td>
                   <td class="check-yes">Var (Sığır, Buzağı, Koyun, Kuzu)</td>
+                  <td class="check-no">Yok</td>
                   <td class="check-no">Yok</td>
                   <td class="check-no">Yok</td>
                 </tr>
@@ -998,11 +1062,13 @@
                   <td class="check-yes">Var (Dehidrasyon & 24s Sıvı)</td>
                   <td class="check-no">Yok</td>
                   <td class="check-no">Yok</td>
+                  <td class="check-no">Yok</td>
                 </tr>
                 <tr>
                   <td><strong>NASEM / NRC / CNCPS Rasyon Motoru</strong></td>
                   <td class="check-no">Yok</td>
                   <td class="check-yes">Var (En Düşük Maliyet & TMR)</td>
+                  <td class="check-no">Yok</td>
                   <td class="check-no">Yok</td>
                 </tr>
                 <tr>
@@ -1010,9 +1076,11 @@
                   <td class="check-no">Yok</td>
                   <td class="check-yes">Var (Sınırsız Yerel Hammadde)</td>
                   <td class="check-no">Yok</td>
+                  <td class="check-no">Yok</td>
                 </tr>
                 <tr>
                   <td><strong>283 Gün Sığır Tohumlama & Doğum Çarkı</strong></td>
+                  <td class="check-no">Yok</td>
                   <td class="check-no">Yok</td>
                   <td class="check-no">Yok</td>
                   <td class="check-yes">Var (USG, Kuru Dönem, Aşı, Doğum)</td>
@@ -1021,16 +1089,19 @@
                   <td><strong>150 Gün Küçükbaş Koç Katımı Çarkı</strong></td>
                   <td class="check-no">Yok</td>
                   <td class="check-no">Yok</td>
+                  <td class="check-no">Yok</td>
                   <td class="check-yes">Var (Flaşlama, Aşı, Kuzulama)</td>
                 </tr>
                 <tr>
                   <td><strong>Sabah-Akşam Tohumlama Saati & Damızlık Eşiği</strong></td>
                   <td class="check-no">Yok</td>
                   <td class="check-no">Yok</td>
+                  <td class="check-no">Yok</td>
                   <td class="check-yes">Var (Kızgınlık Saati & Canlı Ağırlık)</td>
                 </tr>
                 <tr>
                   <td><strong>%100 Çevrimdışı Çalışma (Offline PWA)</strong></td>
+                  <td class="check-yes">Evet</td>
                   <td class="check-yes">Evet</td>
                   <td class="check-yes">Evet</td>
                   <td class="check-yes">Evet</td>
@@ -1209,7 +1280,8 @@
         exportedAt: new Date().toISOString(),
         cobanDoktorKupe: JSON.parse(localStorage.getItem("cobandoktor_kupe_records_v1") || "[]"),
         uretimRehberi: JSON.parse(localStorage.getItem("uretim_rehberi_records_v1") || "[]"),
-        rasyonFeeds: JSON.parse(localStorage.getItem("rasyon_custom_feeds_v1") || "[]")
+        rasyonFeeds: JSON.parse(localStorage.getItem("rasyon_custom_feeds_v1") || "[]"),
+        yemBitkileriTarlalar: JSON.parse(localStorage.getItem("yem_bitkileri_tarla_records_v1") || "[]")
       };
 
       const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(backup, null, 2));
@@ -1233,6 +1305,7 @@
           let kupeCount = 0;
           let reproCount = 0;
           let feedCount = 0;
+          let fieldCount = 0;
 
           if (Array.isArray(data.cobanDoktorKupe)) {
             localStorage.setItem("cobandoktor_kupe_records_v1", JSON.stringify(data.cobanDoktorKupe));
@@ -1246,8 +1319,12 @@
             localStorage.setItem("rasyon_custom_feeds_v1", JSON.stringify(data.rasyonFeeds));
             feedCount = data.rasyonFeeds.length;
           }
+          if (Array.isArray(data.yemBitkileriTarlalar)) {
+            localStorage.setItem("yem_bitkileri_tarla_records_v1", JSON.stringify(data.yemBitkileriTarlalar));
+            fieldCount = data.yemBitkileriTarlalar.length;
+          }
 
-          alert(`Yedek Başarıyla Geri Yüklendi!\n\n📋 Küpe Defteri: ${kupeCount} kayıt\n📅 Üretim Defteri: ${reproCount} kayıt\n🌾 Yem Ambarı: ${feedCount} kayıt`);
+          alert(`Yedek Başarıyla Geri Yüklendi!\n\n📋 Küpe Defteri: ${kupeCount} kayıt\n📅 Üretim Defteri: ${reproCount} kayıt\n🌾 Yem Ambarı: ${feedCount} kayıt\n🌱 Tarla Defteri: ${fieldCount} kayıt`);
           closeBackupCenterModal();
         } catch (err) {
           alert("Yedek dosyası açılırken hata oluştu: " + err.message);

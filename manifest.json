@@ -7,7 +7,7 @@
   "orientation": "portrait-primary",
   "background_color": "#f0f2f5",
   "theme_color": "#075e54",
-  "description": "Çoban Doktor, Rasyon Rehberi ve Üretim Rehberi uzman modülleriyle %100 çevrimdışı, bağımsız çiftlik portalı.",
+  "description": "Çoban Doktor, Rasyon Rehberi, Yem Bitkileri ve Üretim Rehberi uzman modülleriyle %100 çevrimdışı, bağımsız çiftlik portalı.",
   "categories": [
     "medical",
     "business",
@@ -73,6 +73,18 @@
       "short_name": "Üretim Rehberi",
       "description": "283 gün buzağılama çarkı, 150 gün koç katımı, kuruya çıkarma ve sürü üreme defteri",
       "url": "./uretim-rehberi/",
+      "icons": [
+        {
+          "src": "./icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Yem Bitkileri Rehberi - Yetiştiricilik & Silaj",
+      "short_name": "Yem Bitkileri",
+      "description": "Yonca, korunga, silajlık mısır, fiğ yetiştiriciliği, tohum & gübre hesabı ve tarla defteri",
+      "url": "./yem-bitkileri/",
       "icons": [
         {
           "src": "./icon-192.png",

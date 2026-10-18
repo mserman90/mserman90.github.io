@@ -1,0 +1,66 @@
+{
+  "name": "Yem Bitkileri Rehberi - Yetiştiricilik & Silaj Yönetimi",
+  "short_name": "Yem Bitkileri",
+  "description": "Türkiye'de yaygın yem bitkileri ve karışımları yetiştiriciliği, tohum & gübre hesaplayıcıları, silaj olgunluk tespiti ve çevrimdışı tarla defteri.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f0f2f5",
+  "theme_color": "#075e54",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "./favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "./favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "./apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Tohum & Ekim Normu Hesaplayıcı",
+      "short_name": "Tohum Hesabı",
+      "description": "Dekara gereken tohum ve çuval adedi hesaplama",
+      "url": "./index.html#arac-tohum"
+    },
+    {
+      "name": "Gübreleme İhtiyacı Hesaplayıcı",
+      "short_name": "Gübre Hesabı",
+      "description": "Saf N-P-K ve ticari gübre (DAP, Üre) gereksinimi",
+      "url": "./index.html#arac-gubre"
+    },
+    {
+      "name": "Silaj Olgunluk & Nem Testi",
+      "short_name": "Silaj Testi",
+      "description": "Mısır süt çizgisi ve avuç içi sıkma testi kılavuzu",
+      "url": "./index.html#arac-silaj"
+    },
+    {
+      "name": "Tarla & Ekiliş Defteri",
+      "short_name": "Tarla Defteri",
+      "description": "Parsel ekim kayıtları, biçim takvimi ve rekolte takibi",
+      "url": "./index.html#arac-defter"
+    }
+  ]
+}

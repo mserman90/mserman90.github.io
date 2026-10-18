@@ -1,0 +1,2329 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta name="theme-color" content="#075e54">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Yem Bitkileri">
+  <meta name="application-name" content="Yem Bitkileri Rehberi">
+  <title>Yem Bitkileri Rehberi | Yetiştiricilik, Karışımlar, Silaj & Tarla Defteri</title>
+
+  <meta name="description" content="Türkiye'de yaygın yem bitkileri (Yonca, Korunga, Mısır, Fiğ, Ryegrass, Yem Bezelyesi) yetiştiriciliği, karışım formülleri, tohum-gübre hesaplayıcıları ve çevrimdışı tarla defteri.">
+  <meta name="keywords" content="yem bitkileri yetiştiriciliği, yonca ekimi, korunga yetiştirme, silajlık mısır, ryegrass ekim normu, fiğ tahıl karışımı, yem bezelyesi, silaj nem testi, dekar tohum gübre hesabı">
+  <meta name="author" content="Dr. M. Serman & Hayvancılık Portalı">
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Yem Bitkileri Rehberi | Yetiştiricilik, Silaj & Saha Hesaplayıcıları">
+  <meta property="og:description" content="Yonca, korunga, silajlık mısır, fiğ, ryegrass yetiştiricilik kılavuzu, ekim normu hesabı, silaj nem ölçümü ve internetsiz tarla ekiliş defteri.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mserman90.github.io/yem-bitkileri/">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Yem Bitkileri Rehberi",
+    "url": "https://mserman90.github.io/yem-bitkileri/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "description": "Türkiye'de yaygın yetiştirilen yem bitkileri, tohum-gübre hesaplayıcıları, silaj yönetimi ve çevrimdışı tarla ekiliş defteri.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "TRY"
+    }
+  }
+  </script>
+
+  <style>
+    /* =========================================================================
+       BİRLEŞİK ÇİFTLİK TASARIM SİSTEMİ (KÖŞELİ, RAHAT OKUNUR & %100 RESPONSİF)
+       ========================================================================= */
+    :root {
+      --bg: #f0f2f5;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --text-muted: #334155;
+      --border: #cbd5e1;
+      --primary: #008069;
+      --primary-dark: #075e54;
+      --primary-hover: #056152;
+      --primary-light: #e6f4ea;
+      --accent-gold: #b45309;
+      --accent-gold-bg: #fef3c7;
+      --danger: #b91c1c;
+      --danger-bg: #fee2e2;
+      --info: #0369a1;
+      --info-bg: #e0f2fe;
+      --success: #15803d;
+      --success-bg: #dcfce7;
+      --radius: 4px;
+      --font-stack: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+      --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    body.dark-mode {
+      --bg: #090d16;
+      --card-bg: #111827;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+      --primary: #10b981;
+      --primary-dark: #064e3b;
+      --primary-hover: #059669;
+      --primary-light: #064e3b;
+      --accent-gold: #fbbf24;
+      --accent-gold-bg: #451a03;
+      --danger: #f87171;
+      --danger-bg: #450a0a;
+      --info: #38bdf8;
+      --info-bg: #082f49;
+      --success: #4ade80;
+      --success-bg: #052e16;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-stack);
+      font-size: 16px;
+      line-height: 1.55;
+      font-variant-numeric: tabular-nums;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    /* Üst Başlık (Header) */
+    header {
+      background-color: var(--primary-dark);
+      color: #ffffff;
+      padding: calc(10px + env(safe-area-inset-top, 0px)) 16px 10px 16px;
+      border-bottom: 2px solid #004d40;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .back-btn {
+      background: var(--primary);
+      color: #ffffff;
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      padding: 8px 12px;
+      border-radius: var(--radius);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      transition: background 0.15s ease, border-color 0.15s ease;
+      white-space: nowrap;
+    }
+    .back-btn:hover {
+      background: var(--primary-hover);
+      border-color: #ffffff;
+    }
+    .header-title-box h1 {
+      font-size: 1.15rem;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      color: #ffffff;
+      line-height: 1.2;
+    }
+    .header-title-box p {
+      font-size: 0.76rem;
+      color: #d1fae5;
+      font-weight: 600;
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .tool-btn {
+      background: var(--primary);
+      color: #ffffff;
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      padding: 8px 12px;
+      border-radius: var(--radius);
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      min-height: 40px;
+      touch-action: manipulation;
+      transition: background 0.15s ease, border-color 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+    }
+    .tool-btn:hover {
+      background: var(--primary-hover);
+      border-color: #ffffff;
+    }
+
+    /* Ana Taşıyıcı ve Navigasyon Sekmeleri */
+    main.app-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 18px 16px 40px;
+      width: 100%;
+    }
+
+    .nav-tabs-wrapper {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+      scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
+    }
+    .nav-tab-btn {
+      background-color: var(--card-bg);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 10px 16px;
+      cursor: pointer;
+      white-space: nowrap;
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.15s ease;
+      flex-shrink: 0;
+    }
+    .nav-tab-btn:hover {
+      border-color: var(--primary);
+      background-color: var(--primary-light);
+    }
+    .nav-tab-btn.active {
+      background-color: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Sekme İçerikleri */
+    .tab-pane {
+      display: none;
+      animation: fadeIn 0.2s ease;
+    }
+    .tab-pane.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Kartlar, Grid ve Form Öğeleri */
+    .section-card {
+      background-color: var(--card-bg);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--text);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    /* Filtreler ve Arama */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+      align-items: center;
+    }
+    .search-input {
+      flex: 1;
+      min-width: 240px;
+      padding: 10px 14px;
+      font-size: 0.92rem;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: inherit;
+      min-height: 44px;
+    }
+    .search-input:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    .chip-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .chip-btn {
+      background-color: var(--bg);
+      border: 1.5px solid var(--border);
+      color: var(--text);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      min-height: 38px;
+      transition: all 0.15s ease;
+    }
+    .chip-btn:hover {
+      border-color: var(--primary);
+    }
+    .chip-btn.active {
+      background-color: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    /* Yem Bitkileri Izgarası (Grid) */
+    .crops-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 680px) {
+      .crops-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 1024px) {
+      .crops-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .crop-card {
+      background-color: var(--card-bg);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+      position: relative;
+    }
+    .crop-card:hover {
+      border-color: var(--primary);
+      box-shadow: 0 4px 14px rgba(0, 128, 105, 0.12);
+      transform: translateY(-2px);
+    }
+    .crop-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+      gap: 8px;
+    }
+    .crop-name {
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: var(--text);
+      line-height: 1.2;
+    }
+    .crop-sci {
+      font-size: 0.8rem;
+      font-style: italic;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .crop-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: var(--radius);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .badge-legume {
+      background-color: var(--success-bg);
+      color: var(--success);
+      border: 1px solid var(--success);
+    }
+    .badge-grass {
+      background-color: var(--accent-gold-bg);
+      color: var(--accent-gold);
+      border: 1px solid var(--accent-gold);
+    }
+    .badge-mix {
+      background-color: var(--info-bg);
+      color: var(--info);
+      border: 1px solid var(--info);
+    }
+
+    .crop-summary {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 14px;
+      flex-grow: 1;
+    }
+
+    .crop-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      background-color: var(--bg);
+      padding: 10px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      margin-bottom: 14px;
+      font-size: 0.78rem;
+    }
+    .metric-item strong {
+      display: block;
+      color: var(--text);
+      font-size: 0.88rem;
+      font-weight: 800;
+    }
+    .metric-item span {
+      color: var(--text-muted);
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+
+    .crop-detail-btn {
+      width: 100%;
+      background-color: var(--primary);
+      color: #ffffff;
+      border: 1.5px solid var(--primary);
+      padding: 10px 14px;
+      border-radius: var(--radius);
+      font-size: 0.88rem;
+      font-weight: 800;
+      cursor: pointer;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: background 0.15s ease;
+    }
+    .crop-detail-btn:hover {
+      background-color: var(--primary-hover);
+      border-color: var(--primary-hover);
+    }
+
+    /* Modal Görünümleri */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.75);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .modal-overlay.open {
+      display: flex;
+    }
+    .modal-container {
+      background-color: var(--bg);
+      color: var(--text);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      width: 100%;
+      max-width: 860px;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+    }
+    .modal-header {
+      background-color: var(--primary-dark);
+      color: #ffffff;
+      padding: 14px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 2px solid #004d40;
+    }
+    .modal-header h3 {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: #ffffff;
+    }
+    .modal-close-btn {
+      background: var(--primary);
+      color: #ffffff;
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      padding: 6px 14px;
+      border-radius: var(--radius);
+      font-size: 0.85rem;
+      font-weight: 800;
+      cursor: pointer;
+      min-height: 38px;
+      transition: background 0.15s ease;
+    }
+    .modal-close-btn:hover {
+      background: var(--primary-hover);
+    }
+    .modal-body {
+      padding: 18px;
+      overflow-y: auto;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Bilgi Kartları ve Tablolar */
+    .info-box {
+      background-color: var(--card-bg);
+      border: 1.5px solid var(--border);
+      border-left: 5px solid var(--primary);
+      border-radius: var(--radius);
+      padding: 14px;
+    }
+    .info-box.alert-gold {
+      border-left-color: var(--accent-gold);
+      background-color: var(--accent-gold-bg);
+      color: #78350f;
+    }
+    body.dark-mode .info-box.alert-gold {
+      color: #fef3c7;
+    }
+    .info-box.alert-danger {
+      border-left-color: var(--danger);
+      background-color: var(--danger-bg);
+      color: #7f1d1d;
+    }
+    body.dark-mode .info-box.alert-danger {
+      color: #fee2e2;
+    }
+    .info-box strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.92rem;
+    }
+    .info-box p {
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    /* Tablo Biçimlendirme */
+    .table-responsive {
+      overflow-x: auto;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      background-color: var(--card-bg);
+    }
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.85rem;
+    }
+    table.data-table th, table.data-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+    }
+    table.data-table th:last-child, table.data-table td:last-child {
+      border-right: none;
+    }
+    table.data-table th {
+      background-color: var(--primary-dark);
+      color: #ffffff;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    table.data-table tr:last-child td {
+      border-bottom: none;
+    }
+    table.data-table tr:hover td {
+      background-color: var(--bg);
+    }
+
+    /* Form ve Hesaplayıcı Stilleri */
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 768px) {
+      .calc-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .form-group {
+      margin-bottom: 14px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .form-control {
+      width: 100%;
+      padding: 10px 12px;
+      font-size: 0.92rem;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: inherit;
+      min-height: 46px;
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    .calc-result-box {
+      background-color: var(--primary-light);
+      border: 1.5px solid var(--primary);
+      border-radius: var(--radius);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    body.dark-mode .calc-result-box {
+      background-color: var(--card-bg);
+    }
+    .calc-result-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 6px;
+      font-size: 0.9rem;
+    }
+    .calc-result-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .calc-result-item strong {
+      font-size: 1.1rem;
+      color: var(--primary);
+    }
+
+    .btn-action {
+      background-color: var(--primary);
+      color: #ffffff;
+      border: 1.5px solid var(--primary);
+      padding: 12px 18px;
+      border-radius: var(--radius);
+      font-size: 0.95rem;
+      font-weight: 800;
+      cursor: pointer;
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      transition: background 0.15s ease;
+    }
+    .btn-action:hover {
+      background-color: var(--primary-hover);
+      border-color: var(--primary-hover);
+    }
+
+    .btn-secondary {
+      background-color: var(--bg);
+      color: var(--text);
+      border: 1.5px solid var(--border);
+      padding: 10px 16px;
+      border-radius: var(--radius);
+      font-size: 0.88rem;
+      font-weight: 800;
+      cursor: pointer;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+    .btn-secondary:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* Tarla Kayıt Kartları */
+    .field-card {
+      background-color: var(--card-bg);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      margin-bottom: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .field-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 6px;
+    }
+    .field-name {
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: var(--text);
+    }
+    .field-actions {
+      display: flex;
+      gap: 6px;
+    }
+    .btn-icon {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 4px 8px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+    .btn-icon.delete {
+      color: var(--danger);
+      border-color: var(--danger);
+    }
+
+    /* Altbilgi (Footer) */
+    footer {
+      background-color: var(--primary-dark);
+      color: #ffffff;
+      padding: 20px 16px;
+      text-align: center;
+      border-top: 2px solid #004d40;
+      margin-top: auto;
+    }
+    footer p {
+      font-size: 0.82rem;
+      color: #d1fae5;
+      line-height: 1.6;
+    }
+    footer strong {
+      color: #ffffff;
+    }
+
+    @media (max-width: 600px) {
+      .header-title-box h1 {
+        font-size: 1rem;
+      }
+      .nav-tab-btn {
+        padding: 8px 12px;
+        font-size: 0.82rem;
+      }
+      .section-card {
+        padding: 14px;
+      }
+      .crop-card {
+        padding: 14px;
+      }
+      .modal-container {
+        max-height: 94dvh;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Üst Başlık (Header) -->
+  <header>
+    <div class="header-inner">
+      <div class="header-left">
+        <a href="../index.html" class="back-btn" title="Çiftlik Portalı Ana Menüsüne Dön">◀ Portal</a>
+        <div class="header-title-box">
+          <h1>Yem Bitkileri Rehberi</h1>
+          <p>Yetiştiricilik, Silaj & Tarla Yönetimi</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="tool-btn" onclick="openFieldModal()" title="Yeni Tarla/Parsel Ekiliş Kaydı Ekle">➕ Tarla Ekle</button>
+        <button class="tool-btn" onclick="openInfoModal()" title="Yem Bitkileri Kılavuzu & Bilgi">ℹ️ Kılavuz</button>
+        <button id="themeToggleBtn" class="tool-btn" onclick="toggleTheme()" title="Koyu / Açık Mod Değiştir">Gece Modu</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Ana Uygulama Gövdesi -->
+  <main class="app-container">
+
+    <!-- Sekme Navigasyonu -->
+    <nav class="nav-tabs-wrapper" role="tablist" aria-label="Yem Bitkileri Modül Sekmeleri">
+      <button class="nav-tab-btn active" role="tab" aria-selected="true" onclick="switchTab('ansiklopedi', this)">🌱 Yem Bitkileri Ansiklopedisi</button>
+      <button class="nav-tab-btn" role="tab" aria-selected="false" onclick="switchTab('karisimlar', this)">🌾 Karışımlar & Silaj Yönetimi</button>
+      <button class="nav-tab-btn" role="tab" aria-selected="false" onclick="switchTab('hesaplayici', this)">🧮 Tohum & Gübre Hesaplayıcı</button>
+      <button class="nav-tab-btn" role="tab" aria-selected="false" onclick="switchTab('silaj-testi', this)">🌽 Silaj Nem & Biçim Testi</button>
+      <button class="nav-tab-btn" role="tab" aria-selected="false" onclick="switchTab('matris', this)">📊 Besin Değerleri & Verim Matrisi</button>
+      <button class="nav-tab-btn" role="tab" aria-selected="false" onclick="switchTab('defter', this)">📋 Çevrimdışı Tarla Defteri</button>
+    </nav>
+
+    <!-- =========================================================================
+         SEKME 1: YEM BİTKİLERİ ANSİKLOPEDİSİ
+         ========================================================================= -->
+    <section id="tab-ansiklopedi" class="tab-pane active" role="tabpanel">
+      <div class="section-card">
+        <h2 class="section-title">🌱 Türkiye'de Yetiştirilen Yem Bitkileri</h2>
+        <p class="section-desc">Bölgelerimize (İç Anadolu, Ege, Akdeniz, Marmara, Karadeniz, Doğu ve Güneydoğu) uygun ekim normları, taban ve üst gübreleme takvimi, biçim zamanı ve besleme değerleri.</p>
+
+        <!-- Filtre ve Arama Çubuğu -->
+        <div class="filter-bar">
+          <input type="text" id="cropSearchInput" class="search-input" placeholder="Bitki adı, latincesi veya özellik ara (örn: Yonca, silaj, soğuk)..." oninput="filterCrops()">
+          <div class="chip-group">
+            <button class="chip-btn active" onclick="setCropCategory('all', this)">Tümü</button>
+            <button class="chip-btn" onclick="setCropCategory('legume', this)">🍀 Baklagiller</button>
+            <button class="chip-btn" onclick="setCropCategory('grass', this)">🌾 Buğdaygiller</button>
+            <button class="chip-btn" onclick="setCropCategory('cereal', this)">🌽 Silajlıklar</button>
+          </div>
+        </div>
+
+        <!-- Bitkiler Grid Listesi -->
+        <div id="cropsContainer" class="crops-grid">
+          <!-- Dinamik olarak JS ile render edilecek -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SEKME 2: KARIŞIMLAR & SİLAJ YÖNETİMİ
+         ========================================================================= -->
+    <section id="tab-karisimlar" class="tab-pane" role="tabpanel">
+      <div class="section-card">
+        <h2 class="section-title">🌾 Yem Bitkisi Karışımları (Baklagil + Buğdaygil)</h2>
+        <p class="section-desc">Tek tür yerine karışım ekildiğinde; buğdaygiller baklagillerin yatmasını engeller, baklagiller toprağa doğal azot bağlar ve kaba yemin sindirilebilir protein-enerji dengesini mükemmelleştirir.</p>
+
+        <div class="crops-grid" style="margin-bottom: 24px;">
+
+          <!-- Karışım 1: Macar Fiği + Tritikale / Yulaf -->
+          <div class="crop-card">
+            <div class="crop-header">
+              <div>
+                <h3 class="crop-name">Macar Fiği + Tritikale / Yulaf</h3>
+                <p class="crop-sci">Vicia pannonica + X Triticosecale</p>
+              </div>
+              <span class="crop-badge badge-mix">Güzlük Karışım</span>
+            </div>
+            <p class="crop-summary">Türkiye'de kışı sert geçen İç ve Doğu Anadolu dahil tüm bölgeler için 1 numaralı kuru ot ve silaj karışımıdır. Tritikale soğuğa dayanır ve fiği ayakta tutar.</p>
+            <div class="crop-metrics">
+              <div class="metric-item">
+                <span>Ekim Oranı:</span>
+                <strong>%70 Fiğ + %30 Tahıl</strong>
+              </div>
+              <div class="metric-item">
+                <span>Tohum Normu:</span>
+                <strong>7-8 kg Fiğ + 3-4 kg Tahıl/da</strong>
+              </div>
+              <div class="metric-item">
+                <span>Ham Protein:</span>
+                <strong>%14.5 - %17.5</strong>
+              </div>
+              <div class="metric-item">
+                <span>Biçim Evresi:</span>
+                <strong>Tahıl Süt-Erken Hamur</strong>
+              </div>
+            </div>
+            <button class="crop-detail-btn" onclick="showMixModal('macar-tritikale')">Reçete & Gübre Detayı</button>
+          </div>
+
+          <!-- Karışım 2: Yem Bezelyesi + Tritikale -->
+          <div class="crop-card">
+            <div class="crop-header">
+              <div>
+                <h3 class="crop-name">Yem Bezelyesi + Tritikale / Arpa</h3>
+                <p class="crop-sci">Pisum arvense + Cereal Mix</p>
+              </div>
+              <span class="crop-badge badge-mix">Yüksek Verimli</span>
+            </div>
+            <p class="crop-summary">Dekara müthiş yaş ve kuru biyokütle verir. Özellikle silaj yapıldığında yüksek enerji ve lezzetiyle süt sığırlarında süt verimini ve yağını artırır.</p>
+            <div class="crop-metrics">
+              <div class="metric-item">
+                <span>Ekim Oranı:</span>
+                <strong>%75 Bezelye + %25 Tahıl</strong>
+              </div>
+              <div class="metric-item">
+                <span>Tohum Normu:</span>
+                <strong>10-12 kg Bez. + 3-4 kg Tahıl/da</strong>
+              </div>
+              <div class="metric-item">
+                <span>Ham Protein:</span>
+                <strong>%15.0 - %18.0</strong>
+              </div>
+              <div class="metric-item">
+                <span>Biçim Evresi:</span>
+                <strong>Alt Baklalar Dolduğunda</strong>
+              </div>
+            </div>
+            <button class="crop-detail-btn" onclick="showMixModal('bezelye-tritikale')">Reçete & Gübre Detayı</button>
+          </div>
+
+          <!-- Karışım 3: İtalyan Çimi (Ryegrass) + İskenderiye Üçgülü -->
+          <div class="crop-card">
+            <div class="crop-header">
+              <div>
+                <h3 class="crop-name">Ryegrass + İskenderiye Üçgülü</h3>
+                <p class="crop-sci">Lolium multiflorum + Trifolium alexandrinum</p>
+              </div>
+              <span class="crop-badge badge-mix">Çok Biçimli Kışlık</span>
+            </div>
+            <p class="crop-summary">Ege, Marmara ve Akdeniz kuşağında sonbahar ekimiyle erken ilkbahardan itibaren 3-5 biçim veren enerji ve protein bombası taze/kuru kaba yem formülü.</p>
+            <div class="crop-metrics">
+              <div class="metric-item">
+                <span>Ekim Oranı:</span>
+                <strong>%60 Ryegrass + %40 Üçgül</strong>
+              </div>
+              <div class="metric-item">
+                <span>Tohum Normu:</span>
+                <strong>3.5 kg Çim + 2.0 kg Üçgül/da</strong>
+              </div>
+              <div class="metric-item">
+                <span>Ham Protein:</span>
+                <strong>%17.0 - %21.0</strong>
+              </div>
+              <div class="metric-item">
+                <span>Biçim Sıklığı:</span>
+                <strong>Her 25-30 Günde Bir</strong>
+              </div>
+            </div>
+            <button class="crop-detail-btn" onclick="showMixModal('ryegrass-ucgul')">Reçete & Gübre Detayı</button>
+          </div>
+
+          <!-- Karışım 4: Çok Yıllık Suni Mera Karışımı -->
+          <div class="crop-card">
+            <div class="crop-header">
+              <div>
+                <h3 class="crop-name">Suni Mera (Baklagil + Buğdaygil)</h3>
+                <p class="crop-sci">Yonca / Korunga + Kılçıksız Brom + Domuz Ayrığı</p>
+              </div>
+              <span class="crop-badge badge-mix">4-6 Yıllık Mera</span>
+            </div>
+            <p class="crop-summary">Koyun ve sığır otlatma veya biçilip balyalanmak üzere tesis edilen çok yıllık kaba yem kaynağı. Gaz yapma riski sıfıra yakındır, erozyonu önler.</p>
+            <div class="crop-metrics">
+              <div class="metric-item">
+                <span>Bileşim:</span>
+                <strong>%30 Baklagil + %70 Buğdaygil</strong>
+              </div>
+              <div class="metric-item">
+                <span>Tohum Normu:</span>
+                <strong>4.5 - 5.5 kg/da toplam</strong>
+              </div>
+              <div class="metric-item">
+                <span>Kullanım:</span>
+                <strong>Münavebeli Otlatma / Biçim</strong>
+              </div>
+              <div class="metric-item">
+                <span>Ömür:</span>
+                <strong>5-7 Yıl Kesintisiz</strong>
+              </div>
+            </div>
+            <button class="crop-detail-btn" onclick="showMixModal('suni-mera')">Reçete & Gübre Detayı</button>
+          </div>
+
+        </div>
+
+        <!-- Silaj Yapım İlkeleri Rehberi -->
+        <div class="info-box" style="margin-bottom: 16px;">
+          <strong>🌽 Kusursuz Silaj Yapımının 5 Altın Kuralı</strong>
+          <p>
+            <strong>1. İdeal Kuru Madde (%30-35):</strong> %30'dan ıslak silajda pis kokulu bütirik asit ve besin maddesi kaybı (şıra akması), %38'den kuru silajda ise hava tahliyesi zorluğu ve küflenme görülür.<br>
+            <strong>2. Parçalama Boyu (1.2 - 2.0 cm):</strong> İyi çiğneme/geviş getirme için lif boyu korunmalı, aynı zamanda traktörle tam sıkışacak incelikte olmalıdır.<br>
+            <strong>3. Sıkıştırma (Kompresyon):</strong> Silo silindiri/traktörle kat kat (15-20 cm kalınlıkta) aralıksız çiğnenerek hava tamamen dışarı atılmalıdır.<br>
+            <strong>4. Hızlı Kapatma:</strong> Silo doldurulduğu gün hava almayacak şekilde çift kat UV dayanımlı silaj naylonu ile kapatılmalı ve üzerine kum torbası/lastik dizilmelidir.<br>
+            <strong>5. Fermantasyon Süresi:</strong> Silo en az 45-60 gün kapalı tutulmalı; açılırken dikey ayna şeklinde düzgünce kesilerek hava ile temas eden yüzey minimumda tutulmalıdır.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SEKME 3: HESAPLAYICI (TOHUM & GÜBRE)
+         ========================================================================= -->
+    <section id="tab-hesaplayici" class="tab-pane" role="tabpanel">
+      <div class="section-card">
+        <h2 class="section-title">🧮 Tohum & Gübre İhtiyacı Hesaplayıcı</h2>
+        <p class="section-desc">Tarla büyüklüğünüze (dekar) ve ekim yönteminize göre gereken saf tohum, çuval adedi ve taban/üst gübreleme (DAP, Üre, 20-20-0) gereksinimini hesaplayın.</p>
+
+        <div class="calc-grid">
+
+          <!-- Sol Taraf: Tohum Miktarı Hesaplayıcı -->
+          <div class="section-card" style="margin-bottom: 0;">
+            <h3 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 12px; color: var(--primary);">🌱 Tohum Normu Hesabı</h3>
+
+            <div class="form-group">
+              <label for="calcCropSelect">Ekim Yapılacak Yem Bitkisi / Karışım:</label>
+              <select id="calcCropSelect" class="form-control" onchange="runSeedCalc()">
+                <option value="yonca">Yonca (Medicago sativa) - Saf Ekim</option>
+                <option value="korunga">Korunga (Meyveli Tohum) - Saf Ekim</option>
+                <option value="misir_silaj">Silajlık Mısır (Tek dane / Sıraya ekim)</option>
+                <option value="ryegrass">İtalyan Çimi / Ryegrass (Kışlık süt otu)</option>
+                <option value="macar_fig">Macar Fiği (Vicia pannonica) - Saf</option>
+                <option value="adi_fig">Adi Fiğ (Vicia sativa) - Saf</option>
+                <option value="yem_bezelyesi">Yem Bezelyesi (Pisum arvense) - Saf</option>
+                <option value="fig_tahil">Macar Fiği (%70) + Tritikale/Yulaf (%30) Karışımı</option>
+                <option value="bezelye_tahil">Yem Bezelyesi (%75) + Tritikale (%25) Karışımı</option>
+                <option value="sorgum">Sorgum - Sudan Otu Melezi</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="calcAreaInput">Tarla Alanı (Dekar / Dönüm - 1 da = 1000 m²):</label>
+              <input type="number" id="calcAreaInput" class="form-control" value="10" min="0.5" step="0.5" oninput="runSeedCalc()">
+            </div>
+
+            <div class="form-group">
+              <label for="calcMethodSelect">Ekim Yöntemi:</label>
+              <select id="calcMethodSelect" class="form-control" onchange="runSeedCalc()">
+                <option value="mivzer">Mivzerle Sıraya Ekim (Tavsiye Edilen - Düşük Tohum Sarfiyatı)</option>
+                <option value="serpme">Fırfır / Elle Serpme (Üzerine Tırmık/Merdane - %25 Fazla Tohum)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="calcBagSize">Tohum Çuval Ağırlığı:</label>
+              <select id="calcBagSize" class="form-control" onchange="runSeedCalc()">
+                <option value="25">25 kg'lık Çuval / Paket</option>
+                <option value="50">50 kg'lık Çuval</option>
+                <option value="10">10 kg'lık Paket</option>
+              </select>
+            </div>
+
+            <!-- Sonuç Kutusu -->
+            <div class="calc-result-box" id="seedResultBox">
+              <div class="calc-result-item">
+                <span>Dekara Düşen Tohum:</span>
+                <strong id="resSeedPerDa">2.5 kg / da</strong>
+              </div>
+              <div class="calc-result-item">
+                <span>Toplam Gereken Tohum:</span>
+                <strong id="resTotalSeed">25.0 kg</strong>
+              </div>
+              <div class="calc-result-item">
+                <span>Tahmini Çuval / Paket Adedi:</span>
+                <strong id="resBagCount">1 Çuval (25 kg)</strong>
+              </div>
+              <div class="calc-result-item">
+                <span>Tavsiye Edilen Ekim Derinliği:</span>
+                <strong id="resDepth">1.5 - 2.0 cm</strong>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Sağ Taraf: Gübreleme Hesaplayıcı -->
+          <div class="section-card" style="margin-bottom: 0;">
+            <h3 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 12px; color: var(--primary);">🧪 Taban & Üst Gübre Hesabı</h3>
+
+            <div class="form-group">
+              <label for="calcSoilCondition">Toprak & Sulama Koşulları:</label>
+              <select id="calcSoilCondition" class="form-control" onchange="runFertilizerCalc()">
+                <option value="sulu">Sulu Tarım (Yüksek Hedef Verim)</option>
+                <option value="kirac">Kıraç / Yağışa Dayalı Tarım</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="calcBaseFert">Tercih Edilen Taban Gübresi (Ekimle Birlikte):</label>
+              <select id="calcBaseFert" class="form-control" onchange="runFertilizerCalc()">
+                <option value="dap">DAP (18-46-0 - Yüksek Fosfor & Azot)</option>
+                <option value="comp20">Kompoze 20-20-0</option>
+                <option value="comp15">Üç Onbeş (15-15-15 + Çinko)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="calcTopFert">Tercih Edilen Üst Gübresi (Bahar/Kardeşlenme/Biçim Sonrası):</label>
+              <select id="calcTopFert" class="form-control" onchange="runFertilizerCalc()">
+                <option value="ure">Üre (%46 N - Erken Bahar / Ön Gübreleme)</option>
+                <option value="an26">Amonyum Nitrat (%26 N - Hızlı Etki)</option>
+                <option value="as21">Amonyum Sülfat (%21 N + Kükürt)</option>
+              </select>
+            </div>
+
+            <!-- Gübre Sonuç Kutusu -->
+            <div class="calc-result-box" id="fertResultBox">
+              <div class="calc-result-item">
+                <span>Taban Gübresi (Dekara):</span>
+                <strong id="resBasePerDa">20 kg / da</strong>
+              </div>
+              <div class="calc-result-item">
+                <span>Toplam Taban Gübresi İhtiyacı:</span>
+                <strong id="resTotalBase">200 kg (4 Çuval)</strong>
+              </div>
+              <div class="calc-result-item">
+                <span>Üst Gübreleme (Dekara):</span>
+                <strong id="resTopPerDa">15 kg / da</strong>
+              </div>
+              <div class="calc-result-item">
+                <span>Toplam Üst Gübre İhtiyacı:</span>
+                <strong id="resTotalTop">150 kg (3 Çuval)</strong>
+              </div>
+              <div class="calc-result-item">
+                <span>Uygulama Zamanı Notu:</span>
+                <strong id="resFertNote" style="font-size: 0.85rem; color: var(--text);">Ekim anında mivzerle tohum derinliğinin 5 cm altına.</strong>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SEKME 4: SİLAJ NEM & BİÇİM TESTİ
+         ========================================================================= -->
+    <section id="tab-silaj-testi" class="tab-pane" role="tabpanel">
+      <div class="section-card">
+        <h2 class="section-title">🌽 Silaj Nem, Biçim Zamanı & Hacim Hesaplayıcı</h2>
+        <p class="section-desc">Laboratuvar analizi beklemeden tarlada avuç içi sıkma testi ve mısır koçanındaki süt çizgisi takibi ile en doğru hasat gününü tespit edin.</p>
+
+        <div class="calc-grid">
+
+          <!-- Sol: Saha Sıkma ve Süt Çizgisi Testi -->
+          <div class="section-card" style="margin-bottom: 0;">
+            <h3 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 12px; color: var(--primary);">✋ Avuç İçi Sıkma Testi (Tüm Silajlar İçin)</h3>
+            <p style="font-size: 0.84rem; color: var(--text-muted); margin-bottom: 12px;">Kıyılmış taze materyali avucunuza alıp 20-30 saniye boyunca olanca gücünüzle sıkın ve elinizi yavaşça açın:</p>
+
+            <div class="form-group">
+              <label for="squeezeTestSelect">Avucunuzu Açtığınızda Ne Gözlemliyorsunuz?</label>
+              <select id="squeezeTestSelect" class="form-control" onchange="runSilageMoistureTest()">
+                <option value="very_wet">1. Parmaklar arasından belirgin su sızıyor, top açılmıyor (Çok Yaş: Nem > %75)</option>
+                <option value="wet">2. El ıslanıyor, top şeklini koruyor ama su damlamıyor (Yaş: Nem %70-75)</option>
+                <option value="ideal">3. El hafif nemli kalıyor, top şeklini 5-10 sn koruyup yavaşça genleşiyor (İDEAL: Nem %65-70)</option>
+                <option value="dry">4. El kuru kalıyor, top hemen dağılıp parçalanıyor (Kuru: Nem < %60)</option>
+              </select>
+            </div>
+
+            <div id="squeezeResultNotice" class="info-box">
+              <strong id="squeezeNoticeTitle">İdeal Hasat Durumu</strong>
+              <p id="squeezeNoticeDesc">Kuru madde oranı %32-35 civarındadır. Silaj fermantasyonu için kusursuz nem seviyesidir. Şıra akması olmaz, traktörle kolay sıkışır.</p>
+            </div>
+
+            <hr style="border: none; border-top: 1px solid var(--border); margin: 16px 0;">
+
+            <h3 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 8px; color: var(--primary);">🌽 Silajlık Mısır Süt Çizgisi (Milk-Line)</h3>
+            <p style="font-size: 0.84rem; color: var(--text-muted); margin-bottom: 12px;">Tarlanın 5 farklı noktasından koçan kırın, ortadan ikiye bölün ve danelerin tepe kısmından dip kısmına doğru ilerleyen sarı nişasta/süt çizgisini inceleyin:</p>
+
+            <div class="form-group">
+              <label for="milkLineSelect">Dane Üzerindeki Süt Çizgisi Seviyesi:</label>
+              <select id="milkLineSelect" class="form-control" onchange="runSilageMoistureTest()">
+                <option value="milk_1_4">1/4 Seviyesinde (Dane tepesi hafif sertleşmiş, altı tamamen sulu/süt)</option>
+                <option value="milk_1_2" selected>1/2 Seviyesinde (Süt çizgisi danenin tam ortasında - EN İDEAL BİÇİM ZAMANI)</option>
+                <option value="milk_2_3">2/3 Seviyesinde (Danenin üçte ikisi nişasta dolmuş, unlu dönem)</option>
+                <option value="black_layer">Siyah Tabaka Oluşmuş (Dane dibinde siyah nokta - Geç Kalınmış / Tane Mısır Dönemi)</option>
+              </select>
+            </div>
+
+            <div id="milkLineResultNotice" class="info-box alert-gold">
+              <strong id="milkLineTitle">İdeal Biçim Zamanı: 1/2 Süt Çizgisi</strong>
+              <p id="milkLineDesc">Bütün bitki kuru maddesi %32 - %35 aralığındadır. Nişasta birikimi maksimum seviyededir, koçan sindirimi çok yüksektir. Biçerdöveri hemen tarlaya sokabilirsiniz.</p>
+            </div>
+
+          </div>
+
+          <!-- Sağ: Silo Hacim & Tonaj Hesaplayıcı -->
+          <div class="section-card" style="margin-bottom: 0;">
+            <h3 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 12px; color: var(--primary);">📦 Silo Hacmi & Stok Tonaj Hesabı</h3>
+            <p style="font-size: 0.84rem; color: var(--text-muted); margin-bottom: 12px;">Açık kuyu, trapez silo veya duvarlı beton silonuzun ölçülerini girerek depolanan net silaj tonajını ve kaç hayvana kaç gün yeteceğini hesaplayın:</p>
+
+            <div class="form-group">
+              <label for="siloLength">Silo Uzunluğu (Metre):</label>
+              <input type="number" id="siloLength" class="form-control" value="20" min="1" step="0.5" oninput="runSiloCapacityCalc()">
+            </div>
+
+            <div class="form-group">
+              <label for="siloWidth">Ortalama Genişlik (Metre - Taban ve Üst Ortalama):</label>
+              <input type="number" id="siloWidth" class="form-control" value="5" min="1" step="0.5" oninput="runSiloCapacityCalc()">
+            </div>
+
+            <div class="form-group">
+              <label for="siloHeight">Silaj Yığın Yüksekliği (Metre):</label>
+              <input type="number" id="siloHeight" class="form-control" value="2.5" min="0.5" step="0.1" oninput="runSiloCapacityCalc()">
+            </div>
+
+            <div class="form-group">
+              <label for="siloAnimals">Günlük Silaj Tüketen Hayvan Sayısı:</label>
+              <input type="number" id="siloAnimals" class="form-control" value="30" min="1" step="1" oninput="runSiloCapacityCalc()">
+            </div>
+
+            <div class="form-group">
+              <label for="siloRationKg">Hayvan Başına Günlük Silaj Payı (kg):</label>
+              <input type="number" id="siloRationKg" class="form-control" value="20" min="5" max="35" step="1" oninput="runSiloCapacityCalc()">
+            </div>
+
+            <!-- Sonuçlar -->
+            <div class="calc-result-box">
+              <div class="calc-result-item">
+                <span>Silo Hacmi:</span>
+                <strong id="resSiloVolume">250 m³</strong>
+              </div>
+              <div class="calc-result-item">
+                <span>Net Yaş Silaj Tonajı (700 kg/m³):</span>
+                <strong id="resSiloTons">175.0 Ton</strong>
+              </div>
+              <div class="calc-result-item">
+                <span>Net Kuru Madde Ağırlığı (%33 KM):</span>
+                <strong id="resSiloDmTons">57.75 Ton KM</strong>
+              </div>
+              <div class="calc-result-item">
+                <span>Sürünüze Yetme Süresi:</span>
+                <strong id="resSiloDays">291 Gün (Yaklaşık 9.7 Ay)</strong>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SEKME 5: BESİN DEĞERLERİ & VERİM MATRİSİ
+         ========================================================================= -->
+    <section id="tab-matris" class="tab-pane" role="tabpanel">
+      <div class="section-card">
+        <h2 class="section-title">📊 Kaba Yem Besin Değerleri ve Verim Cetveli</h2>
+        <p class="section-desc">Laboratuvar analiz standartlarında (NASEM/NRC/CNCPS) kuru madde, ham protein, NDF, ADF, enerji değerleri ve dekara ortalama verim potansiyelleri.</p>
+
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Yem Bitkisi Türü</th>
+                <th>Biçim Evresi</th>
+                <th>Kuru Madde (%)</th>
+                <th>Ham Protein (% HP)</th>
+                <th>NDF (%)</th>
+                <th>ADF (%)</th>
+                <th>NEL (Mcal/kg)</th>
+                <th>Ort. Dekar Verimi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Yonca (Kuru Ot)</strong></td>
+                <td>%10 Çiçeklenme (Erken)</td>
+                <td>88 - 90</td>
+                <td><strong>19.0 - 22.0</strong></td>
+                <td>38 - 42</td>
+                <td>28 - 31</td>
+                <td>1.45</td>
+                <td>1.200 - 1.800 kg/yıl</td>
+              </tr>
+              <tr>
+                <td><strong>Yonca (Kuru Ot)</strong></td>
+                <td>Tam Çiçeklenme (Geç)</td>
+                <td>88 - 90</td>
+                <td>15.0 - 17.5</td>
+                <td>46 - 52</td>
+                <td>35 - 39</td>
+                <td>1.28</td>
+                <td>1.400 - 2.000 kg/yıl</td>
+              </tr>
+              <tr>
+                <td><strong>Korunga (Kuru Ot)</strong></td>
+                <td>Çiçeklenme Başlangıcı</td>
+                <td>88 - 90</td>
+                <td><strong>15.5 - 18.0</strong></td>
+                <td>42 - 46</td>
+                <td>30 - 34</td>
+                <td>1.38</td>
+                <td>600 - 900 kg (Kıraç)</td>
+              </tr>
+              <tr>
+                <td><strong>Silajlık Mısır</strong></td>
+                <td>1/2 Süt Çizgisi</td>
+                <td><strong>32 - 35</strong></td>
+                <td>7.5 - 8.8</td>
+                <td>40 - 45</td>
+                <td>24 - 28</td>
+                <td><strong>1.58 - 1.65</strong></td>
+                <td>5.500 - 8.500 kg yaş/da</td>
+              </tr>
+              <tr>
+                <td><strong>Macar Fiği + Tahıl (Ot)</strong></td>
+                <td>Tahıl Süt Olum</td>
+                <td>86 - 88</td>
+                <td><strong>14.5 - 17.0</strong></td>
+                <td>45 - 50</td>
+                <td>32 - 36</td>
+                <td>1.36</td>
+                <td>650 - 1.100 kg kuru ot/da</td>
+              </tr>
+              <tr>
+                <td><strong>Yem Bezelyesi + Tritikale</strong></td>
+                <td>Alt Bakla Dolumu</td>
+                <td>30 - 34 (Silaj)</td>
+                <td><strong>15.0 - 18.5</strong></td>
+                <td>44 - 48</td>
+                <td>30 - 33</td>
+                <td>1.42</td>
+                <td>3.000 - 4.500 kg silaj/da</td>
+              </tr>
+              <tr>
+                <td><strong>Ryegrass (İtalyan Çimi)</strong></td>
+                <td>Başaklanma Öncesi</td>
+                <td>85 - 88</td>
+                <td><strong>18.0 - 22.0</strong></td>
+                <td>42 - 48</td>
+                <td>26 - 30</td>
+                <td>1.52</td>
+                <td>800 - 1.400 kg kuru ot/da</td>
+              </tr>
+              <tr>
+                <td><strong>Sorgum-Sudan Otu (Silaj)</strong></td>
+                <td>Süt-Hamur Olum</td>
+                <td>28 - 32</td>
+                <td>8.0 - 9.5</td>
+                <td>52 - 58</td>
+                <td>34 - 38</td>
+                <td>1.32</td>
+                <td>4.500 - 7.000 kg yaş/da</td>
+              </tr>
+              <tr>
+                <td><strong>Yemlik Yulaf (Kuru Ot)</strong></td>
+                <td>Süt Olum Sonu</td>
+                <td>88 - 90</td>
+                <td>9.0 - 11.5</td>
+                <td>54 - 60</td>
+                <td>34 - 38</td>
+                <td>1.25</td>
+                <td>600 - 900 kg kuru ot/da</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="info-box" style="margin-top: 16px;">
+          <strong>💡 Rasyon Besleme Notu:</strong>
+          <p>Yüksek süt verimli ineklerin rasyonunda NDF oranının %28-32'yi, kaba yem kaynaklı NDF'nin ise en az %19-21'i bulması rumen asidozunu (işkembe ekşimesini) engellemek için mecburidir. Genç biçilmiş yonca ve ryegrass yüksek protein ve hızlı sindirilebilir NDF sağlarken, silajlık mısır yüksek nişasta ve enerji temin eder.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SEKME 6: ÇEVRİMDIŞI TARLA DEFTERİ
+         ========================================================================= -->
+    <section id="tab-defter" class="tab-pane" role="tabpanel">
+      <div class="section-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 12px;">
+          <div>
+            <h2 class="section-title">📋 Çevrimdışı Tarla & Ekiliş Defteri</h2>
+            <p class="section-desc" style="margin-bottom: 0;">Ekim yaptığınız tarlaları, çeşitleri, gübrelemeleri ve rekolte gerçekleşmelerini cihazınızda saklayın.</p>
+          </div>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+            <button class="tool-btn" onclick="openFieldModal()">➕ Yeni Tarla Ekle</button>
+            <button class="btn-secondary" onclick="exportFieldRecords()">💾 JSON İndir</button>
+            <button class="btn-secondary" onclick="document.getElementById('importFieldInput').click()">📥 Yedek Yükle</button>
+            <input type="file" id="importFieldInput" accept=".json" style="display:none;" onchange="importFieldRecords(event)">
+          </div>
+        </div>
+
+        <!-- Kayıt Listesi Filtresi -->
+        <div class="filter-bar">
+          <input type="text" id="fieldSearchInput" class="search-input" placeholder="Tarla adı, mevki veya ürün ara..." oninput="renderFieldRecords()">
+        </div>
+
+        <!-- Tarla Kayıtları Konteynırı -->
+        <div id="fieldRecordsContainer">
+          <!-- Dinamik olarak JS ile render edilecek -->
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Altbilgi (Footer) -->
+  <footer>
+    <p>
+      <strong>Tosun Paşa Çiftliği - Yem Bitkileri Rehberi</strong><br>
+      Tarımsal araştırma enstitüleri (TAGEM) ve üniversite agronomi normlarına uygun çevrimdışı saha kılavuzu.<br>
+      Tüm veriler sadece kendi cihazınızda saklanır.
+    </p>
+  </footer>
+
+  <!-- =========================================================================
+       MODAL: YENİ TARLA / PARSEL EKLEME & DÜZENLEME
+       ========================================================================= -->
+  <div id="fieldModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="fieldModalTitle" onclick="handleModalOverlayClick(event, 'fieldModal')">
+    <div class="modal-container" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3 id="fieldModalTitle">🌱 Tarla & Ekiliş Kaydı</h3>
+        <button class="modal-close-btn" onclick="closeFieldModal()">Kapat ✕</button>
+      </div>
+      <div class="modal-body">
+        <form id="fieldRecordForm" onsubmit="saveFieldRecord(event)">
+          <input type="hidden" id="fieldRecordId">
+
+          <div class="form-group">
+            <label for="fFieldName">Tarla / Parsel Adı & Mevki: *</label>
+            <input type="text" id="fFieldName" class="form-control" placeholder="Örn: Değirmen Yanı 12 Nolu Parsel" required>
+          </div>
+
+          <div class="calc-grid">
+            <div class="form-group">
+              <label for="fCropType">Ekilen Yem Bitkisi / Karışım: *</label>
+              <select id="fCropType" class="form-control" required>
+                <option value="Yonca">Yonca (Çok yıllık)</option>
+                <option value="Korunga">Korunga (Kıraç)</option>
+                <option value="Silajlık Mısır">Silajlık Mısır</option>
+                <option value="İtalyan Çimi (Ryegrass)">İtalyan Çimi (Ryegrass)</option>
+                <option value="Macar Fiği + Tritikale">Macar Fiği + Tritikale Karışımı</option>
+                <option value="Yem Bezelyesi + Tritikale">Yem Bezelyesi + Tritikale Karışımı</option>
+                <option value="Adi Fiğ + Yulaf">Adi Fiğ + Yulaf Karışımı</option>
+                <option value="Sorgum - Sudan Otu">Sorgum - Sudan Otu Melezi</option>
+                <option value="Suni Mera">Suni Mera (Baklagil + Buğdaygil)</option>
+                <option value="Diğer">Diğer Kaba Yem Bitkisi</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="fAreaDa">Tarla Büyüklüğü (Dekar / Dönüm): *</label>
+              <input type="number" id="fAreaDa" class="form-control" min="0.1" step="0.1" placeholder="Örn: 15" required>
+            </div>
+          </div>
+
+          <div class="calc-grid">
+            <div class="form-group">
+              <label for="fSowDate">Ekim Tarihi:</label>
+              <input type="date" id="fSowDate" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label for="fExpectedHarvest">Beklenen / Gerçekleşen Biçim Tarihi:</label>
+              <input type="date" id="fExpectedHarvest" class="form-control">
+            </div>
+          </div>
+
+          <div class="calc-grid">
+            <div class="form-group">
+              <label for="fFertilizerUsed">Uygulanan Taban & Üst Gübreler:</label>
+              <input type="text" id="fFertilizerUsed" class="form-control" placeholder="Örn: 25 kg DAP + 15 kg Üre">
+            </div>
+
+            <div class="form-group">
+              <label for="fYieldObtained">Elde Edilen Rekolte (Balya veya Ton):</label>
+              <input type="text" id="fYieldObtained" class="form-control" placeholder="Örn: 180 Balya veya 65 Ton Silaj">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="fNotes">Özel Tarla Notları / Tohum Çeşidi:</label>
+            <textarea id="fNotes" class="form-control" style="min-height: 80px;" placeholder="Tohum çeşidi, sulama sıklığı veya toprak analizi notları..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-action">💾 Tarla Kaydını Kaydet</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL: BİTKİ / KARIŞIM DETAY PENCERESİ
+       ========================================================================= -->
+  <div id="detailModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="detailModalTitle" onclick="handleModalOverlayClick(event, 'detailModal')">
+    <div class="modal-container" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3 id="detailModalTitle">Bitki Detayı</h3>
+        <button class="modal-close-btn" onclick="closeDetailModal()">Kapat ✕</button>
+      </div>
+      <div class="modal-body" id="detailModalBody">
+        <!-- Dinamik İçerik -->
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL: BİLGİ & YETİŞTİRİCİLİK KILAVUZU
+       ========================================================================= -->
+  <div id="infoModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="infoModalTitle" onclick="handleModalOverlayClick(event, 'infoModal')">
+    <div class="modal-container" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3 id="infoModalTitle">ℹ️ Yem Bitkileri Modülü Kılavuzu</h3>
+        <button class="modal-close-btn" onclick="closeInfoModal()">Kapat ✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="info-box">
+          <strong>Modülün Amacı & Kapsamı</strong>
+          <p>Yem Bitkileri Rehberi, kaba yem maliyetlerini düşürmek ve rasyonlarda kaliteli kaba yem oranını artırmak isteyen yetiştiriciler için geliştirilmiş bağımsız, ücretsiz ve %100 çevrimdışı çalışan bir çiftlik aracıdır.</p>
+        </div>
+
+        <div class="info-box">
+          <strong>Bölgesel Agronomik Tavsiyeler</strong>
+          <p>
+            • <strong>İç ve Doğu Anadolu (Karasal & Soğuk):</strong> Kışa yüksek dayanım için Macar Fiği + Tritikale karışımı, kıraç arazilerde Korunga, sulak taban yerlerde 4-5 yıllık Yonca.<br>
+            • <strong>Ege, Akdeniz ve Marmara (Ilıman Kıyı):</strong> Erken sonbahar ekimli Ryegrass (İtalyan Çimi) + İskenderiye Üçgülü ile kış boyu çoklu biçim; yaz aylarında birinci ve ikinci ürün Silajlık Mısır.<br>
+            • <strong>Güneydoğu Anadolu (Sıcak & Kurak):</strong> Yüksek sıcaklığa dayanıklı Sorgum-Sudan otu melezleri ve sulu şartlarda yüksek verimli silajlık mısır çeşitleri.
+          </p>
+        </div>
+
+        <div class="info-box alert-gold">
+          <strong>Hayati Hayvan Sağlığı Uyarıları</strong>
+          <p>
+            • <strong>Timpani (Gaz / Şişkinlik):</strong> Yonca ve taze üçgül tarlalarına hayvanlar sabah çiği kalkmadan veya aç karnına sokulmamalıdır. Öncesinde kuru saman yedirilmelidir. Korungada tanen bulunduğu için şişkinlik yapmaz.<br>
+            • <strong>Prusik Asit (Hidrosiyanik Asit Zehirlenmesi):</strong> Sorgum ve sudan otu taze filizlendiğinde 60 cm boyuna ulaşmadan kesinlikle otlatılmamalı veya taze biçilip yedirilmemelidir. Silaj yapıldığında fermantasyonla prusik asit zararsız hale gelir.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* =========================================================================
+       VERİ TABANI: TÜRKİYE'DE YAYGIN YEM BİTKİLERİ VE KARIŞIMLARI
+       ========================================================================= */
+    const CROPS_DATA = [
+      {
+        id: "yonca",
+        name: "Yonca",
+        sci: "Medicago sativa",
+        type: "legume",
+        badge: "Kraliçe Yem Bitkisi",
+        badgeClass: "badge-legume",
+        summary: "Kaba yemlerin kraliçesidir. Derin kök sistemiyle (2-4 metre) kuraklığa dayanır, toprağa yılda dekara 20-25 kg saf azot bağlar. Çok yıllık (4-6 yıl) olup sulu şartlarda yılda 4-7 biçim verir.",
+        protein: "%18 - %22 HP",
+        yield: "1.200 - 1.800 kg/da Kuru Ot",
+        sowing: "2.0 - 2.5 kg/da (Mivzer)",
+        depth: "1.5 - 2.0 cm",
+        details: {
+          climate: "Güneşli, derin, taban suyu 1.5 metrenin altında ve kireçli toprakları sever. Asitli (pH < 6.2) topraklarda kireçleme zorunludur.",
+          sowingPeriod: "İç ve Doğu Anadolu'da Erken İlkbahar (Mart-Nisan); Ege, Akdeniz ve Marmara'da Sonbahar (Eylül-Ekim).",
+          fertilizing: "Taban: 25-30 kg/da DAP (18-46-0) veya 20-20-0. Çok yıllık olduğu için fosfor kök gelişiminin anahtarıdır. Üst gübre olarak kış çıkışı 15-20 kg/da TSP veya Potasyum sülfat.",
+          irrigation: "Her biçimden 5-7 gün önce ve biçimden 3-5 gün sonra mutlaka sulanmalıdır. Biçim başına ortalama 60-80 mm su tüketir.",
+          harvest: "En ideal biçim dönemi tarlada çiçeklerin %10'unun açtığı (erken çiçeklenme) evredir. Erken biçilirse protein tavan yapar; geç biçilirse selüloz (ADF/NDF) artar, yapraklar dökülür.",
+          warning: "Taze ve çiğli yoncada köpüklü şişkinlik (timpani) riski çok yüksektir! Kurutularak balyalanmalı veya kurutulduktan sonra hayvanlara sunulmalıdır."
+        }
+      },
+      {
+        id: "korunga",
+        name: "Korunga",
+        sci: "Onobrychis viciifolia",
+        type: "legume",
+        badge: "Kıraç & Kireç Dostu",
+        badgeClass: "badge-legume",
+        summary: "Kıraç, taşlı, kireçli ve fakir arazilere mükemmel uyum sağlar. İçerdiği kondanse tanenler sayesinde hayvanlarda ASLA şişkinlik (gaz) yapmaz, parazit baskılayıcı etkisi vardır.",
+        protein: "%15 - %18 HP",
+        yield: "500 - 900 kg/da Kuru Ot",
+        sowing: "8 - 10 kg/da (Kabuklu Tohum)",
+        depth: "2.5 - 3.5 cm",
+        details: {
+          climate: "Karasal iklim, düşük kış sıcaklıkları ve kurak arazilere son derece dayanıklıdır. 3-4 yıl ekonomik ömrü vardır.",
+          sowingPeriod: "Karasal bölgelerde Mart sonu - Nisan başı; kışı ılık yerlerde Ekim-Kasım.",
+          fertilizing: "Ekimle birlikte 15-20 kg/da DAP (18-46-0) yeterlidir. Kendi azotunu kendi ürettiği için fazladan azotlu üst gübre istemez.",
+          irrigation: "Yağışa dayalı kıraç şartlarda 1 biçim verir. İlkbaharda 1-2 kez sulanabilirse 2. ve 3. biçim alınabilir.",
+          harvest: "Çiçeklenme başlangıcında (tarlanın %20-30 çiçeklendiği dönemde) biçilir. Yaprakları çok lezzetli ve besleyicidir.",
+          warning: "Biçim yüksekliği 6-7 cm'den alçak olmamalıdır; çok dipten biçilirse bitkinin yeniden sürgün verme gözleri zarar görür."
+        }
+      },
+      {
+        id: "misir",
+        name: "Silajlık Mısır",
+        sci: "Zea mays",
+        type: "cereal",
+        badge: "Enerji & Silaj Deposu",
+        badgeClass: "badge-grass",
+        summary: "Süt ve besi sığırcılığının vazgeçilmez enerji kaynağıdır. Yüksek nişasta içeriğiyle TMR rasyonlarının omurgasını oluşturur. FAO 500-700 olgunluk grupları yaygındır.",
+        protein: "%7.5 - %8.8 HP",
+        yield: "5.500 - 8.500 kg/da Yaş Silaj",
+        sowing: "7.500 - 9.000 Tohum/da (Pnömatik)",
+        depth: "4.0 - 6.0 cm",
+        details: {
+          climate: "Sıcak ve güneşli mevsim bitkisidir. Çimlenme için toprak sıcaklığı en az 10-12°C olmalıdır. Sıra arası 70 cm, sıra üzeri 14-16 cm ekilir.",
+          sowingPeriod: "Ana ürün: Nisan - Mayıs. İkinci ürün (buğday/arpa hasadı sonrası): Haziran sonu - Temmuz başı.",
+          fertilizing: "Taban: 30-35 kg/da 20-20-0 veya DAP. Üst gübreleme: Bitki diz boyuna (6-8 yaprak) geldiğinde 25-30 kg/da Üre (%46 N) çapa/boğaz doldurmayla.",
+          irrigation: "Püskül çıkarma ve dane dolum dönemi su stresine en hassas evredir. Yağmurlama veya damla sulama ile düzenli sulanmalıdır.",
+          harvest: "Danedeki süt çizgisinin (milk-line) 1/2 seviyesine indiği ve tüm bitki kuru maddesinin %32-35 olduğu dönemde silaj biçerdöveri ile kıyılmalıdır.",
+          warning: "Kuru madde %30'un altındayken biçilirse siloda şıra akması ve bütirik asit bozulması oluşur!"
+        }
+      },
+      {
+        id: "ryegrass",
+        name: "İtalyan Çimi (Ryegrass)",
+        sci: "Lolium multiflorum",
+        type: "grass",
+        badge: "Kışlık Süt Otu",
+        badgeClass: "badge-grass",
+        summary: "Tek yıllık kışlık süt otu olarak bilinir. Çok lezzetli, sindirilebilirliği fevkalade yüksek ve hayvanların iştahını artıran harika bir kaba yemdir. Yılda 3-5 biçim verir.",
+        protein: "%18 - %22 HP",
+        yield: "4.000 - 6.000 kg Yaş / 1.000 kg Kuru",
+        sowing: "4.5 - 5.5 kg/da (Mivzer)",
+        depth: "1.5 - 2.0 cm",
+        details: {
+          climate: "Serin ve nemli havaları sever. Kışları ılıman veya orta sertlikte geçen bölgelerde olağanüstü performans gösterir.",
+          sowingPeriod: "Sonbahar (Eylül-Ekim-Kasım). Erken ilkbaharda hızla boylanarak ilk biçime gelir.",
+          fertilizing: "Azotu çok sever. Taban: 20-25 kg 20-20-0. Her biçimden sonra mutlaka 15-20 kg/da Amonyum Nitrat (%26) veya Üre atılmalıdır.",
+          irrigation: "Yağışlar yetersizse ekim sonrası can suyu ve her biçim sonrası üst gübreyle birlikte bolca sulanmalıdır.",
+          harvest: "Bitki boyu 35-45 cm'ye ulaştığında, başak çıkarmadan önce biçilmelidir. Başaklandıktan sonra selüloz sertleşir, protein düşer.",
+          warning: "Her biçimden sonra hayvan otlatılacaksa 1 hafta dinlendirilmeli, gübre atıldıktan sonra gübre eriyene kadar otlatma yapılmamalıdır."
+        }
+      },
+      {
+        id: "macar_fig",
+        name: "Macar Fiği",
+        sci: "Vicia pannonica",
+        type: "legume",
+        badge: "Kışa En Dayanıklı Fiğ",
+        badgeClass: "badge-legume",
+        summary: "Fiğ türleri içinde soğuğa ve dona (-25°C kar örtüsüz) en dayanıklı olanıdır. Tüylü yaprakları ve soluk sarı çiçekleri vardır. Kuru ot ve silaj için vazgeçilmezdir.",
+        protein: "%16 - %20 HP",
+        yield: "600 - 1.000 kg/da Kuru Ot",
+        sowing: "8 - 10 kg/da (Saf) / 7 kg + 3 kg Tahıl",
+        depth: "3.0 - 5.0 cm",
+        details: {
+          climate: "Ağır killi topraklardan kumlu topraklara kadar adapte olur. İç, Doğu ve Trakya'nın sert kışlarında donmaz.",
+          sowingPeriod: "Sonbahar ekimi (Ekim - Kasım ayları). Kış yağışlarından maksimum faydalanır.",
+          fertilizing: "Taban: 15-20 kg/da DAP veya 20-20-0. Saf ekimlerde üst azot gübresi gerekmez.",
+          irrigation: "Genellikle kış ve ilkbahar yağışlarıyla masrafsız yetişir; nisan kurak geçerse tek bir sulama verimi ikiye katlar.",
+          harvest: "Alt baklalar dolduğunda veya tarladaki tahılın süt-hamur olum döneminde biçilir.",
+          warning: "Tek başına ekilirse yatar ve hasadı zorlaşır; mutlaka %30 oranında tritikale veya yulaf ile karışık ekilmelidir."
+        }
+      },
+      {
+        id: "yem_bezelyesi",
+        name: "Yem Bezelyesi",
+        sci: "Pisum arvense",
+        type: "legume",
+        badge: "Yüksek Proteinli Silajlık",
+        badgeClass: "badge-legume",
+        summary: "Büyük yaprak aksamı ve iri baklalarıyla dekara devasa biyokütle üretir. Kaba yemde hem enerji hem de sindirilebilir ham protein arayanlar için en iyi seçenektir.",
+        protein: "%16 - %21 HP",
+        yield: "800 - 1.200 kg Kuru Ot / 3.500 kg Silaj",
+        sowing: "12 - 15 kg/da (Saf) / 10 kg + 4 kg Tritikale",
+        depth: "4.0 - 5.0 cm",
+        details: {
+          climate: "Serin mevsim baklagilidir. Taban suyu yüksek olmayan, süzek ve organik maddesi iyi arazilerde rekor verim verir.",
+          sowingPeriod: "Ilıman bölgelerde Sonbahar (Kasım), kışı sert bölgelerde Erken İlkbahar (Şubat sonu - Mart).",
+          fertilizing: "Ekimde 20 kg/da DAP veya 20-20-0 taban gübresi verilir.",
+          irrigation: "Çiçeklenme ve bakla bağlama döneminde su eksikliği çekmemelidir.",
+          harvest: "Baklaların dolduğu fakat henüz sararmadığı evrede tritikale ile birlikte doğrudan silaja kıyılır veya kurutulur.",
+          warning: "Tohum iridir, mivzer ayarında tohumların kırılmaması için uygun kurs ve dişli seçilmelidir."
+        }
+      },
+      {
+        id: "sorgum_sudan",
+        name: "Sorgum - Sudan Otu",
+        sci: "Sorghum bicolor x S. sudanense",
+        type: "grass",
+        badge: "Kurağa & Sıcağa Dayanıklı",
+        badgeClass: "badge-grass",
+        summary: "Mısırın su yetersizliği nedeniyle yetişemediği sıcak ve kurak yörelerin kurtarıcısıdır. Mısıra göre %30-40 daha az su tüketir ve yaz boyu 2-3 biçim verir.",
+        protein: "%8.5 - %11.0 HP",
+        yield: "4.500 - 7.500 kg/da Yaş Silaj",
+        sowing: "3.5 - 4.5 kg/da (Mivzer)",
+        depth: "2.5 - 3.5 cm",
+        details: {
+          climate: "Sıcak iklim bitkisidir. Toprak sıcaklığı 15°C'yi geçmeden ekilmemelidir.",
+          sowingPeriod: "Mayıs - Haziran ayları.",
+          fertilizing: "Taban: 25 kg/da 20-20-0; her biçimden sonra 15-20 kg/da Üre veya Amonyum Nitrat.",
+          irrigation: "Kuraklığa dayanıklıdır ancak sulandıkça biçim sayısı ve tonajı katlanarak artar.",
+          harvest: "Bitki boyu 100-130 cm olduğunda veya süt-hamur olum döneminde biçilir.",
+          warning: "DİKKAT: 60 cm'den kısa sürgünlerde Prusik Asit (Dhurrin) zehirlenmesi riski vardır! 60 cm üzerine çıkmadan asla otlatılmamalıdır!"
+        }
+      },
+      {
+        id: "iskenderiye_ucgul",
+        name: "İskenderiye Üçgülü",
+        sci: "Trifolium alexandrinum",
+        type: "legume",
+        badge: "Hızlı Büyüyen Tek Yıllık",
+        badgeClass: "badge-legume",
+        summary: "Kışı ılıman geçen kıyı bölgelerimizin (Akdeniz, Ege) en hızlı büyüyen tek yıllık baklagilidir. Gaz yapma riski yoncaya göre düşüktür ve 3-4 kez biçilebilir.",
+        protein: "%17 - %20 HP",
+        yield: "800 - 1.200 kg Kuru Ot / 4.000 kg Yaş",
+        sowing: "2.5 - 3.5 kg/da (Mivzer)",
+        depth: "1.0 - 1.5 cm",
+        details: {
+          climate: "Ilıman kış iklimlerini sever. -5°C altındaki donlarda zarar görebilir.",
+          sowingPeriod: "Eylül sonu - Ekim ayları.",
+          fertilizing: "Taban gübresi olarak 20 kg/da DAP yeterlidir.",
+          irrigation: "Kış yağışlarıyla büyür; ilkbahar kuraklığında sulama ister.",
+          harvest: "Çiçeklenme başlangıcında her 30-35 günde bir biçim yapılabilir.",
+          warning: "Küçük tohumludur, tohum yatağı çok düzgün ve merdanelenmiş olmalıdır."
+        }
+      }
+    ];
+
+    /* =========================================================================
+         KARIŞIMLAR VERİSİ
+         ========================================================================= */
+    const MIXES_DATA = {
+      "macar-tritikale": {
+        title: "Macar Fiği (%70) + Tritikale / Yulaf (%30) Karışımı",
+        desc: "İç Anadolu, Doğu Anadolu, Geçit Bölgeleri ve Trakya için kışa dayanıklı en dengeli kaba yemdir.",
+        recipe: "Dekara 7-8 kg Macar Fiği + 3-4 kg Tritikale (veya Yulaf). İki tohum homojen karıştırılarak buğday mivzeriyle ekilir.",
+        fertilizer: "Taban: 20-25 kg/da DAP (18-46-0). Üst: Erken baharda sadece 8-10 kg/da A.N. (fazla azot verilirse tahıl fiği bastırır).",
+        harvest: "Tritikale süt olum sonu - erken hamur olum evresine geldiğinde, fiğin ise alt baklaları dolduğunda biçilir.",
+        nutrition: "Ham Protein %14.5 - %17.5, NEL: 1.38 Mcal/kg KM, NDF: %46-49."
+      },
+      "bezelye-tritikale": {
+        title: "Yem Bezelyesi (%75) + Tritikale (%25) Karışımı",
+        desc: "Yüksek verimli süt sığırcılığı için rüya silaj ve kuru ot formülü.",
+        recipe: "Dekara 10-12 kg Yem Bezelyesi + 3-4 kg Tritikale tohumu.",
+        fertilizer: "Taban: 25 kg/da DAP veya Kompoze 20-20-0. Ekim derinliği 4-5 cm.",
+        harvest: "Bezelye alt baklaları dolup şiştiğinde, tahıl hamur olumundayken biçilerek silaj yapılır.",
+        nutrition: "Ham Protein %15.0 - %18.5, Yüksek laktik asit fermantasyonu, mükemmel sindirilebilirlik."
+      },
+      "ryegrass-ucgul": {
+        title: "Ryegrass (İtalyan Çimi) + İskenderiye Üçgülü",
+        desc: "Kıyı ve ılıman bölgelerde kış boyu kesintisiz taze süt otu ve kuru ot.",
+        recipe: "Dekara 3.5 kg Ryegrass + 2.0 kg İskenderiye Üçgülü tohumu.",
+        fertilizer: "Taban: 20 kg 20-20-0. Her biçimden sonra 12-15 kg/da Amonyum Nitrat (%26) veya Üre.",
+        harvest: "Bitki boyu 40 cm'ye geldiğinde biçilir. Sezon boyunca 3-5 biçim alınabilir.",
+        nutrition: "Ham Protein %18.0 - %21.0, İneklerde süt verimini doğrudan stimüle eder."
+      },
+      "suni-mera": {
+        title: "Çok Yıllık Suni Mera (%30 Baklagil + %70 Buğdaygil)",
+        desc: "4 ila 6 yıl kesintisiz otlatma ve balya üretimi için çok yıllık mera tesisi.",
+        recipe: "Dekara 1.5 kg Yonca/Korunga/Ak Üçgül + 3.5 kg Kılçıksız Brom / Domuz Ayrığı / Çayır Salkım Otu.",
+        fertilizer: "Taban: 25-30 kg/da DAP. Her yıl ilkbahar çıkışı 15 kg/da 20-20-0.",
+        harvest: "Münavebeli otlatma (rotational grazing) uygulanmalı; mera 10 cm'den kısa çiğnetilmemelidir.",
+        nutrition: "Doğal yaşam alanı dengesi, sıfır timpani riski, yüksek et ve karkas randımanı."
+      }
+    };
+
+    /* =========================================================================
+         DOM & BAŞLANGIÇ YÖNETİMİ
+         ========================================================================= */
+    let currentCategory = "all";
+    const FIELD_STORAGE_KEY = "yem_bitkileri_tarla_records_v1";
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderCrops();
+      renderFieldRecords();
+      runSeedCalc();
+      runFertilizerCalc();
+      runSilageMoistureTest();
+      runSiloCapacityCalc();
+
+      // PWA Service Worker Kaydı
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("./sw.js").catch(() => {});
+      }
+
+      // Hash bazlı sekme açılışı
+      const hash = window.location.hash.replace("#", "");
+      if (hash) {
+        const targetBtn = document.querySelector(`[onclick*="'${hash}'"]`);
+        if (targetBtn) {
+          switchTab(hash, targetBtn);
+        }
+      }
+    });
+
+    /* =========================================================================
+         SEKME GEÇİŞLERİ
+         ========================================================================= */
+    function switchTab(tabId, btnElement) {
+      document.querySelectorAll(".tab-pane").forEach(pane => pane.classList.remove("active"));
+      document.querySelectorAll(".nav-tab-btn").forEach(btn => {
+        btn.classList.remove("active");
+        btn.setAttribute("aria-selected", "false");
+      });
+
+      const targetPane = document.getElementById("tab-" + tabId);
+      if (targetPane) {
+        targetPane.classList.add("active");
+      }
+      if (btnElement) {
+        btnElement.classList.add("active");
+        btnElement.setAttribute("aria-selected", "true");
+      }
+      window.location.hash = tabId;
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    /* =========================================================================
+         BİTKİ LİSTELEME & ARAMA & FİLTRELEME
+         ========================================================================= */
+    function setCropCategory(category, chipBtn) {
+      currentCategory = category;
+      document.querySelectorAll(".chip-group .chip-btn").forEach(b => b.classList.remove("active"));
+      chipBtn.classList.add("active");
+      filterCrops();
+    }
+
+    function filterCrops() {
+      const q = (document.getElementById("cropSearchInput")?.value || "").toLowerCase().trim();
+      const container = document.getElementById("cropsContainer");
+      if (!container) return;
+
+      const filtered = CROPS_DATA.filter(c => {
+        const matchesCategory = currentCategory === "all" || c.type === currentCategory;
+        const matchesQuery = !q || 
+          c.name.toLowerCase().includes(q) || 
+          c.sci.toLowerCase().includes(q) || 
+          c.summary.toLowerCase().includes(q) ||
+          c.badge.toLowerCase().includes(q);
+        return matchesCategory && matchesQuery;
+      });
+
+      renderCropCards(filtered, container);
+    }
+
+    function renderCrops() {
+      const container = document.getElementById("cropsContainer");
+      if (!container) return;
+      renderCropCards(CROPS_DATA, container);
+    }
+
+    function renderCropCards(crops, container) {
+      if (crops.length === 0) {
+        container.innerHTML = `<p style="grid-column: 1/-1; padding: 24px; text-align: center; color: var(--text-muted); font-weight: 700;">Aramanıza uygun yem bitkisi bulunamadı.</p>`;
+        return;
+      }
+
+      container.innerHTML = crops.map(c => `
+        <div class="crop-card">
+          <div class="crop-header">
+            <div>
+              <h3 class="crop-name">${c.name}</h3>
+              <p class="crop-sci">${c.sci}</p>
+            </div>
+            <span class="crop-badge ${c.badgeClass}">${c.badge}</span>
+          </div>
+          <p class="crop-summary">${c.summary}</p>
+          <div class="crop-metrics">
+            <div class="metric-item">
+              <span>Ham Protein:</span>
+              <strong>${c.protein}</strong>
+            </div>
+            <div class="metric-item">
+              <span>Dekar Verimi:</span>
+              <strong>${c.yield}</strong>
+            </div>
+            <div class="metric-item">
+              <span>Ekim Normu:</span>
+              <strong>${c.sowing}</strong>
+            </div>
+            <div class="metric-item">
+              <span>Ekim Derinliği:</span>
+              <strong>${c.depth}</strong>
+            </div>
+          </div>
+          <button class="crop-detail-btn" onclick="showCropDetail('${c.id}')">Tam Yetiştiricilik Rehberi</button>
+        </div>
+      `).join("");
+    }
+
+    /* =========================================================================
+         BİTKİ DETAY MODALI
+         ========================================================================= */
+    function showCropDetail(cropId) {
+      const crop = CROPS_DATA.find(c => c.id === cropId);
+      if (!crop) return;
+
+      document.getElementById("detailModalTitle").textContent = `${crop.name} (${crop.sci}) - Yetiştiricilik Kılavuzu`;
+      const body = document.getElementById("detailModalBody");
+
+      body.innerHTML = `
+        <div class="info-box">
+          <strong>Özet & Karakteristik</strong>
+          <p>${crop.summary}</p>
+        </div>
+
+        <div class="info-box">
+          <strong>Toprak & İklim İstekleri</strong>
+          <p>${crop.details.climate}</p>
+        </div>
+
+        <div class="info-box">
+          <strong>Ekim Zamanı & Normu</strong>
+          <p><strong>Dönem:</strong> ${crop.details.sowingPeriod}<br>
+             <strong>Dekara Tohum:</strong> ${crop.sowing} (Ekim Derinliği: ${crop.depth})</p>
+        </div>
+
+        <div class="info-box">
+          <strong>Gübreleme Programı</strong>
+          <p>${crop.details.fertilizing}</p>
+        </div>
+
+        <div class="info-box">
+          <strong>Sulama İhtiyacı</strong>
+          <p>${crop.details.irrigation}</p>
+        </div>
+
+        <div class="info-box">
+          <strong>Biçim & Hasat Zamanı</strong>
+          <p>${crop.details.harvest}</p>
+        </div>
+
+        <div class="info-box alert-gold">
+          <strong>Saha Dikkat & Uyarıları</strong>
+          <p>${crop.details.warning}</p>
+        </div>
+      `;
+
+      document.getElementById("detailModal").classList.add("open");
+    }
+
+    function showMixModal(mixKey) {
+      const mix = MIXES_DATA[mixKey];
+      if (!mix) return;
+
+      document.getElementById("detailModalTitle").textContent = mix.title;
+      const body = document.getElementById("detailModalBody");
+
+      body.innerHTML = `
+        <div class="info-box">
+          <strong>Karışımın Amacı & Özellikleri</strong>
+          <p>${mix.desc}</p>
+        </div>
+
+        <div class="info-box">
+          <strong>Ekim Formülü & Tohum Miktarları</strong>
+          <p>${mix.recipe}</p>
+        </div>
+
+        <div class="info-box">
+          <strong>Gübreleme Tavsiyesi</strong>
+          <p>${mix.fertilizer}</p>
+        </div>
+
+        <div class="info-box">
+          <strong>Hasat & Biçim Dönemi</strong>
+          <p>${mix.harvest}</p>
+        </div>
+
+        <div class="info-box">
+          <strong>Besleme Değerleri</strong>
+          <p>${mix.nutrition}</p>
+        </div>
+      `;
+
+      document.getElementById("detailModal").classList.add("open");
+    }
+
+    function closeDetailModal() {
+      document.getElementById("detailModal").classList.remove("open");
+    }
+
+    /* =========================================================================
+         TOHUM VE GÜBRE HESAPLAYICISI
+         ========================================================================= */
+    const SEED_RATES = {
+      yonca: { mivzer: 2.2, serpme: 3.2, depth: "1.5 - 2.0 cm", baseFertDap: 25, topFertUre: 0 },
+      korunga: { mivzer: 9.0, serpme: 13.0, depth: "2.5 - 3.5 cm", baseFertDap: 20, topFertUre: 0 },
+      misir_silaj: { mivzer: 7.5, serpme: 9.0, depth: "4.0 - 6.0 cm", baseFertDap: 35, topFertUre: 28 },
+      ryegrass: { mivzer: 5.0, serpme: 6.5, depth: "1.5 - 2.0 cm", baseFertDap: 25, topFertUre: 20 },
+      macar_fig: { mivzer: 9.0, serpme: 11.5, depth: "3.5 - 4.5 cm", baseFertDap: 20, topFertUre: 0 },
+      adi_fig: { mivzer: 10.0, serpme: 13.0, depth: "3.5 - 4.5 cm", baseFertDap: 20, topFertUre: 0 },
+      yem_bezelyesi: { mivzer: 14.0, serpme: 17.0, depth: "4.0 - 5.0 cm", baseFertDap: 25, topFertUre: 0 },
+      fig_tahil: { mivzer: 11.0, serpme: 14.0, depth: "3.5 - 4.5 cm", baseFertDap: 22, topFertUre: 10 },
+      bezelye_tahil: { mivzer: 15.0, serpme: 18.0, depth: "4.0 - 5.0 cm", baseFertDap: 25, topFertUre: 10 },
+      sorgum: { mivzer: 4.0, serpme: 5.5, depth: "2.5 - 3.5 cm", baseFertDap: 25, topFertUre: 22 }
+    };
+
+    function runSeedCalc() {
+      const cropKey = document.getElementById("calcCropSelect").value;
+      const area = parseFloat(document.getElementById("calcAreaInput").value) || 0;
+      const method = document.getElementById("calcMethodSelect").value;
+      const bagSize = parseFloat(document.getElementById("calcBagSize").value) || 25;
+
+      const rateInfo = SEED_RATES[cropKey] || { mivzer: 3.0, serpme: 4.0, depth: "2 - 3 cm" };
+      const seedPerDa = method === "serpme" ? rateInfo.serpme : rateInfo.mivzer;
+      const totalSeed = area * seedPerDa;
+      const bagCount = Math.ceil(totalSeed / bagSize);
+
+      document.getElementById("resSeedPerDa").textContent = `${seedPerDa.toFixed(1)} kg / da`;
+      document.getElementById("resTotalSeed").textContent = `${totalSeed.toFixed(1)} kg`;
+      document.getElementById("resBagCount").textContent = `${bagCount} Çuval / Paket (${bagSize} kg)`;
+      document.getElementById("resDepth").textContent = rateInfo.depth;
+
+      runFertilizerCalc();
+    }
+
+    function runFertilizerCalc() {
+      const cropKey = document.getElementById("calcCropSelect").value;
+      const area = parseFloat(document.getElementById("calcAreaInput").value) || 0;
+      const soilCond = document.getElementById("calcSoilCondition").value;
+      const rateInfo = SEED_RATES[cropKey] || { baseFertDap: 20, topFertUre: 10 };
+
+      let basePerDa = rateInfo.baseFertDap;
+      let topPerDa = rateInfo.topFertUre;
+
+      if (soilCond === "kirac") {
+        basePerDa = Math.round(basePerDa * 0.75);
+        topPerDa = Math.round(topPerDa * 0.65);
+      }
+
+      const totalBase = area * basePerDa;
+      const totalTop = area * topPerDa;
+      const baseBags = Math.ceil(totalBase / 50);
+      const topBags = Math.ceil(totalTop / 50);
+
+      document.getElementById("resBasePerDa").textContent = `${basePerDa} kg / da`;
+      document.getElementById("resTotalBase").textContent = `${totalBase} kg (${baseBags} Çuval - 50 kg)`;
+      document.getElementById("resTopPerDa").textContent = `${topPerDa} kg / da`;
+      document.getElementById("resTotalTop").textContent = `${totalTop} kg (${topBags} Çuval - 50 kg)`;
+
+      let note = "Ekim anında mivzerle tohumun 4-5 cm altına.";
+      if (topPerDa > 0) {
+        note += " Üst gübre yağmur öncesinde veya sulamayla birlikte verilmelidir.";
+      } else {
+        note += " Baklagiller havanın serbest azotunu bağladığı için ilave üst azota ihtiyaç duymaz.";
+      }
+      document.getElementById("resFertNote").textContent = note;
+    }
+
+    /* =========================================================================
+         SİLAJ NEM TESTİ VE SİLO KAPASİTESİ
+         ========================================================================= */
+    function runSilageMoistureTest() {
+      const squeezeVal = document.getElementById("squeezeTestSelect").value;
+      const titleEl = document.getElementById("squeezeNoticeTitle");
+      const descEl = document.getElementById("squeezeNoticeDesc");
+      const boxEl = document.getElementById("squeezeResultNotice");
+
+      boxEl.className = "info-box";
+
+      if (squeezeVal === "very_wet") {
+        boxEl.classList.add("alert-danger");
+        titleEl.textContent = "Tehlike: Çok Islak (Nem > %75 / Kuru Madde < %25)";
+        descEl.textContent = "Biçim için henüz çok erkendir! Bu nemde silolanırsa dipte aşırı şıra akar, proteinli sular ziyan olur ve siloyu çürüten bütirik asit fermantasyonu başlar. Tarlanın güneşlenmesi veya biçildikten sonra namluda soldurulması şarttır.";
+      } else if (squeezeVal === "wet") {
+        boxEl.classList.add("alert-gold");
+        titleEl.textContent = "Hafif Islak (Nem %70-75 / Kuru Madde %25-30)";
+        descEl.textContent = "Sınır seviyedir. Mısırda dane sütü fazladır. Mümkünse 3-5 gün daha beklenmelidir. Eğer biçilmek zorundaysa silaj inokulantı veya 1-2 ton kuru saman/kepek ile karıştırılmalıdır.";
+      } else if (squeezeVal === "ideal") {
+        titleEl.textContent = "İdeal Hasat Durumu (Nem %65-70 / Kuru Madde %30-35)";
+        descEl.textContent = "Kusursuz nem oranıdır. Traktörle sıkıştırma tam gerçekleşir, oksijen anında tahliye edilir ve laktik asit bakterileri pH'ı 3.8'e hızla indirerek mükemmel kokulu silaj üretir.";
+      } else {
+        boxEl.classList.add("alert-danger");
+        titleEl.textContent = "Aşırı Kuru (Nem < %60 / Kuru Madde > %40)";
+        descEl.textContent = "Çok geç kalınmıştır! Lifler sertleşmiş, hava tahliyesi imkansızlaşmıştır. Siloda küflenme, mantar ve kızışma (yanma) riski çok yüksektir. Parçalama boyu 1 cm'ye düşürülmeli, üzerine gerekirse su püskürtülüp çok ağır silindirle çiğnenmelidir.";
+      }
+
+      // Süt Çizgisi Değerlendirmesi
+      const milkVal = document.getElementById("milkLineSelect").value;
+      const mTitle = document.getElementById("milkLineTitle");
+      const mDesc = document.getElementById("milkLineDesc");
+      const mBox = document.getElementById("milkLineResultNotice");
+
+      mBox.className = "info-box";
+
+      if (milkVal === "milk_1_4") {
+        mBox.classList.add("alert-gold");
+        mTitle.textContent = "1/4 Süt Çizgisi: Henüz Erken";
+        mDesc.textContent = "Bitki kuru maddesi %28 civarındadır. Tarlada nişasta depolanması devam ediyor. Biçim için yaklaşık 7-10 gün daha beklenmelidir.";
+      } else if (milkVal === "milk_1_2") {
+        mTitle.textContent = "1/2 Süt Çizgisi: KUSURSUZ BİÇİM ZAMANI";
+        mDesc.textContent = "Bütün bitki kuru maddesi %33-35'tir. Koçan nişasta dolumu ve sindirilebilir lif oranı tepe noktadadır. Biçerdöveri hemen tarlaya sokunuz.";
+      } else if (milkVal === "milk_2_3") {
+        mBox.classList.add("alert-gold");
+        mTitle.textContent = "2/3 Süt Çizgisi: Son Biçim Fırsatı";
+        mDesc.textContent = "Kuru madde %36-38'e yükselmiştir. Daneler sertleşmektedir; biçerdöverin dane patlatma (corn-cracker) ünitesinin iyi ayarlandığından emin olun.";
+      } else {
+        mBox.classList.add("alert-danger");
+        mTitle.textContent = "Siyah Tabaka: Geç Kalındı (Tane Mısır Dönemi)";
+        mDesc.textContent = "Koçan ile sap arasındaki besin akışı durmuştur. Kuru madde %42'nin üzerindedir. Silajda çiğneme zordur; tane olarak hasat edilmesi veya çok ince kıyılması önerilir.";
+      }
+    }
+
+    function runSiloCapacityCalc() {
+      const length = parseFloat(document.getElementById("siloLength").value) || 0;
+      const width = parseFloat(document.getElementById("siloWidth").value) || 0;
+      const height = parseFloat(document.getElementById("siloHeight").value) || 0;
+      const animals = parseFloat(document.getElementById("siloAnimals").value) || 1;
+      const rationKg = parseFloat(document.getElementById("siloRationKg").value) || 20;
+
+      const volume = length * width * height;
+      const densityKgPerM3 = 700; // İyi sıkıştırılmış mısır silajı ortalaması
+      const totalTons = (volume * densityKgPerM3) / 1000;
+      const totalDmTons = totalTons * 0.33;
+
+      const dailyConsumptionKg = animals * rationKg;
+      const daysOfFeed = dailyConsumptionKg > 0 ? Math.floor((totalTons * 1000) / dailyConsumptionKg) : 0;
+      const months = (daysOfFeed / 30).toFixed(1);
+
+      document.getElementById("resSiloVolume").textContent = `${volume.toFixed(1)} m³`;
+      document.getElementById("resSiloTons").textContent = `${totalTons.toFixed(1)} Ton Yaş Silaj`;
+      document.getElementById("resSiloDmTons").textContent = `${totalDmTons.toFixed(2)} Ton KM`;
+      document.getElementById("resSiloDays").textContent = `${daysOfFeed} Gün (Yaklaşık ${months} Ay)`;
+    }
+
+    /* =========================================================================
+         ÇEVRİMDIŞI TARLA DEFTERİ (LOCALSTORAGE & JSON YEDEKLEME)
+         ========================================================================= */
+    function getStoredFieldRecords() {
+      try {
+        return JSON.parse(localStorage.getItem(FIELD_STORAGE_KEY) || "[]");
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveStoredFieldRecords(records) {
+      localStorage.setItem(FIELD_STORAGE_KEY, JSON.stringify(records));
+    }
+
+    function renderFieldRecords() {
+      const container = document.getElementById("fieldRecordsContainer");
+      if (!container) return;
+
+      const records = getStoredFieldRecords();
+      const q = (document.getElementById("fieldSearchInput")?.value || "").toLowerCase().trim();
+
+      const filtered = records.filter(r => {
+        if (!q) return true;
+        return (
+          (r.name || "").toLowerCase().includes(q) ||
+          (r.crop || "").toLowerCase().includes(q) ||
+          (r.notes || "").toLowerCase().includes(q)
+        );
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="info-box" style="text-align: center; padding: 28px;">
+            <strong>Henüz Tarla Ekiliş Kaydı Bulunmuyor</strong>
+            <p>Ekim yaptığınız tarlaları kaydetmek için "Yeni Tarla Ekle" butonunu kullanabilirsiniz. Tüm kayıtlarınız cihazınızda güvenle saklanır.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(r => `
+        <div class="field-card">
+          <div class="field-card-header">
+            <span class="field-name">🌾 ${escapeHtml(r.name)} (${r.area} dekar)</span>
+            <div class="field-actions">
+              <button class="btn-icon" onclick="editFieldRecord('${r.id}')">Düzenle</button>
+              <button class="btn-icon delete" onclick="deleteFieldRecord('${r.id}')">Sil</button>
+            </div>
+          </div>
+          <div style="font-size: 0.88rem; display: flex; flex-wrap: wrap; gap: 14px; color: var(--text);">
+            <div><strong>Ürün:</strong> ${escapeHtml(r.crop)}</div>
+            <div><strong>Ekim:</strong> ${r.sowDate || "Belirtilmedi"}</div>
+            <div><strong>Biçim:</strong> ${r.harvestDate || "Bekleniyor"}</div>
+            ${r.yield ? `<div><strong>Rekolte:</strong> ${escapeHtml(r.yield)}</div>` : ""}
+          </div>
+          ${r.fertilizer ? `<div style="font-size: 0.82rem; color: var(--text-muted);"><strong>Gübreleme:</strong> ${escapeHtml(r.fertilizer)}</div>` : ""}
+          ${r.notes ? `<div style="font-size: 0.82rem; color: var(--text-muted); font-style: italic;"><strong>Not:</strong> ${escapeHtml(r.notes)}</div>` : ""}
+        </div>
+      `).join("");
+    }
+
+    function openFieldModal() {
+      document.getElementById("fieldRecordForm").reset();
+      document.getElementById("fieldRecordId").value = "";
+      document.getElementById("fieldModalTitle").textContent = "🌱 Yeni Tarla & Ekiliş Kaydı";
+      document.getElementById("fieldModal").classList.add("open");
+    }
+
+    function closeFieldModal() {
+      document.getElementById("fieldModal").classList.remove("open");
+    }
+
+    function saveFieldRecord(event) {
+      event.preventDefault();
+      const id = document.getElementById("fieldRecordId").value || "f_" + Date.now();
+      const name = document.getElementById("fFieldName").value.trim();
+      const crop = document.getElementById("fCropType").value;
+      const area = parseFloat(document.getElementById("fAreaDa").value) || 0;
+      const sowDate = document.getElementById("fSowDate").value;
+      const harvestDate = document.getElementById("fExpectedHarvest").value;
+      const fertilizer = document.getElementById("fFertilizerUsed").value.trim();
+      const yieldVal = document.getElementById("fYieldObtained").value.trim();
+      const notes = document.getElementById("fNotes").value.trim();
+
+      const records = getStoredFieldRecords();
+      const existingIdx = records.findIndex(r => r.id === id);
+
+      const newRec = {
+        id,
+        name,
+        crop,
+        area,
+        sowDate,
+        harvestDate,
+        fertilizer,
+        yield: yieldVal,
+        notes,
+        updatedAt: new Date().toISOString()
+      };
+
+      if (existingIdx >= 0) {
+        records[existingIdx] = newRec;
+      } else {
+        records.unshift(newRec);
+      }
+
+      saveStoredFieldRecords(records);
+      closeFieldModal();
+      renderFieldRecords();
+    }
+
+    function editFieldRecord(id) {
+      const records = getStoredFieldRecords();
+      const r = records.find(item => item.id === id);
+      if (!r) return;
+
+      document.getElementById("fieldRecordId").value = r.id;
+      document.getElementById("fFieldName").value = r.name || "";
+      document.getElementById("fCropType").value = r.crop || "Yonca";
+      document.getElementById("fAreaDa").value = r.area || "";
+      document.getElementById("fSowDate").value = r.sowDate || "";
+      document.getElementById("fExpectedHarvest").value = r.harvestDate || "";
+      document.getElementById("fFertilizerUsed").value = r.fertilizer || "";
+      document.getElementById("fYieldObtained").value = r.yield || "";
+      document.getElementById("fNotes").value = r.notes || "";
+
+      document.getElementById("fieldModalTitle").textContent = "✏️ Tarla Kaydını Düzenle";
+      document.getElementById("fieldModal").classList.add("open");
+    }
+
+    function deleteFieldRecord(id) {
+      if (!confirm("Bu tarla kaydını silmek istediğinize emin misiniz?")) return;
+      let records = getStoredFieldRecords();
+      records = records.filter(r => r.id !== id);
+      saveStoredFieldRecords(records);
+      renderFieldRecords();
+    }
+
+    function exportFieldRecords() {
+      const records = getStoredFieldRecords();
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(records, null, 2));
+      const today = new Date().toISOString().slice(0, 10);
+      const a = document.createElement("a");
+      a.href = dataStr;
+      a.download = `tarla_ekilis_defteri_${today}.json`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    }
+
+    function importFieldRecords(event) {
+      const file = event.target.files?.[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const imported = JSON.parse(e.target.result);
+          if (Array.isArray(imported)) {
+            saveStoredFieldRecords(imported);
+            renderFieldRecords();
+            alert(`Başarılı: ${imported.length} adet tarla kaydı içe aktarıldı.`);
+          } else {
+            alert("Hatalı dosya formatı. Beklenen: JSON dizi formatı.");
+          }
+        } catch (err) {
+          alert("Dosya okunurken hata oluştu: " + err.message);
+        }
+      };
+      reader.readAsText(file);
+      event.target.value = "";
+    }
+
+    /* =========================================================================
+         BİLGİ MODALI & TEMA
+         ========================================================================= */
+    function openInfoModal() {
+      document.getElementById("infoModal").classList.add("open");
+    }
+
+    function closeInfoModal() {
+      document.getElementById("infoModal").classList.remove("open");
+    }
+
+    function handleModalOverlayClick(event, modalId) {
+      if (event.target === document.getElementById(modalId)) {
+        document.getElementById(modalId).classList.remove("open");
+      }
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle("dark-mode");
+      const isDark = document.body.classList.contains("dark-mode");
+      const btn = document.getElementById("themeToggleBtn");
+      if (btn) {
+        btn.textContent = isDark ? "Gündüz Modu" : "Gece Modu";
+      }
+      localStorage.setItem("yem_bitkileri_theme", isDark ? "dark" : "light");
+    }
+
+    (function initSavedTheme() {
+      const saved = localStorage.getItem("yem_bitkileri_theme");
+      if (saved === "dark") {
+        document.body.classList.add("dark-mode");
+        const btn = document.getElementById("themeToggleBtn");
+        if (btn) btn.textContent = "Gündüz Modu";
+      }
+    })();
+
+    function escapeHtml(str) {
+      if (!str) return "";
+      return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+  </script>
+</body>
+</html>
