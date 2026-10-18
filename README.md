@@ -1,14 +1,14 @@
 # Tosun Paşa Çiftliği
 
-Büyükbaş ve küçükbaş hayvancılık işletmeleri için geliştirilmiş 3 uzman, açık kaynaklı, ücretsiz ve %100 çevrimdışı saha uygulamasına tek noktadan erişim sağlayan bağımsız çiftlik portalı.
+Büyükbaş ve küçükbaş hayvancılık işletmeleri için geliştirilmiş 4 uzman, açık kaynaklı, ücretsiz ve %100 çevrimdışı saha uygulamasına tek noktadan erişim sağlayan bağımsız çiftlik portalı.
 
 Portal Canlı Adresi: [https://mserman90.github.io/](https://mserman90.github.io/)
 
 ---
 
-## 3 Uzman Saha Uygulaması
+## 4 Uzman Saha Uygulaması
 
-Proje, birbirini tamamlayan ancak birbirinden tamamen bağımsız olarak %100 çevrimdışı çalışan 3 modülden oluşur:
+Proje, birbirini tamamlayan ancak birbirinden tamamen bağımsız olarak %100 çevrimdışı çalışan 4 modülden oluşur:
 
 ### 1. 🩺 Çoban Doktor (`/coban-doktor/`)
 - **Merkezi Hastalık Ön Teşhisi:** Sığır, buzağı, koyun ve kuzu için soru-cevaplı karar ağacı ile saha triyajı.
@@ -30,6 +30,19 @@ Proje, birbirini tamamlayan ancak birbirinden tamamen bağımsız olarak %100 ç
 - **PWA Doğum & Kuru Dönem Alarmları:** Doğumu yaklaşanlar, kuruya ayrılacaklar ve 21. gün gebelik kontrolleri için tarayıcı bildirimleri.
 - **Damızlık Olgunluk Eşiği:** Düve ve toklularda ilk aşım için canlı ağırlık ve yaş barajı kontrolü.
 - **Çevrimdışı Sürü Döl Defteri & Yedek:** Kayıtları JSON ve Excel/CSV formatlarında yedekleme ve dışa aktarma.
+
+### 4. 🌱 Yem Bitkileri (`/yem-bitkileri/`)
+- **Uzman Agromoni Veritabanı:** 15+ yaygın yem bitkisi (Yonca, Korunga, Silajlık Mısır, Sorgum, Fiğ, Yem Bezelyesi, Ryegrass, vb.) yetiştiricilik takvimi, tohum normu ve gübreleme planı.
+- **İdeal Tohumluk Karışım Robotu:** Kuru ot, mera veya silaj hedefi doğrultusunda tohum oranlarını, dekar normunu, mivzer ekim derinliğini ve beklenen ham protein oranını otomatik oluşturan motor.
+- **Mikrodalgada Silaj Kuru Madde & Nem Testi:** Kıyılmış numunenin mikrodalgada kurutulmasıyla dakikalar içinde silaj nemini (%65-70) ve hasat uygunluğunu belirleme.
+- **Silo Hacim & Kapasite Hesabı:** Hendek ve kelepçe siloları için hacim ($m^3$) ve sıkışma yoğunluğuna göre tonaj tahmini.
+- **Çevrimdışı Tarla Defteri:** Parsel, ekim tarihi, tohum çeşidi ve hasat verimlerini yerel olarak saklama.
+
+---
+
+## Tek Bir Uygulama Olarak Sıfırdan Üretim Şartnamesi
+
+Tüm modülleri (Çoban Doktor, Rasyon Rehberi, Üretim Rehberi, Yem Bitkileri ve Çiftlik Veri Merkezi) sıfırdan tekil bir web uygulaması (SPA / PWA) olarak yeniden üretmek için hazırlanan eksiksiz mimari şartnameye ve kodlama istemine **[TEK_UYGULAMA_MIMARISI.md](./TEK_UYGULAMA_MIMARISI.md)** dosyasından ulaşabilirsiniz.
 
 ---
 
