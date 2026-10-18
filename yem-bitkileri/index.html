@@ -925,9 +925,12 @@
       color: #ffffff;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
+      main.app-container {
+        padding: 12px 10px 30px;
+      }
       .header-title-box h1 {
-        font-size: 1rem;
+        font-size: 1.05rem;
       }
       .nav-tab-btn {
         padding: 8px 12px;
@@ -941,6 +944,44 @@
       }
       .modal-container {
         max-height: 94dvh;
+        width: 96%;
+        padding: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-title-box p {
+        display: none;
+      }
+      .header-title-box h1 {
+        font-size: 0.98rem;
+      }
+      .header-actions .tool-btn {
+        padding: 6px 8px;
+        font-size: 0.78rem;
+        min-height: 38px;
+      }
+      .seed-checkbox-grid {
+        grid-template-columns: 1fr;
+      }
+      .calc-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .mix-stats-banner {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .header-inner {
+        gap: 6px;
+      }
+      .back-btn {
+        padding: 6px 8px;
+        font-size: 0.75rem;
+      }
+      .mix-stats-banner {
+        grid-template-columns: 1fr;
       }
     }
   </style>

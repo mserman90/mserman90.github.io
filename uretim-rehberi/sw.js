@@ -1,4 +1,4 @@
-const CACHE_NAME = "uretim-rehberi-v2";
+const CACHE_NAME = "uretim-rehberi-v3";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",

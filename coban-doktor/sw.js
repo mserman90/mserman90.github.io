@@ -1,4 +1,4 @@
-const CACHE_NAME = 'cobandoktor-mera-v13';
+const CACHE_NAME = 'cobandoktor-mera-v14';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',

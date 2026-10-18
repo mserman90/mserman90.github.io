@@ -485,7 +485,7 @@
       font-size: 0.78rem;
       font-weight: 700;
       padding: 6px 12px;
-      border-radius: 6px;
+      border-radius: var(--radius);
       cursor: pointer;
       touch-action: manipulation;
     }
@@ -509,7 +509,7 @@
     .modal-app-card {
       background-color: var(--bg);
       border: 2px solid var(--border);
-      border-radius: 6px;
+      border-radius: var(--radius);
       padding: 14px;
       display: flex;
       flex-direction: column;
@@ -570,7 +570,7 @@
     .table-container {
       overflow-x: auto;
       border: 2px solid var(--border);
-      border-radius: 6px;
+      border-radius: var(--radius);
       margin-top: 10px;
     }
     table {
@@ -760,6 +760,19 @@
       }
       .modal-section {
         padding: 12px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .header-brand h1 {
+        font-size: 0.95rem;
+      }
+      .header-btn {
+        padding: 5px 8px;
+        font-size: 0.72rem;
+      }
+      .hero-main-title {
+        font-size: 1.15rem;
       }
     }
   </style>
@@ -1480,7 +1493,7 @@
        ========================================================================= */
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=9").then((reg) => {
+        navigator.serviceWorker.register("./sw.js?v=20").then((reg) => {
           reg.update();
           reg.onupdatefound = () => {
             const installing = reg.installing;
